@@ -140,6 +140,34 @@ def create_blueprint_sheet(frame, width=1080, height=1080):
     final_bp = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
     return final_bp, bp_bg, line_layer
 
+def clean_watermark(f):
+    h, w = f.shape[:2]
+    clean_f = f.copy()
+
+    # 1. Clean QR Code region (y: 50..295, x: 760..1035) via horizontal mirroring
+    qr_y1, qr_y2 = 50, 295
+    qr_x1, qr_x2 = 760, 1035
+    feather = 20
+
+    qr_mask = np.zeros((h, w), dtype=np.float32)
+    qr_mask[qr_y1:qr_y2, qr_x1:qr_x2] = 1.0
+    qr_mask = cv2.GaussianBlur(qr_mask, (feather * 2 + 1, feather * 2 + 1), 0)
+
+    mirrored = cv2.flip(f, 1)
+    for c in range(3):
+        clean_f[:, :, c] = (clean_f[:, :, c] * (1.0 - qr_mask) + mirrored[:, :, c] * qr_mask).astype(np.uint8)
+
+    # 2. Inpaint top-center attribution text
+    text_region = clean_f[50:110, 400:680]
+    bright_pixels = (text_region > 35).any(axis=2)
+    if np.any(bright_pixels):
+        text_mask = np.zeros((h, w), dtype=np.uint8)
+        text_mask[50:110, 400:680][bright_pixels] = 255
+        text_mask = cv2.dilate(text_mask, np.ones((5, 5), np.uint8), iterations=2)
+        clean_f = cv2.inpaint(clean_f, text_mask, inpaintRadius=7, flags=cv2.INPAINT_TELEA)
+
+    return clean_f
+
 def build_animation(input_video_path, output_video_path, width=1080, height=1080, fps=30):
     cap = cv2.VideoCapture(input_video_path)
     if not cap.isOpened():
@@ -185,12 +213,11 @@ def build_animation(input_video_path, output_video_path, width=1080, height=1080
     morph_frames = int(0.8 * fps)
     for i in range(morph_frames):
         alpha = i / float(morph_frames)
-        # Read next frame if available, else use first_frame_resized
         ret, vframe = cap.read()
         if ret and vframe is not None:
-            curr_vframe = cv2.resize(vframe, (width, height))
+            curr_vframe = clean_watermark(cv2.resize(vframe, (width, height)))
         else:
-            curr_vframe = first_frame_resized
+            curr_vframe = clean_watermark(first_frame_resized)
 
         blended = cv2.addWeighted(blueprint_frame, 1.0 - alpha, curr_vframe, alpha, 0)
         out.write(blended)
@@ -200,12 +227,12 @@ def build_animation(input_video_path, output_video_path, width=1080, height=1080
         ret, vframe = cap.read()
         if not ret or vframe is None:
             break
-        curr_vframe = cv2.resize(vframe, (width, height))
+        curr_vframe = clean_watermark(cv2.resize(vframe, (width, height)))
         out.write(curr_vframe)
 
     cap.release()
     out.release()
-    print(f"Successfully generated: {output_video_path}")
+    print(f"Successfully generated clean animation: {output_video_path}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate blueprint-to-3D video animation.")
