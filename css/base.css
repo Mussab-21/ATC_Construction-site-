@@ -1,0 +1,128 @@
+/* ============================================================
+   ATC — Base Styles  |  Reset · Typography · Utilities
+   ============================================================ */
+
+/* ── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-body); font-size: var(--text-body); line-height: var(--lh-body); color: var(--c-ink); background: var(--c-concrete); overflow-x: hidden; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, textarea, select { font-family: inherit; font-size: inherit; }
+
+/* ── Typography ─────────────────────────────────────────── */
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: var(--lh-heading); color: var(--c-ink); }
+h1 { font-size: var(--text-hero); font-weight: 800; letter-spacing: var(--ls-tight); }
+h2 { font-size: var(--text-h2);   font-weight: 700; letter-spacing: var(--ls-tight); }
+h3 { font-size: var(--text-h3);   font-weight: 600; }
+h4 { font-size: var(--text-h4);   font-weight: 600; }
+p  { line-height: var(--lh-body); color: var(--c-steel); }
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--c-brass);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--ls-wide);
+}
+
+/* ── Layout ─────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+.section { padding-block: var(--sp-96); }
+.section--sm { padding-block: var(--sp-64); }
+.section--lg { padding-block: 8rem; }
+
+/* Dark & Tinted sections */
+.section--dark { background: var(--c-navy); }
+.section--dark h1, .section--dark h2, .section--dark h3, .section--dark h4 { color: var(--c-white); }
+.section--dark p { color: rgba(255,255,255,0.65); }
+
+.section--blueprint { background: var(--c-blueprint); }
+.section--white { background: var(--c-white); }
+
+/* ── Grid Utilities ─────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-32); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-24); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-24); }
+
+@media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr 1fr; } .grid-4 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+/* ── Drawing-Sheet Frame ────────────────────────────────── */
+/* Thin border + corner ticks — reused throughout the site */
+.sheet-frame {
+  position: relative;
+  border: var(--border-thin);
+  padding: var(--sp-32);
+}
+
+.sheet-frame::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 14px; height: 14px;
+  border-top: 2px solid var(--c-brass);
+  border-left: 2px solid var(--c-brass);
+  opacity: 0.7;
+}
+
+.sheet-frame::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; right: -1px;
+  width: 14px; height: 14px;
+  border-bottom: 2px solid var(--c-brass);
+  border-right: 2px solid var(--c-brass);
+  opacity: 0.7;
+}
+
+/* Sheet reference label (bottom-right of sections) */
+.sheet-ref {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-steel);
+  opacity: 0.5;
+  user-select: none;
+}
+
+/* ── Section Headers ────────────────────────────────────── */
+.section-header { margin-bottom: var(--sp-48); }
+.section-header--centered { text-align: center; }
+.section-header--centered p { margin-inline: auto; }
+.section-header .label { margin-bottom: var(--sp-12); }
+.section-header h2 { margin-bottom: var(--sp-16); }
+.section-header p { max-width: 56ch; }
+
+/* ── Dividers ───────────────────────────────────────────── */
+.divider {
+  width: 48px; height: 2px;
+  background: var(--c-brass);
+  margin-block: var(--sp-20);
+}
+
+.divider--centered { margin-inline: auto; }
+
+/* ── Visibility Helpers ─────────────────────────────────── */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+/* ── Reduced Motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
