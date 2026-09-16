@@ -19,6 +19,8 @@
 
     // Autoplay handling (ensure playback with browser policies)
     function attemptPlay() {
+      video.muted = true;
+      video.defaultMuted = true;
       var promise = video.play();
       if (promise !== undefined) {
         promise.catch(function () {
