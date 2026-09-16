@@ -76,50 +76,55 @@
           <span class="hero__drawing-label mono">ELEVATION — SITE A / REV 01</span>
           <span class="hero__live-badge mono"><span class="hero__pulse-dot"></span> <span id="cad-status-text">CAD ACTIVE</span></span>
         </div>
-        <div class="hero__svg-wrap">
-          <div class="hero__scanner-line" id="hero-scanner"></div>
-          <svg id="hero-elevation" class="svg-draw" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Ground line -->
-            <line x1="20" y1="260" x2="400" y2="260" stroke="#E85D2A" stroke-width="1.5"/>
-            <!-- Main building body -->
-            <rect x="60" y="120" width="300" height="140" stroke="rgba(255,255,255,0.85)" stroke-width="1.2"/>
-            <!-- Roof -->
-            <polyline points="50,120 210,60 370,120" stroke="rgba(255,255,255,0.95)" stroke-width="1.5"/>
-            <!-- Left wing -->
-            <rect x="30" y="170" width="30" height="90" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-            <!-- Right wing -->
-            <rect x="360" y="170" width="30" height="90" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-            <!-- Windows row 1 -->
-            <rect x="80" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
-            <rect x="125" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
-            <rect x="170" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
-            <rect x="215" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
-            <rect x="260" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
-            <rect x="305" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
-            <!-- Windows row 2 -->
-            <rect x="80" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
-            <rect x="125" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
-            <rect x="170" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
-            <rect x="260" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
-            <rect x="305" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
-            <!-- Main entrance -->
-            <rect x="192" y="208" width="36" height="52" stroke="rgba(255,255,255,0.8)" stroke-width="1.2"/>
-            <line x1="210" y1="208" x2="210" y2="260" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
-            <!-- Flagpole -->
-            <line x1="210" y1="60" x2="210" y2="20" stroke="rgba(232,93,42,0.7)" stroke-width="1"/>
-            <polyline points="210,20 240,30 210,40" stroke="rgba(232,93,42,0.7)" stroke-width="1"/>
-            <!-- Dimension line top -->
-            <line x1="60" y1="14" x2="360" y2="14" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
-            <line x1="60" y1="8" x2="60" y2="20" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
-            <line x1="360" y1="8" x2="360" y2="20" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
-            <!-- Dimension line right -->
-            <line x1="390" y1="120" x2="390" y2="260" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
-            <line x1="384" y1="120" x2="396" y2="120" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
-            <line x1="384" y1="260" x2="396" y2="260" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
-            <!-- Title block -->
-            <rect x="280" y="270" width="130" height="25" stroke="rgba(232,93,42,0.4)" stroke-width="0.8"/>
-            <line x1="280" y1="278" x2="410" y2="278" stroke="rgba(232,93,42,0.3)" stroke-width="0.5"/>
-          </svg>
+        <div class="hero__stage" id="hero-stage">
+          <div class="hero__svg-wrap" id="hero-svg-wrap">
+            <div class="hero__scanner-line" id="hero-scanner"></div>
+            <svg id="hero-elevation" class="svg-draw" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Ground line -->
+              <line x1="20" y1="260" x2="400" y2="260" stroke="#E85D2A" stroke-width="1.5"/>
+              <!-- Main building body -->
+              <rect x="60" y="120" width="300" height="140" stroke="rgba(255,255,255,0.85)" stroke-width="1.2"/>
+              <!-- Roof -->
+              <polyline points="50,120 210,60 370,120" stroke="rgba(255,255,255,0.95)" stroke-width="1.5"/>
+              <!-- Left wing -->
+              <rect x="30" y="170" width="30" height="90" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+              <!-- Right wing -->
+              <rect x="360" y="170" width="30" height="90" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+              <!-- Windows row 1 -->
+              <rect x="80" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+              <rect x="125" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+              <rect x="170" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+              <rect x="215" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+              <rect x="260" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+              <rect x="305" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+              <!-- Windows row 2 -->
+              <rect x="80" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+              <rect x="125" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+              <rect x="170" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+              <rect x="260" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+              <rect x="305" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+              <!-- Main entrance -->
+              <rect x="192" y="208" width="36" height="52" stroke="rgba(255,255,255,0.8)" stroke-width="1.2"/>
+              <line x1="210" y1="208" x2="210" y2="260" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+              <!-- Flagpole -->
+              <line x1="210" y1="60" x2="210" y2="20" stroke="rgba(232,93,42,0.7)" stroke-width="1"/>
+              <polyline points="210,20 240,30 210,40" stroke="rgba(232,93,42,0.7)" stroke-width="1"/>
+              <!-- Dimension line top -->
+              <line x1="60" y1="14" x2="360" y2="14" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+              <line x1="60" y1="8" x2="60" y2="20" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+              <line x1="360" y1="8" x2="360" y2="20" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+              <!-- Dimension line right -->
+              <line x1="390" y1="120" x2="390" y2="260" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+              <line x1="384" y1="120" x2="396" y2="120" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+              <line x1="384" y1="260" x2="396" y2="260" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+              <!-- Title block -->
+              <rect x="280" y="270" width="130" height="25" stroke="rgba(232,93,42,0.4)" stroke-width="0.8"/>
+              <line x1="280" y1="278" x2="410" y2="278" stroke="rgba(232,93,42,0.3)" stroke-width="0.5"/>
+            </svg>
+          </div>
+          <div class="hero__3d-wrap" id="hero-3d-wrap">
+            <canvas id="hero-3d-canvas"></canvas>
+          </div>
         </div>
         <div class="hero__drawing-footer">
           <span class="hero__drawing-coords mono" id="cad-coords">X: 210.0 Y: 140.0 | SCALE 1:100</span>
@@ -829,7 +834,10 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="js/main.js"></script>
+<script src="js/hero-3d.js"></script>
 <script src="js/hero-animation.js"></script>
 <script src="js/slider.js"></script>
 <script src="js/counter.js"></script>
