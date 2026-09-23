@@ -242,5 +242,6 @@
   .value-card::before { transform: none !important; transition: none !important; }
   .divider--animated { width: 48px !important; transition: none !important; }
   .marquee-track { animation: none !important; }
+  .service-carousel__track { transition: none !important; }
   @keyframes sectionTargetGlow { from, to { box-shadow: none; outline: none; } }
 }

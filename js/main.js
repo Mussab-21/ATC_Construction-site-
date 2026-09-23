@@ -121,24 +121,194 @@
     });
   }
 
-  /* ── Interactive Value Cards (Mobile Tap & Keyboard Toggle) ── */
-  const valueCards = document.querySelectorAll('.value-card');
-  if (valueCards.length > 0) {
-    valueCards.forEach(card => {
-      const toggleCard = () => {
-        const isExpanded = card.classList.toggle('is-expanded');
-        card.setAttribute('aria-expanded', String(isExpanded));
-      };
+  /* ── Service Carousels Controller ───────────────────────── */
+  function initServiceCarousels() {
+    const carousels = document.querySelectorAll('[data-service-carousel]');
+    if (!carousels.length) return;
 
-      card.addEventListener('click', () => { toggleCard(); });
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+    carousels.forEach((carousel) => {
+      const track = carousel.querySelector('.service-carousel__track');
+      if (!track) return;
+
+      const cards = Array.from(track.children);
+      if (cards.length <= 1) return;
+
+      const prevBtn = carousel.querySelector('.carousel-btn--prev');
+      const nextBtn = carousel.querySelector('.carousel-btn--next');
+      const dotsWrap = carousel.querySelector('.carousel-dots');
+      const counter = carousel.querySelector('.carousel-counter');
+
+      let currentIndex = 0;
+      let autoplayTimer = null;
+      const AUTOPLAY_INTERVAL = 4500;
+
+      function getVisibleCount() {
+        const w = window.innerWidth;
+        if (w <= 640) return 1;
+        if (w <= 992) return 2;
+        return 3;
+      }
+
+      function getMaxIndex() {
+        const visible = getVisibleCount();
+        return Math.max(0, cards.length - visible);
+      }
+
+      function buildDots() {
+        if (!dotsWrap) return;
+        dotsWrap.innerHTML = '';
+        const maxIndex = getMaxIndex();
+        const dotCount = maxIndex + 1;
+
+        for (let i = 0; i < dotCount; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'slider-dot' + (i === currentIndex ? ' active' : '');
+          dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+          dot.setAttribute('type', 'button');
+          dot.addEventListener('click', () => {
+            goToIndex(i);
+            startAutoplay();
+          });
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      function updateCounter() {
+        if (!counter) return;
+        const cur = String(currentIndex + 1).padStart(2, '0');
+        const tot = String(cards.length).padStart(2, '0');
+        counter.textContent = `${cur} / ${tot}`;
+      }
+
+      function updateDots() {
+        if (!dotsWrap) return;
+        const dots = dotsWrap.querySelectorAll('.slider-dot');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+
+      function goToIndex(index) {
+        const maxIndex = getMaxIndex();
+        if (index > maxIndex) {
+          currentIndex = 0;
+        } else if (index < 0) {
+          currentIndex = maxIndex;
+        } else {
+          currentIndex = index;
+        }
+
+        if (cards[0]) {
+          const cardWidth = cards[0].getBoundingClientRect().width;
+          const gap = parseFloat(window.getComputedStyle(track).gap) || 24;
+          const moveX = currentIndex * (cardWidth + gap);
+          track.style.transform = `translateX(-${moveX}px)`;
+        }
+
+        updateDots();
+        updateCounter();
+      }
+
+      function nextSlide() {
+        goToIndex(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        goToIndex(currentIndex - 1);
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        if (!prefersReduced) {
+          autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
+        }
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      // Event listeners
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          nextSlide();
+          startAutoplay();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          prevSlide();
+          startAutoplay();
+        });
+      }
+
+      // Pause on hover, focus, touch
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+      carousel.addEventListener('focusin', stopAutoplay);
+      carousel.addEventListener('focusout', startAutoplay);
+      carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
+      carousel.addEventListener('touchend', startAutoplay, { passive: true });
+
+      // Keyboard navigation
+      carousel.setAttribute('tabindex', '0');
+      carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
           e.preventDefault();
-          toggleCard();
+          nextSlide();
+          startAutoplay();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevSlide();
+          startAutoplay();
         }
       });
+
+      // Touch swipe support
+      let startX = 0;
+      carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      carousel.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) nextSlide();
+          else prevSlide();
+          startAutoplay();
+        }
+      }, { passive: true });
+
+      // Window resize handler
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          buildDots();
+          goToIndex(currentIndex);
+        }, 100);
+      });
+
+      // Initialize carousel
+      buildDots();
+      goToIndex(0);
+      startAutoplay();
     });
   }
 
+  // Initialize service carousels on DOM load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceCarousels);
+  } else {
+    initServiceCarousels();
+  }
+
 })();
+

@@ -404,140 +404,281 @@
 #trading-services .section-header p { color: var(--c-steel); }
 
 /* ══════════════════════════════════════════════════════════
-   DIVISION CARDS — LIGHT THEME
+   SERVICE CAROUSELS — COMPACT AUTO-ROTATING ONE-SLIDE TRACKS
+   3 distinct carousels: Contracting & EPC, Consultancy, Trading
    ══════════════════════════════════════════════════════════ */
-.divisions-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-20);
+.service-carousel {
+  position: relative;
+  width: 100%;
+  margin-inline: auto;
+  outline: none;
 }
 
-/* Base light division card */
-.division-card {
-  background: var(--c-white);
-  border: 1px solid rgba(17,17,17,0.09);
+.service-carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+  padding-block: 0.5rem 1rem;
+}
+
+.service-carousel__track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* Card sizing inside service carousels:
+   Desktop: 3 visible cards
+   Tablet: 2 visible cards
+   Mobile: 1 visible card */
+.service-carousel .division-card,
+.service-carousel .consultancy-card {
+  flex: 0 0 calc((100% - (2 * 1.5rem)) / 3);
+  min-width: 0;
+  min-height: 285px;
+  background: var(--c-orange);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--r-md);
-  padding: var(--sp-28, 1.75rem) var(--sp-24);
+  padding: 1.75rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  min-height: 240px;
-  transition: box-shadow var(--t-base), border-color var(--t-base), transform var(--t-base);
+  box-shadow: 0 8px 24px rgba(232, 93, 42, 0.22);
   position: relative;
-  overflow: hidden;
+  text-decoration: none;
+  transition: transform var(--t-base), box-shadow var(--t-base), background var(--t-base);
+  box-sizing: border-box;
 }
 
-/* Orange top-bar reveal on hover */
-.division-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--c-orange);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--t-slow);
+.service-carousel .division-card:hover,
+.service-carousel .consultancy-card:hover {
+  transform: translateY(-5px);
+  background: var(--c-orange-burnt);
+  box-shadow: 0 18px 40px rgba(232, 93, 42, 0.38), 0 0 0 2px var(--c-yellow);
 }
 
-.division-card:hover::before { transform: scaleX(1); }
-
-.division-card:hover {
-  box-shadow: 0 8px 32px rgba(232,93,42,0.12), 0 2px 8px rgba(0,0,0,0.04);
-  border-color: var(--c-orange-40);
-  transform: translateY(-3px);
+/* Remove old top-bar / left-border pseudos */
+.service-carousel .division-card::before,
+.service-carousel .consultancy-card::before {
+  display: none !important;
 }
 
-/* Icon in orange-outlined rounded box */
-.division-card__icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--r-md);
-  border: 1.5px solid var(--c-orange-40);
-  background: var(--c-orange-08);
+/* Icon box inside carousel cards */
+.service-carousel .division-card__icon-box,
+.service-carousel .consultancy-card__icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--sp-16);
-  transition: background var(--t-fast), border-color var(--t-fast);
+  margin-bottom: 0.85rem;
+  transition: all var(--t-fast);
   flex-shrink: 0;
 }
 
-.division-card:hover .division-card__icon-box {
-  background: var(--c-orange-15);
-  border-color: var(--c-orange);
+.service-carousel .division-card:hover .division-card__icon-box,
+.service-carousel .consultancy-card:hover .consultancy-card__icon-box {
+  background: rgba(0, 0, 0, 0.28);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.08);
 }
 
-.division-card__icon {
+.service-carousel .division-card__icon,
+.service-carousel .consultancy-card__icon {
   width: 22px;
   height: 22px;
-  color: var(--c-orange);
-  flex-shrink: 0;
+  color: var(--c-white);
+  stroke: var(--c-white);
 }
 
-/* Number label */
-.division-card__num {
-  font-size: 0.6rem;
-  color: var(--c-steel);
+/* Number badge */
+.service-carousel .division-card__num,
+.service-carousel .consultancy-card__num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
   letter-spacing: 0.12em;
-  margin-bottom: var(--sp-8);
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.4rem;
+  display: block;
 }
 
-.division-card h3 {
-  font-size: 1rem;
-  color: var(--c-ink);
-  margin-bottom: var(--sp-10, 0.625rem);
-  flex: 1;
-  font-weight: 600;
+/* Titles */
+.service-carousel .division-card h3,
+.service-carousel .consultancy-card h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--c-white);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
-.division-card p {
-  font-size: var(--text-sm);
-  color: var(--c-steel);
-  margin-bottom: var(--sp-20);
-  flex: 1;
+/* Descriptions */
+.service-carousel .division-card p,
+.service-carousel .consultancy-card p {
+  font-size: 0.85rem;
   line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 1.25rem;
+  flex: 1;
 }
 
-.division-card__link {
+/* Yellow CTA button inside cards */
+.service-carousel .division-card__link,
+.service-carousel .consultancy-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--c-yellow) !important;
+  color: var(--c-yellow-text) !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  width: fit-content;
+  margin-top: auto;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: all var(--t-fast);
+}
+
+.service-carousel .division-card__link svg,
+.service-carousel .consultancy-card__link svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--c-yellow-text) !important;
+  transition: transform var(--t-fast);
+}
+
+.service-carousel .division-card:hover .division-card__link,
+.service-carousel .consultancy-card:hover .consultancy-card__link {
+  background: var(--c-yellow-hover) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+.service-carousel .division-card:hover .division-card__link svg,
+.service-carousel .consultancy-card:hover .consultancy-card__link svg {
+  transform: translateX(3px);
+}
+
+/* Carousel controls bar */
+.service-carousel__controls {
   display: flex;
   align-items: center;
-  gap: var(--sp-8);
-  font-size: var(--text-xs);
-  color: var(--c-orange);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  margin-top: auto;
-  transition: gap var(--t-fast);
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
 }
 
-.division-card:hover .division-card__link { gap: var(--sp-12); }
-.division-card__link svg { width: 13px; height: 13px; }
-
-/* ── Trading grid differentiator: orange left border ───────── */
-/* Applied to trading division cards to visually distinguish
-   "we supply" from "we build" */
-#trading-services .division-card {
+.service-carousel__controls .slider-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--c-orange);
   background: var(--c-white);
-  border-left: 3px solid var(--c-orange-40);
+  color: var(--c-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-#trading-services .division-card:hover {
-  border-left-color: var(--c-orange);
+.service-carousel__controls .slider-btn svg {
+  stroke: var(--c-orange);
+  transition: stroke var(--t-fast);
 }
 
-#trading-services .division-card::before {
-  /* No top bar — left border is the differentiator */
-  display: none;
+.service-carousel__controls .slider-btn:hover {
+  background: var(--c-orange);
+  color: var(--c-white);
+  border-color: var(--c-orange);
+  transform: scale(1.06);
+  box-shadow: 0 4px 14px rgba(232, 93, 42, 0.35);
+}
+
+.service-carousel__controls .slider-btn:hover svg {
+  stroke: var(--c-white);
+}
+
+.service-carousel__controls .slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.service-carousel__controls .slider-dot {
+  width: 20px;
+  height: 4px;
+  background: rgba(17, 17, 17, 0.15);
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--t-base);
+  padding: 0;
+}
+
+.service-carousel__controls .slider-dot.active {
+  background: var(--c-orange);
+  width: 36px;
+}
+
+.service-carousel__controls .slider-counter {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--c-steel);
+  letter-spacing: 0.1em;
+  min-width: 54px;
+  text-align: center;
+}
+
+/* Tablet: 2 visible cards */
+@media (max-width: 992px) {
+  .service-carousel .division-card,
+  .service-carousel .consultancy-card {
+    flex: 0 0 calc((100% - 1.25rem) / 2);
+  }
+  .service-carousel__track {
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile: 1 visible card */
+@media (max-width: 640px) {
+  .service-carousel .division-card,
+  .service-carousel .consultancy-card {
+    flex: 0 0 100%;
+  }
+  .service-carousel__track {
+    gap: 1rem;
+  }
 }
 
 /* Section CTA + peek nav */
 .section-cta-wrap {
   text-align: center;
-  margin-top: clamp(3rem, 6vh, 4.5rem);
-  margin-bottom: clamp(2rem, 4vh, 3.5rem);
+  margin-top: clamp(2.5rem, 5vh, 3.5rem);
+  margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
   position: relative;
   z-index: 5;
+}
+
+.section-cta-wrap .btn--ghost-orange {
+  background: var(--c-orange);
+  color: var(--c-white);
+  border-color: var(--c-orange);
+}
+
+.section-cta-wrap .btn--ghost-orange:hover {
+  background: var(--c-orange-burnt);
+  color: var(--c-white);
+  border-color: var(--c-orange-burnt);
 }
 
 .section-peek-nav {
@@ -545,7 +686,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .section-peek-nav__text {
@@ -566,12 +707,9 @@
   background: var(--c-orange-08);
 }
 
-/* In dark trading section, use lighter version */
-/* (not needed since trading is now light) */
-
 /* ══════════════════════════════════════════════════════════
    ENGINEERING CONSULTANCY WINDOW
-   Light theme — orange-bordered featured panel
+   Light theme — orange-bordered featured panel hosting carousel
    ══════════════════════════════════════════════════════════ */
 .consultancy-window {
   margin-top: var(--sp-40);
@@ -620,7 +758,7 @@
   gap: var(--sp-16);
   padding-bottom: var(--sp-20);
   border-bottom: 1px solid rgba(17,17,17,0.08);
-  margin-bottom: var(--sp-24);
+  margin-bottom: var(--sp-20);
 }
 
 .consultancy-window__title-wrap h3 {
@@ -645,59 +783,15 @@
   text-transform: uppercase;
 }
 
-.consultancy-window__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--sp-20);
-  margin-bottom: var(--sp-24);
-}
-
-.consultancy-item {
-  background: var(--c-white);
-  border: 1px solid rgba(17,17,17,0.08);
-  border-radius: var(--r-sm);
-  padding: var(--sp-20);
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
-}
-
-.consultancy-item:hover {
-  border-color: var(--c-orange-40);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(232,93,42,0.08);
-}
-
-.consultancy-item__num {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--c-orange);
-  letter-spacing: 0.14em;
-  margin-bottom: var(--sp-8);
-}
-
-.consultancy-item h4 {
-  color: var(--c-ink);
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: var(--sp-8);
-}
-
-.consultancy-item p {
-  color: var(--c-steel);
-  font-size: var(--text-xs);
-  line-height: 1.45;
-  margin: 0;
-}
-
 .consultancy-window__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--sp-16);
-  padding-top: var(--sp-16);
+  padding-top: var(--sp-20);
   border-top: 1px solid rgba(17,17,17,0.07);
+  margin-top: 1rem;
 }
 
 .consultancy-window__note {
@@ -705,33 +799,29 @@
   font-size: 0.7rem;
   color: var(--c-steel);
   letter-spacing: 0.05em;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
-.consultancy-window__link {
+.consultancy-window__btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  background: var(--c-orange);
+  color: var(--c-white);
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--r-sm);
   font-size: var(--text-xs);
-  color: var(--c-orange);
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   text-decoration: none;
-  transition: gap var(--t-fast), color var(--t-fast);
+  transition: all var(--t-fast);
 }
 
-.consultancy-window__link:hover {
-  color: var(--c-orange-burnt);
-  gap: 12px;
+.consultancy-window__btn:hover {
+  background: var(--c-orange-burnt);
+  transform: translateY(-1px);
 }
 
-@media (max-width: 960px) {
-  .consultancy-window__grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .consultancy-window__grid { grid-template-columns: 1fr; }
-}
 
 /* ══════════════════════════════════════════════════════════
    STATS BAR — Orange "Breather" Band
