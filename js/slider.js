@@ -1,6 +1,8 @@
 /**
  * slider.js — Interactive Carousel Controller for ATC Featured Projects
- * Supports next/prev buttons, indicator pills, counter, autoplay, and keyboard navigation.
+ * Supports next/prev buttons, indicator pills, counter, autoplay,
+ * keyboard navigation, crossfade + directional slide transition,
+ * and scope list stagger animation on each slide change.
  */
 document.addEventListener('DOMContentLoaded', () => {
   const slider = document.querySelector('.featured-slider');
@@ -18,13 +20,33 @@ document.addEventListener('DOMContentLoaded', () => {
   let autoplayTimer = null;
   const AUTOPLAY_INTERVAL = 6000;
 
-  function goToSlide(index) {
-    slides[currentIndex].classList.remove('active');
+  // Respect prefers-reduced-motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function goToSlide(index, direction) {
+    const outgoing = slides[currentIndex];
+    const enterClass = direction === 'next' ? 'slide-enter-right' : 'slide-enter-left';
+
+    // Remove active + cleanup animation classes from outgoing
+    outgoing.classList.remove('active', 'slide-enter-right', 'slide-enter-left');
+
     if (dots[currentIndex]) dots[currentIndex].classList.remove('active');
 
     currentIndex = (index + slides.length) % slides.length;
 
-    slides[currentIndex].classList.add('active');
+    const incoming = slides[currentIndex];
+
+    // Remove old animation classes to allow re-trigger
+    incoming.classList.remove('slide-enter-right', 'slide-enter-left');
+
+    // Apply directional enter animation (skipped if reduced motion)
+    if (!prefersReduced) {
+      // Force reflow to restart animation
+      void incoming.offsetWidth;
+      incoming.classList.add(enterClass);
+    }
+
+    incoming.classList.add('active');
     if (dots[currentIndex]) dots[currentIndex].classList.add('active');
 
     if (counter) {
@@ -32,19 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
       const totalFormatted = String(slides.length).padStart(2, '0');
       counter.textContent = `${currentFormatted} / ${totalFormatted}`;
     }
+
+    // Re-trigger scope list stagger by removing/readding 'active'
+    // (the CSS transitions are tied to .active on the parent)
+    // Already handled since active is re-applied above.
   }
 
   function nextSlide() {
-    goToSlide(currentIndex + 1);
+    goToSlide(currentIndex + 1, 'next');
   }
 
   function prevSlide() {
-    goToSlide(currentIndex - 1);
+    goToSlide(currentIndex - 1, 'prev');
   }
 
   function startAutoplay() {
     stopAutoplay();
-    autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
+    if (!prefersReduced) {
+      autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
+    }
   }
 
   function stopAutoplay() {
@@ -70,7 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   dots.forEach((dot, idx) => {
     dot.addEventListener('click', () => {
-      goToSlide(idx);
+      const dir = idx > currentIndex ? 'next' : 'prev';
+      goToSlide(idx, dir);
       startAutoplay();
     });
   });
@@ -90,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Initialize
-  goToSlide(0);
+  // Initialize at slide 0
+  goToSlide(0, 'next');
   startAutoplay();
 });

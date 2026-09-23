@@ -64,6 +64,18 @@
 
   document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
 
+  /* ── Animated divider draw-in ───────────────────────────── */
+  const dividerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        dividerObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.divider--animated').forEach(el => dividerObserver.observe(el));
+
   /* ── Smooth scroll for anchor links ─────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -98,9 +110,7 @@
         card.setAttribute('aria-expanded', String(isExpanded));
       };
 
-      card.addEventListener('click', () => {
-        toggleOrgCard();
-      });
+      card.addEventListener('click', () => { toggleOrgCard(); });
 
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -120,9 +130,7 @@
         card.setAttribute('aria-expanded', String(isExpanded));
       };
 
-      card.addEventListener('click', () => {
-        toggleCard();
-      });
+      card.addEventListener('click', () => { toggleCard(); });
 
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -134,4 +142,3 @@
   }
 
 })();
-

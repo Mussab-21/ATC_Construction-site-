@@ -1,6 +1,6 @@
 /* ============================================================
    ATC — Animations
-   SVG draw-in · Counter · Fade · Reduced-motion safe
+   SVG draw-in · Counter · Fade · Slide · Reduced-motion safe
    ============================================================ */
 
 /* ── SVG Path Draw-In ───────────────────────────────────── */
@@ -41,7 +41,7 @@
 .fade-up {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.55s ease, transform 0.55s ease;
   transition-delay: var(--fade-delay, 0s);
 }
 
@@ -56,7 +56,13 @@
 .stagger > *:nth-child(3) { --fade-delay: 0.16s; }
 .stagger > *:nth-child(4) { --fade-delay: 0.24s; }
 .stagger > *:nth-child(5) { --fade-delay: 0.32s; }
-.stagger > *:nth-child(6) { --fade-delay: 0.4s; }
+.stagger > *:nth-child(6) { --fade-delay: 0.40s; }
+
+/* Extended stagger for gateway cards (3 items) */
+.gateway-modal__cards .gateway-card { --fade-delay: 0s; }
+.gateway-modal__cards .gateway-card:nth-child(1) { --card-enter-delay: 0.05s; }
+.gateway-modal__cards .gateway-card:nth-child(2) { --card-enter-delay: 0.13s; }
+.gateway-modal__cards .gateway-card:nth-child(3) { --card-enter-delay: 0.21s; }
 
 /* ── Counter (count-up) ─────────────────────────────────── */
 .counter-value {
@@ -64,7 +70,7 @@
   transition: none;
 }
 
-/* ── Brass underline hover ──────────────────────────────── */
+/* ── Orange underline hover ──────────────────────────────── */
 .brass-underline {
   position: relative;
 }
@@ -74,7 +80,7 @@
   position: absolute;
   bottom: -2px; left: 0;
   width: 0; height: 2px;
-  background: var(--c-brass);
+  background: var(--c-orange);
   transition: width var(--t-base);
 }
 
@@ -142,4 +148,98 @@
   background: linear-gradient(90deg, var(--c-steel-08) 25%, var(--c-steel-15) 50%, var(--c-steel-08) 75%);
   background-size: 400px 100%;
   animation: shimmer 1.4s ease infinite;
+}
+
+/* ── Featured Slide Crossfade ───────────────────────────── */
+@keyframes slideEnterRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideEnterLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.featured-slide.slide-enter-right {
+  animation: slideEnterRight 0.42s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.featured-slide.slide-enter-left {
+  animation: slideEnterLeft 0.42s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* ── Scope list item stagger (on slide change) ───────────── */
+.featured__scope li {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition-delay: var(--scope-delay, 0s);
+}
+
+.featured-slide.active .featured__scope li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.featured-slide.active .featured__scope li:nth-child(1) { --scope-delay: 0.18s; }
+.featured-slide.active .featured__scope li:nth-child(2) { --scope-delay: 0.26s; }
+.featured-slide.active .featured__scope li:nth-child(3) { --scope-delay: 0.34s; }
+.featured-slide.active .featured__scope li:nth-child(4) { --scope-delay: 0.42s; }
+
+/* ── Gateway card entrance stagger ─────────────────────── */
+.gateway-card {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.38s ease, transform 0.38s ease;
+}
+
+.gateway-modal-overlay.open .gateway-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gateway-modal-overlay.open .gateway-card:nth-child(1) { transition-delay: 0.20s; }
+.gateway-modal-overlay.open .gateway-card:nth-child(2) { transition-delay: 0.28s; }
+.gateway-modal-overlay.open .gateway-card:nth-child(3) { transition-delay: 0.36s; }
+
+/* ── Value card top border draw ─────────────────────────── */
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--c-orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+  transition-delay: var(--fade-delay, 0s);
+}
+
+.value-card.is-visible::before {
+  transform: scaleX(1);
+}
+
+/* ── Section glow (post-gateway navigate) ───────────────── */
+@keyframes sectionTargetGlow {
+  0% { box-shadow: 0 0 0 0 rgba(232, 93, 42, 0.5); outline: 2px solid var(--c-orange); }
+  50% { box-shadow: 0 0 40px 10px rgba(232, 93, 42, 0.2); outline: 2px solid var(--c-orange); }
+  100% { box-shadow: none; outline: 2px solid transparent; }
+}
+
+.section-target-glow {
+  animation: sectionTargetGlow 2.5s ease-out forwards;
+}
+
+/* ── Reduced Motion Overrides ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .featured-slide.active .featured__scope li { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .gateway-card { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .featured-slide.slide-enter-right,
+  .featured-slide.slide-enter-left { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .value-card::before { transform: scaleX(1) !important; transition: none !important; }
+  .divider--animated { width: 48px !important; transition: none !important; }
+  .marquee-track { animation: none !important; }
+  @keyframes sectionTargetGlow { from, to { box-shadow: none; outline: none; } }
 }

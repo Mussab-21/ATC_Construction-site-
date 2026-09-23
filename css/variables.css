@@ -1,5 +1,5 @@
 /* ============================================================
-   ATC — Design Tokens  |  "Steel & Brass" System
+   ATC — Design Tokens  |  White/Orange Light Theme System
    ============================================================ */
 :root {
   /* Colors — Industrial Orange System */
@@ -14,6 +14,12 @@
   --c-steel:        #787F87; /* Muted slate / border tone */
   --c-ink:          #111111; /* Near-black text */
   --c-white:        #FFFFFF;
+
+  /* Light Theme Semantic Tokens */
+  --c-page-bg:      #FAFAFA; /* Global page background */
+  --c-section-alt:  #F4F2EE; /* Alternate warm off-white section bg */
+  --c-ink-mid:      #3D3D3D; /* Mid-weight body text */
+  --c-border-light: rgba(17,17,17,0.08); /* Subtle hairline on light bg */
 
   /* Semantic Compatibility Aliases */
   --c-brass:        var(--c-orange);
@@ -32,6 +38,7 @@
   --c-brass-15:    rgba(232,93,42,0.15);
   --c-orange-40:   rgba(232,93,42,0.40);
   --c-orange-15:   rgba(232,93,42,0.15);
+  --c-orange-08:   rgba(232,93,42,0.08);
   --c-slate-40:    rgba(46,46,51,0.40);
   --c-rust-40:     rgba(99,39,19,0.40);
   --c-rust-15:     rgba(99,39,19,0.15);
@@ -86,13 +93,14 @@
   --container-px: clamp(1.25rem, 5vw, 2.5rem);
 
   /* Borders */
-  --border-thin:  1px solid var(--c-steel-30);
+  --border-thin:  1px solid rgba(17,17,17,0.10);
   --border-brass: 1px solid var(--c-brass-40);
-  --border-light: 1px solid var(--c-steel-15);
+  --border-light: 1px solid rgba(17,17,17,0.07);
 
   /* Shadows */
-  --shadow-card:  0 2px 16px rgba(0,0,0,0.06);
-  --shadow-nav:   0 2px 24px rgba(0,0,0,0.25);
+  --shadow-card:  0 2px 20px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 8px 32px rgba(0,0,0,0.10);
+  --shadow-nav:   0 1px 0 rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
   --shadow-modal: 0 24px 72px rgba(0,0,0,0.45);
 
   /* Transitions */
@@ -103,6 +111,7 @@
   /* Radius */
   --r-sm:  2px;
   --r-md:  4px;
+  --r-lg:  8px;
 
   /* Z-index */
   --z-nav:     100;

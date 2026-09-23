@@ -2,9 +2,25 @@
 (function () {
   'use strict';
 
+  // Respect prefers-reduced-motion — show final value instantly
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
+  function setFinalValue(el) {
+    const target = parseFloat(el.dataset.target) || 0;
+    const suffix = el.dataset.suffix || '';
+    const prefix = el.dataset.prefix || '';
+    const decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
+    el.textContent = prefix + target.toFixed(decimals) + suffix;
+  }
+
   function animateCounter(el) {
+    if (prefersReduced) {
+      setFinalValue(el);
+      return;
+    }
+
     const target = parseFloat(el.dataset.target) || 0;
     const suffix = el.dataset.suffix || '';
     const prefix = el.dataset.prefix || '';
