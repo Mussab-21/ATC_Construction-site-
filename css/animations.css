@@ -150,30 +150,48 @@
   animation: shimmer 1.4s ease infinite;
 }
 
-/* ── Featured Slide Crossfade ───────────────────────────── */
-@keyframes slideEnterRight {
-  from { opacity: 0; transform: translateX(28px); }
+/* ── Featured Slide Parallax Crossfade ───────────────────── */
+@keyframes slideTextInRight {
+  from { opacity: 0; transform: translateX(20px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes slideEnterLeft {
-  from { opacity: 0; transform: translateX(-28px); }
+@keyframes slideVisualInRight {
+  from { opacity: 0; transform: translateX(42px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes slideTextInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
-.featured-slide.slide-enter-right {
-  animation: slideEnterRight 0.42s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+@keyframes slideVisualInLeft {
+  from { opacity: 0; transform: translateX(-42px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
 }
 
-.featured-slide.slide-enter-left {
-  animation: slideEnterLeft 0.42s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+.featured-slide.slide-enter-right .featured__text {
+  animation: slideTextInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.featured-slide.slide-enter-right .featured__visual {
+  animation: slideVisualInRight 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.featured-slide.slide-enter-left .featured__text {
+  animation: slideTextInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.featured-slide.slide-enter-left .featured__visual {
+  animation: slideVisualInLeft 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ── Scope list item stagger (on slide change) ───────────── */
 .featured__scope li {
   opacity: 0;
-  transform: translateX(-10px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: translateX(-12px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--scope-delay, 0s);
 }
 
@@ -182,10 +200,10 @@
   transform: translateX(0);
 }
 
-.featured-slide.active .featured__scope li:nth-child(1) { --scope-delay: 0.18s; }
-.featured-slide.active .featured__scope li:nth-child(2) { --scope-delay: 0.26s; }
-.featured-slide.active .featured__scope li:nth-child(3) { --scope-delay: 0.34s; }
-.featured-slide.active .featured__scope li:nth-child(4) { --scope-delay: 0.42s; }
+.featured-slide.active .featured__scope li:nth-child(1) { --scope-delay: 0.20s; }
+.featured-slide.active .featured__scope li:nth-child(2) { --scope-delay: 0.28s; }
+.featured-slide.active .featured__scope li:nth-child(3) { --scope-delay: 0.36s; }
+.featured-slide.active .featured__scope li:nth-child(4) { --scope-delay: 0.44s; }
 
 /* ── Gateway card entrance stagger ─────────────────────── */
 .gateway-card {
