@@ -203,22 +203,23 @@
 .gateway-modal-overlay.open .gateway-card:nth-child(2) { transition-delay: 0.28s; }
 .gateway-modal-overlay.open .gateway-card:nth-child(3) { transition-delay: 0.36s; }
 
-/* ── Value card top border draw ─────────────────────────── */
+/* ── Value card left border draw ─────────────────────────── */
 .value-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
+  top: 0; left: 0; bottom: 0;
+  width: 4px;
   background: var(--c-orange);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
   transition-delay: var(--fade-delay, 0s);
 }
 
 .value-card.is-visible::before {
-  transform: scaleX(1);
+  transform: scaleY(1);
 }
+
 
 /* ── Section glow (post-gateway navigate) ───────────────── */
 @keyframes sectionTargetGlow {
@@ -238,7 +239,7 @@
   .gateway-card { opacity: 1 !important; transform: none !important; transition: none !important; }
   .featured-slide.slide-enter-right,
   .featured-slide.slide-enter-left { animation: none !important; opacity: 1 !important; transform: none !important; }
-  .value-card::before { transform: scaleX(1) !important; transition: none !important; }
+  .value-card::before { transform: none !important; transition: none !important; }
   .divider--animated { width: 48px !important; transition: none !important; }
   .marquee-track { animation: none !important; }
   @keyframes sectionTargetGlow { from, to { box-shadow: none; outline: none; } }

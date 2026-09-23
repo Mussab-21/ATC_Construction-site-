@@ -295,34 +295,82 @@
   gap: var(--sp-20);
 }
 
-/* Value cards — white, orange top-border animates in on scroll */
+/* Value cards — white card with animated orange left border, icon, and hover lift/glow */
 .value-card {
-  padding: var(--sp-24);
-  background: var(--c-page-bg);
-  border: 1px solid rgba(17,17,17,0.08);
+  padding: 1.5rem 1.75rem 1.5rem 2rem;
+  background: var(--c-white);
+  border: 1px solid rgba(17, 17, 17, 0.08);
   border-radius: var(--r-md);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   transition: box-shadow var(--t-base), transform var(--t-base), border-color var(--t-base);
 }
 
 .value-card:hover {
-  box-shadow: 0 6px 24px rgba(232,93,42,0.10);
-  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(232, 93, 42, 0.16), 0 2px 8px rgba(0, 0, 0, 0.05);
+  transform: translateY(-5px);
   border-color: var(--c-orange-40);
 }
 
-/* ::before rule lives in animations.css for the draw-in */
-.value-card__num {
-  display: block;
-  margin-bottom: var(--sp-8);
-  color: var(--c-orange);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: var(--ls-wide);
+.value-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-12);
 }
-.value-card h4 { margin-bottom: var(--sp-8); color: var(--c-ink); }
-.value-card p { font-size: var(--text-sm); margin: 0; color: var(--c-steel); }
+
+.value-card__icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--c-orange);
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(232, 93, 42, 0.28);
+  flex-shrink: 0;
+  transition: transform var(--t-fast);
+}
+
+.value-card:hover .value-card__icon-wrap {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.value-card__icon-wrap svg {
+  width: 20px;
+  height: 20px;
+}
+
+.value-card__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #1B212B; /* Restrained warm charcoal/navy secondary accent */
+  color: var(--c-yellow); /* Yellow text on navy tag */
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+.value-card h4 {
+  margin-bottom: var(--sp-8);
+  color: var(--c-ink);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.value-card p {
+  font-size: var(--text-sm);
+  margin: 0;
+  color: var(--c-ink-mid);
+  line-height: 1.55;
+}
+
 
 /* ══════════════════════════════════════════════════════════
    SERVICES OVERVIEW — LAYOUT & SPACING
