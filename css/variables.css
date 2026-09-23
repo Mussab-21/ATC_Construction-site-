@@ -21,6 +21,11 @@
   --c-ink-mid:      #3D3D3D; /* Mid-weight body text */
   --c-border-light: rgba(17,17,17,0.08); /* Subtle hairline on light bg */
 
+  /* Yellow Accent & CTA Contrast Tokens */
+  --c-yellow:       #FFC820; /* Warm gold-yellow CTA contrast token */
+  --c-yellow-hover: #E8B410; /* Yellow hover state */
+  --c-yellow-text:  #111111; /* Dark text on yellow buttons */
+
   /* Semantic Compatibility Aliases */
   --c-brass:        var(--c-orange);
   --c-brass-lt:     var(--c-orange-burnt);
