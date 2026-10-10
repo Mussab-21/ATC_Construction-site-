@@ -6,6 +6,8 @@
   --c-orange:       #E85D2A; /* Primary accent: Safety Orange */
   --c-orange-burnt: #D9541F; /* Primary accent variant: Burnt Orange */
   --c-orange-lt:    #F07646; /* Orange hover / tint */
+  --c-orange-btn:   #BA4015; /* Accessible dark orange for white text (WCAG AA 5.2:1 contrast) */
+  --c-orange-btn-hover: #9E330C; /* Accessible dark orange hover state */
   --c-charcoal:     #1A1A1A; /* Dark base: Charcoal / Near-black */
   --c-charcoal-dk:  #141414; /* Deep Charcoal */
   --c-slate:        #2E2E33; /* Secondary dark: Slate Gray (panels, cards) */

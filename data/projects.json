@@ -42,7 +42,7 @@
     "divisions": ["Civil & Infrastructure", "Electrical & Power", "Finishing Works", "Design & Engineering"],
     "ref": "ATC/RES/KSA/04",
     "featured": true,
-    "image": "assests/images/finishing_works.jpeg"
+    "image": "assests/Golden-Hour ROSHN Community Development.png"
   },
   {
     "id": "p02",
@@ -57,7 +57,7 @@
     "divisions": ["Electrical & Power", "Mechanical & HVAC", "Finishing Works"],
     "ref": "ATC/IND/KSA/02",
     "featured": false,
-    "image": "assests/images/WhatsApp Image 2026-08-10 at 4.38.49 PM (2).jpeg"
+    "image": "assests/Herfy Drive-Thru at Twilight.png"
   },
   {
     "id": "p03",
@@ -87,7 +87,7 @@
     "divisions": ["Civil & Infrastructure", "Design & Engineering", "Finishing Works", "Electrical & Power"],
     "ref": "ATC/DEF/PAK/07",
     "featured": true,
-    "image": "assests/images/our story.jpeg"
+    "image": "assests/Illuminated AWT Investments Facade at Dusk.png"
   },
   {
     "id": "p06",

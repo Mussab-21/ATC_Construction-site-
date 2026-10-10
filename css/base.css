@@ -2,15 +2,90 @@
    ATC — Base Styles  |  Reset · Typography · Utilities
    ============================================================ */
 
+/* ── Viewport & Section Sizing Variables ──────────────── */
+:root {
+  --header-h: 72px;
+  --view-h: calc(100vh - var(--header-h));
+  --peek: calc(var(--view-h) * 0.10);
+  --section-h: calc(var(--view-h) * 0.80);
+}
+@supports (height: 100dvh) {
+  :root {
+    --view-h: calc(100dvh - var(--header-h));
+  }
+}
+
 /* ── Reset ─────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 body { font-family: var(--font-body); font-size: var(--text-body); line-height: var(--lh-body); color: var(--c-ink-mid); background: var(--c-page-bg); overflow-x: hidden; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 input, textarea, select { font-family: inherit; font-size: inherit; }
+
+/* ── Snapping & Peeking Sizing ─────────────────────────── */
+@media (min-width: 1024px) and (min-height: 700px) {
+  html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: calc(var(--header-h) + var(--peek));
+  }
+  .snap-section {
+    min-height: var(--section-h);
+    scroll-snap-align: start;
+    scroll-margin-top: calc(var(--header-h) + var(--peek));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: clamp(20px, 3vh, 36px);
+  }
+  .snap-section:not(.is-active) > .container {
+    opacity: 0.45;
+    transition: opacity 0.3s ease;
+  }
+}
+
+/* Fallback for small screens */
+@media (max-width: 1023px), (max-height: 699px) {
+  html {
+    scroll-snap-type: none;
+  }
+  .snap-section {
+    min-height: auto;
+    padding-block: 28px;
+  }
+  .snap-section:not(.is-active) > .container {
+    opacity: 1;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .snap-section:not(.is-active) > .container {
+    transition: none;
+  }
+}
+
+/* Thin bands and anchors */
+[id] {
+  scroll-margin-top: calc(var(--header-h) + var(--peek));
+}
+.stats-bar, .qhse-strip {
+  scroll-snap-align: none;
+}
+.footer {
+  scroll-snap-align: end;
+}
 
 /* ── Typography ─────────────────────────────────────────── */
 h1, h2, h3, h4 { font-family: var(--font-display); line-height: var(--lh-heading); color: var(--c-ink); }

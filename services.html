@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/variables.css">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/components.css?v=2">
+<link rel="stylesheet" href="css/components.css?v=7">
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/pages/services.css?v=4">
 </head>
@@ -18,7 +18,13 @@
 
 <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
   <div class="navbar__inner">
-    <a href="index.html" class="navbar__logo" aria-label="ATC Home"><svg class="navbar__logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="19" stroke="#E85D2A" stroke-width="1.5"/><text x="20" y="25" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="10" fill="#FFFFFF" letter-spacing="1">ATC</text></svg><div class="navbar__logo-text"><span class="navbar__logo-title">ATC</span><span class="navbar__logo-sub">Azaan Trading & Contracting</span></div></a>
+    <a href="index.html" class="navbar__logo" aria-label="ATC Home">
+      <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="navbar__logo-img" width="40" height="40">
+      <div class="navbar__logo-text">
+        <span class="navbar__logo-title">ATC</span>
+        <span class="navbar__logo-sub">Azaan Trading &amp; Contracting</span>
+      </div>
+    </a>
     <nav class="navbar__nav"><a href="index.html" class="navbar__link">Home</a><a href="about.html" class="navbar__link">About</a><a href="services.html" class="navbar__link">Services</a><a href="projects.html" class="navbar__link">Projects</a><a href="contact.html" class="navbar__link navbar__cta btn btn--primary btn--sm">Get in Touch</a></nav>
     <button class="navbar__hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
@@ -202,6 +208,9 @@
   </div>
   <span class="page-hero__ref" aria-hidden="true">ATC / 03-SERVICES / REV A</span>
 </section>
+
+<!-- CONTRACTING & CONSTRUCTION ANCHOR -->
+<div id="construction" class="scroll-anchor" aria-hidden="true"></div>
 
 <!-- DIVISION 01 — DESIGN & ENGINEERING -->
 <section class="division-section section--white" id="design" aria-labelledby="design-h">
@@ -585,12 +594,70 @@
   </div>
   <span class="sheet-ref" style="position:absolute;bottom:1.5rem;right:var(--container-px)" aria-hidden="true">ATC / 03-DIV07 / REV A</span>
 </section>
+
+<!-- TRADING & PROCUREMENT DIVISION ANCHOR -->
+<section class="division-section section--dark" id="trading" aria-labelledby="trading-h">
+  <div class="container division__inner">
+    <div class="division__header fade-up">
+      <span class="mono division__num">Trading &amp; Supply</span>
+      <h2 id="trading-h">Trading &amp; Procurement</h2>
+      <div class="divider"></div>
+      <p>Direct supply chain sourcing, international vendor procurement, heavy machinery, MV/LV electrical gear, and specialized industrial materials distribution.</p>
+    </div>
+    <div class="division__body">
+      <div class="division__col fade-up">
+        <h3 class="division__sub">Equipment &amp; Materials Supply</h3>
+        <ul class="svc-list">
+          <li>MV/LV switchgear &amp; distribution boards</li>
+          <li>Power transformers &amp; heavy generators</li>
+          <li>Industrial HVAC chillers &amp; cooling towers</li>
+          <li>Structural steel &amp; rebar procurement</li>
+          <li>Heavy construction machinery &amp; earthmovers</li>
+          <li>Piping, valves &amp; fluid control systems</li>
+        </ul>
+      </div>
+      <div class="division__col fade-up" style="--fade-delay:0.08s">
+        <h3 class="division__sub">Procurement Governance</h3>
+        <ul class="svc-list">
+          <li>Manufacturer direct authorization</li>
+          <li>Factory acceptance testing (FAT) audits</li>
+          <li>International logistics &amp; customs clearance</li>
+          <li>Warranty enforcement &amp; OEM spare parts</li>
+          <li>Strict ISO 9001 quality verification</li>
+        </ul>
+      </div>
+      <div class="division__media fade-up" style="--fade-delay:0.16s">
+        <div class="service-media-card">
+          <div class="service-media-card__img-wrap">
+            <img src="assests/images/atc-services-hero-single.jpg" alt="Trading &amp; Procurement" class="service-media-card__img" loading="lazy">
+            <span class="sheet-ref service-media-card__ref">ATC / TRD / 01</span>
+          </div>
+          <div class="service-media-card__scrim">
+            <div class="service-media-card__cta">
+              <span class="service-media-card__badge mono">PROCUREMENT &amp; SUPPLY</span>
+              <h4 class="service-media-card__title">Trading &amp; Procurement Solutions</h4>
+              <p class="service-media-card__desc">Request itemized pricing and international delivery schedules for your project.</p>
+              <a href="contact.html?service=Trading+%26+Procurement" class="btn btn--primary service-media-card__btn">Request Procurement <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="sheet-ref" style="position:absolute;bottom:1.5rem;right:var(--container-px)" aria-hidden="true">ATC / 03-TRD / REV A</span>
+</section>
 </main>
 
 <footer class="footer" id="footer" role="contentinfo">
   <div class="container">
     <div class="footer__top">
-      <div class="footer__brand"><div class="footer__logo"><svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="19" stroke="#E85D2A" stroke-width="1.5"/><text x="20" y="25" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="10" fill="#fff" letter-spacing="1">ATC</text></svg><div><div class="footer__logo-title">ATC</div><div class="footer__logo-sub">Azaan Trading & Contracting</div></div></div><p class="footer__tagline">Engineering excellence across civil, power, mechanical, and smart infrastructure sectors.</p></div>
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="footer__logo-img">
+          <div class="footer__logo-sub">Azaan Trading &amp; Contracting</div>
+        </div>
+        <p class="footer__tagline">Engineering excellence across civil, power, MEP, defense infrastructure, and technical procurement.</p>
+      </div>
       <div><p class="footer__col-title">Navigation</p><div class="footer__links"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div></div>
       <div><p class="footer__col-title">Divisions</p><div class="footer__links"><a href="#consultancy">Engineering Consultancy</a><a href="#design">Design &amp; Engineering</a><a href="#civil">Civil &amp; Infrastructure</a><a href="#electrical">Electrical &amp; Power</a><a href="#finishing">Finishing Works</a><a href="#security">Security &amp; Smart</a><a href="#defense">Defense &amp; O&amp;M</a></div></div>
       <div><p class="footer__col-title">Contact</p><div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Islamabad, Pakistan</span></div><div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@atc-pk.com</span></div></div>

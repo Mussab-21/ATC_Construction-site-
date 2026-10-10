@@ -3,27 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ATC — Azaan Trading &amp; Contracting | Engineering Excellence</title>
-<meta name="description" content="ATC delivers integrated engineering and contracting services across civil, electrical, mechanical, oil &amp; gas, defense, and smart infrastructure sectors.">
+<title>ATC — Azaan Trading &amp; Contracting | Engineering &amp; Construction</title>
+<meta name="description" content="ATC and its strategic partners deliver integrated engineering and construction works across Pakistan, Saudi Arabia, and Bahrain — spanning civil infrastructure, power, MEP, defense, and specialized procurement.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/variables.css?v=5">
-<link rel="stylesheet" href="css/base.css?v=5">
-<link rel="stylesheet" href="css/components.css?v=5">
-<link rel="stylesheet" href="css/animations.css?v=5">
-<link rel="stylesheet" href="css/pages/home.css?v=6">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css?v=6">
+<link rel="stylesheet" href="css/base.css?v=6">
+<link rel="stylesheet" href="css/components.css?v=7">
+<link rel="stylesheet" href="css/animations.css?v=6">
+<link rel="stylesheet" href="css/pages/home.css?v=15">
 </head>
 <body>
 
 <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
   <div class="navbar__inner">
     <a href="index.html" class="navbar__logo" aria-label="ATC Home">
-      <svg class="navbar__logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" stroke="#E85D2A" stroke-width="1.5"/>
-        <circle cx="20" cy="20" r="14" stroke="rgba(232,93,42,0.35)" stroke-width="1"/>
-        <text x="20" y="25" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="10" fill="#FFFFFF" letter-spacing="1">ATC</text>
-      </svg>
+      <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="navbar__logo-img" width="40" height="40">
       <div class="navbar__logo-text">
         <span class="navbar__logo-title">ATC</span>
         <span class="navbar__logo-sub">Azaan Trading &amp; Contracting</span>
@@ -34,7 +30,7 @@
       <a href="about.html" class="navbar__link">About</a>
       <a href="services.html" class="navbar__link">Services</a>
       <a href="projects.html" class="navbar__link">Projects</a>
-      <a href="contact.html" class="navbar__link navbar__cta btn btn--primary btn--sm">Get in Touch</a>
+      <a href="contact.html" class="navbar__link navbar__cta btn btn--primary btn--sm">Discuss Your Project</a>
     </nav>
     <button class="navbar__hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -45,27 +41,89 @@
     <a href="about.html" class="navbar__link" role="menuitem">About</a>
     <a href="services.html" class="navbar__link" role="menuitem">Services</a>
     <a href="projects.html" class="navbar__link" role="menuitem">Projects</a>
-    <a href="contact.html" class="btn btn--primary" role="menuitem">Get in Touch</a>
+    <a href="contact.html" class="btn btn--primary" role="menuitem">Discuss Your Project</a>
   </div>
 </nav>
 
 <main>
-<!-- HERO -->
+<!-- 1. HERO -->
 <section class="hero" id="hero" aria-label="Hero">
   <div class="hero__bg" aria-hidden="true"></div>
+
+  <!-- 3 Quick Service Buttons at top of Hero (below header, above eyebrow/headline) -->
+  <div class="hero__service-bar" aria-label="Core Engineering Services">
+    <div class="container">
+      <div class="hero-service-grid">
+        <!-- 01: Engineering & Construction -->
+        <a href="#construction-services" class="hero-service-card">
+          <div class="hero-service-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/>
+              <line x1="9" y1="10" x2="9" y2="10.01"/>
+              <line x1="15" y1="10" x2="15" y2="10.01"/>
+            </svg>
+          </div>
+          <div class="hero-service-card__info">
+            <span class="hero-service-card__title">Engineering &amp; Construction</span>
+            <span class="hero-service-card__sub">Contracting &amp; EPC</span>
+          </div>
+          <svg class="hero-service-card__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <!-- 02: Engineering Consultancy -->
+        <a href="#consultancy" class="hero-service-card">
+          <div class="hero-service-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
+          </div>
+          <div class="hero-service-card__info">
+            <span class="hero-service-card__title">Engineering Consultancy</span>
+            <span class="hero-service-card__sub">Technical Advisory</span>
+          </div>
+          <svg class="hero-service-card__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <!-- 03: Trading & Procurement -->
+        <a href="#trading" class="hero-service-card">
+          <div class="hero-service-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="1" y="3" width="15" height="13" rx="1"/>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 8"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <div class="hero-service-card__info">
+            <span class="hero-service-card__title">Trading &amp; Procurement</span>
+            <span class="hero-service-card__sub">Supply &amp; Procurement</span>
+          </div>
+          <svg class="hero-service-card__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <div class="container hero__inner">
     <div class="hero__content">
-      <span class="label hero__label">Engineering &amp; Contracting</span>
-      <h1 class="hero__headline">Engineering<br><em class="hero__accent">Excellence.</em><br>National Commitment.</h1>
-      <p class="hero__sub">ATC delivers integrated engineering and contracting services — from design and civil construction to electrical systems, oil &amp; gas, and smart infrastructure.</p>
+      <span class="label hero__label">ENGINEERING · CONSULTANCY · PROCUREMENT</span>
+      <h1 class="hero__headline"><span class="hero__line">Integrated Expertise.</span><br><span class="hero__line hero__accent">Complete Project Solutions.</span></h1>
+      <p class="hero__sub">Delivering integrated solutions across civil construction, infrastructure development, MEP engineering, technical consultancy, and strategic procurement from concept to completion.</p>
       <div class="hero__actions">
-        <a href="projects.html" class="btn btn--primary">View Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="contact.html" class="btn btn--ghost">Discuss Your Project</a>
+        <a href="contact.html" class="btn btn--primary">Discuss Your Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#projects" class="btn btn--ghost">View Projects</a>
       </div>
       <div class="hero__strip">
-        <span class="hero__strip-item mono">6 Engineering Divisions</span>
+        <span class="hero__strip-item mono">8 Specialized Sectors</span>
         <span class="hero__strip-sep" aria-hidden="true">·</span>
-        <span class="hero__strip-item mono">PK &amp; KSA Operations</span>
+        <span class="hero__strip-item mono">PK, KSA &amp; Bahrain Operations</span>
         <span class="hero__strip-sep" aria-hidden="true">·</span>
         <span class="hero__strip-item mono">Defense · Industrial · Residential</span>
       </div>
@@ -85,685 +143,503 @@
           </div>
         </div>
         <div class="hero__drawing-footer">
-          <span class="hero__drawing-coords mono" id="cad-coords">X: 210.0 Y: 140.0 | SCALE 1:100</span>
-          <span class="hero__drawing-ref mono">ATC / 01-VILLA / CAD</span>
+          <span class="hero__drawing-coords mono" id="cad-coords" aria-hidden="true">X: 210.0 Y: 140.0 | SCALE 1:100</span>
+          <span class="hero__drawing-ref mono" aria-hidden="true">ATC / 01-VILLA / CAD</span>
         </div>
-      </div>
-    </div>
-  </div>
-  <!-- Gradient seam: dark hero → white page -->
-  <div class="hero__seam" aria-hidden="true"></div>
-</section>
-
-<!-- INTRO STRIP -->
-<section class="intro-strip section--sm" id="intro">
-  <div class="container intro-strip__inner">
-    <div class="intro-strip__text">
-      <span class="label fade-up">Who We Are</span>
-      <h2 class="fade-up" style="--fade-delay:0.10s">Pakistan's Engineering Partner for Complex Projects</h2>
-      <div class="divider divider--animated" style="--fade-delay:0.18s"></div>
-      <p class="fade-up" style="--fade-delay:0.24s">Azaan Trading &amp; Contracting (ATC) is a multi-division engineering and contracting company delivering high-specification projects across civil infrastructure, electrical &amp; power, mechanical systems, oil &amp; gas, defense infrastructure, and smart building technology. Our teams operate across Pakistan and Saudi Arabia, bringing global engineering standards to every project.</p>
-      <a href="about.html" class="btn btn--primary fade-up" style="margin-top:1.75rem;--fade-delay:0.32s">About ATC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-    <div class="intro-strip__values stagger">
-      <div class="value-card fade-up" style="--fade-delay:0.12s">
-        <div class="value-card__header">
-          <div class="value-card__icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="6"/>
-              <circle cx="12" cy="12" r="2"/>
-            </svg>
-          </div>
-          <span class="value-card__num mono">01</span>
-        </div>
-        <h4>Technical Precision</h4>
-        <p>Every project engineered to international standards with rigorous QC at every phase.</p>
-      </div>
-
-      <div class="value-card fade-up" style="--fade-delay:0.22s">
-        <div class="value-card__header">
-          <div class="value-card__icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <path d="M9 12l2 2 4-4"/>
-            </svg>
-          </div>
-          <span class="value-card__num mono">02</span>
-        </div>
-        <h4>QHSE Commitment</h4>
-        <p>ISO-aligned quality, health, safety, and environmental practices on every site.</p>
-      </div>
-
-      <div class="value-card fade-up" style="--fade-delay:0.32s">
-        <div class="value-card__header">
-          <div class="value-card__icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
-              <line x1="4" y1="22" x2="4" y2="15"/>
-            </svg>
-          </div>
-          <span class="value-card__num mono">03</span>
-        </div>
-        <h4>End-to-End Delivery</h4>
-        <p>From design and procurement through construction, commissioning, and handover.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES OVERVIEW: ENGINEERING & CONSTRUCTION -->
-<section class="services-overview" id="engineering-divisions" data-alias="services-preview">
+<!-- 2. JOINT VENTURE -->
+<section class="jv-panel snap-section" id="joint-venture" aria-label="Strategic Partnership with Rising Sun Construction">
+  <div class="container">
+    <div class="jv-card">
+      <div class="jv-card__header">
+        <span class="label">STRATEGIC PARTNERSHIP</span>
+        <span class="mono jv-card__spec-ref" aria-hidden="true">ATC-JV-RSC / SPEC 01</span>
+      </div>
+      <div class="jv-card__body">
+        <div class="jv-card__partners">
+          <div class="jv-partner jv-partner--atc">
+            <div class="jv-partner__logo">
+              <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="jv-atc-logo-img" width="48" height="48">
+            </div>
+            <div class="jv-partner__meta">
+              <span class="jv-partner__name">Azaan Trading &amp; Contracting</span>
+              <span class="jv-partner__role">Multi-Regional Engineering Solutions</span>
+              <span class="jv-partner__jurisdiction mono">Pakistan · Saudi Arabia · Bahrain</span>
+            </div>
+          </div>
+          <div class="jv-connector" aria-hidden="true">
+            <span class="jv-connector__symbol">+</span>
+            <span class="jv-connector__label mono">JOINT VENTURE</span>
+          </div>
+          <div class="jv-partner jv-partner--rsc">
+            <div class="jv-partner__logo jv-partner__logo--rsc">
+              <img src="assests/rising-sun-logo.png" alt="Rising Sun Construction logo" width="56" height="71" loading="lazy" class="rsc-logo-img">
+            </div>
+            <div class="jv-partner__meta">
+              <div class="jv-partner__name-row">
+                <span class="jv-partner__name">Rising Sun Construction</span>
+                <span class="badge-c1 mono" title="PEC licence held by Rising Sun Construction LLP, ATC's joint venture partner.">PEC REGISTERED</span>
+              </div>
+              <span class="jv-partner__role">Joint Venture Partner in Pakistan</span>
+              <div class="jv-facts-grid">
+                <div class="pec-detail-item">
+                  <span class="pec-detail-label">PEC LICENCE NO.</span>
+                  <span class="pec-detail-val mono">813</span>
+                </div>
+                <div class="pec-detail-item">
+                  <span class="pec-detail-label">CATEGORY</span>
+                  <div class="pec-category-val">
+                    <span class="pec-detail-val">C1/E</span>
+                    <span class="badge-c1 mono" title="C1 Category Constructor">C1</span>
+                  </div>
+                </div>
+                <div class="pec-detail-item">
+                  <span class="pec-detail-label">COST LIMIT</span>
+                  <span class="pec-detail-val">up to PKR 2,500M per work</span>
+                </div>
+                <div class="pec-detail-item">
+                  <span class="pec-detail-label">SINCE</span>
+                  <span class="pec-detail-val mono">2006</span>
+                </div>
+                <div class="pec-detail-item">
+                  <span class="pec-detail-label">OFFICE</span>
+                  <span class="pec-detail-val">Islamabad</span>
+                </div>
+              </div>
+              <p class="jv-pec-note"><em>PEC licence held by Rising Sun Construction LLP, ATC's joint venture partner.</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHAT WE DELIVER (Horizontal 10-Slide Carousel + Delivery Strip) -->
+<section class="services-overview section--alt snap-section" id="construction-services">
   <div class="container">
     <div class="section-header">
       <span class="label fade-up">What We Deliver — Contracting &amp; EPC</span>
-      <h2 class="fade-up" style="--fade-delay:0.06s">Engineering &amp; Construction Services</h2>
+      <h2 class="fade-up" style="--fade-delay:0.06s">Core Engineering &amp; Construction Services</h2>
       <div class="divider divider--animated"></div>
-      <p class="fade-up" style="--fade-delay:0.12s">Integrated capabilities across every phase of an engineering project — from engineering consultancy and design to civil construction, high-voltage power, and defense infrastructure.</p>
+      <p class="fade-up" style="--fade-delay:0.12s">Integrated capabilities across every phase of an engineering project — from design and civil execution to high-voltage power networks and defense infrastructure across Pakistan, Saudi Arabia, and Bahrain.</p>
     </div>
-    <div class="service-carousel fade-up" data-service-carousel id="carousel-engineering" aria-roledescription="carousel" aria-label="Engineering and Construction Divisions">
-      <div class="service-carousel__viewport">
-        <div class="service-carousel__track">
-          <a href="services.html#design" class="division-card" role="group" aria-roledescription="slide" aria-label="1 of 6: Design & Engineering">
-            <div class="division-card__icon-box"><svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <span class="mono division-card__num">01</span>
-            <h3>Design &amp; Engineering</h3>
-            <p>Architectural, structural, MEP, infrastructure design, and site development.</p>
-            <span class="division-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-          </a>
-          <a href="services.html#civil" class="division-card" role="group" aria-roledescription="slide" aria-label="2 of 6: Civil & Infrastructure">
-            <div class="division-card__icon-box"><svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6"/></svg></div>
-            <span class="mono division-card__num">02</span>
-            <h3>Civil &amp; Infrastructure</h3>
-            <p>Buildings, roads, drainage, boundary works, and full project execution.</p>
-            <span class="division-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-          </a>
-          <a href="services.html#electrical" class="division-card" role="group" aria-roledescription="slide" aria-label="3 of 6: Electrical, Power & Mechanical">
-            <div class="division-card__icon-box"><svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-            <span class="mono division-card__num">03</span>
-            <h3>Electrical, Power &amp; Mechanical</h3>
-            <p>MV/LV systems, substations, HVAC, industrial piping, and oil &amp; gas infrastructure.</p>
-            <span class="division-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-          </a>
-          <a href="services.html#finishing" class="division-card" role="group" aria-roledescription="slide" aria-label="4 of 6: Finishing Works">
-            <div class="division-card__icon-box"><svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-            <span class="mono division-card__num">04</span>
-            <h3>Finishing Works</h3>
-            <p>Scratch-to-completion interiors, furnishing, aluminum, woodworks, and wall finishing.</p>
-            <span class="division-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-          </a>
-          <a href="services.html#security" class="division-card" role="group" aria-roledescription="slide" aria-label="5 of 6: Security, Smart & IT">
-            <div class="division-card__icon-box"><svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <span class="mono division-card__num">05</span>
-            <h3>Security, Smart &amp; IT</h3>
-            <p>CCTV, access control, fire alarm, building automation, and fiber optic networks.</p>
-            <span class="division-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-          </a>
-          <a href="services.html#defense" class="division-card" role="group" aria-roledescription="slide" aria-label="6 of 6: Defense, Maintenance & Operations">
-            <div class="division-card__icon-box"><svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-            <span class="mono division-card__num">06</span>
-            <h3>Defense, Maintenance &amp; Operations</h3>
-            <p>Military infrastructure, AMC, 24/7 technical support, and procurement services.</p>
-            <span class="division-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-          </a>
-        </div>
-      </div>
-      <div class="service-carousel__controls">
-        <button class="slider-btn carousel-btn--prev" aria-label="Previous division">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        </button>
-        <div class="slider-dots carousel-dots" role="tablist" aria-label="Contracting divisions carousel slides"></div>
-        <span class="slider-counter carousel-counter mono" aria-live="polite">01 / 06</span>
-        <button class="slider-btn carousel-btn--next" aria-label="Next division">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
+
+    <!-- Horizontal Carousel Track (10 Slides) -->
+    <div class="services-carousel-wrap fade-up" style="--fade-delay:0.16s">
+      <div class="services-carousel-track" id="services-carousel-track" role="region" aria-roledescription="carousel" aria-label="Services carousel" tabindex="0">
+        <!-- 01: Design & Engineering -->
+        <a href="services.html#design" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <span class="mono division-card__num">01 // EPC DESIGN</span>
+          <h3>Design &amp; Engineering</h3>
+          <p>Architectural concept design, structural engineering, MEP schematic coordination, and detailed site master planning.</p>
+          <span class="division-card__link">Explore Division <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- 02: Civil & Infrastructure -->
+        <a href="services.html#civil" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6"/></svg></div>
+          <span class="mono division-card__num">02 // CIVIL WORKS</span>
+          <h3>Civil &amp; Infrastructure</h3>
+          <p>Heavy foundations, reinforced concrete frames, earthworks, arterial roads, drainage networks, and boundary structures.</p>
+          <span class="division-card__link">Explore Division <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- 03: Electrical, Power & Mechanical -->
+        <a href="services.html#electrical" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <span class="mono division-card__num">03 // POWER &amp; MEP</span>
+          <h3>Electrical, Power &amp; Mechanical</h3>
+          <p>MV/LV power substations, transformers, switchgear networks, industrial HVAC chiller plants, and specialized piping.</p>
+          <span class="division-card__link">Explore Division <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- 04: Finishing Works -->
+        <a href="services.html#finishing" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <span class="mono division-card__num">04 // FIT-OUT</span>
+          <h3>Finishing Works</h3>
+          <p>Scratch-to-completion interior fit-outs, executive joinery, acoustic ceilings, curtain walls, and premium facade installations.</p>
+          <span class="division-card__link">Explore Division <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- 05: Security, Smart & IT -->
+        <a href="services.html#security" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span class="mono division-card__num">05 // SMART &amp; BMS</span>
+          <h3>Security, Smart &amp; IT</h3>
+          <p>Biometric access control, enterprise CCTV surveillance, fire alarm detection, building management systems (BMS), and fiber networks.</p>
+          <span class="division-card__link">Explore Division <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- 06: Defense, Maintenance & Operations -->
+        <a href="services.html#defense" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <span class="mono division-card__num">06 // DEFENSE &amp; O&amp;M</span>
+          <h3>Defense &amp; Operations</h3>
+          <p>Fortified military base infrastructure, mission-critical power resilience, 24/7 technical O&amp;M, and facility maintenance contracts.</p>
+          <span class="division-card__link">Explore Division <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- 07: Oil, Gas & Petroleum -->
+        <a href="services.html#oil-gas" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 22h12M4 9h10M4 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L20 7"/></svg></div>
+          <span class="mono division-card__num">07 // OIL &amp; GAS</span>
+          <h3>Oil, Gas &amp; Petroleum</h3>
+          <p>Refineries, fuel retail stations, storage tanks, high-pressure piping, and hazardous-area safety systems.</p>
+          <span class="division-card__link">Explore Division <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- 08: Industrial & Factory Maintenance -->
+        <a href="services.html#industrial-maintenance" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="12" cy="18" r="1.5"/></svg></div>
+          <span class="mono division-card__num">08 // INDUSTRIAL O&amp;M</span>
+          <h3>Industrial &amp; Factory Maintenance</h3>
+          <p>Preventive and corrective electromechanical maintenance, factory shutdowns, equipment overhauls, and AMC agreements.</p>
+          <span class="division-card__link">Explore Division <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- 09: Engineering Consultancy & Advisory -->
+        <a href="services.html#consultancy" id="consultancy" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+          <span class="mono division-card__num">TECHNICAL ADVISORY</span>
+          <h3>Engineering Consultancy &amp; Advisory</h3>
+          <p>PMC management, BIM LOD 300-500, value engineering &amp; QA/QC audits.</p>
+          <span class="division-card__link">Explore consultancy <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- 10: Trading & Technical Procurement -->
+        <a href="contact.html?subject=trading" id="trading" class="division-card division-card--static services-carousel-slide">
+          <div class="division-card__icon-box"><svg class="division-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <span class="mono division-card__num">SUPPLY &amp; PROCUREMENT</span>
+          <h3>Trading &amp; Technical Procurement</h3>
+          <p>Electrical switchgear, heavy machinery, HVAC chillers &amp; industrial PPE.</p>
+          <span class="division-card__link">Request a quotation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
       </div>
     </div>
 
-    <!-- ENGINEERING CONSULTANCY WINDOW -->
-    <div class="consultancy-window fade-up" style="--fade-delay:0.08s">
-      <div class="consultancy-window__bg-accent" aria-hidden="true"></div>
-      <div class="consultancy-window__header">
-        <div class="consultancy-window__title-wrap">
-          <span class="consultancy-window__badge mono">Specialized Technical Division</span>
-          <h3>Engineering Consultancy &amp; Technical Advisory</h3>
-        </div>
-        <span class="sheet-ref">ATC / CONSULT-SPEC / REV A</span>
-      </div>
-      <div class="service-carousel" data-service-carousel id="carousel-consultancy" aria-roledescription="carousel" aria-label="Engineering Consultancy Services">
-        <div class="service-carousel__viewport">
-          <div class="service-carousel__track">
-            <div class="consultancy-card" role="group" aria-roledescription="slide" aria-label="1 of 4: Project Management Consultancy">
-              <div class="consultancy-card__icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="division-card__icon" aria-hidden="true">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </div>
-              <span class="consultancy-card__num mono">01 // PMC</span>
-              <h4>Project Management Consultancy</h4>
-              <p>End-to-end owner's engineering, FIDIC contract administration, technical supervision, and budget controls.</p>
-              <a href="services.html#consultancy" class="consultancy-card__link">Explore Advisory <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-            <div class="consultancy-card" role="group" aria-roledescription="slide" aria-label="2 of 4: Value Engineering & Feasibility">
-              <div class="consultancy-card__icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="division-card__icon" aria-hidden="true">
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                </svg>
-              </div>
-              <span class="consultancy-card__num mono">02 // VE</span>
-              <h4>Value Engineering &amp; Feasibility</h4>
-              <p>Technical due diligence, life-cycle cost assessment, structural optimization, and CAPEX rationalization.</p>
-              <a href="services.html#consultancy" class="consultancy-card__link">Explore Advisory <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-            <div class="consultancy-card" role="group" aria-roledescription="slide" aria-label="3 of 4: BIM & Digital Twin Modeling">
-              <div class="consultancy-card__icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="division-card__icon" aria-hidden="true">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                  <polyline points="2 17 12 22 22 17"/>
-                  <polyline points="2 12 12 17 22 12"/>
-                </svg>
-              </div>
-              <span class="consultancy-card__num mono">03 // BIM</span>
-              <h4>BIM &amp; Digital Twin Modeling</h4>
-              <p>LOD 300 to 500 digital building modeling, 4D construction phasing, multi-discipline clash detection.</p>
-              <a href="services.html#consultancy" class="consultancy-card__link">Explore Advisory <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-            <div class="consultancy-card" role="group" aria-roledescription="slide" aria-label="4 of 4: Statutory Compliance & QA/QC">
-              <div class="consultancy-card__icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="division-card__icon" aria-hidden="true">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
-                  <polyline points="10 9 9 9 8 9"/>
-                </svg>
-              </div>
-              <span class="consultancy-card__num mono">04 // CODE</span>
-              <h4>Statutory Compliance &amp; QA/QC</h4>
-              <p>Saudi Building Code (SBC) and PEC certification audits, third-party structural testing, and clearances.</p>
-              <a href="services.html#consultancy" class="consultancy-card__link">Explore Advisory <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-        <div class="service-carousel__controls">
-          <button class="slider-btn carousel-btn--prev" aria-label="Previous consultancy service">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          </button>
-          <div class="slider-dots carousel-dots" role="tablist" aria-label="Consultancy carousel slides"></div>
-          <span class="slider-counter carousel-counter mono" aria-live="polite">01 / 04</span>
-          <button class="slider-btn carousel-btn--next" aria-label="Next consultancy service">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="consultancy-window__footer">
-        <span class="consultancy-window__note mono">INDEPENDENT TECHNICAL ADVISORY · LICENSED ENGINEERS · KSA &amp; PAKISTAN</span>
-        <a href="services.html#consultancy" class="consultancy-window__btn">Explore Full Capabilities <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
+    <!-- Carousel Controls (Prev/Next & Dots) -->
+    <div class="services-carousel-controls fade-up" id="services-carousel-controls" aria-label="Services carousel navigation" style="--fade-delay:0.2s">
+      <button class="services-ctrl-btn" id="services-prev-btn" aria-label="Previous service" title="Previous service">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="services-dots" id="services-dots" role="tablist" aria-label="Services pagination"></div>
+      <button class="services-ctrl-btn" id="services-next-btn" aria-label="Next service" title="Next service">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
     </div>
-    <div class="section-cta-wrap fade-up" style="--fade-delay:0.1s">
-      <a href="services.html" class="btn btn--primary">View All Construction Services</a>
-      <div class="section-peek-nav">
-        <a href="#stats" class="section-peek-nav__text mono">Explore Stats &amp; Credentials &darr;</a>
+
+    <div class="section-cta-wrap fade-up" style="margin-top:var(--sp-24);text-align:center;">
+      <a href="services.html" class="btn btn--primary">Explore All Contracting Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+
+    <!-- Structured Execution: Slim 4-Phase Delivery Strip -->
+    <div class="delivery-strip fade-up" style="--fade-delay:0.24s;" aria-label="Project Delivery Lifecycle">
+      <div class="delivery-strip__label">
+        <span class="label">HOW WE DELIVER</span>
+      </div>
+      <div class="delivery-strip__phases">
+        <div class="delivery-phase" title="Comprehensive feasibility studies, site topography surveys, scope definition, regulatory review, and preliminary cost budgeting.">
+          <div class="delivery-phase__icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <span class="delivery-phase__num mono">01</span>
+          <span class="delivery-phase__title">Consult &amp; Plan</span>
+        </div>
+
+        <span class="delivery-phase__arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+
+        <div class="delivery-phase" title="Architectural coordination, structural calculations, BIM clash resolution, and global procurement of certified engineering materials.">
+          <div class="delivery-phase__icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <span class="delivery-phase__num mono">02</span>
+          <span class="delivery-phase__title">Design &amp; Procure</span>
+        </div>
+
+        <span class="delivery-phase__arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+
+        <div class="delivery-phase" title="Precision civil construction, specialized MEP installation, daily quality inspections, and milestone-driven site supervision.">
+          <div class="delivery-phase__icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <span class="delivery-phase__num mono">03</span>
+          <span class="delivery-phase__title">Build &amp; Install</span>
+        </div>
+
+        <span class="delivery-phase__arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+
+        <div class="delivery-phase" title="Rigorous multi-stage commissioning, authority approvals, as-built documentation handover, and ongoing AMC facility maintenance support.">
+          <div class="delivery-phase__icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <span class="delivery-phase__num mono">04</span>
+          <span class="delivery-phase__title">Test, Handover &amp; Maintain</span>
+        </div>
       </div>
     </div>
   </div>
-  <span class="sheet-ref" style="position:absolute;bottom:1.5rem;right:var(--container-px)">ATC / 02-CONST / REV A</span>
 </section>
 
-<!-- STATS BAR (CREDENTIALS BRIDGE) -->
+<!-- 4. STATS BAR -->
 <section class="stats-bar stats-bar--bridge" id="stats" aria-label="Company statistics">
   <div class="container">
     <div class="stats-bar__grid">
       <div class="stat-item fade-up">
-        <span class="stat-item__number" data-counter data-target="6" data-suffix="+" aria-label="6 divisions">0</span>
-        <span class="stat-item__label">Engineering Divisions</span>
+        <span class="stat-item__number" data-counter data-target="8" data-suffix="+" aria-label="8 divisions">0</span>
+        <span class="stat-item__label">ENGINEERING DIVISIONS</span>
       </div>
       <div class="stat-item fade-up" style="--fade-delay:0.08s">
         <span class="stat-item__number" data-counter data-target="50" data-suffix="+" aria-label="50+ projects">0</span>
         <span class="stat-item__label">Projects Delivered</span>
       </div>
       <div class="stat-item fade-up" style="--fade-delay:0.16s">
-        <span class="stat-item__number" data-counter data-target="2" aria-label="2 countries">0</span>
+        <span class="stat-item__number" data-counter data-target="3" aria-label="3 countries of operation">0</span>
         <span class="stat-item__label">Countries of Operation</span>
       </div>
       <div class="stat-item fade-up" style="--fade-delay:0.24s">
         <span class="stat-item__number" data-counter data-target="15" data-suffix="+" aria-label="15+ years">0</span>
-        <span class="stat-item__label">Years of Experience</span>
+        <span class="stat-item__label">YEARS OF EXPERIENCE</span>
+        <!-- TODO(owner): confirm 15+ years and 50+ projects before publishing -->
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES OVERVIEW: TRADING & TECHNICAL PROCUREMENT -->
-<section class="services-overview" id="trading-services">
-  <div class="container">
-    <div class="section-header">
-      <span class="label fade-up">What We Supply &amp; Trade</span>
-      <h2 class="fade-up" style="--fade-delay:0.06s">Trading &amp; Technical Procurement Divisions</h2>
-      <div class="divider divider--animated"></div>
-      <p class="fade-up" style="--fade-delay:0.12s">Local and international procurement solutions across Pakistan and Saudi Arabia — supplying certified machinery, electrical switchgear, industrial equipment, and project materials.</p>
-    </div>
-    <div class="service-carousel fade-up" data-service-carousel id="carousel-trading" aria-roledescription="carousel" aria-label="Trading and Technical Procurement Divisions">
-      <div class="service-carousel__viewport">
-        <div class="service-carousel__track">
-          <!-- 01: Electrical Equipment & Switchgear -->
-          <div class="division-card" role="group" aria-roledescription="slide" aria-label="1 of 6: Electrical Equipment & Switchgear">
-            <div class="division-card__icon-box">
-              <svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-                <path d="M7 8h10M7 12h5"/>
-              </svg>
-            </div>
-            <span class="mono division-card__num">01</span>
-            <h3>Electrical Equipment &amp; Switchgear</h3>
-            <p>Ring Main Units (RMU), MV/LV switchboards, distribution panels, circuit breakers, and substation switchgear.</p>
-            <a href="contact.html?subject=trading-electrical" class="division-card__link">Inquire Supplies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-
-          <!-- 02: Industrial Machinery & Heavy Equipment -->
-          <div class="division-card" role="group" aria-roledescription="slide" aria-label="2 of 6: Industrial Machinery & Equipment">
-            <div class="division-card__icon-box">
-              <svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-              </svg>
-            </div>
-            <span class="mono division-card__num">02</span>
-            <h3>Industrial Machinery &amp; Equipment</h3>
-            <p>Heavy-duty industrial chillers, centrifugal pumps, air compressors, industrial diesel generators, and manufacturing plant machinery.</p>
-            <a href="contact.html?subject=trading-machinery" class="division-card__link">Inquire Supplies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-
-          <!-- 03: Power Cables & Transformers -->
-          <div class="division-card" role="group" aria-roledescription="slide" aria-label="3 of 6: Power Cables & Transformers">
-            <div class="division-card__icon-box">
-              <svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-              </svg>
-            </div>
-            <span class="mono division-card__num">03</span>
-            <h3>Power Cables &amp; Transformers</h3>
-            <p>MV/LV armored copper &amp; aluminum cables, oil-immersed &amp; dry-type transformers, busbar trunking, and cable management systems.</p>
-            <a href="contact.html?subject=trading-cables" class="division-card__link">Inquire Supplies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-
-          <!-- 04: HVAC Systems & Air Handling -->
-          <div class="division-card" role="group" aria-roledescription="slide" aria-label="4 of 6: HVAC Systems & Materials">
-            <div class="division-card__icon-box">
-              <svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
-              </svg>
-            </div>
-            <span class="mono division-card__num">04</span>
-            <h3>HVAC Systems &amp; Materials</h3>
-            <p>Commercial VRF/VRV units, Greenheck industrial ventilation fans, chilled water piping, air handling units (AHU), and acoustic ducting.</p>
-            <a href="contact.html?subject=trading-hvac" class="division-card__link">Inquire Supplies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-
-          <!-- 05: Firefighting & Industrial Plumbing -->
-          <div class="division-card" role="group" aria-roledescription="slide" aria-label="5 of 6: Firefighting & Plumbing Supplies">
-            <div class="division-card__icon-box">
-              <svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
-              </svg>
-            </div>
-            <span class="mono division-card__num">05</span>
-            <h3>Firefighting &amp; Plumbing Supplies</h3>
-            <p>UL/FM certified firefighting pumps, deluge valves, sprinkler networks, fire hydrants, specialized valves, and high-pressure pipe fittings.</p>
-            <a href="contact.html?subject=trading-firefighting" class="division-card__link">Inquire Supplies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-
-          <!-- 06: Industrial Safety Gear & PPE -->
-          <div class="division-card" role="group" aria-roledescription="slide" aria-label="6 of 6: Industrial Safety Gear & PPE">
-            <div class="division-card__icon-box">
-              <svg class="division-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <span class="mono division-card__num">06</span>
-            <h3>Industrial Safety Gear &amp; PPE</h3>
-            <p>Site safety personal protective equipment (PPE), fall arrest harnesses, fire-retardant workwear, gas detection monitors, and site safety barriers.</p>
-            <a href="contact.html?subject=trading-safety" class="division-card__link">Inquire Supplies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </div>
-      <div class="service-carousel__controls">
-        <button class="slider-btn carousel-btn--prev" aria-label="Previous trading division">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        </button>
-        <div class="slider-dots carousel-dots" role="tablist" aria-label="Trading carousel slides"></div>
-        <span class="slider-counter carousel-counter mono" aria-live="polite">01 / 06</span>
-        <button class="slider-btn carousel-btn--next" aria-label="Next trading division">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="section-cta-wrap fade-up" style="--fade-delay:0.1s">
-      <a href="contact.html?subject=trading" class="btn btn--primary">Request Commercial Quotation</a>
-      <div class="section-peek-nav">
-        <a href="#featured" class="section-peek-nav__text mono">Next: Featured Mega Project Reference &darr;</a>
-      </div>
-    </div>
-  </div>
-  <span class="sheet-ref" style="position:absolute;bottom:1.5rem;right:var(--container-px)">ATC / 02-TRADING / REV A</span>
-</section>
-
-<!-- FEATURED PROJECTS -->
-<section class="featured-project section--white" id="featured">
-  <div class="container">
-    <div class="section-header" style="margin-bottom:var(--sp-40)">
-      <span class="label fade-up">Portfolio Highlights</span>
-      <h2 class="fade-up" style="--fade-delay:0.06s">Featured Projects</h2>
-      <div class="divider divider--animated"></div>
-      <p class="fade-up" style="--fade-delay:0.12s">A selection of landmark engineering, power, defense, and residential developments delivered across Pakistan and Saudi Arabia.</p>
-    </div>
-
-    <div class="featured-slider">
-      <!-- SLIDE 1: ROSHAN Villas -->
-      <div class="featured-slide active" data-slide="0">
-        <div class="featured__text fade-up">
-          <span class="label" style="color:var(--c-orange)">Project 01 // Residential Development</span>
-          <h3>ROSHAN Villas — Mega Residential Project</h3>
-          <div class="divider"></div>
-          <p>Large-scale residential development encompassing civil &amp; structural works, complete MEP systems, interior finishing from scratch to completion, landscaping, and site development across multiple villa clusters in Saudi Arabia.</p>
-          <ul class="featured__scope">
-            <li><span class="mono featured__scope-key">Sector</span> Residential Development</li>
-            <li><span class="mono featured__scope-key">Location</span> Kingdom of Saudi Arabia</li>
-            <li><span class="mono featured__scope-key">Divisions</span> Civil · Electrical · Finishing · Design</li>
-            <li><span class="mono featured__scope-key">Scope</span> Design, Construction &amp; Full Fit-Out</li>
-          </ul>
-          <a href="projects.html" class="btn btn--primary" style="margin-top:1.5rem">View All Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="featured__visual fade-up" style="--fade-delay:0.12s">
-          <div class="featured__image-frame sheet-frame">
-            <img src="assests/projects/roshan-villas.jpg" alt="ROSHAN Villas Mega Residential Project in Saudi Arabia" class="featured__img" width="1200" height="800" loading="eager" decoding="async">
-            <span class="sheet-ref" style="position:absolute;bottom:0.75rem;right:0.75rem">ATC/RES/KSA/04</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDE 2: NEOM Power Generation -->
-      <div class="featured-slide" data-slide="1">
-        <div class="featured__text">
-          <span class="label" style="color:var(--c-orange)">Project 02 // Power &amp; Giga-Projects</span>
-          <h3>NEOM Power Generation Infrastructure</h3>
-          <div class="divider"></div>
-          <p>High-voltage power generation and distribution infrastructure for NEOM's giga-project zones including substation design, MV/LV networks, high-capacity oil-immersed transformers, and Ring Main Unit (RMU) installations.</p>
-          <ul class="featured__scope">
-            <li><span class="mono featured__scope-key">Sector</span> Industrial / Clean Energy Grid</li>
-            <li><span class="mono featured__scope-key">Location</span> NEOM, Kingdom of Saudi Arabia</li>
-            <li><span class="mono featured__scope-key">Divisions</span> Electrical &amp; Power · Substation EPC · Oil &amp; Gas</li>
-            <li><span class="mono featured__scope-key">Scope</span> MV/LV Substations, Transformers &amp; Switchgear</li>
-          </ul>
-          <a href="projects.html" class="btn btn--primary" style="margin-top:1.5rem">View All Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="featured__visual">
-          <div class="featured__image-frame sheet-frame">
-            <img src="assests/projects/neom-power.jpg" alt="NEOM Power Generation Infrastructure in Saudi Arabia" class="featured__img" width="1200" height="800" loading="lazy" decoding="async">
-            <span class="sheet-ref" style="position:absolute;bottom:0.75rem;right:0.75rem">ATC/POW/KSA/05</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDE 3: American Military Facilities -->
-      <div class="featured-slide" data-slide="2">
-        <div class="featured__text">
-          <span class="label" style="color:var(--c-orange)">Project 03 // Defense Infrastructure</span>
-          <h3>American Military Facilities — High-Security Base</h3>
-          <div class="divider"></div>
-          <p>Turnkey design, civil execution, and defense infrastructure for US military facilities in Saudi Arabia, incorporating perimeter anti-ram barriers, secure C2 buildings, redundant power backup, and advanced smart access systems.</p>
-          <ul class="featured__scope">
-            <li><span class="mono featured__scope-key">Sector</span> Defense &amp; Strategic Facilities</li>
-            <li><span class="mono featured__scope-key">Location</span> Kingdom of Saudi Arabia</li>
-            <li><span class="mono featured__scope-key">Divisions</span> Civil · High-Security MEP · Defense O&amp;M</li>
-            <li><span class="mono featured__scope-key">Scope</span> Secure Infrastructure, Power Systems &amp; Fit-Out</li>
-          </ul>
-          <a href="projects.html" class="btn btn--primary" style="margin-top:1.5rem">View All Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="featured__visual">
-          <div class="featured__image-frame sheet-frame">
-            <img src="assests/projects/military-facilities.jpg" alt="American Military Facilities High-Security Base in Saudi Arabia" class="featured__img" width="1200" height="800" loading="lazy" decoding="async">
-            <span class="sheet-ref" style="position:absolute;bottom:0.75rem;right:0.75rem">ATC/DEF/KSA/01</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDE 4: Herfy Foods Industrial Facilities -->
-      <div class="featured-slide" data-slide="3">
-        <div class="featured__text">
-          <span class="label" style="color:var(--c-orange)">Project 04 // Industrial &amp; FMCG</span>
-          <h3>Herfy Foods — Industrial Processing Plants</h3>
-          <div class="divider"></div>
-          <p>Comprehensive electrical, mechanical, and HVAC engineering for Herfy Foods' food-processing factories and automated packaging plants. Work encompassed hygienic air ducting, ammonia chilling systems, and comprehensive AMC contracts.</p>
-          <ul class="featured__scope">
-            <li><span class="mono featured__scope-key">Sector</span> Industrial FMCG Manufacturing</li>
-            <li><span class="mono featured__scope-key">Location</span> Kingdom of Saudi Arabia</li>
-            <li><span class="mono featured__scope-key">Divisions</span> Mechanical &amp; HVAC · Electrical · AMC O&amp;M</li>
-            <li><span class="mono featured__scope-key">Scope</span> Industrial Chillers, Ducting, Power Panels &amp; AMC</li>
-          </ul>
-          <a href="projects.html" class="btn btn--primary" style="margin-top:1.5rem">View All Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="featured__visual">
-          <div class="featured__image-frame sheet-frame">
-            <img src="assests/projects/herfy-foods.jpg" alt="Herfy Foods Industrial Production and Food-Processing Plants" class="featured__img" width="1200" height="800" loading="lazy" decoding="async">
-            <span class="sheet-ref" style="position:absolute;bottom:0.75rem;right:0.75rem">ATC/IND/KSA/02</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDE 5: Army Welfare Trust -->
-      <div class="featured-slide" data-slide="4">
-        <div class="featured__text">
-          <span class="label" style="color:var(--c-orange)">Project 05 // Defense &amp; Commercial</span>
-          <h3>Army Welfare Trust — Askari Housing &amp; Commercial Towers</h3>
-          <div class="divider"></div>
-          <p>Long-term multi-project infrastructure partnership with Army Welfare Trust: civil construction of Askari residential sectors, multi-story commercial corporate plazas, and turnkey interior fit-out for Askari Bank retail branch networks across Pakistan.</p>
-          <ul class="featured__scope">
-            <li><span class="mono featured__scope-key">Sector</span> Commercial &amp; Residential Schemes</li>
-            <li><span class="mono featured__scope-key">Location</span> Pakistan (Islamabad, Rawalpindi, Lahore)</li>
-            <li><span class="mono featured__scope-key">Divisions</span> Civil · Design &amp; Engineering · Finishing · Power</li>
-            <li><span class="mono featured__scope-key">Scope</span> Housing Schemes, Corporate Towers &amp; Bank Fit-Outs</li>
-          </ul>
-          <a href="projects.html" class="btn btn--primary" style="margin-top:1.5rem">View All Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="featured__visual">
-          <div class="featured__image-frame sheet-frame">
-            <img src="assests/projects/army-welfare-trust.jpg" alt="Army Welfare Trust Askari Housing and Commercial Towers" class="featured__img" width="1200" height="800" loading="lazy" decoding="async">
-            <span class="sheet-ref" style="position:absolute;bottom:0.75rem;right:0.75rem">ATC/DEF/PAK/07</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDER CONTROLS -->
-      <div class="slider-controls">
-        <div class="slider-arrows">
-          <button class="slider-btn" id="slider-prev" aria-label="Previous project">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          </button>
-          <button class="slider-btn" id="slider-next" aria-label="Next project">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-          <span class="slider-counter mono" id="slider-counter">01 / 05</span>
-        </div>
-        <div class="slider-dots" role="tablist" aria-label="Project slides">
-          <button class="slider-dot active" role="tab" aria-label="Slide 1"></button>
-          <button class="slider-dot" role="tab" aria-label="Slide 2"></button>
-          <button class="slider-dot" role="tab" aria-label="Slide 3"></button>
-          <button class="slider-dot" role="tab" aria-label="Slide 4"></button>
-          <button class="slider-dot" role="tab" aria-label="Slide 5"></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- CLIENTS STRIP: AUTOROTATING LOGO MARQUEE -->
-<section class="clients-strip section--sm" id="clients" aria-label="Key clients">
+<!-- 5. OUR CLIENTS -->
+<section class="clients-section section--alt snap-section" id="clients" aria-label="Our Clients">
   <div class="container">
     <div class="section-header section-header--centered">
-      <span class="label fade-up">Trusted Corporate References</span>
-      <h2 class="fade-up" style="--fade-delay:0.06s">Key Clients &amp; Partners</h2>
+      <span class="label fade-up">OUR CLIENTS</span>
+      <h2 class="fade-up" style="--fade-delay:0.06s">Trusted by Industry Leaders</h2>
       <div class="divider divider--centered divider--animated"></div>
-      <p class="fade-up" style="--fade-delay:0.12s;max-width:50ch;margin-inline:auto;margin-top:0.5rem">Strategic engineering and contracting partners across the Kingdom of Saudi Arabia and Pakistan.</p>
+      <p class="fade-up clients-intro" style="--fade-delay:0.12s"><em>Building lasting relationships with leading organizations across Pakistan, Saudi Arabia, and Bahrain.</em></p>
+    </div>
+
+    <!-- Rounded dark panel with country tabs and logo grid -->
+    <div class="clients-panel fade-up" style="--fade-delay:0.18s">
+      <div id="clients-mount"></div>
     </div>
   </div>
+</section>
 
-  <div class="clients-marquee" aria-label="Autorotating client logos">
-    <div class="marquee-track">
-      <!-- SET 1 -->
-      <div class="client-card">
-        <div class="client-card__logo">
-          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <path d="M16 3L6 8V16C6 22.5 10.3 28.5 16 30C21.7 28.5 26 22.5 26 16V8L16 3Z" stroke="#E85D2A" stroke-width="2" fill="rgba(232,93,42,0.12)"/>
-            <polygon points="16,10 18,14 22,14.5 19,17.5 20,21.5 16,19.2 12,21.5 13,17.5 10,14.5 14,14" fill="#1A1A1F"/>
-          </svg>
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">Army Welfare Trust</span>
-          <span class="client-card__sub">Defense Conglomerate · PAK</span>
-        </div>
-      </div>
-
-      <div class="client-card">
-        <div class="client-card__logo">
-          <img src="assests/logo/herfy.svg" alt="Herfy Foods Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">Herfy Foods</span>
-          <span class="client-card__sub">Industrial FMCG &amp; Food · KSA</span>
-        </div>
-      </div>
-
-      <div class="client-card">
-        <div class="client-card__logo">
-          <img src="assests/logo/crown-golf-opt.png" alt="Crown Golf Company Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">Crown Golf</span>
-          <span class="client-card__sub">Corporate &amp; Industrial · KSA</span>
-        </div>
-      </div>
-
-      <div class="client-card">
-        <div class="client-card__logo">
-          <img src="assests/logo/roshn-opt.png" alt="ROSHN Group Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">ROSHN Group</span>
-          <span class="client-card__sub">Mega Residential Developer · KSA</span>
-        </div>
-      </div>
-
-      <div class="client-card">
-        <div class="client-card__logo">
-          <img src="assests/logo/neom-opt.png" alt="NEOM Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">NEOM</span>
-          <span class="client-card__sub">Vision 2030 Giga-Project · KSA</span>
-        </div>
-      </div>
-
-      <div class="client-card">
-        <div class="client-card__logo">
-          <img src="assests/logo/usaa-opt.png" alt="USA Defense &amp; Military Facilities Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">US Military Facilities</span>
-          <span class="client-card__sub">Defense Base Infrastructure · KSA</span>
-        </div>
-      </div>
-
-      <!-- SET 2 (DUPLICATE FOR SEAMLESS CONTINUOUS LOOP) -->
-      <div class="client-card" aria-hidden="true">
-        <div class="client-card__logo">
-          <svg viewBox="0 0 32 32" fill="none">
-            <path d="M16 3L6 8V16C6 22.5 10.3 28.5 16 30C21.7 28.5 26 22.5 26 16V8L16 3Z" stroke="#E85D2A" stroke-width="2" fill="rgba(232,93,42,0.12)"/>
-            <polygon points="16,10 18,14 22,14.5 19,17.5 20,21.5 16,19.2 12,21.5 13,17.5 10,14.5 14,14" fill="#1A1A1F"/>
-          </svg>
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">Army Welfare Trust</span>
-          <span class="client-card__sub">Defense Conglomerate · PAK</span>
-        </div>
-      </div>
-
-      <div class="client-card" aria-hidden="true">
-        <div class="client-card__logo">
-          <img src="assests/logo/herfy.svg" alt="Herfy Foods Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">Herfy Foods</span>
-          <span class="client-card__sub">Industrial FMCG &amp; Food · KSA</span>
-        </div>
-      </div>
-
-      <div class="client-card" aria-hidden="true">
-        <div class="client-card__logo">
-          <img src="assests/logo/crown-golf-opt.png" alt="Crown Golf Company Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">Crown Golf</span>
-          <span class="client-card__sub">Corporate &amp; Industrial · KSA</span>
-        </div>
-      </div>
-
-      <div class="client-card" aria-hidden="true">
-        <div class="client-card__logo">
-          <img src="assests/logo/roshn-opt.png" alt="ROSHN Group Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">ROSHN Group</span>
-          <span class="client-card__sub">Mega Residential Developer · KSA</span>
-        </div>
-      </div>
-
-      <div class="client-card" aria-hidden="true">
-        <div class="client-card__logo">
-          <img src="assests/logo/neom-opt.png" alt="NEOM Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">NEOM</span>
-          <span class="client-card__sub">Vision 2030 Giga-Project · KSA</span>
-        </div>
-      </div>
-
-      <div class="client-card" aria-hidden="true">
-        <div class="client-card__logo">
-          <img src="assests/logo/usaa-opt.png" alt="USA Defense &amp; Military Facilities Logo" loading="lazy">
-        </div>
-        <div class="client-card__info">
-          <span class="client-card__name">US Military Facilities</span>
-          <span class="client-card__sub">Defense Base Infrastructure · KSA</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<!-- 6. OUR PROJECTS -->
+<section class="projects-section section--white snap-section" id="projects" aria-label="Our Projects">
   <div class="container">
-    <div class="section-cta-wrap fade-up" style="margin-bottom: 0;">
-      <a href="contact.html" class="btn btn--primary">Start Your Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <!-- Row 1: Eyebrow + Heading on ONE line (left) and View All Projects button (right) -->
+    <div class="projects-row-1 fade-up">
+      <div class="projects-title-cluster">
+        <span class="label">OUR PROJECTS</span>
+        <h2 class="projects-main-title">Engineering Complexity. Delivering Excellence.</h2>
+      </div>
+      <a href="projects.html" class="btn btn--secondary btn--compact">View All Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+
+    <!-- Row 2: Intro sentence on 1 line at 15px (left) and filter chips (right) -->
+    <div class="projects-row-2 fade-up" style="--fade-delay:0.08s">
+      <p class="projects-intro-sentence">Explore our portfolio of construction, infrastructure, industrial, MEP, and specialized engineering projects.</p>
+      <div id="projects-filter-mount"></div>
+    </div>
+
+    <!-- Row 3: Horizontal Carousel Track -->
+    <div class="projects-carousel-wrap fade-up" style="--fade-delay:0.14s">
+      <div class="projects-carousel-track" id="projects-carousel-track" role="region" aria-roledescription="carousel" aria-label="Projects" tabindex="0">
+        <!-- Rendered by js/clients-projects.js -->
+      </div>
+    </div>
+
+    <!-- Row 4: Controls (Prev/Next, Pause/Play, Counter, Dots) -->
+    <div class="projects-controls fade-up" id="projects-controls" aria-label="Carousel navigation" style="--fade-delay:0.2s">
+      <div class="projects-controls__left">
+        <button class="projects-ctrl-btn" id="projects-prev-btn" aria-label="Previous project" title="Previous project">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="projects-ctrl-btn" id="projects-next-btn" aria-label="Next project" title="Next project">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="projects-ctrl-btn projects-ctrl-btn--playpause" id="projects-playpause-btn" aria-label="Pause auto-scroll" aria-pressed="false" title="Pause auto-scroll">
+          <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+          <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <span class="projects-counter mono" id="projects-counter" aria-live="polite">1-3 / 6</span>
+      </div>
+      <div class="projects-dots" id="projects-dots" role="tablist" aria-label="Carousel pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. WHO WE SERVE + QHSE (Merged Two-Column Layout) -->
+<section class="section section--alt snap-section" id="who-we-serve" aria-label="Who We Serve &amp; QHSE">
+  <div class="container">
+    <div class="who-qhse-merged-layout">
+      <!-- Left Column: Who We Serve & Industry Chips -->
+      <div class="who-we-serve-col fade-up">
+        <span class="label">TARGET INDUSTRIES</span>
+        <h2>Who We Serve</h2>
+        <div class="divider divider--animated"></div>
+        <p class="who-we-serve-intro">Providing engineering and contracting expertise to premier public and private sector organizations.</p>
+        <div class="who-we-serve-chips">
+          <a href="#inquiry-panel" class="sector-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+            Housing &amp; Real Estate Developments
+          </a>
+          <a href="#inquiry-panel" class="sector-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Industrial &amp; Manufacturing Plants
+          </a>
+          <a href="#inquiry-panel" class="sector-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h12M4 9h10M4 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L20 7"/></svg>
+            Petroleum &amp; Fuel Retail Networks
+          </a>
+          <a href="#inquiry-panel" class="sector-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Defense &amp; Government Infrastructure
+          </a>
+          <a href="#inquiry-panel" class="sector-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            Corporate &amp; Commercial Complexes
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: 4 QHSE Points in 2x2 Grid + Footnote -->
+      <div class="qhse-col fade-up" style="--fade-delay:0.12s">
+        <div class="qhse-merged-grid">
+          <div class="qhse-card">
+            <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span class="qhse-card__text">ISO-aligned quality and HSE procedures implemented across all operational sites</span>
+          </div>
+          <div class="qhse-card">
+            <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span class="qhse-card__text">Preventive safety systems with daily toolbox talks and certified site supervision</span>
+          </div>
+          <div class="qhse-card">
+            <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span class="qhse-card__text">OEM-standard maintenance and manufacturer-specified installation practices</span>
+          </div>
+          <div class="qhse-card">
+            <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+            <span class="qhse-card__text">Zero-accident target with proactive site hazards elimination and risk assessments</span>
+          </div>
+        </div>
+        <div class="qhse-defense-notice">
+          <span>* All works executed in accordance with local statutory codes (PEC / Saudi Building Code). Defense and high-security project details are managed under strict confidentiality agreements.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. CLOSING INQUIRY PANEL & LEAD CAPTURE FORM -->
+<section class="inquiry-panel snap-section" id="inquiry-panel" aria-label="Request a consultation">
+  <div class="container">
+    <div class="inquiry-panel__layout">
+      <!-- Left: Lead Capture Form -->
+      <div class="inquiry-panel__form-col">
+        <span class="label" style="color:#FFA726;">Start a Conversation</span>
+        <h2 style="color:#FFF;">Request an Engineering Consultation</h2>
+        <p style="color:rgba(255,255,255,0.75);margin-bottom:1.25rem;font-size:0.95rem;">Share your details and our team will get back to you.</p>
+        
+        <form class="lead-form" id="project-lead-form">
+          <!-- Honeypot anti-spam field -->
+          <input type="text" name="company_website" class="sr-only" tabindex="-1" autocomplete="off" style="display:none;" aria-hidden="true">
+
+          <div class="lead-form-grid">
+            <div class="lead-form-group">
+              <label for="lead-name">Full Name</label>
+              <input type="text" id="lead-name" name="name" required placeholder="Your name">
+            </div>
+            <div class="lead-form-group">
+              <label for="lead-phone">Phone / WhatsApp</label>
+              <input type="tel" id="lead-phone" name="phone" required placeholder="+92 300 1234567">
+            </div>
+            <div class="lead-form-group">
+              <label for="lead-email">Email (optional)</label>
+              <input type="email" id="lead-email" name="email" placeholder="name@company.com">
+            </div>
+            <div class="lead-form-group">
+              <label for="lead-project-type">What do you need?</label>
+              <select id="lead-project-type" name="project_type" required>
+                <option value="">Select an option</option>
+                <option value="Construction & Civil Works">Construction &amp; Civil Works</option>
+                <option value="Electrical, MEP & Power">Electrical, MEP &amp; Power</option>
+                <option value="Design & Engineering">Design &amp; Engineering</option>
+                <option value="Security, Smart & IT Systems">Security, Smart &amp; IT Systems</option>
+                <option value="Oil, Gas & Industrial Maintenance">Oil, Gas &amp; Industrial Maintenance</option>
+                <option value="Defense & Government Projects">Defense &amp; Government Projects</option>
+                <option value="Consultancy / Procurement">Consultancy / Procurement</option>
+                <option value="Annual Maintenance Contract (AMC)">Annual Maintenance Contract (AMC)</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="lead-form-group lead-form-group--full">
+              <label for="lead-description">Short message (optional)</label>
+              <textarea id="lead-description" name="description" rows="3" placeholder="Tell us briefly about your project (optional)"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="lead-submit-btn" style="width:100%;">
+            Send Inquiry
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="lead-response-note">We will contact you shortly. <!-- TODO(owner): add a response-time promise if you can keep it --></p>
+
+          <div class="lead-form-status" id="lead-form-status" role="alert"></div>
+        </form>
+      </div>
+
+      <!-- Right: Direct Contact & Profile Download -->
+      <div class="inquiry-meta-side">
+        <div>
+          <span class="label" style="color:#E85D2A;">Direct Assistance</span>
+          <h3 style="color:#FFF;margin-top:0.25rem;font-size:1.25rem;">Engineering Desks</h3>
+          <p style="color:rgba(255,255,255,0.7);font-size:0.88rem;line-height:1.5;margin-bottom:1.5rem;">For urgent tender submittals, vendor pre-qualification, or consortium JV opportunities, contact our regional offices directly.</p>
+
+          <div style="display:flex;flex-direction:column;gap:1.1rem;">
+            <div class="inquiry-meta-item">
+              <span class="mono inquiry-meta-key">REGIONAL OPERATIONS</span>
+              <span class="inquiry-meta-val" style="color:#FFF;font-weight:600;">Pakistan · Saudi Arabia · Bahrain</span>
+            </div>
+            <div class="inquiry-meta-item">
+              <span class="mono inquiry-meta-key">DIRECT EMAIL</span>
+              <a href="mailto:info@atc-pk.com" class="inquiry-meta-link" style="color:#FFA726;font-weight:600;">info@atc-pk.com</a>
+            </div>
+            <div class="inquiry-meta-item">
+              <span class="mono inquiry-meta-key">HEADQUARTERS</span>
+              <span class="inquiry-meta-val" style="color:#FFF;font-weight:600;">Islamabad, Pakistan</span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
     </div>
   </div>
 </section>
 </main>
 
+<!-- 13. FOOTER -->
 <footer class="footer" id="footer" role="contentinfo">
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
         <div class="footer__logo">
-          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="19" stroke="#E85D2A" stroke-width="1.5"/><text x="20" y="25" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="10" fill="#fff" letter-spacing="1">ATC</text></svg>
-          <div><div class="footer__logo-title">ATC</div><div class="footer__logo-sub">Azaan Trading &amp; Contracting</div></div>
+          <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="footer__logo-img">
+          <div class="footer__logo-sub">Azaan Trading &amp; Contracting</div>
         </div>
-        <p class="footer__tagline">Engineering excellence across civil, power, mechanical, and smart infrastructure sectors.</p>
+        <p class="footer__tagline">Engineering excellence across civil, power, MEP, defense infrastructure, and technical procurement.</p>
       </div>
       <div>
         <p class="footer__col-title">Navigation</p>
@@ -778,129 +654,46 @@
       <div>
         <p class="footer__col-title">Services</p>
         <div class="footer__links">
-          <a href="services.html#consultancy">Engineering Consultancy</a>
-          <a href="services.html#design">Design &amp; Engineering</a>
           <a href="services.html#civil">Civil &amp; Infrastructure</a>
           <a href="services.html#electrical">Electrical &amp; Power</a>
           <a href="services.html#finishing">Finishing Works</a>
           <a href="services.html#security">Security &amp; Smart</a>
           <a href="services.html#defense">Defense &amp; O&amp;M</a>
+          <a href="services.html#consultancy">Engineering Consultancy</a>
         </div>
       </div>
       <div>
         <p class="footer__col-title">Contact</p>
-        <div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Islamabad, Pakistan</span></div>
-        <div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 11.5 19.79 19.79 0 011 2.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span>+92 51 000 0000</span></div>
-        <div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@atc-pk.com</span></div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>Pakistan · Saudi Arabia · Bahrain</span>
+        </div>
+        <!-- TODO: Owner to replace placeholder telephone number with primary verified phone -->
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 11.5 19.79 19.79 0 011 2.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+92510000000" class="footer__contact-link">+92 51 [TODO: Phone Number]</a>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@atc-pk.com" class="footer__contact-link">info@atc-pk.com</a>
+        </div>
       </div>
     </div>
     <div class="footer__bottom">
       <span class="footer__copy">© 2026 Azaan Trading &amp; Contracting (ATC). All rights reserved.</span>
-      <span class="footer__ref">ATC / SITE / REV B</span>
+      <span class="footer__ref">ATC / SITE / REV C</span>
     </div>
   </div>
 </footer>
 
-<!-- GATEWAY WELCOME MODAL — 3 OPTIONS -->
-<div class="gateway-modal-overlay" id="gateway-modal" role="dialog" aria-modal="true" aria-labelledby="gateway-title">
-  <div class="gateway-modal">
-    <button class="gateway-modal__close" id="gateway-close" aria-label="Close modal">&times;</button>
-    
-    <div class="gateway-modal__header">
-      <div class="gateway-modal__badge mono">AZAAN TRADING &amp; CONTRACTING</div>
-      <h2 class="gateway-modal__title" id="gateway-title">Select Your Service Division</h2>
-      <p class="gateway-modal__sub">Please select the specialized division that best matches your project requirements:</p>
-    </div>
-
-    <div class="gateway-modal__cards">
-      <!-- Option 1: Construction & Engineering -->
-      <div class="gateway-card" id="gateway-opt-construction" tabindex="0" role="button" aria-label="Engineering and Construction division">
-        <div class="gateway-card__top">
-          <div class="gateway-card__icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6"/>
-              <path d="M9 10h6M12 7v3"/>
-            </svg>
-          </div>
-          <span class="gateway-card__tag mono">CONTRACTING &amp; EPC</span>
-        </div>
-        <h3 class="gateway-card__name">Engineering &amp; Construction</h3>
-        <p class="gateway-card__desc">Civil infrastructure, structural concrete, power substations, HVAC, turnkey interior finishing &amp; defense facilities.</p>
-        <ul class="gateway-card__features">
-          <li>Civil &amp; Mega Infrastructure Works</li>
-          <li>MV/LV Electrical &amp; Power Substations</li>
-          <li>Turnkey Finishing, Security &amp; Smart IT</li>
-        </ul>
-        <button class="btn btn--primary gateway-card__btn">
-          Go to Construction Services
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-
-      <!-- Option 2: Trading & Procurement -->
-      <div class="gateway-card" id="gateway-opt-trading" tabindex="0" role="button" aria-label="Trading and Procurement division">
-        <div class="gateway-card__top">
-          <div class="gateway-card__icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-              <line x1="12" y1="22.08" x2="12" y2="12"/>
-            </svg>
-          </div>
-          <span class="gateway-card__tag mono">SUPPLY &amp; PROCUREMENT</span>
-        </div>
-        <h3 class="gateway-card__name">Trading &amp; Procurement</h3>
-        <p class="gateway-card__desc">Heavy machinery, electrical switchgear, transformers, power cables, chillers, certified firefighting systems &amp; industrial PPE.</p>
-        <ul class="gateway-card__features">
-          <li>Electrical Switchgear, RMU &amp; Transformers</li>
-          <li>Heavy Machinery, Pumps, Chillers &amp; Gensets</li>
-          <li>HVAC Ducting, Firefighting &amp; Safety PPE</li>
-        </ul>
-        <button class="btn btn--primary gateway-card__btn">
-          Go to Trading Services
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-
-      <!-- Option 3: Engineering Consultancy (NEW) -->
-      <div class="gateway-card" id="gateway-opt-consultancy" tabindex="0" role="button" aria-label="Engineering Consultancy division">
-        <div class="gateway-card__top">
-          <div class="gateway-card__icon-wrap">
-            <!-- Compass/drafting icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <circle cx="12" cy="12" r="2"/>
-              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-            </svg>
-          </div>
-          <span class="gateway-card__tag mono">TECHNICAL ADVISORY</span>
-        </div>
-        <h3 class="gateway-card__name">Engineering Consultancy</h3>
-        <p class="gateway-card__desc">Independent project management, value engineering, BIM modeling, and statutory compliance advisory for complex engineering projects.</p>
-        <ul class="gateway-card__features">
-          <li>Project Management Consultancy (PMC)</li>
-          <li>BIM &amp; Digital Twin Modeling (LOD 300–500)</li>
-          <li>Value Engineering &amp; Statutory Compliance</li>
-        </ul>
-        <button class="btn btn--primary gateway-card__btn">
-          Go to Consultancy Services
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <div class="gateway-modal__footer">
-      <button class="gateway-modal__skip-btn" id="gateway-skip">Or browse the complete website directly &darr;</button>
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-<script src="js/main.js?v=5"></script>
-<script src="js/hero-3d.js?v=5"></script>
-<script src="js/hero-animation.js?v=5"></script>
-<script src="js/slider.js?v=5"></script>
-<script src="js/counter.js?v=5"></script>
-<script src="js/gateway.js?v=5"></script>
+<script src="js/main.js?v=6"></script>
+<script src="data/clients-projects.js?v=3"></script>
+<script src="js/clients-projects.js?v=3"></script>
+<script src="js/counter.js?v=6"></script>
+<script src="js/lead-capture.js?v=1" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js" defer></script>
+<script src="js/hero-3d.js?v=6" defer></script>
+<script src="js/hero-animation.js?v=6" defer></script>
 </body>
 </html>

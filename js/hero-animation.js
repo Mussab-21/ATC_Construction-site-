@@ -15,6 +15,13 @@
 
     if (!video) return false;
 
+    // Respect prefers-reduced-motion: do not autoplay video if reduced motion is requested
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      if (statusEl) statusEl.textContent = 'CAD SCHEMATIC (STATIC)';
+      return true;
+    }
+
     var isPausedByUser = false;
 
     // Autoplay handling (ensure playback with browser policies)

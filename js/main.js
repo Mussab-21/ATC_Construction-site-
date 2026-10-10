@@ -3,14 +3,44 @@
 (function () {
   'use strict';
 
-  /* ── Navbar scroll behaviour ────────────────────────────── */
+  /* ── Navbar scroll behaviour & Header height sync ──────── */
   const navbar = document.getElementById('navbar');
+  const updateHeaderHeight = () => {
+    if (navbar) {
+      const h = navbar.getBoundingClientRect().height;
+      if (h > 0) {
+        document.documentElement.style.setProperty('--header-h', `${Math.round(h)}px`);
+      }
+    }
+  };
+
   if (navbar) {
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight, { passive: true });
+    window.addEventListener('load', updateHeaderHeight, { passive: true });
+
     const handleScroll = () => {
       navbar.classList.toggle('scrolled', window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
+  }
+
+  /* ── Snap Section Active Observer (middle 30% viewport) ─── */
+  const snapSections = document.querySelectorAll('.snap-section');
+  if (snapSections.length > 0 && 'IntersectionObserver' in window) {
+    const snapObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-active');
+        } else {
+          entry.target.classList.remove('is-active');
+        }
+      });
+    }, {
+      rootMargin: '-35% 0px -35% 0px'
+    });
+    snapSections.forEach(s => snapObserver.observe(s));
   }
 
   /* ── Mobile hamburger ───────────────────────────────────── */
@@ -303,11 +333,225 @@
     });
   }
 
-  // Initialize service carousels on DOM load
+  /* ── Homepage Services Carousel Controller ───────────────── */
+  function initHomeServicesCarousel() {
+    const track = document.getElementById('services-carousel-track');
+    if (!track) return;
+
+    const cards = Array.from(track.querySelectorAll('.division-card'));
+    if (!cards.length) return;
+
+    const prevBtn = document.getElementById('services-prev-btn');
+    const nextBtn = document.getElementById('services-next-btn');
+    const dotsWrap = document.getElementById('services-dots');
+    const section = document.getElementById('construction-services');
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const AUTOPLAY_INTERVAL = 4000;
+    let currentIndex = 0;
+    let autoplayTimer = null;
+    let isInteracting = false;
+
+    function getVisibleCount() {
+      const w = window.innerWidth;
+      if (w <= 640) return 1;
+      if (w <= 1024) return 2;
+      return 4;
+    }
+
+    function getMaxIndex() {
+      const visible = getVisibleCount();
+      return Math.max(0, cards.length - visible);
+    }
+
+    function buildDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      const maxIndex = getMaxIndex();
+      const dotCount = maxIndex + 1;
+
+      for (let i = 0; i < dotCount; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'services-dot' + (i === currentIndex ? ' is-active' : '');
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.setAttribute('type', 'button');
+        dot.addEventListener('click', () => {
+          goToIndex(i);
+          startAutoplay();
+        });
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      if (!dotsWrap) return;
+      const dots = dotsWrap.querySelectorAll('.services-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('is-active', idx === currentIndex);
+      });
+    }
+
+    function goToIndex(index) {
+      const maxIndex = getMaxIndex();
+      if (index > maxIndex) {
+        currentIndex = 0;
+      } else if (index < 0) {
+        currentIndex = maxIndex;
+      } else {
+        currentIndex = index;
+      }
+
+      if (cards[currentIndex]) {
+        const targetLeft = cards[currentIndex].offsetLeft - track.offsetLeft;
+        track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+      }
+
+      updateDots();
+    }
+
+    function nextSlide() {
+      goToIndex(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      goToIndex(currentIndex - 1);
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (!prefersReduced && !isInteracting) {
+        autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
+      }
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+
+    // Sync active index on manual scroll
+    let scrollDebounce;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollDebounce);
+      scrollDebounce = setTimeout(() => {
+        const scrollLeft = track.scrollLeft;
+        let closestIndex = 0;
+        let minDiff = Infinity;
+        cards.forEach((card, idx) => {
+          const diff = Math.abs((card.offsetLeft - track.offsetLeft) - scrollLeft);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = idx;
+          }
+        });
+        const maxIndex = getMaxIndex();
+        currentIndex = Math.min(closestIndex, maxIndex);
+        updateDots();
+      }, 60);
+    }, { passive: true });
+
+    // Buttons
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        startAutoplay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        startAutoplay();
+      });
+    }
+
+    // Pause on hover, focus, touch
+    const carouselContainer = track.closest('.services-overview') || track;
+    carouselContainer.addEventListener('mouseenter', () => { isInteracting = true; stopAutoplay(); });
+    carouselContainer.addEventListener('mouseleave', () => { isInteracting = false; startAutoplay(); });
+    carouselContainer.addEventListener('focusin', () => { isInteracting = true; stopAutoplay(); });
+    carouselContainer.addEventListener('focusout', () => { isInteracting = false; startAutoplay(); });
+    carouselContainer.addEventListener('touchstart', () => { isInteracting = true; stopAutoplay(); }, { passive: true });
+    carouselContainer.addEventListener('touchend', () => { isInteracting = false; startAutoplay(); }, { passive: true });
+
+    // Keyboard navigation on track
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextSlide();
+        startAutoplay();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+        startAutoplay();
+      }
+    });
+
+    // Resize handler
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        buildDots();
+        goToIndex(currentIndex);
+      }, 100);
+    });
+
+    // Handle Hero Service Anchor Clicks and Hash on Load
+    function scrollToSlide(slideId) {
+      const slideEl = document.getElementById(slideId);
+      if (!slideEl || !section) return;
+      const slideIdx = cards.indexOf(slideEl);
+      if (slideIdx !== -1) {
+        goToIndex(slideIdx);
+      }
+      const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 72;
+      const top = section.getBoundingClientRect().top + window.scrollY - offset - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('a[href="#consultancy"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.pushState(null, '', '#consultancy');
+        scrollToSlide('consultancy');
+        startAutoplay();
+      });
+    });
+
+    document.querySelectorAll('a[href="#trading"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.pushState(null, '', '#trading');
+        scrollToSlide('trading');
+        startAutoplay();
+      });
+    });
+
+    // Check hash on page load
+    const currentHash = window.location.hash;
+    if (currentHash === '#consultancy' || currentHash === '#trading') {
+      setTimeout(() => {
+        scrollToSlide(currentHash.slice(1));
+      }, 350);
+    }
+
+    buildDots();
+    goToIndex(0);
+    startAutoplay();
+  }
+
+  // Initialize carousels on DOM load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initServiceCarousels);
+    document.addEventListener('DOMContentLoaded', () => {
+      initServiceCarousels();
+      initHomeServicesCarousel();
+    });
   } else {
     initServiceCarousels();
+    initHomeServicesCarousel();
   }
 
 })();

@@ -58,12 +58,6 @@
 .stagger > *:nth-child(5) { --fade-delay: 0.32s; }
 .stagger > *:nth-child(6) { --fade-delay: 0.40s; }
 
-/* Extended stagger for gateway cards (3 items) */
-.gateway-modal__cards .gateway-card { --fade-delay: 0s; }
-.gateway-modal__cards .gateway-card:nth-child(1) { --card-enter-delay: 0.05s; }
-.gateway-modal__cards .gateway-card:nth-child(2) { --card-enter-delay: 0.13s; }
-.gateway-modal__cards .gateway-card:nth-child(3) { --card-enter-delay: 0.21s; }
-
 /* ── Counter (count-up) ─────────────────────────────────── */
 .counter-value {
   display: inline-block;
@@ -205,22 +199,6 @@
 .featured-slide.active .featured__scope li:nth-child(3) { --scope-delay: 0.36s; }
 .featured-slide.active .featured__scope li:nth-child(4) { --scope-delay: 0.44s; }
 
-/* ── Gateway card entrance stagger ─────────────────────── */
-.gateway-card {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.38s ease, transform 0.38s ease;
-}
-
-.gateway-modal-overlay.open .gateway-card {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.gateway-modal-overlay.open .gateway-card:nth-child(1) { transition-delay: 0.20s; }
-.gateway-modal-overlay.open .gateway-card:nth-child(2) { transition-delay: 0.28s; }
-.gateway-modal-overlay.open .gateway-card:nth-child(3) { transition-delay: 0.36s; }
-
 /* ── Value card left border draw ─────────────────────────── */
 .value-card::before {
   content: '';
@@ -239,27 +217,42 @@
 }
 
 
-/* ── Section glow (post-gateway navigate) ───────────────── */
-@keyframes sectionTargetGlow {
-  0% { box-shadow: 0 0 0 0 rgba(232, 93, 42, 0.5); outline: 2px solid var(--c-orange); }
-  50% { box-shadow: 0 0 40px 10px rgba(232, 93, 42, 0.2); outline: 2px solid var(--c-orange); }
-  100% { box-shadow: none; outline: 2px solid transparent; }
-}
-
-.section-target-glow {
-  animation: sectionTargetGlow 2.5s ease-out forwards;
-}
-
 /* ── Reduced Motion Overrides ───────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
   .featured-slide.active .featured__scope li { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .gateway-card { opacity: 1 !important; transform: none !important; transition: none !important; }
   .featured-slide.slide-enter-right,
   .featured-slide.slide-enter-left { animation: none !important; opacity: 1 !important; transform: none !important; }
   .value-card::before { transform: none !important; transition: none !important; }
   .divider--animated { width: 48px !important; transition: none !important; }
   .marquee-track { animation: none !important; }
-  .service-carousel__track { transition: none !important; }
-  @keyframes sectionTargetGlow { from, to { box-shadow: none; outline: none; } }
+  .hero__pulse-dot { animation: none !important; }
+  .clients-marquee { overflow-x: auto; }
+  .division-card--static,
+  .division-card--static:hover,
+  .division-card--static:focus-visible,
+  .division-card--static .division-card__link svg,
+  .hero-service-card,
+  .hero-service-card:hover,
+  .hero-service-card:focus-visible,
+  .hero-service-card__arrow,
+  .client-logo-tile,
+  .client-logo-tile:hover,
+  .project-card,
+  .project-card:hover,
+  .project-card:focus-visible,
+  .project-card__arrow {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .clients-tabpanel.fade-in {
+    animation: none !important;
+  }
 }
