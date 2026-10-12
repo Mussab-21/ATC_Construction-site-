@@ -343,6 +343,7 @@
 
     const prevBtn = document.getElementById('services-prev-btn');
     const nextBtn = document.getElementById('services-next-btn');
+    const playpauseBtn = document.getElementById('services-playpause-btn');
     const dotsWrap = document.getElementById('services-dots');
     const section = document.getElementById('construction-services');
 
@@ -350,7 +351,9 @@
     const AUTOPLAY_INTERVAL = 4000;
     let currentIndex = 0;
     let autoplayTimer = null;
+    let resumeTimeout = null;
     let isInteracting = false;
+    let isUserPaused = false;
 
     function getVisibleCount() {
       const w = window.innerWidth;
@@ -377,7 +380,7 @@
         dot.setAttribute('type', 'button');
         dot.addEventListener('click', () => {
           goToIndex(i);
-          startAutoplay();
+          scheduleAutoplay();
         });
         dotsWrap.appendChild(dot);
       }
@@ -403,23 +406,37 @@
 
       if (cards[currentIndex]) {
         const targetLeft = cards[currentIndex].offsetLeft - track.offsetLeft;
-        track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+        track.scrollTo({
+          left: targetLeft,
+          behavior: prefersReduced ? 'auto' : 'smooth'
+        });
       }
 
       updateDots();
     }
 
     function nextSlide() {
-      goToIndex(currentIndex + 1);
+      const maxIndex = getMaxIndex();
+      if (currentIndex >= maxIndex) {
+        goToIndex(0);
+      } else {
+        goToIndex(currentIndex + 1);
+      }
     }
 
     function prevSlide() {
-      goToIndex(currentIndex - 1);
+      const maxIndex = getMaxIndex();
+      if (currentIndex <= 0) {
+        goToIndex(maxIndex);
+      } else {
+        goToIndex(currentIndex - 1);
+      }
     }
 
     function startAutoplay() {
       stopAutoplay();
-      if (!prefersReduced && !isInteracting) {
+      clearTimeout(resumeTimeout);
+      if (!isInteracting && !isUserPaused && !document.hidden) {
         autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
       }
     }
@@ -430,6 +447,74 @@
         autoplayTimer = null;
       }
     }
+
+    function scheduleAutoplay(delay = 0) {
+      clearTimeout(resumeTimeout);
+      if (delay > 0) {
+        resumeTimeout = setTimeout(() => {
+          startAutoplay();
+        }, delay);
+      } else {
+        startAutoplay();
+      }
+    }
+
+    // Play/Pause button toggle
+    if (playpauseBtn) {
+      const iconPause = playpauseBtn.querySelector('.icon-pause');
+      const iconPlay = playpauseBtn.querySelector('.icon-play');
+
+      playpauseBtn.addEventListener('click', () => {
+        isUserPaused = !isUserPaused;
+        playpauseBtn.setAttribute('aria-pressed', isUserPaused ? 'true' : 'false');
+        playpauseBtn.setAttribute('title', isUserPaused ? 'Resume auto-scroll' : 'Pause auto-scroll');
+        playpauseBtn.setAttribute('aria-label', isUserPaused ? 'Resume auto-scroll' : 'Pause auto-scroll');
+        if (iconPause && iconPlay) {
+          iconPause.style.display = isUserPaused ? 'none' : 'block';
+          iconPlay.style.display = isUserPaused ? 'block' : 'none';
+        }
+        if (isUserPaused) {
+          stopAutoplay();
+        } else {
+          startAutoplay();
+        }
+      });
+    }
+
+    // Pause when tab is hidden
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAutoplay();
+      } else {
+        scheduleAutoplay();
+      }
+    });
+
+    // Pause only while pointer is over track or card inside has keyboard focus
+    track.addEventListener('mouseenter', () => {
+      isInteracting = true;
+      stopAutoplay();
+    });
+    track.addEventListener('mouseleave', () => {
+      isInteracting = false;
+      scheduleAutoplay(1000);
+    });
+    track.addEventListener('focusin', () => {
+      isInteracting = true;
+      stopAutoplay();
+    });
+    track.addEventListener('focusout', () => {
+      isInteracting = false;
+      scheduleAutoplay(1000);
+    });
+    track.addEventListener('touchstart', () => {
+      isInteracting = true;
+      stopAutoplay();
+    }, { passive: true });
+    track.addEventListener('touchend', () => {
+      isInteracting = false;
+      scheduleAutoplay(1000);
+    }, { passive: true });
 
     // Sync active index on manual scroll
     let scrollDebounce;
@@ -456,36 +541,27 @@
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
         nextSlide();
-        startAutoplay();
+        scheduleAutoplay();
       });
     }
 
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
         prevSlide();
-        startAutoplay();
+        scheduleAutoplay();
       });
     }
-
-    // Pause on hover, focus, touch
-    const carouselContainer = track.closest('.services-overview') || track;
-    carouselContainer.addEventListener('mouseenter', () => { isInteracting = true; stopAutoplay(); });
-    carouselContainer.addEventListener('mouseleave', () => { isInteracting = false; startAutoplay(); });
-    carouselContainer.addEventListener('focusin', () => { isInteracting = true; stopAutoplay(); });
-    carouselContainer.addEventListener('focusout', () => { isInteracting = false; startAutoplay(); });
-    carouselContainer.addEventListener('touchstart', () => { isInteracting = true; stopAutoplay(); }, { passive: true });
-    carouselContainer.addEventListener('touchend', () => { isInteracting = false; startAutoplay(); }, { passive: true });
 
     // Keyboard navigation on track
     track.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') {
         e.preventDefault();
         nextSlide();
-        startAutoplay();
+        scheduleAutoplay();
       } else if (e.key === 'ArrowLeft') {
         e.preventDefault();
         prevSlide();
-        startAutoplay();
+        scheduleAutoplay();
       }
     });
 
@@ -517,7 +593,7 @@
         e.preventDefault();
         history.pushState(null, '', '#consultancy');
         scrollToSlide('consultancy');
-        startAutoplay();
+        scheduleAutoplay();
       });
     });
 
@@ -526,7 +602,7 @@
         e.preventDefault();
         history.pushState(null, '', '#trading');
         scrollToSlide('trading');
-        startAutoplay();
+        scheduleAutoplay();
       });
     });
 
@@ -543,15 +619,87 @@
     startAutoplay();
   }
 
-  // Initialize carousels on DOM load
+  /* ── Service Capability Cards Accordion & Toggle All ───── */
+  function initServiceCards() {
+    const sections = document.querySelectorAll('.division-section');
+    if (!sections.length) return;
+
+    sections.forEach(section => {
+      const cards = section.querySelectorAll('.svc-card');
+      const toggleAllBtn = section.querySelector('.division__toggle-all');
+
+      function updateToggleAllState() {
+        if (!toggleAllBtn) return;
+        const allOpen = Array.from(cards).every(c => c.classList.contains('is-open'));
+        const textEl = toggleAllBtn.querySelector('.division__toggle-all-text');
+        const iconEl = toggleAllBtn.querySelector('.division__toggle-all-icon');
+        if (allOpen) {
+          toggleAllBtn.setAttribute('aria-expanded', 'true');
+          if (textEl) textEl.textContent = 'Collapse all';
+          if (iconEl) iconEl.textContent = '↑';
+        } else {
+          toggleAllBtn.setAttribute('aria-expanded', 'false');
+          if (textEl) textEl.textContent = 'Expand all';
+          if (iconEl) iconEl.textContent = '↓';
+        }
+      }
+
+      cards.forEach(card => {
+        const btn = card.querySelector('.svc-card__header');
+        const body = card.querySelector('.svc-card__body-wrap');
+        if (!btn || !body) return;
+
+        // Ensure initially collapsed
+        btn.setAttribute('aria-expanded', 'false');
+        card.classList.remove('is-open');
+        body.setAttribute('inert', '');
+
+        btn.addEventListener('click', () => {
+          const isOpen = card.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', String(isOpen));
+          if (isOpen) {
+            body.removeAttribute('inert');
+          } else {
+            body.setAttribute('inert', '');
+          }
+          updateToggleAllState();
+        });
+      });
+
+      if (toggleAllBtn) {
+        toggleAllBtn.addEventListener('click', () => {
+          const anyClosed = Array.from(cards).some(c => !c.classList.contains('is-open'));
+          const shouldOpen = anyClosed;
+          cards.forEach(card => {
+            const btn = card.querySelector('.svc-card__header');
+            const body = card.querySelector('.svc-card__body-wrap');
+            card.classList.toggle('is-open', shouldOpen);
+            if (btn) btn.setAttribute('aria-expanded', String(shouldOpen));
+            if (body) {
+              if (shouldOpen) {
+                body.removeAttribute('inert');
+              } else {
+                body.setAttribute('inert', '');
+              }
+            }
+          });
+          updateToggleAllState();
+        });
+      }
+    });
+  }
+
+  // Initialize carousels & service cards on DOM load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initServiceCarousels();
       initHomeServicesCarousel();
+      initServiceCards();
     });
   } else {
     initServiceCarousels();
     initHomeServicesCarousel();
+    initServiceCards();
   }
 
 })();

@@ -1,0 +1,812 @@
+[
+  {
+    "id": 1,
+    "src": "assests/gallery/full/project-001.webp",
+    "thumbnail": "assests/gallery/thumbs/project-001.webp",
+    "caption": "Landscaped outdoor sitting area",
+    "width": 640,
+    "height": 547,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 2,
+    "src": "assests/gallery/full/project-002.webp",
+    "thumbnail": "assests/gallery/thumbs/project-002.webp",
+    "caption": "Al Sanabas tower exterior",
+    "width": 471,
+    "height": 640,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 3,
+    "src": "assests/gallery/full/project-003.webp",
+    "thumbnail": "assests/gallery/thumbs/project-003.webp",
+    "caption": "Industrial facility with overhead services and marked floor bays",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 4,
+    "src": "assests/gallery/full/project-004.webp",
+    "thumbnail": "assests/gallery/thumbs/project-004.webp",
+    "caption": "Garden patio landscaping",
+    "width": 543,
+    "height": 337,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 5,
+    "src": "assests/gallery/full/project-005.webp",
+    "thumbnail": "assests/gallery/thumbs/project-005.webp",
+    "caption": "Villa row completed exterior",
+    "width": 640,
+    "height": 470,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 6,
+    "src": "assests/gallery/full/project-006.webp",
+    "thumbnail": "assests/gallery/thumbs/project-006.webp",
+    "caption": "Retail fit-out with ceiling fixtures",
+    "width": 442,
+    "height": 640,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 7,
+    "src": "assests/gallery/full/project-007.webp",
+    "thumbnail": "assests/gallery/thumbs/project-007.webp",
+    "caption": "Decorative marble floor pattern",
+    "width": 640,
+    "height": 492,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 8,
+    "src": "assests/gallery/full/project-008.webp",
+    "thumbnail": "assests/gallery/thumbs/project-008.webp",
+    "caption": "Galali finished villa exterior",
+    "width": 640,
+    "height": 574,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 9,
+    "src": "assests/gallery/full/project-009.webp",
+    "thumbnail": "assests/gallery/thumbs/project-009.webp",
+    "caption": "Elevated view of an industrial installation",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 10,
+    "src": "assests/gallery/full/project-010.webp",
+    "thumbnail": "assests/gallery/thumbs/project-010.webp",
+    "caption": "Garden terrace at night",
+    "width": 548,
+    "height": 370,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 11,
+    "src": "assests/gallery/full/project-011.webp",
+    "thumbnail": "assests/gallery/thumbs/project-011.webp",
+    "caption": "Al Sanabas completed tower",
+    "width": 457,
+    "height": 640,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 12,
+    "src": "assests/gallery/full/project-012.webp",
+    "thumbnail": "assests/gallery/thumbs/project-012.webp",
+    "caption": "Shop interior with illuminated ceiling",
+    "width": 440,
+    "height": 640,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 13,
+    "src": "assests/gallery/full/project-013.webp",
+    "thumbnail": "assests/gallery/thumbs/project-013.webp",
+    "caption": "Villa development exterior",
+    "width": 640,
+    "height": 347,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 14,
+    "src": "assests/gallery/full/project-014.webp",
+    "thumbnail": "assests/gallery/thumbs/project-014.webp",
+    "caption": "Galali completed neighborhood",
+    "width": 640,
+    "height": 577,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 15,
+    "src": "assests/gallery/full/project-015.webp",
+    "thumbnail": "assests/gallery/thumbs/project-015.webp",
+    "caption": "Retail shop interior",
+    "width": 457,
+    "height": 640,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 16,
+    "src": "assests/gallery/full/project-016.webp",
+    "thumbnail": "assests/gallery/thumbs/project-016.webp",
+    "caption": "Completed industrial hall and glazed enclosures",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 17,
+    "src": "assests/gallery/full/project-017.webp",
+    "thumbnail": "assests/gallery/thumbs/project-017.webp",
+    "caption": "Diyar two-storey villa exterior",
+    "width": 640,
+    "height": 507,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 18,
+    "src": "assests/gallery/full/project-018.webp",
+    "thumbnail": "assests/gallery/thumbs/project-018.webp",
+    "caption": "Retail storefront finish",
+    "width": 478,
+    "height": 403,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 19,
+    "src": "assests/gallery/full/project-019.webp",
+    "thumbnail": "assests/gallery/thumbs/project-019.webp",
+    "caption": "Steel reinforcement slab",
+    "width": 640,
+    "height": 352,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 20,
+    "src": "assests/gallery/full/project-020.webp",
+    "thumbnail": "assests/gallery/thumbs/project-020.webp",
+    "caption": "Steel frame roof trusses",
+    "width": 640,
+    "height": 214,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 21,
+    "src": "assests/gallery/full/project-021.webp",
+    "thumbnail": "assests/gallery/thumbs/project-021.webp",
+    "caption": "Illuminated restaurant entrance at night",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 22,
+    "src": "assests/gallery/full/project-022.webp",
+    "thumbnail": "assests/gallery/thumbs/project-022.webp",
+    "caption": "Outdoor refrigeration equipment installation",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 23,
+    "src": "assests/gallery/full/project-023.webp",
+    "thumbnail": "assests/gallery/thumbs/project-023.webp",
+    "caption": "Standby generator beside an industrial building",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 24,
+    "src": "assests/gallery/full/project-024.webp",
+    "thumbnail": "assests/gallery/thumbs/project-024.webp",
+    "caption": "Cold room with ceiling-mounted evaporator units",
+    "width": 640,
+    "height": 360,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 25,
+    "src": "assests/gallery/full/project-025.webp",
+    "thumbnail": "assests/gallery/thumbs/project-025.webp",
+    "caption": "Industrial work area with steel platforms",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 26,
+    "src": "assests/gallery/full/project-026.webp",
+    "thumbnail": "assests/gallery/thumbs/project-026.webp",
+    "caption": "Ceiling lighting and ventilation fit-out",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 27,
+    "src": "assests/gallery/full/project-027.webp",
+    "thumbnail": "assests/gallery/thumbs/project-027.webp",
+    "caption": "Restaurant interior with recessed ceiling services",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 28,
+    "src": "assests/gallery/full/project-028.webp",
+    "thumbnail": "assests/gallery/thumbs/project-028.webp",
+    "caption": "Industrial hall with polished concrete floor",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 29,
+    "src": "assests/gallery/full/project-029.webp",
+    "thumbnail": "assests/gallery/thumbs/project-029.webp",
+    "caption": "Service corridor and insulated industrial doors",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 30,
+    "src": "assests/gallery/full/project-030.webp",
+    "thumbnail": "assests/gallery/thumbs/project-030.webp",
+    "caption": "Insulated chambers inside an industrial facility",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 31,
+    "src": "assests/gallery/full/project-031.webp",
+    "thumbnail": "assests/gallery/thumbs/project-031.webp",
+    "caption": "Overhead view of plant services and access walkways",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 32,
+    "src": "assests/gallery/full/project-032.webp",
+    "thumbnail": "assests/gallery/thumbs/project-032.webp",
+    "caption": "Industrial mezzanine and service infrastructure",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 33,
+    "src": "assests/gallery/full/project-033.webp",
+    "thumbnail": "assests/gallery/thumbs/project-033.webp",
+    "caption": "Installed service ducts and risers",
+    "width": 398,
+    "height": 309,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 34,
+    "src": "assests/gallery/full/project-034.webp",
+    "thumbnail": "assests/gallery/thumbs/project-034.webp",
+    "caption": "Commercial food service counter",
+    "width": 465,
+    "height": 605,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 35,
+    "src": "assests/gallery/full/project-035.webp",
+    "thumbnail": "assests/gallery/thumbs/project-035.webp",
+    "caption": "Cafe dining fit-out",
+    "width": 477,
+    "height": 604,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 36,
+    "src": "assests/gallery/full/project-036.webp",
+    "thumbnail": "assests/gallery/thumbs/project-036.webp",
+    "caption": "Industrial rooftop HVAC equipment",
+    "width": 446,
+    "height": 573,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 37,
+    "src": "assests/gallery/full/project-037.webp",
+    "thumbnail": "assests/gallery/thumbs/project-037.webp",
+    "caption": "Mechanical plant room",
+    "width": 449,
+    "height": 583,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 38,
+    "src": "assests/gallery/full/project-038.webp",
+    "thumbnail": "assests/gallery/thumbs/project-038.webp",
+    "caption": "Mechanical risers and pipework",
+    "width": 450,
+    "height": 611,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 39,
+    "src": "assests/gallery/full/project-039.webp",
+    "thumbnail": "assests/gallery/thumbs/project-039.webp",
+    "caption": "Fire protection pipes and pumps",
+    "width": 450,
+    "height": 611,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 40,
+    "src": "assests/gallery/full/project-040.webp",
+    "thumbnail": "assests/gallery/thumbs/project-040.webp",
+    "caption": "Electrical switchboard installation",
+    "width": 453,
+    "height": 583,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 41,
+    "src": "assests/gallery/full/project-041.webp",
+    "thumbnail": "assests/gallery/thumbs/project-041.webp",
+    "caption": "Mechanical ductwork on rooftop",
+    "width": 453,
+    "height": 584,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 42,
+    "src": "assests/gallery/full/project-042.webp",
+    "thumbnail": "assests/gallery/thumbs/project-042.webp",
+    "caption": "Mechanical utility equipment",
+    "width": 453,
+    "height": 583,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 43,
+    "src": "assests/gallery/full/project-043.webp",
+    "thumbnail": "assests/gallery/thumbs/project-043.webp",
+    "caption": "Overhead large HVAC duct",
+    "width": 453,
+    "height": 609,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 44,
+    "src": "assests/gallery/full/project-044.webp",
+    "thumbnail": "assests/gallery/thumbs/project-044.webp",
+    "caption": "Excavators on construction site",
+    "width": 640,
+    "height": 228,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 45,
+    "src": "assests/gallery/full/project-045.webp",
+    "thumbnail": "assests/gallery/thumbs/project-045.webp",
+    "caption": "Reinforced concrete columns",
+    "width": 640,
+    "height": 499,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 46,
+    "src": "assests/gallery/full/project-046.webp",
+    "thumbnail": "assests/gallery/thumbs/project-046.webp",
+    "caption": "Slab reinforcement site works",
+    "width": 640,
+    "height": 511,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 47,
+    "src": "assests/gallery/full/project-047.webp",
+    "thumbnail": "assests/gallery/thumbs/project-047.webp",
+    "caption": "Gafo ol ground floor formwork",
+    "width": 640,
+    "height": 417,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 48,
+    "src": "assests/gallery/full/project-048.webp",
+    "thumbnail": "assests/gallery/thumbs/project-048.webp",
+    "caption": "Salmaniya construction safety site",
+    "width": 640,
+    "height": 554,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 49,
+    "src": "assests/gallery/full/project-049.webp",
+    "thumbnail": "assests/gallery/thumbs/project-049.webp",
+    "caption": "Reinforcement workers at site",
+    "width": 640,
+    "height": 433,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 50,
+    "src": "assests/gallery/full/project-050.webp",
+    "thumbnail": "assests/gallery/thumbs/project-050.webp",
+    "caption": "Burhama apartment construction",
+    "width": 640,
+    "height": 381,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 51,
+    "src": "assests/gallery/full/project-051.webp",
+    "thumbnail": "assests/gallery/thumbs/project-051.webp",
+    "caption": "Villa slab reinforcement",
+    "width": 640,
+    "height": 469,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 52,
+    "src": "assests/gallery/full/project-052.webp",
+    "thumbnail": "assests/gallery/thumbs/project-052.webp",
+    "caption": "Galali scaffolding and structure",
+    "width": 640,
+    "height": 543,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 53,
+    "src": "assests/gallery/full/project-053.webp",
+    "thumbnail": "assests/gallery/thumbs/project-053.webp",
+    "caption": "Reef tower frame first angle",
+    "width": 543,
+    "height": 511,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 54,
+    "src": "assests/gallery/full/project-054.webp",
+    "thumbnail": "assests/gallery/thumbs/project-054.webp",
+    "caption": "Reef tower frame second angle",
+    "width": 546,
+    "height": 575,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 55,
+    "src": "assests/gallery/full/project-055.webp",
+    "thumbnail": "assests/gallery/thumbs/project-055.webp",
+    "caption": "Galali masonry shells",
+    "width": 640,
+    "height": 530,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 56,
+    "src": "assests/gallery/full/project-056.webp",
+    "thumbnail": "assests/gallery/thumbs/project-056.webp",
+    "caption": "Diyar villa construction street",
+    "width": 640,
+    "height": 503,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 57,
+    "src": "assests/gallery/full/project-057.webp",
+    "thumbnail": "assests/gallery/thumbs/project-057.webp",
+    "caption": "Diyar row of villas construction",
+    "width": 640,
+    "height": 490,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 58,
+    "src": "assests/gallery/full/project-058.webp",
+    "thumbnail": "assests/gallery/thumbs/project-058.webp",
+    "caption": "Community center structural frame",
+    "width": 622,
+    "height": 512,
+    "sourceLabel": "SPC company profile"
+  },
+  {
+    "id": 59,
+    "src": "assests/gallery/full/project-059.webp",
+    "thumbnail": "assests/gallery/thumbs/project-059.webp",
+    "caption": "Site team on a prepared construction deck",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 60,
+    "src": "assests/gallery/full/project-060.webp",
+    "thumbnail": "assests/gallery/thumbs/project-060.webp",
+    "caption": "Reinforcement grid before concrete placement",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 61,
+    "src": "assests/gallery/full/project-061.webp",
+    "thumbnail": "assests/gallery/thumbs/project-061.webp",
+    "caption": "Concrete placement on a reinforced deck",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 62,
+    "src": "assests/gallery/full/project-062.webp",
+    "thumbnail": "assests/gallery/thumbs/project-062.webp",
+    "caption": "Site crew inspecting slab reinforcement",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 63,
+    "src": "assests/gallery/full/project-063.webp",
+    "thumbnail": "assests/gallery/thumbs/project-063.webp",
+    "caption": "Concrete pouring and levelling works",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 64,
+    "src": "assests/gallery/full/project-064.webp",
+    "thumbnail": "assests/gallery/thumbs/project-064.webp",
+    "caption": "Reinforcement detail around a slab opening",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 65,
+    "src": "assests/gallery/full/project-065.webp",
+    "thumbnail": "assests/gallery/thumbs/project-065.webp",
+    "caption": "Completed insulated utility building",
+    "width": 640,
+    "height": 360,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 66,
+    "src": "assests/gallery/full/project-066.webp",
+    "thumbnail": "assests/gallery/thumbs/project-066.webp",
+    "caption": "Electrical meters and distribution panel",
+    "width": 640,
+    "height": 360,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 67,
+    "src": "assests/gallery/full/project-067.webp",
+    "thumbnail": "assests/gallery/thumbs/project-067.webp",
+    "caption": "Suspended ceiling framework and ventilation services",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 68,
+    "src": "assests/gallery/full/project-068.webp",
+    "thumbnail": "assests/gallery/thumbs/project-068.webp",
+    "caption": "Reinforced slab and column steelwork",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 69,
+    "src": "assests/gallery/full/project-069.webp",
+    "thumbnail": "assests/gallery/thumbs/project-069.webp",
+    "caption": "Cable routing beside outdoor equipment",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 70,
+    "src": "assests/gallery/full/project-070.webp",
+    "thumbnail": "assests/gallery/thumbs/project-070.webp",
+    "caption": "Overhead mechanical services installation",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 71,
+    "src": "assests/gallery/full/project-071.webp",
+    "thumbnail": "assests/gallery/thumbs/project-071.webp",
+    "caption": "Steel access structure inside an industrial facility",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 72,
+    "src": "assests/gallery/full/project-072.webp",
+    "thumbnail": "assests/gallery/thumbs/project-072.webp",
+    "caption": "Packaged outdoor mechanical equipment",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 73,
+    "src": "assests/gallery/full/project-073.webp",
+    "thumbnail": "assests/gallery/thumbs/project-073.webp",
+    "caption": "Stainless steel industrial equipment detail",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 74,
+    "src": "assests/gallery/full/project-074.webp",
+    "thumbnail": "assests/gallery/thumbs/project-074.webp",
+    "caption": "Precision interior tile installation",
+    "width": 640,
+    "height": 360,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 75,
+    "src": "assests/gallery/full/project-075.webp",
+    "thumbnail": "assests/gallery/thumbs/project-075.webp",
+    "caption": "Wall tile installation in progress",
+    "width": 360,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 76,
+    "src": "assests/gallery/full/project-076.webp",
+    "thumbnail": "assests/gallery/thumbs/project-076.webp",
+    "caption": "Floor tiling and finishing work",
+    "width": 640,
+    "height": 360,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 77,
+    "src": "assests/gallery/full/project-077.webp",
+    "thumbnail": "assests/gallery/thumbs/project-077.webp",
+    "caption": "Exterior paving installation",
+    "width": 640,
+    "height": 360,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 78,
+    "src": "assests/gallery/full/project-078.webp",
+    "thumbnail": "assests/gallery/thumbs/project-078.webp",
+    "caption": "Completed paved access walkway",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 79,
+    "src": "assests/gallery/full/project-079.webp",
+    "thumbnail": "assests/gallery/thumbs/project-079.webp",
+    "caption": "Roof surface finishing works",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 80,
+    "src": "assests/gallery/full/project-080.webp",
+    "thumbnail": "assests/gallery/thumbs/project-080.webp",
+    "caption": "Site crew preparing exterior paving",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 81,
+    "src": "assests/gallery/full/project-081.webp",
+    "thumbnail": "assests/gallery/thumbs/project-081.webp",
+    "caption": "Block paving installation in progress",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 82,
+    "src": "assests/gallery/full/project-082.webp",
+    "thumbnail": "assests/gallery/thumbs/project-082.webp",
+    "caption": "Exterior ground preparation and paving works",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 83,
+    "src": "assests/gallery/full/project-083.webp",
+    "thumbnail": "assests/gallery/thumbs/project-083.webp",
+    "caption": "Night-time crane lift of mechanical equipment",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 84,
+    "src": "assests/gallery/full/project-084.webp",
+    "thumbnail": "assests/gallery/thumbs/project-084.webp",
+    "caption": "Warehouse aisle and overhead installations",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 85,
+    "src": "assests/gallery/full/project-085.webp",
+    "thumbnail": "assests/gallery/thumbs/project-085.webp",
+    "caption": "Insulated ventilation duct installation",
+    "width": 360,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 86,
+    "src": "assests/gallery/full/project-086.webp",
+    "thumbnail": "assests/gallery/thumbs/project-086.webp",
+    "caption": "Concealed ceiling air-conditioning units",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 87,
+    "src": "assests/gallery/full/project-087.webp",
+    "thumbnail": "assests/gallery/thumbs/project-087.webp",
+    "caption": "Cold-storage shelving and metal floor",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 88,
+    "src": "assests/gallery/full/project-088.webp",
+    "thumbnail": "assests/gallery/thumbs/project-088.webp",
+    "caption": "Completed insulated chamber with metal flooring",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 89,
+    "src": "assests/gallery/full/project-089.webp",
+    "thumbnail": "assests/gallery/thumbs/project-089.webp",
+    "caption": "Exterior ventilation ducts and equipment",
+    "width": 480,
+    "height": 640,
+    "sourceLabel": "Project image collection"
+  },
+  {
+    "id": 90,
+    "src": "assests/gallery/full/project-090.webp",
+    "thumbnail": "assests/gallery/thumbs/project-090.webp",
+    "caption": "Colour-coded building services pipework",
+    "width": 640,
+    "height": 480,
+    "sourceLabel": "Project image collection"
+  }
+]

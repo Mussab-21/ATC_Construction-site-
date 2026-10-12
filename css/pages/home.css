@@ -982,6 +982,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: left top;
   display: block;
   position: relative;
   z-index: 1;
@@ -1035,12 +1036,12 @@
 
 .project-card__tags {
   position: absolute;
-  top: 12px;
+  bottom: 12px;
   left: 12px;
   right: 12px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 8px;
   z-index: 2;
   pointer-events: none;
@@ -1448,10 +1449,10 @@
 
 .jv-card__partners {
   display: grid;
-  grid-template-columns: 1fr auto 1.5fr;
+  grid-template-columns: 1fr auto 1fr;
   column-gap: 24px;
-  align-items: center;
-  padding: 14px 18px;
+  align-items: stretch;
+  padding: 16px 20px;
   background: var(--c-white);
   border: 1px solid rgba(17, 17, 17, 0.08);
   border-radius: var(--r-sm);
@@ -1576,7 +1577,7 @@
 
 .jv-partner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--sp-16);
 }
 
@@ -1590,6 +1591,7 @@
   border-radius: var(--r-sm);
   background: rgba(232, 93, 42, 0.08);
   border: 1px solid rgba(232, 93, 42, 0.2);
+  box-sizing: border-box;
 }
 
 .jv-partner__logo--rsc {
@@ -1599,13 +1601,56 @@
   box-sizing: border-box;
 }
 
-.rsc-logo-img {
-  max-height: 72px;
+.jv-atc-logo-img {
+  width: 44px;
+  height: 44px;
   max-width: 100%;
-  width: auto;
-  height: 100%;
+  max-height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.rsc-logo-img {
+  max-height: 46px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.jv-connector {
+  align-self: center;
+  justify-self: center;
+}
+
+.jv-atc-desc {
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--c-steel);
+  margin: 6px 0 0 0;
+}
+
+.jv-service-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 6px;
+  margin-top: 8px;
+}
+
+.jv-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--c-white);
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.67rem;
+  font-weight: 600;
+  color: var(--c-ink);
+  line-height: 1.25;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  white-space: nowrap;
 }
 
 .jv-partner__meta {
@@ -2068,73 +2113,82 @@
 
 
 /* ══════════════════════════════════════════════════════════
-   WHO WE SERVE + QHSE (Merged Two-Column Layout)
+   WHO WE SERVE + QHSE (Slim One-Band Layout)
    ══════════════════════════════════════════════════════════ */
-.who-qhse-merged-layout {
+.who-serve-compact {
+  padding-block: clamp(24px, 3.2vh, 36px);
+  background: var(--c-section-alt);
+}
+
+.who-serve-compact__header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.who-serve-compact__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  color: var(--c-ink);
+  margin-top: 4px;
+  letter-spacing: -0.01em;
+}
+
+.qhse-compact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 12px;
 }
 
-.who-we-serve-col .who-we-serve-chips {
+.qhse-compact-item {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-  justify-content: flex-start;
-}
-
-.qhse-merged-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.85rem;
-}
-
-#who-we-serve .qhse-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 12px;
   background: var(--c-white);
   border: 1px solid rgba(17, 17, 17, 0.08);
-  border-radius: var(--r-md);
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border-radius: var(--r-sm);
+  padding: 12px 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
 }
 
-#who-we-serve .qhse-icon {
-  width: 22px;
-  height: 22px;
+.qhse-compact-item .qhse-icon {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
   color: var(--c-orange);
+  stroke: var(--c-orange);
+  margin-top: 0;
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
-#who-we-serve .qhse-card__text {
+.qhse-compact-text {
+  font-size: 0.82rem;
+  line-height: 1.35;
   color: var(--c-ink);
-  font-size: 0.84rem;
   font-weight: 600;
-  line-height: 1.4;
 }
 
-#who-we-serve .qhse-defense-notice {
-  margin-top: 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--c-ink-light);
-  line-height: 1.5;
+.qhse-compact-footnote {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--c-steel);
+  font-style: italic;
+  line-height: 1.35;
+  margin-top: 4px;
 }
 
-@media (max-width: 992px) {
-  .who-qhse-merged-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+@media (max-width: 900px) {
+  .qhse-compact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }
 
-@media (max-width: 600px) {
-  .qhse-merged-grid {
+@media (max-width: 480px) {
+  .qhse-compact-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
@@ -2233,151 +2287,106 @@
 /* ══════════════════════════════════════════════════════════
    SECTION 1: OUR CLIENTS
    ══════════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════
+   OUR CLIENTS — SLIM CONTINUOUS MARQUEE
+   ══════════════════════════════════════════════════════════ */
 .clients-section {
-  padding-block: var(--sp-64);
+  padding-block: clamp(24px, 3.5vh, 40px);
   background: var(--c-section-alt);
 }
 
 .clients-intro {
-  max-width: 55ch;
+  max-width: 60ch;
   margin-inline: auto;
   color: var(--c-ink-mid);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
 }
 
-.clients-panel {
-  background: #111418;
-  border-radius: var(--r-lg);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-  padding: 2.25rem 2rem;
-  margin-top: 2rem;
-}
-
-.clients-tabs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.clients-tab-btn {
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  padding: 0.5rem 1.4rem;
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  font-weight: 600;
-  cursor: pointer;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--t-fast);
-}
-
-.clients-tab-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--c-white);
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-.clients-tab-btn.active {
-  background: #1A1F26;
-  color: var(--c-white);
-  border: 1.5px solid var(--c-orange);
-  box-shadow: 0 0 12px rgba(232, 93, 42, 0.25);
-}
-
-.clients-tab-btn:focus-visible {
-  outline: 2px solid var(--c-orange);
-  outline-offset: 2px;
-}
-
-.clients-tabpanel {
-  display: none;
-}
-
-.clients-tabpanel.active {
-  display: block;
-}
-
-.clients-tabpanel.fade-in {
-  animation: clientsFade 200ms ease-out forwards;
-}
-
-@keyframes clientsFade {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-.clients-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.client-logo-tile {
-  background: #FFFFFF;
-  border-radius: var(--r-md);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  flex: 0 0 calc((100% - 40px) / 3);
-  max-width: calc((100% - 40px) / 3);
-  min-height: 190px;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.client-marquee-wrap {
   position: relative;
-  transition: transform var(--t-fast), box-shadow var(--t-fast);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
+  width: 100%;
   overflow: hidden;
-  text-align: center;
+  padding-block: 10px;
+  margin-top: 1.5rem;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
-.client-logo-tile:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(232, 93, 42, 0.35);
+.client-marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+  will-change: transform;
 }
 
-.client-logo-tile__content {
+.client-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-marquee-wrap {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .client-marquee-track {
+    animation: none;
+  }
+}
+
+.client-marquee-card {
+  width: 180px;
+  height: 95px;
+  flex: 0 0 180px;
+  background: var(--c-white);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: var(--r-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  padding: 12px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: transform var(--t-fast), box-shadow var(--t-fast), border-color var(--t-fast);
+  box-sizing: border-box;
 }
 
-.client-logo-img {
-  height: 120px;
+.client-marquee-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(232, 93, 42, 0.35);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.client-marquee-img {
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
-  max-width: 90%;
+  height: auto;
   object-fit: contain;
-  filter: grayscale(1) contrast(1.15);
-  opacity: 1;
-  transition: filter var(--t-fast);
   display: block;
 }
 
-.client-logo-tile:hover .client-logo-img {
-  filter: grayscale(0) contrast(1);
+.client-marquee-card--text {
+  background: #111418;
+  border-color: #111418;
 }
 
-.client-wordmark {
-  font-family: var(--font-heading);
+.client-marquee-wordmark {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   font-weight: 700;
-  font-size: 26px;
-  color: var(--c-ink);
-  letter-spacing: -0.01em;
+  color: var(--c-white);
   text-align: center;
-  line-height: 1.25;
+  letter-spacing: 0.03em;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -2567,7 +2576,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, transparent 40%, transparent 65%, rgba(0, 0, 0, 0.35) 100%);
+  background: linear-gradient(180deg, transparent 0%, transparent 40%, rgba(0, 0, 0, 0.45) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -2578,7 +2587,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: left top;
   opacity: 0;
   transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   z-index: 1;
@@ -2644,7 +2653,7 @@
 /* Badges on image: Sector and Country chips */
 .project-card__tags {
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   left: 12px;
   right: 12px;
   display: flex;
@@ -3474,13 +3483,7 @@
   .lead-form-grid {
     grid-template-columns: 1fr;
   }
-  .clients-tabs {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
-  }
+
   .projects-filter-chips {
     overflow-x: auto;
     flex-wrap: nowrap;
@@ -3604,24 +3607,28 @@
     padding: 0;
   }
   #joint-venture .jv-card__partners {
-    grid-template-columns: 1fr auto 1.5fr;
+    grid-template-columns: 1fr auto 1fr;
     column-gap: 20px;
-    padding: 10px 16px;
-    align-items: center;
+    padding: 12px 18px;
+    align-items: stretch;
   }
   #joint-venture .jv-partner {
     gap: 12px;
+    align-items: flex-start;
+  }
+  #joint-venture .jv-connector {
+    align-self: center;
   }
   #joint-venture .jv-partner__logo {
-    width: 46px;
-    height: 46px;
+    width: 58px;
+    height: 58px;
   }
   #joint-venture .jv-atc-logo-img {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
   }
   #joint-venture .rsc-logo-img {
-    max-height: 46px;
+    max-height: 48px;
   }
   #joint-venture .jv-partner__name {
     font-size: 0.95rem;
@@ -3658,30 +3665,10 @@
 
   /* 4. Clients (#clients) */
   #clients.snap-section {
-    padding-block: clamp(16px, 2.5vh, 28px);
+    padding-block: clamp(20px, 3vh, 32px);
   }
-  #clients .clients-panel {
-    padding: 20px;
-  }
-  #clients .clients-tabs {
-    margin-bottom: 14px;
-  }
-  #clients .clients-grid {
-    gap: 14px;
-  }
-  #clients .client-logo-tile {
-    min-height: 165px;
-    padding: 16px;
-  }
-  #clients .client-logo-img {
-    height: 100px;
-    width: auto;
-    max-width: 90%;
-    object-fit: contain;
-  }
-  #clients .client-wordmark {
-    font-size: 20px;
-    font-weight: 700;
+  #clients .client-marquee-card {
+    height: 90px;
   }
 
   /* 5. Projects (#projects) */
@@ -3772,34 +3759,26 @@
 
   /* 8. Who We Serve & QHSE (#who-we-serve) */
   #who-we-serve.snap-section {
-    padding-block: clamp(12px, 1.8vh, 20px);
+    padding-block: clamp(16px, 2.2vh, 26px);
   }
-  #who-we-serve .who-qhse-merged-layout {
-    gap: clamp(18px, 2.4vw, 32px);
-    align-items: center;
+  #who-we-serve .who-serve-compact__header {
+    margin-bottom: 12px;
   }
-  #who-we-serve .who-we-serve-chips {
-    gap: 8px 10px;
-    margin-top: 0;
+  #who-we-serve .who-serve-compact__title {
+    font-size: clamp(20px, 1.8vw, 24px);
   }
-  #who-we-serve .sector-chip {
-    padding: 6px 12px;
-    font-size: 12px;
+  #who-we-serve .qhse-compact-grid {
+    gap: 12px;
+    margin-bottom: 8px;
   }
-  #who-we-serve .qhse-merged-grid {
-    gap: 8px 10px;
-  }
-  #who-we-serve .qhse-card {
+  #who-we-serve .qhse-compact-item {
     padding: 8px 10px;
   }
-  #who-we-serve .qhse-card__text {
-    font-size: 0.75rem;
-    line-height: 1.35;
+  #who-we-serve .qhse-compact-text {
+    font-size: 0.72rem;
   }
-  #who-we-serve .qhse-defense-notice {
-    margin-top: 6px;
-    font-size: 0.68rem;
-    text-align: left;
+  #who-we-serve .qhse-compact-footnote {
+    font-size: 0.65rem;
   }
 
   /* 9. Inquiry Panel (#inquiry-panel) */

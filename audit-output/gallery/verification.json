@@ -1,0 +1,27 @@
+{
+  "initial": 24,
+  "count": 90,
+  "wrap": "90 of 90",
+  "last": "90 of 90",
+  "focusReturned": true,
+  "widths": [
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "columns": "1"
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "columns": "2"
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "columns": "3"
+    }
+  ],
+  "errors": [],
+  "filters": 0,
+  "validatedImageURLs": 180
+}

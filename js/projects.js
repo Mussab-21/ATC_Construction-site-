@@ -1,284 +1,208 @@
-/* js/projects.js — Hierarchical 3-Level Drill-Down & Editorial Grid */
+/* js/projects.js — ATC Projects Portfolio & Integrated Photo Gallery */
 (function () {
   'use strict';
 
   let projectsData = [];
-  let state = {
-    scope: 'all',       // 'all' | 'international' | 'local'
-    country: 'all',     // 'all' | 'Saudi Arabia' | 'Pakistan' ...
-    sector: 'all'       // 'all' | 'defense' | 'industrial' | 'residential' | 'oilgas'
+  let allGalleryPhotos = []; // Extracted from projects
+  let curatedGalleryPhotos = [];
+  let visibleGalleryCount = 24;
+  let lightboxPhotos = [];
+  let activeGalleryIndex = 0;
+  let lastActiveTrigger = null;
+
+  const state = {
+    country: 'all',    // 'all' | 'Pakistan' | 'Saudi Arabia' | 'Bahrain'
+    sector: 'all',     // 'all' | 'commercial' | 'residential' | 'infrastructure'
+    search: ''
   };
 
-  /* ── URL Query Sync ─────────────────────────────────────── */
+  /* ── Safe Escaping Utility (XSS Prevention) ───────────────── */
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  /* ── URL Sync ─────────────────────────────────────────────── */
   function parseUrlParams() {
     const params = new URLSearchParams(window.location.search);
-    const scopeParam = params.get('scope');
     const countryParam = params.get('country');
     const sectorParam = params.get('sector');
+    const searchParam = params.get('q');
 
-    if (scopeParam && ['all', 'international', 'local'].includes(scopeParam.toLowerCase())) {
-      state.scope = scopeParam.toLowerCase();
+    const validCountries = ['all', 'pakistan', 'saudi arabia', 'bahrain'];
+    if (countryParam && validCountries.includes(countryParam.toLowerCase())) {
+      state.country = countryParam === 'all' ? 'all' : (countryParam.charAt(0).toUpperCase() + countryParam.slice(1));
+      if (countryParam.toLowerCase() === 'saudi arabia') state.country = 'Saudi Arabia';
     }
-    if (countryParam) {
-      state.country = countryParam;
-    }
-    if (sectorParam) {
+
+    const validSectors = ['all', 'commercial', 'residential', 'infrastructure'];
+    if (sectorParam && validSectors.includes(sectorParam.toLowerCase())) {
       state.sector = sectorParam.toLowerCase();
+    }
+
+    if (searchParam) {
+      state.search = searchParam.trim();
     }
   }
 
   function syncUrl() {
     const params = new URLSearchParams();
-    if (state.scope !== 'all') params.set('scope', state.scope);
     if (state.country !== 'all') params.set('country', state.country);
     if (state.sector !== 'all') params.set('sector', state.sector);
+    if (state.search) params.set('q', state.search);
 
-    const newUrl = params.toString()
-      ? `${window.location.pathname}?${params.toString()}#projects-section`
-      : `${window.location.pathname}#projects-section`;
-
+    const qs = params.toString();
+    const newUrl = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
     window.history.replaceState(null, '', newUrl);
   }
 
-  /* ── Filter Logic ───────────────────────────────────────── */
+  /* ── Filter Logic ─────────────────────────────────────────── */
   function getFilteredProjects() {
     return projectsData.filter(p => {
-      if (state.scope !== 'all' && p.scope !== state.scope) return false;
-      if (state.country !== 'all' && p.country.toLowerCase() !== state.country.toLowerCase()) return false;
-      if (state.sector !== 'all' && p.sector !== state.sector) return false;
+      // Country match
+      if (state.country !== 'all' && p.country.toLowerCase() !== state.country.toLowerCase()) {
+        return false;
+      }
+      // Sector match
+      if (state.sector !== 'all' && p.sector.toLowerCase() !== state.sector.toLowerCase()) {
+        return false;
+      }
+      // Search match (title, client, location, scope)
+      if (state.search) {
+        const q = state.search.toLowerCase();
+        const searchable = `${p.title} ${p.client || ''} ${p.location || ''} ${p.scopeDesc || ''} ${p.ref || ''}`.toLowerCase();
+        if (!searchable.includes(q)) return false;
+      }
       return true;
     });
   }
 
-  /* ── Render 3-Tier Drilldown Controls ───────────────────── */
+  /* ── Render Controls ──────────────────────────────────────── */
   function renderFilters() {
-    // 1. Level 1: Scope Pills
-    const scopePills = document.getElementById('pills-scope');
-    if (scopePills) {
-      scopePills.querySelectorAll('.filter-pill').forEach(btn => {
+    // 1. Country Pills
+    const countryContainer = document.getElementById('country-pills');
+    if (countryContainer) {
+      countryContainer.querySelectorAll('.filter-pill').forEach(btn => {
         const val = btn.dataset.val;
-        btn.classList.toggle('active', val === state.scope);
+        const isActive = val.toLowerCase() === state.country.toLowerCase();
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
     }
 
-    // 2. Level 2: Country Tier (Only if international)
-    const tierCountry = document.getElementById('tier-country');
-    const pillsCountry = document.getElementById('pills-country');
-    if (tierCountry && pillsCountry) {
-      if (state.scope === 'international') {
-        tierCountry.style.display = 'flex';
-        const intlProjects = projectsData.filter(p => p.scope === 'international');
-        const countries = Array.from(new Set(intlProjects.map(p => p.country)));
-
-        let html = `<button class="filter-pill ${state.country === 'all' ? 'active' : ''}" data-level="country" data-val="all">All Countries</button>`;
-        countries.forEach(c => {
-          const count = intlProjects.filter(p => p.country === c).length;
-          const isActive = state.country.toLowerCase() === c.toLowerCase();
-          html += `<button class="filter-pill ${isActive ? 'active' : ''}" data-level="country" data-val="${c}">${c} <span class="pill-count mono">(${count})</span></button>`;
-        });
-        pillsCountry.innerHTML = html;
-      } else {
-        tierCountry.style.display = 'none';
-        state.country = 'all'; // reset country if not international
-      }
+    // 2. Sector Pills
+    const sectorContainer = document.getElementById('sector-pills');
+    if (sectorContainer) {
+      sectorContainer.querySelectorAll('.filter-pill').forEach(btn => {
+        const val = btn.dataset.val;
+        const isActive = val.toLowerCase() === state.sector.toLowerCase();
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
     }
 
-    // 3. Level 3: Sector Tier (Scoped to available projects in current scope & country)
-    const tierSector = document.getElementById('tier-sector');
-    const pillsSector = document.getElementById('pills-sector');
-    if (tierSector && pillsSector) {
-      // Find candidate pool for sectors
-      const scopePool = projectsData.filter(p => {
-        if (state.scope !== 'all' && p.scope !== state.scope) return false;
-        if (state.country !== 'all' && p.country.toLowerCase() !== state.country.toLowerCase()) return false;
-        return true;
-      });
-
-      const sectorMap = {
-        'defense': 'Defense',
-        'industrial': 'Industrial / Power',
-        'residential': 'Residential',
-        'oilgas': 'Oil & Gas'
-      };
-
-      let html = `<button class="filter-pill ${state.sector === 'all' ? 'active' : ''}" data-level="sector" data-val="all">All Sectors <span class="pill-count mono">(${scopePool.length})</span></button>`;
-
-      Object.keys(sectorMap).forEach(secKey => {
-        const count = scopePool.filter(p => p.sector === secKey).length;
-        if (count > 0) {
-          const isActive = state.sector === secKey;
-          html += `<button class="filter-pill ${isActive ? 'active' : ''}" data-level="sector" data-val="${secKey}">${sectorMap[secKey]} <span class="pill-count mono">(${count})</span></button>`;
-        }
-      });
-
-      pillsSector.innerHTML = html;
+    // 3. Search Input & Clear button
+    const searchInput = document.getElementById('project-search');
+    if (searchInput && searchInput.value !== state.search) {
+      searchInput.value = state.search;
+    }
+    const clearBtn = document.getElementById('clear-filters-btn');
+    if (clearBtn) {
+      const isFiltered = state.country !== 'all' || state.sector !== 'all' || state.search !== '';
+      clearBtn.style.display = isFiltered ? 'inline-flex' : 'none';
     }
 
-    // 4. Update Breadcrumbs & Count
-    renderBreadcrumb();
+
   }
 
-  /* ── Breadcrumb Navigation ──────────────────────────────── */
-  function renderBreadcrumb() {
-    const bcContainer = document.getElementById('projects-breadcrumb');
-    const countEl = document.getElementById('projects-count');
-    const filtered = getFilteredProjects();
-
-    if (countEl) {
-      countEl.textContent = `Showing ${filtered.length} Reference${filtered.length === 1 ? '' : 's'}`;
-    }
-
-    if (!bcContainer) return;
-
-    let items = [
-      `<span class="breadcrumb__item"><a href="#projects-section" data-bc-jump="root">Portfolio</a></span>`
-    ];
-
-    if (state.scope !== 'all') {
-      const scopeLabel = state.scope === 'international' ? 'International' : 'Pakistan';
-      if (state.country === 'all' && state.sector === 'all') {
-        items.push(`<span class="breadcrumb__sep">›</span><span class="breadcrumb__item current">${scopeLabel}</span>`);
-      } else {
-        items.push(`<span class="breadcrumb__sep">›</span><span class="breadcrumb__item"><a href="#projects-section" data-bc-jump="scope">${scopeLabel}</a></span>`);
-      }
-    }
-
-    if (state.country !== 'all' && state.scope === 'international') {
-      if (state.sector === 'all') {
-        items.push(`<span class="breadcrumb__sep">›</span><span class="breadcrumb__item current">${state.country}</span>`);
-      } else {
-        items.push(`<span class="breadcrumb__sep">›</span><span class="breadcrumb__item"><a href="#projects-section" data-bc-jump="country">${state.country}</a></span>`);
-      }
-    }
-
-    if (state.sector !== 'all') {
-      const sectorLabels = {
-        'defense': 'Defense',
-        'industrial': 'Industrial / Power',
-        'residential': 'Residential',
-        'oilgas': 'Oil & Gas'
-      };
-      items.push(`<span class="breadcrumb__sep">›</span><span class="breadcrumb__item current">${sectorLabels[state.sector] || state.sector}</span>`);
-    }
-
-    if (state.scope === 'all' && state.country === 'all' && state.sector === 'all') {
-      items.push(`<span class="breadcrumb__sep">›</span><span class="breadcrumb__item current">All References</span>`);
-    }
-
-    bcContainer.innerHTML = items.join('');
-  }
-
-  /* ── Render Editorial Grid & Spotlight Card ─────────────── */
-  function renderGrid() {
-    const spotlightSlot = document.getElementById('spotlight-slot');
+  /* ── Render Projects Grid ─────────────────────────────────── */
+  function renderProjects() {
     const grid = document.getElementById('projects-grid');
+    const countEl = document.getElementById('projects-count');
     if (!grid) return;
 
     const filtered = getFilteredProjects();
 
+    if (countEl) {
+      countEl.textContent = `Showing ${filtered.length} Project${filtered.length === 1 ? '' : 's'}`;
+    }
+
     if (filtered.length === 0) {
-      if (spotlightSlot) spotlightSlot.innerHTML = '';
       grid.innerHTML = `
         <div class="projects-empty fade-up is-visible">
-          <div class="projects-empty__icon">
+          <div class="projects-empty__icon" aria-hidden="true">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </div>
           <h3>No matching projects found</h3>
-          <p>We do not have indexed public references for this specific combination. Reset filters or consult our engineering desk.</p>
-          <button class="btn btn--primary btn--sm" id="reset-filters-btn">View All Projects</button>
+          <p>We do not have public references matching your current filter criteria. Reset your search or consult our engineering desk.</p>
+          <button type="button" class="btn btn--primary btn--sm" id="empty-reset-btn">Reset All Filters</button>
         </div>`;
 
-      const resetBtn = document.getElementById('reset-filters-btn');
-      if (resetBtn) {
-        resetBtn.addEventListener('click', () => {
-          state = { scope: 'all', country: 'all', sector: 'all' };
+      const emptyReset = document.getElementById('empty-reset-btn');
+      if (emptyReset) {
+        emptyReset.addEventListener('click', () => {
+          state.country = 'all';
+          state.sector = 'all';
+          state.search = '';
           syncUrl();
           renderFilters();
-          renderGrid();
+          renderProjects();
         });
       }
       return;
     }
 
-    // 1. Featured Spotlight Project Card (Top Project)
-    const featuredProject = filtered.find(p => p.featured) || filtered[0];
-    const remainingProjects = filtered.filter(p => p.id !== featuredProject.id);
-
-    if (spotlightSlot) {
-      const tagClass = `tag--${featuredProject.sector}`;
-      const divs = (featuredProject.divisions || []).slice(0, 3).map(d => `<span class="division-pill">${d}</span>`).join('');
-      const imageSrc = featuredProject.image || 'assests/images/atc-services-hero-single.jpg';
-
-      spotlightSlot.innerHTML = `
-        <article class="spotlight-card fade-up is-visible" data-id="${featuredProject.id}">
-          <div class="spotlight-card__media">
-            <img src="${imageSrc}" alt="${featuredProject.title}" class="spotlight-card__img" loading="lazy" onerror="this.style.display='none'">
-            <div class="spotlight-card__scrim"></div>
-            <div class="spotlight-card__media-badge mono">
-              <span class="spotlight-pulse"></span> FEATURED REFERENCE
-            </div>
-            <span class="spotlight-card__ref mono">${featuredProject.ref}</span>
-          </div>
-          <div class="spotlight-card__body">
-            <div class="spotlight-card__top">
-              <span class="tag ${tagClass}">${featuredProject.sectorLabel}</span>
-              <span class="spotlight-card__country mono">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                ${featuredProject.location}
-              </span>
-            </div>
-            <h3 class="spotlight-card__title">${featuredProject.title}</h3>
-            ${featuredProject.client ? `<div class="spotlight-card__client mono">CLIENT · <span>${featuredProject.client}</span></div>` : ''}
-            <p class="spotlight-card__desc">${featuredProject.scopeDesc || featuredProject.scope}</p>
-            <div class="spotlight-card__footer">
-              <div class="division-pills">${divs}</div>
-              <button class="btn btn--primary spotlight-card__btn" data-open-modal="${featuredProject.id}" aria-label="Open ${featuredProject.title} project dossier">
-                View Dossier <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-        </article>`;
-    }
-
-    // 2. Remaining Editorial Grid Cards
     grid.innerHTML = '';
 
-    remainingProjects.forEach((project, idx) => {
+    filtered.forEach(p => {
       const card = document.createElement('article');
-      // Every 3rd card can take a wider editorial span if on desktop
-      const isWide = (idx % 3 === 0 && remainingProjects.length > 2);
-      card.className = `project-card ${isWide ? 'project-card--wide' : ''} fade-up is-visible`;
-      card.dataset.sector = project.sector;
-      card.setAttribute('data-id', project.id);
+      card.className = 'project-card fade-up is-visible';
+      card.dataset.id = p.id;
 
-      const tagClass = `tag--${project.sector}`;
-      const divs = (project.divisions || []).slice(0, 2).map(d => `<span class="division-pill">${d}</span>`).join('');
-      const imageSrc = project.image || 'assests/images/atc-services-hero-single.jpg';
+      const sectorClass = `tag--${p.sector}`;
+      const divisionsList = (p.divisions || []).slice(0, 2).map(d => `<span class="division-pill">${escapeHtml(d)}</span>`).join('');
+      const photoCount = (p.photos && p.photos.length) || 0;
 
       card.innerHTML = `
         <div class="project-card__thumb-wrap">
-          <img src="${imageSrc}" alt="${project.title}" class="project-card__thumb-img" loading="lazy" onerror="this.parentElement.classList.add('has-fallback')">
-          <div class="project-card__thumb-scrim"></div>
-          <span class="project-card__ref mono">${project.ref}</span>
-          <div class="project-card__thumb-fallback" aria-hidden="true">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(232,93,42,0.8)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-          </div>
+          ${p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}" class="project-card__thumb-img" loading="lazy" onerror="this.closest('.project-card__thumb-wrap').classList.add('has-fallback')">` : `<div class="project-card__thumb-fallback" style="display:flex"><div class="thumb-fallback-content"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span class="mono">Site Photography in Review</span></div></div>`}
+          <div class="project-card__thumb-scrim" aria-hidden="true"></div>
+          <span class="project-card__ref mono">${escapeHtml(p.ref)}</span>
+          <span class="project-card__loc-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            ${escapeHtml(p.location)}
+          </span>
         </div>
         <div class="project-card__body">
           <div class="project-card__meta">
-            <span class="tag ${tagClass}">${project.sectorLabel}</span>
-            <span class="project-card__location">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-              ${project.location}
-            </span>
+            <span class="tag ${sectorClass}">${escapeHtml(p.sectorLabel)}</span>
+            ${p.status ? `<span class="project-status mono ${p.status.toLowerCase().includes('under') ? 'status--active' : 'status--completed'}">${escapeHtml(p.status)}</span>` : ''}
           </div>
-          <h3 class="project-card__title">${project.title}</h3>
-          <p class="project-card__scope">${project.scopeDesc || project.scope}</p>
+          <h3 class="project-card__title">
+            <a href="#${escapeHtml(p.id)}" class="project-card__link" data-open-project="${escapeHtml(p.id)}">${escapeHtml(p.title)}</a>
+          </h3>
+          <div class="project-card__role mono">
+            <span>CLIENT · <strong>${escapeHtml(p.client)}</strong></span>
+            ${p.role ? `<span class="project-card__role-bullet">|</span><span>${escapeHtml(p.role)}</span>` : ''}
+          </div>
+          <p class="project-card__scope">${escapeHtml(p.scopeDesc)}</p>
           <div class="project-card__footer">
-            <div class="division-pills">${divs}</div>
-            <button class="btn btn--sm btn--primary" data-open-modal="${project.id}" aria-label="View ${project.title} details">
-              View <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
+            <div class="division-pills">${divisionsList}</div>
+            <div class="project-card__actions">
+              ${photoCount > 0 ? `
+                <button type="button" class="btn btn--outline btn--sm project-card__photos-btn" data-open-project-photos="${escapeHtml(p.id)}" aria-label="View ${photoCount} photos for ${escapeHtml(p.title)}">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  ${photoCount}
+                </button>` : ''}
+              <button type="button" class="btn btn--primary btn--sm" data-open-project="${escapeHtml(p.id)}" aria-label="View details for ${escapeHtml(p.title)}">
+                View Project <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
           </div>
         </div>`;
 
@@ -286,153 +210,517 @@
     });
   }
 
-  /* ── Global Event Delegation ────────────────────────────── */
+  /* ── Render Photo Gallery Grid ────────────────────────────── */
+  function renderGallery() {
+    const grid = document.getElementById('gallery-grid');
+    if (!grid) return;
+    const shown = curatedGalleryPhotos.slice(0, visibleGalleryCount);
+    grid.innerHTML = shown.map((photo, index) => `
+      <div class="gallery-card">
+        <button type="button" class="gallery-card__btn" data-curated-index="${index}" aria-label="View photo ${index + 1}: ${escapeHtml(photo.caption)}">
+          <img src="${escapeHtml(photo.thumbnail)}" alt="${escapeHtml(photo.caption)}" class="gallery-card__img" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async">
+          <span class="gallery-card__overlay" aria-hidden="true"><span class="gallery-card__zoom-icon">＋</span></span>
+        </button>
+      </div>`).join('');
+    const count = document.getElementById('gallery-count');
+    if (count) count.textContent = `${shown.length} of ${curatedGalleryPhotos.length} photographs`;
+    const more = document.getElementById('gallery-load-more');
+    if (more) more.hidden = shown.length >= curatedGalleryPhotos.length;
+  }
+
+  /* ── Accessible Modal Focus Trap Helper ───────────────────── */
+  function trapFocus(modalEl) {
+    const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const focusableElements = Array.from(modalEl.querySelectorAll(focusableSelectors))
+      .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
+
+    if (focusableElements.length === 0) return;
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    firstElement.focus();
+
+    function handleTab(e) {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    }
+
+    modalEl._focusHandler = handleTab;
+    modalEl.addEventListener('keydown', handleTab);
+  }
+
+  function releaseFocusTrap(modalEl) {
+    if (modalEl._focusHandler) {
+      modalEl.removeEventListener('keydown', modalEl._focusHandler);
+      delete modalEl._focusHandler;
+    }
+  }
+
+  /* ── Project Details Modal ────────────────────────────────── */
+  function openProjectModal(project) {
+    const overlay = document.getElementById('project-modal');
+    const mainContent = document.getElementById('main-content');
+    if (!overlay) return;
+
+    lastActiveTrigger = document.activeElement;
+
+    const sectorClass = `tag--${project.sector}`;
+    const divisionsHtml = (project.divisions || []).map(d => `<span class="division-pill">${escapeHtml(d)}</span>`).join('');
+    
+    // Project photos thumbnail strip
+    let photosHtml = '';
+    if (project.photos && project.photos.length > 0) {
+      photosHtml = `
+        <div class="modal__photos-section">
+          <h4 class="modal__section-heading mono">PROJECT PHOTOGRAPHY &amp; EVIDENCE (${project.photos.length})</h4>
+          <div class="modal__photos-grid">
+            ${project.photos.map(ph => {
+              const globalMatch = allGalleryPhotos.find(gp => gp.src === ph.src);
+              const idx = globalMatch ? globalMatch.globalIndex : 0;
+              return `
+                <button type="button" class="modal__photo-thumb" data-lightbox-index="${idx}" aria-label="Enlarge: ${escapeHtml(ph.caption)}">
+                  <img src="${escapeHtml(ph.src)}" alt="${escapeHtml(ph.caption)}" loading="lazy">
+                  <span class="modal__photo-caption mono">${escapeHtml(ph.caption)}</span>
+                </button>`;
+            }).join('')}
+          </div>
+        </div>`;
+    }
+
+    const metaContainer = document.getElementById('modal-project-meta');
+    if (metaContainer) {
+      metaContainer.innerHTML = `
+        <span class="tag ${sectorClass}">${escapeHtml(project.sectorLabel)}</span>
+        <span class="modal__ref mono">${escapeHtml(project.ref)}</span>
+        <span class="modal__country mono">${escapeHtml(project.country)}</span>
+      `;
+    }
+
+    const titleContainer = document.getElementById('modal-project-title');
+    if (titleContainer) {
+      titleContainer.textContent = project.title;
+    }
+
+    const bodyContainer = document.getElementById('modal-project-body');
+    if (bodyContainer) {
+      bodyContainer.innerHTML = `
+        ${project.image ? `
+        <div class="modal__hero-frame">
+          <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title)}" class="modal__hero-img">
+          <div class="modal__hero-overlay" aria-hidden="true"></div>
+          <span class="modal__hero-loc mono">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            ${escapeHtml(project.location)}
+          </span>
+        </div>` : `
+        <div class="modal__hero-frame has-fallback">
+          <div class="modal__hero-fallback">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="mono">Site Photography in Archival Review</span>
+          </div>
+          <span class="modal__hero-loc mono">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            ${escapeHtml(project.location)}
+          </span>
+        </div>`}
+
+        <div class="modal__specs-grid">
+          <div class="modal__spec-item">
+            <span class="modal__spec-label mono">CLIENT / PARTNER</span>
+            <span class="modal__spec-val">${escapeHtml(project.client)}</span>
+          </div>
+          <div class="modal__spec-item">
+            <span class="modal__spec-label mono">ATC CONTRACT ROLE</span>
+            <span class="modal__spec-val">${escapeHtml(project.role || 'Contractor')}</span>
+          </div>
+          <div class="modal__spec-item">
+            <span class="modal__spec-label mono">PROJECT STATUS</span>
+            <span class="modal__spec-val">${escapeHtml(project.status || 'Verified Reference')}</span>
+          </div>
+          <div class="modal__spec-item">
+            <span class="modal__spec-label mono">LOCATION</span>
+            <span class="modal__spec-val">${escapeHtml(project.location)}</span>
+          </div>
+        </div>
+
+        <div class="modal__scope-box">
+          <h4 class="modal__section-heading mono">APPROVED SCOPE &amp; DELIVERY RESPONSIBILITY</h4>
+          <p id="modal-project-desc" class="modal__scope-desc">${escapeHtml(project.scopeDesc)}</p>
+        </div>
+
+        <div class="modal__divisions-box">
+          <h4 class="modal__section-heading mono">INVOLVED ENGINEERING DISCIPLINES</h4>
+          <div class="division-pills">${divisionsHtml}</div>
+        </div>
+
+        ${photosHtml}
+
+        <div class="modal__footer-action">
+          <a href="contact.html?service=${encodeURIComponent(project.divisions[0] || 'Engineering')}&project=${encodeURIComponent(project.title)}" class="btn btn--primary">
+            Discuss a Similar Project
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>`;
+    }
+
+    overlay.removeAttribute('hidden');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (mainContent) mainContent.setAttribute('inert', '');
+
+    // Set URL hash for deep-linking
+    window.location.hash = project.id;
+
+    trapFocus(overlay);
+  }
+
+  function closeProjectModal() {
+    const overlay = document.getElementById('project-modal');
+    const mainContent = document.getElementById('main-content');
+    if (!overlay || overlay.hasAttribute('hidden')) return;
+
+    releaseFocusTrap(overlay);
+    overlay.classList.remove('open');
+    overlay.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+    if (mainContent) mainContent.removeAttribute('inert');
+
+    // Remove hash without scroll jump
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
+    if (lastActiveTrigger) {
+      lastActiveTrigger.focus();
+      lastActiveTrigger = null;
+    }
+  }
+
+  /* ── Gallery Lightbox Viewer ──────────────────────────────── */
+  function openLightbox(index, photos = allGalleryPhotos) {
+    lightboxPhotos = photos;
+    if (lightboxPhotos.length === 0) return;
+    activeGalleryIndex = Math.max(0, Math.min(index, lightboxPhotos.length - 1));
+
+    const overlay = document.getElementById('lightbox-modal');
+    const mainContent = document.getElementById('main-content');
+    if (!overlay) return;
+
+    lastActiveTrigger = document.activeElement;
+
+    updateLightboxContent();
+
+    overlay.removeAttribute('hidden');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (mainContent) mainContent.setAttribute('inert', '');
+
+    trapFocus(overlay);
+  }
+
+  function updateLightboxContent() {
+    const photo = lightboxPhotos[activeGalleryIndex];
+    if (!photo) return;
+
+    const img = document.getElementById('lightbox-img');
+    const captionEl = document.getElementById('lightbox-caption');
+    const projectEl = document.getElementById('lightbox-project');
+    const counterEl = document.getElementById('lightbox-counter');
+    const viewProjectBtn = document.getElementById('lightbox-view-project');
+
+    if (img) {
+      img.src = photo.src;
+      img.alt = photo.caption;
+    }
+    if (captionEl) captionEl.textContent = photo.caption;
+    if (projectEl) projectEl.textContent = photo.sourceLabel || photo.projectTitle || 'Project gallery';
+    if (counterEl) counterEl.textContent = `${activeGalleryIndex + 1} of ${lightboxPhotos.length}`;
+
+    if (viewProjectBtn) {
+      viewProjectBtn.hidden = !photo.projectId;
+      viewProjectBtn.onclick = () => {
+        closeLightbox();
+        const project = projectsData.find(p => p.id === photo.projectId);
+        if (project) {
+          setTimeout(() => openProjectModal(project), 100);
+        }
+      };
+    }
+  }
+
+  function prevLightbox() {
+    if (lightboxPhotos.length === 0) return;
+    activeGalleryIndex = (activeGalleryIndex - 1 + lightboxPhotos.length) % lightboxPhotos.length;
+    updateLightboxContent();
+  }
+
+  function nextLightbox() {
+    if (lightboxPhotos.length === 0) return;
+    activeGalleryIndex = (activeGalleryIndex + 1) % lightboxPhotos.length;
+    updateLightboxContent();
+  }
+
+  function closeLightbox() {
+    const overlay = document.getElementById('lightbox-modal');
+    const mainContent = document.getElementById('main-content');
+    if (!overlay || overlay.hasAttribute('hidden')) return;
+
+    releaseFocusTrap(overlay);
+    overlay.classList.remove('open');
+    overlay.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+    if (mainContent) mainContent.removeAttribute('inert');
+
+    if (lastActiveTrigger) {
+      lastActiveTrigger.focus();
+      lastActiveTrigger = null;
+    }
+  }
+
+  /* ── Event Listeners ──────────────────────────────────────── */
   function initEvents() {
-    // 1. Drilldown Pill Clicks
+    // 1. Delegated Filter and Card interactions
     document.addEventListener('click', e => {
-      const pill = e.target.closest('.filter-pill');
-      if (pill) {
-        const level = pill.dataset.level;
-        const val = pill.dataset.val;
-
-        if (level === 'scope') {
-          state.scope = val;
-          state.country = 'all';
-          state.sector = 'all';
-        } else if (level === 'country') {
-          state.country = val;
-          state.sector = 'all';
-        } else if (level === 'sector') {
-          state.sector = val;
-        }
-
+      // Country Filter click
+      const countryBtn = e.target.closest('[data-filter="country"]');
+      if (countryBtn) {
+        state.country = countryBtn.dataset.val;
         syncUrl();
         renderFilters();
-        renderGrid();
+        renderProjects();
+        return;
       }
 
-      // 2. Breadcrumb Jumps
-      const bc = e.target.closest('[data-bc-jump]');
-      if (bc) {
+      // Sector Filter click
+      const sectorBtn = e.target.closest('[data-filter="sector"]');
+      if (sectorBtn) {
+        state.sector = sectorBtn.dataset.val;
+        syncUrl();
+        renderFilters();
+        renderProjects();
+        return;
+      }
+
+      const curatedTrigger = e.target.closest('[data-curated-index]');
+      if (curatedTrigger) {
+        openLightbox(Number(curatedTrigger.dataset.curatedIndex), curatedGalleryPhotos);
+        return;
+      }
+      if (e.target.closest('#gallery-load-more')) {
+        const firstNewIndex = visibleGalleryCount;
+        visibleGalleryCount += 24;
+        renderGallery();
+        document.querySelector(`[data-curated-index="${firstNewIndex}"]`)?.focus({ preventScroll: true });
+        return;
+      }
+
+      // Clear Filters button
+      if (e.target.closest('#clear-filters-btn')) {
+        state.country = 'all';
+        state.sector = 'all';
+        state.search = '';
+        syncUrl();
+        renderFilters();
+        renderProjects();
+        return;
+      }
+
+      // Open Project Modal
+      const openProj = e.target.closest('[data-open-project]');
+      if (openProj) {
         e.preventDefault();
-        const jump = bc.dataset.bcJump;
-        if (jump === 'root') {
-          state = { scope: 'all', country: 'all', sector: 'all' };
-        } else if (jump === 'scope') {
-          state.country = 'all';
-          state.sector = 'all';
-        } else if (jump === 'country') {
-          state.sector = 'all';
-        }
-
-        syncUrl();
-        renderFilters();
-        renderGrid();
-      }
-
-      // 3. Hero Showcase Deep-Link Cards
-      const deepCard = e.target.closest('[data-deep-scope]');
-      if (deepCard) {
-        state.scope = deepCard.dataset.deepScope || 'all';
-        state.country = deepCard.dataset.deepCountry || 'all';
-        state.sector = deepCard.dataset.deepSector || 'all';
-
-        syncUrl();
-        renderFilters();
-        renderGrid();
-
-        // Smooth scroll to portfolio section
-        const targetSection = document.getElementById('projects-section');
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-
-      // 4. Modal Open
-      const modalTrigger = e.target.closest('[data-open-modal]');
-      if (modalTrigger) {
-        const id = modalTrigger.dataset.openModal;
+        const id = openProj.dataset.openProject;
         const project = projectsData.find(p => p.id === id);
-        if (project) openModal(project);
+        if (project) openProjectModal(project);
+        return;
+      }
+
+      // Open Project Photos directly into Lightbox
+      const openPhotosBtn = e.target.closest('[data-open-project-photos]');
+      if (openPhotosBtn) {
+        e.preventDefault();
+        const id = openPhotosBtn.dataset.openProjectPhotos;
+        const project = projectsData.find(p => p.id === id);
+        if (project && project.photos && project.photos.length > 0) {
+          const firstPhoto = project.photos[0];
+          const matchIndex = allGalleryPhotos.findIndex(ph => ph.src === firstPhoto.src);
+          if (matchIndex !== -1) {
+            openLightbox(matchIndex);
+          }
+        }
+        return;
+      }
+
+      // Open Lightbox by index
+      const lightboxTrigger = e.target.closest('[data-lightbox-index]');
+      if (lightboxTrigger) {
+        e.preventDefault();
+        const idx = parseInt(lightboxTrigger.dataset.lightboxIndex, 10);
+        if (!isNaN(idx)) openLightbox(idx);
+        return;
+      }
+
+      // Modal Close Buttons
+      if (e.target.closest('#modal-close')) {
+        closeProjectModal();
+        return;
+      }
+
+      if (e.target.closest('#lightbox-close')) {
+        closeLightbox();
+        return;
+      }
+
+      // Lightbox Prev / Next
+      if (e.target.closest('#lightbox-prev')) {
+        prevLightbox();
+        return;
+      }
+
+      if (e.target.closest('#lightbox-next')) {
+        nextLightbox();
+        return;
+      }
+
+      // Click outside modal content closes it
+      const projectModal = document.getElementById('project-modal');
+      if (e.target === projectModal) {
+        closeProjectModal();
+        return;
+      }
+
+      const lightboxModal = document.getElementById('lightbox-modal');
+      if (e.target === lightboxModal) {
+        closeLightbox();
+        return;
+      }
+    });
+
+    // 2. Search Input Handling (with debounce)
+    const searchInput = document.getElementById('project-search');
+    if (searchInput) {
+      let debounceTimer = null;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          state.search = searchInput.value.trim();
+          syncUrl();
+          renderFilters();
+          renderProjects();
+        }, 250);
+      });
+    }
+
+    // 3. Keyboard Navigation (Escape, ArrowLeft, ArrowRight)
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const lightboxModal = document.getElementById('lightbox-modal');
+        if (lightboxModal && !lightboxModal.hasAttribute('hidden')) {
+          closeLightbox();
+          return;
+        }
+        const projectModal = document.getElementById('project-modal');
+        if (projectModal && !projectModal.hasAttribute('hidden')) {
+          closeProjectModal();
+          return;
+        }
+      }
+
+      const lightboxModal = document.getElementById('lightbox-modal');
+      if (lightboxModal && !lightboxModal.hasAttribute('hidden')) {
+        if (e.key === 'ArrowLeft') prevLightbox();
+        if (e.key === 'ArrowRight') nextLightbox();
+      }
+    });
+
+    // 4. Hashchange Listener (Supports Browser Back & direct deep-linking)
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash) {
+        closeProjectModal();
+        return;
+      }
+      const project = projectsData.find(p => p.id === hash);
+      if (project) {
+        openProjectModal(project);
       }
     });
   }
 
-  /* ── Modal Dialog ───────────────────────────────────────── */
-  function openModal(project) {
-    const overlay = document.getElementById('project-modal');
-    if (!overlay) return;
-
-    const tagClass = `tag--${project.sector}`;
-    const divs = (project.divisions || []).map(d => `<span class="division-pill">${d}</span>`).join('');
-    const imageSrc = project.image || 'assests/images/atc-services-hero-single.jpg';
-
-    overlay.querySelector('.modal__content').innerHTML = `
-      <div class="modal__header">
-        <div class="modal__meta">
-          <span class="tag ${tagClass}">${project.sectorLabel}</span>
-          <span class="mono" style="color:var(--c-steel);font-size:0.65rem;margin-left:0.75rem">${project.ref}</span>
-        </div>
-        <h2 style="margin-top:0.75rem;font-size:var(--text-h3);line-height:1.25">${project.title}</h2>
-        <button class="modal__close" id="modal-close" aria-label="Close modal">✕</button>
-      </div>
-      <div class="modal__body">
-        <div class="modal__media-frame" style="height:260px;border-radius:var(--r-sm);margin-bottom:1.5rem;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.12);background:#141418">
-          <img src="${imageSrc}" alt="${project.title}" style="width:100%;height:100%;object-fit:cover" loading="lazy">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(14,14,18,0.7) 0%, transparent 60%)"></div>
-          <span class="mono" style="position:absolute;bottom:0.75rem;right:0.75rem;font-size:0.6rem;color:#fff;background:rgba(0,0,0,0.7);padding:2px 8px;border-radius:2px">${project.location}</span>
-        </div>
-        ${project.client ? `
-        <div style="margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem">
-          <span class="mono" style="font-size:0.65rem;color:var(--c-orange);font-weight:700">CLIENT:</span>
-          <span style="font-size:var(--text-sm);font-weight:600;color:var(--c-ink)">${project.client}</span>
-        </div>` : ''}
-        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--c-brass)" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          <span style="font-size:var(--text-sm);color:var(--c-steel)">${project.location}</span>
-        </div>
-        <h4 style="margin-bottom:0.6rem;font-size:var(--text-sm);letter-spacing:0.06em;text-transform:uppercase;color:var(--c-ink)">Project Scope &amp; Delivery</h4>
-        <p style="margin-bottom:1.5rem;font-size:var(--text-sm);line-height:1.6;color:var(--c-steel)">${project.scopeDesc || project.scope}</p>
-        <h4 style="margin-bottom:0.6rem;font-size:var(--text-sm);letter-spacing:0.06em;text-transform:uppercase;color:var(--c-ink)">Engineering Divisions Involved</h4>
-        <div class="division-pills" style="flex-wrap:wrap;gap:6px">${divs}</div>
-        <div style="margin-top:2rem;padding-top:1.5rem;border-top:var(--border-thin);display:flex;justify-content:space-between;align-items:center">
-          <a href="contact.html?service=${encodeURIComponent(project.divisions[0] || 'Projects')}" class="btn btn--primary">
-            Inquire About Similar Specifications
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>`;
-
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-
-    overlay.querySelector('#modal-close').addEventListener('click', closeModal);
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-  }
-
-  function closeModal() {
-    const overlay = document.getElementById('project-modal');
-    if (overlay) overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-  /* ── Initialization ─────────────────────────────────────── */
+  /* ── Initialization ───────────────────────────────────────── */
   parseUrlParams();
   initEvents();
 
+  fetch('data/gallery.json')
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
+    .then(photos => {
+      curatedGalleryPhotos = photos;
+      renderGallery();
+    })
+    .catch(() => {
+      document.getElementById('gallery-grid').innerHTML = '<p>Unable to load photographs. Please refresh the page to try again.</p>';
+      document.getElementById('gallery-load-more').hidden = true;
+    });
+
   fetch('data/projects.json')
-    .then(r => r.json())
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
     .then(data => {
       projectsData = data;
+
+      // Flatten gallery photos
+      let gIndex = 0;
+      allGalleryPhotos = [];
+      projectsData.forEach(p => {
+        if (p.photos && p.photos.length > 0) {
+          p.photos.forEach(ph => {
+            allGalleryPhotos.push({
+              globalIndex: gIndex++,
+              src: ph.src,
+              caption: ph.caption,
+              category: ph.category,
+              type: ph.type || 'Site Photograph',
+              projectId: p.id,
+              projectTitle: p.title
+            });
+          });
+        }
+      });
+
       renderFilters();
-      renderGrid();
+      renderProjects();
+      // Check initial hash deep-link
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const matchingProject = projectsData.find(p => p.id === hash);
+        if (matchingProject) {
+          openProjectModal(matchingProject);
+        }
+      }
     })
     .catch(err => {
-      console.error('Failed to load project portfolio:', err);
+      console.error('Failed to load projects data:', err);
       const grid = document.getElementById('projects-grid');
-      if (grid) grid.innerHTML = '<p class="no-results">Portfolio failed to load. Please refresh.</p>';
+      if (grid) {
+        grid.innerHTML = '<p class="projects-empty">Unable to load project portfolio. Please check network connection and refresh.</p>';
+      }
     });
 
 })();

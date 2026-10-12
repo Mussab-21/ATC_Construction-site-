@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/base.css?v=6">
 <link rel="stylesheet" href="css/components.css?v=7">
 <link rel="stylesheet" href="css/animations.css?v=6">
-<link rel="stylesheet" href="css/pages/home.css?v=15">
+<link rel="stylesheet" href="css/pages/home.css?v=17">
 </head>
 <body>
 
@@ -115,7 +115,7 @@
     <div class="hero__content">
       <span class="label hero__label">ENGINEERING · CONSULTANCY · PROCUREMENT</span>
       <h1 class="hero__headline"><span class="hero__line">Integrated Expertise.</span><br><span class="hero__line hero__accent">Complete Project Solutions.</span></h1>
-      <p class="hero__sub">Delivering integrated solutions across civil construction, infrastructure development, MEP engineering, technical consultancy, and strategic procurement from concept to completion.</p>
+      <p class="hero__sub">ATC delivers integrated engineering and contracting services — from design and civil construction to electrical systems, oil &amp; gas, and smart infrastructure.</p>
       <div class="hero__actions">
         <a href="contact.html" class="btn btn--primary">Discuss Your Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <a href="#projects" class="btn btn--ghost">View Projects</a>
@@ -163,12 +163,22 @@
         <div class="jv-card__partners">
           <div class="jv-partner jv-partner--atc">
             <div class="jv-partner__logo">
-              <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="jv-atc-logo-img" width="48" height="48">
+              <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="jv-atc-logo-img" width="58" height="58">
             </div>
             <div class="jv-partner__meta">
               <span class="jv-partner__name">Azaan Trading &amp; Contracting</span>
               <span class="jv-partner__role">Multi-Regional Engineering Solutions</span>
               <span class="jv-partner__jurisdiction mono">Pakistan · Saudi Arabia · Bahrain</span>
+              <p class="jv-atc-desc">Delivering integrated solutions across civil construction, infrastructure development, MEP engineering, technical consultancy, and strategic procurement from concept to completion.</p>
+              <div class="jv-service-pills">
+                <span class="jv-pill">Civil &amp; Infrastructure</span>
+                <span class="jv-pill">Electrical &amp; MEP</span>
+                <span class="jv-pill">Finishing Works</span>
+                <span class="jv-pill">Security &amp; Smart Systems</span>
+                <span class="jv-pill">Defense &amp; O&amp;M</span>
+                <span class="jv-pill">Consultancy</span>
+                <span class="jv-pill">Procurement &amp; Supply</span>
+              </div>
             </div>
           </div>
           <div class="jv-connector" aria-hidden="true">
@@ -330,6 +340,10 @@
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
       <div class="services-dots" id="services-dots" role="tablist" aria-label="Services pagination"></div>
+      <button class="services-ctrl-btn services-ctrl-btn--playpause" id="services-playpause-btn" aria-label="Pause auto-scroll" aria-pressed="false" title="Pause auto-scroll">
+        <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+        <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </button>
       <button class="services-ctrl-btn" id="services-next-btn" aria-label="Next service" title="Next service">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
       </button>
@@ -425,12 +439,94 @@
       <span class="label fade-up">OUR CLIENTS</span>
       <h2 class="fade-up" style="--fade-delay:0.06s">Trusted by Industry Leaders</h2>
       <div class="divider divider--centered divider--animated"></div>
-      <p class="fade-up clients-intro" style="--fade-delay:0.12s"><em>Building lasting relationships with leading organizations across Pakistan, Saudi Arabia, and Bahrain.</em></p>
+      <p class="fade-up clients-intro" style="--fade-delay:0.12s">Government, defense and private-sector clients across the MENA region.</p>
     </div>
 
-    <!-- Rounded dark panel with country tabs and logo grid -->
-    <div class="clients-panel fade-up" style="--fade-delay:0.18s">
-      <div id="clients-mount"></div>
+    <!-- Slim Marquee Logo Strip -->
+    <div class="client-marquee-wrap fade-up" style="--fade-delay:0.18s">
+      <div class="client-marquee-track">
+        <!-- Set 1 -->
+        <div class="client-marquee-card">
+          <img src="assests/clients/awt-investment.png" alt="AWT Investment" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/ary-laguna.png" alt="ARY Laguna" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/fwo-balochistan.png" alt="FWO" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/fc-balochistan.png" alt="FC Balochistan" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/roshn-villas.png" alt="ROSHN" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/herfy-foods.svg" alt="Herfy Foods" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/american-military-ksa.png" alt="American Military Facilities, KSA" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/sanabis.png" alt="Sanabis" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/al-ghanah.png" alt="Al Ghanah Group" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/ahcc.png" alt="AHCC" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/almoayyed.png" alt="Almoayyed International Group" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card">
+          <img src="assests/clients/ewan.png" alt="Ewan" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card client-marquee-card--text">
+          <span class="client-marquee-wordmark">Private Clients</span>
+        </div>
+
+        <!-- Set 2 (Duplicate for seamless loop, aria-hidden="true") -->
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/awt-investment.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/ary-laguna.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/fwo-balochistan.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/fc-balochistan.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/roshn-villas.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/herfy-foods.svg" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/american-military-ksa.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/sanabis.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/al-ghanah.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/ahcc.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/almoayyed.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card" aria-hidden="true">
+          <img src="assests/clients/ewan.png" alt="" class="client-marquee-img" loading="lazy">
+        </div>
+        <div class="client-marquee-card client-marquee-card--text" aria-hidden="true">
+          <span class="client-marquee-wordmark">Private Clients</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -480,64 +576,37 @@
   </div>
 </section>
 
-<!-- 9. WHO WE SERVE + QHSE (Merged Two-Column Layout) -->
-<section class="section section--alt snap-section" id="who-we-serve" aria-label="Who We Serve &amp; QHSE">
+<!-- 9. WHO WE SERVE + QHSE (One Slim Band) -->
+<section class="section section--alt snap-section who-serve-compact" id="who-we-serve" aria-label="Who We Serve &amp; QHSE">
   <div class="container">
-    <div class="who-qhse-merged-layout">
-      <!-- Left Column: Who We Serve & Industry Chips -->
-      <div class="who-we-serve-col fade-up">
-        <span class="label">TARGET INDUSTRIES</span>
-        <h2>Who We Serve</h2>
-        <div class="divider divider--animated"></div>
-        <p class="who-we-serve-intro">Providing engineering and contracting expertise to premier public and private sector organizations.</p>
-        <div class="who-we-serve-chips">
-          <a href="#inquiry-panel" class="sector-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
-            Housing &amp; Real Estate Developments
-          </a>
-          <a href="#inquiry-panel" class="sector-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            Industrial &amp; Manufacturing Plants
-          </a>
-          <a href="#inquiry-panel" class="sector-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h12M4 9h10M4 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L20 7"/></svg>
-            Petroleum &amp; Fuel Retail Networks
-          </a>
-          <a href="#inquiry-panel" class="sector-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Defense &amp; Government Infrastructure
-          </a>
-          <a href="#inquiry-panel" class="sector-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-            Corporate &amp; Commercial Complexes
-          </a>
-        </div>
-      </div>
+    <div class="who-serve-compact__header fade-up">
+      <span class="label">WHO WE SERVE</span>
+      <h2 class="who-serve-compact__title">Government, Defense &amp; Private Projects</h2>
+    </div>
 
-      <!-- Right Column: 4 QHSE Points in 2x2 Grid + Footnote -->
-      <div class="qhse-col fade-up" style="--fade-delay:0.12s">
-        <div class="qhse-merged-grid">
-          <div class="qhse-card">
-            <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-            <span class="qhse-card__text">ISO-aligned quality and HSE procedures implemented across all operational sites</span>
-          </div>
-          <div class="qhse-card">
-            <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            <span class="qhse-card__text">Preventive safety systems with daily toolbox talks and certified site supervision</span>
-          </div>
-          <div class="qhse-card">
-            <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-            <span class="qhse-card__text">OEM-standard maintenance and manufacturer-specified installation practices</span>
-          </div>
-          <div class="qhse-card">
-            <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
-            <span class="qhse-card__text">Zero-accident target with proactive site hazards elimination and risk assessments</span>
-          </div>
-        </div>
-        <div class="qhse-defense-notice">
-          <span>* All works executed in accordance with local statutory codes (PEC / Saudi Building Code). Defense and high-security project details are managed under strict confidentiality agreements.</span>
-        </div>
+    <!-- 4 QHSE Points in 1 Row (Desktop) / 2x2 (Tablet/Mobile) -->
+    <div class="qhse-compact-grid fade-up" style="--fade-delay:0.08s">
+      <div class="qhse-compact-item">
+        <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span class="qhse-compact-text">ISO-Aligned Quality &amp; HSE Standards</span>
       </div>
+      <div class="qhse-compact-item">
+        <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span class="qhse-compact-text">Certified Safety Supervision &amp; Protocols</span>
+      </div>
+      <div class="qhse-compact-item">
+        <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span class="qhse-compact-text">OEM-Standard Installation &amp; Maintenance</span>
+      </div>
+      <div class="qhse-compact-item">
+        <svg class="qhse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+        <span class="qhse-compact-text">Zero-Incident Target &amp; Risk Mitigation</span>
+      </div>
+    </div>
+
+    <!-- Statutory Codes Footnote -->
+    <div class="qhse-compact-footnote fade-up" style="--fade-delay:0.14s">
+      <span>* All works executed in accordance with local statutory codes (PEC / Saudi Building Code). Defense and high-security project details are managed under strict confidentiality agreements.</span>
     </div>
   </div>
 </section>
@@ -654,12 +723,16 @@
       <div>
         <p class="footer__col-title">Services</p>
         <div class="footer__links">
+          <a href="services.html#design">Design &amp; Engineering</a>
           <a href="services.html#civil">Civil &amp; Infrastructure</a>
-          <a href="services.html#electrical">Electrical &amp; Power</a>
+          <a href="services.html#electrical">Electrical, Power &amp; Mechanical</a>
           <a href="services.html#finishing">Finishing Works</a>
-          <a href="services.html#security">Security &amp; Smart</a>
-          <a href="services.html#defense">Defense &amp; O&amp;M</a>
+          <a href="services.html#security">Security, Smart &amp; IT</a>
+          <a href="services.html#defense">Defense &amp; Operations</a>
+          <a href="services.html#oil-gas">Oil, Gas &amp; Petroleum</a>
+          <a href="services.html#industrial-maintenance">Industrial Maintenance</a>
           <a href="services.html#consultancy">Engineering Consultancy</a>
+          <a href="services.html#trading">Trading &amp; Procurement</a>
         </div>
       </div>
       <div>
@@ -686,9 +759,9 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=6"></script>
+<script src="js/main.js?v=7"></script>
 <script src="data/clients-projects.js?v=3"></script>
-<script src="js/clients-projects.js?v=3"></script>
+<script src="js/clients-projects.js?v=4"></script>
 <script src="js/counter.js?v=6"></script>
 <script src="js/lead-capture.js?v=1" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" defer></script>

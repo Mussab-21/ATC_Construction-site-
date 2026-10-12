@@ -5,16 +5,55 @@
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  // Pre-fill service dropdown if URL param exists
+  // Pre-fill service dropdown if URL param exists (support ?service= and ?subject=)
   const params = new URLSearchParams(window.location.search);
-  const serviceParam = params.get('service');
+  const serviceParam = params.get('service') || params.get('subject');
   if (serviceParam) {
     const select = form.querySelector('#service-division');
     if (select) {
-      for (const opt of select.options) {
-        if (opt.value.toLowerCase().includes(serviceParam.toLowerCase())) {
-          opt.selected = true;
-          break;
+      const raw = serviceParam.trim().toLowerCase();
+      const slugMap = {
+        'design': 'Design & Engineering',
+        'civil': 'Civil & Infrastructure',
+        'electrical': 'Electrical, Power & Mechanical',
+        'power': 'Electrical, Power & Mechanical',
+        'mep': 'Electrical, Power & Mechanical',
+        'finishing': 'Finishing Works',
+        'security': 'Security, Smart & IT',
+        'smart': 'Security, Smart & IT',
+        'defense': 'Defense & Operations',
+        'oil-gas': 'Oil, Gas & Petroleum',
+        'oil': 'Oil, Gas & Petroleum',
+        'gas': 'Oil, Gas & Petroleum',
+        'petroleum': 'Oil, Gas & Petroleum',
+        'industrial-maintenance': 'Industrial & Factory Maintenance',
+        'industrial': 'Industrial & Factory Maintenance',
+        'maintenance': 'Industrial & Factory Maintenance',
+        'consultancy': 'Engineering Consultancy & Advisory',
+        'advisory': 'Engineering Consultancy & Advisory',
+        'trading': 'Trading & Technical Procurement',
+        'procurement': 'Trading & Technical Procurement'
+      };
+
+      const matchedTarget = slugMap[raw];
+      let matched = false;
+
+      if (matchedTarget) {
+        for (const opt of select.options) {
+          if (opt.value === matchedTarget) {
+            opt.selected = true;
+            matched = true;
+            break;
+          }
+        }
+      }
+
+      if (!matched) {
+        for (const opt of select.options) {
+          if (opt.value && (opt.value.toLowerCase().includes(raw) || raw.includes(opt.value.toLowerCase()))) {
+            opt.selected = true;
+            break;
+          }
         }
       }
     }
@@ -71,6 +110,19 @@
     }
   }
 
+  function triggerMailtoFallback(details) {
+    const subject = encodeURIComponent(`ATC Inquiry: ${details.service || 'General Project'} — ${details.company}`);
+    const body = encodeURIComponent(
+      `Name: ${details.name}\n` +
+      `Company: ${details.company}\n` +
+      `Email: ${details.email}\n` +
+      `Service Division: ${details.service}\n` +
+      `Project Scope: ${details.scope}\n\n` +
+      `Message:\n${details.message}`
+    );
+    window.location.href = `mailto:info@atc-pk.com?subject=${subject}&body=${body}`;
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!validate()) return;
@@ -81,26 +133,43 @@
     const honeypot = form.querySelector('#website');
     if (honeypot && honeypot.value) { showSuccess(); return; }
 
-    // EmailJS — replace with your service/template IDs
-    if (typeof emailjs !== 'undefined') {
+    const inquiryData = {
+      name:    form.querySelector('#name').value.trim(),
+      company: form.querySelector('#company').value.trim(),
+      email:   form.querySelector('#email').value.trim(),
+      service: form.querySelector('#service-division').value,
+      scope:   (form.querySelector('#scope') || {}).value || '',
+      message: form.querySelector('#message').value.trim(),
+    };
+
+    // Check if real EmailJS service ID is configured (not placeholder)
+    const isLiveService = typeof emailjs !== 'undefined' &&
+      window.ATC_EMAILJS_CONFIG &&
+      window.ATC_EMAILJS_CONFIG.serviceId &&
+      window.ATC_EMAILJS_CONFIG.serviceId !== 'YOUR_SERVICE_ID';
+
+    if (isLiveService) {
       const templateParams = {
-        from_name:    form.querySelector('#name').value.trim(),
-        from_company: form.querySelector('#company').value.trim(),
-        from_email:   form.querySelector('#email').value.trim(),
-        service:      form.querySelector('#service-division').value,
-        scope:        (form.querySelector('#scope') || {}).value || '',
-        message:      form.querySelector('#message').value.trim(),
+        from_name:    inquiryData.name,
+        from_company: inquiryData.company,
+        from_email:   inquiryData.email,
+        service:      inquiryData.service,
+        scope:        inquiryData.scope,
+        message:      inquiryData.message,
       };
 
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+      emailjs.send(window.ATC_EMAILJS_CONFIG.serviceId, window.ATC_EMAILJS_CONFIG.templateId, templateParams)
         .then(() => { showSuccess(); })
         .catch(() => {
           showSubmitState(false);
-          showError('message', 'Failed to send. Please try emailing us directly.');
+          showError('message', 'Delivery failed. Launching direct email client fallback...');
+          setTimeout(() => triggerMailtoFallback(inquiryData), 1000);
         });
     } else {
-      // Fallback: just show success (dev mode)
-      setTimeout(() => { showSuccess(); }, 800);
+      // Direct email client handoff with drafted inquiry
+      showSubmitState(false);
+      triggerMailtoFallback(inquiryData);
+      showSuccess();
     }
   });
 

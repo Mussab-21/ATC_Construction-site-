@@ -71,7 +71,7 @@ const projects = [
     featured: false,
     hidden: false,
     jv: false,
-    image: 'assests/projects/fwo-balochistan.jpg'
+    image: 'assests/Balochistan Highway Interchange Aerial View.png'
     // TODO(owner): confirm exact role and permission to display name and logo
   },
   {
@@ -88,7 +88,7 @@ const projects = [
     featured: false,
     hidden: false,
     jv: false,
-    image: 'assests/projects/fc-balochistan.jpg'
+    image: 'assests/Futuristic Waterfront Frontier Corps Campus.png'
     // TODO(owner): confirm exact role and permission to display name and logo
   },
   {
@@ -105,7 +105,7 @@ const projects = [
     featured: false,
     hidden: false,
     jv: false,
-    image: 'assests/projects/private-clients-pk.jpg'
+    image: 'assests/Blueprint Handshake in Pakistan.png'
     // TODO(owner): confirm exact role and permission to display name and logo
   },
 
@@ -250,7 +250,7 @@ const projects = [
     featured: false,
     hidden: false,
     jv: false,
-    image: 'assests/projects/bh-reef-island-hotel.jpg'
+    image: 'assests/Golden-Hour Arabian Villa Exterior.png'
     // TODO(owner): confirm exact role and permission to display name and logo
   },
   {
@@ -284,7 +284,7 @@ const projects = [
     featured: false,
     hidden: false,
     jv: false,
-    image: 'assests/projects/bh-salmaniya-building.jpg'
+    image: 'assests/Salmaniya Construction Site in Progress.png'
     // TODO(owner): confirm exact role and permission to display name and logo
   },
   {
@@ -301,7 +301,7 @@ const projects = [
     featured: false,
     hidden: false,
     jv: false,
-    image: 'assests/projects/bh-saar-villas.jpg'
+    image: 'assests/Modern Villas in Saar, Bahrain.png'
     // TODO(owner): confirm exact role and permission to display name and logo
   }
 ];

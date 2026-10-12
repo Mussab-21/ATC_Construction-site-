@@ -100,150 +100,8 @@
   }
 
   /* ══════════════════════════════════════════════════════════
-     SECTION 1: OUR CLIENTS
+     SECTION 1: OUR CLIENTS (Handled via CSS marquee in HTML)
      ══════════════════════════════════════════════════════════ */
-  function renderClientsSection(clients) {
-    const mount = document.getElementById('clients-mount');
-    if (!mount) return;
-
-    // Filter visible clients
-    const visibleClients = clients.filter(c => !c.hidden);
-    // Derive country tabs only if there are visible entries
-    const countries = Array.from(new Set(visibleClients.map(c => c.country)));
-
-    if (countries.length === 0) {
-      mount.innerHTML = '';
-      return;
-    }
-
-    let activeCountry = countries[0];
-
-    function renderTabs() {
-      return `
-        <div class="clients-tabs" role="tablist" aria-label="Client regions">
-          ${countries.map((country) => {
-            const isSelected = country === activeCountry;
-            const tabId = `client-tab-${slugify(country)}`;
-            const panelId = `client-panel-${slugify(country)}`;
-            return `
-              <button class="clients-tab-btn ${isSelected ? 'active' : ''}"
-                      role="tab"
-                      id="${tabId}"
-                      aria-controls="${panelId}"
-                      aria-selected="${isSelected ? 'true' : 'false'}"
-                      tabindex="${isSelected ? '0' : '-1'}"
-                      data-country="${escapeHtml(country)}">
-                ${escapeHtml(country)}
-              </button>
-            `;
-          }).join('')}
-        </div>
-      `;
-    }
-
-    function renderPanels() {
-      return `
-        <div class="clients-panels">
-          ${countries.map((country) => {
-            const isSelected = country === activeCountry;
-            const panelId = `client-panel-${slugify(country)}`;
-            const tabId = `client-tab-${slugify(country)}`;
-            const items = visibleClients.filter(c => c.country === country);
-            return `
-              <div class="clients-tabpanel ${isSelected ? 'active' : ''}"
-                   role="tabpanel"
-                   id="${panelId}"
-                   aria-labelledby="${tabId}"
-                   tabindex="0"
-                   ${!isSelected ? 'hidden' : ''}>
-
-                <div class="clients-grid">
-                  ${items.map(c => {
-                    const hasLogo = Boolean(c.logo);
-                    return `
-                      <div class="client-logo-tile ${hasLogo ? '' : 'is-text-wordmark'}" data-client="${escapeHtml(c.slug)}">
-                        <div class="client-logo-tile__content">
-                          <span class="client-wordmark">${escapeHtml(c.name)}</span>
-                          ${hasLogo ? `
-                            <img src="${escapeHtml(c.logo)}" alt="${escapeHtml(c.name)} logo" width="240" height="120" loading="lazy" class="client-logo-img"
-                                 onload="this.classList.add('is-loaded'); const wm = this.previousElementSibling; if(wm) wm.style.display='none';"
-                                 onerror="this.remove(); this.closest('.client-logo-tile').classList.add('is-text-wordmark');">
-                          ` : ''}
-                        </div>
-                      </div>
-                    `;
-                  }).join('')}
-                </div>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      `;
-    }
-
-    mount.innerHTML = renderTabs() + renderPanels();
-
-    // Event Delegation & Keyboard navigation
-    const tabList = mount.querySelector('.clients-tabs');
-    const tabs = Array.from(mount.querySelectorAll('.clients-tab-btn'));
-    const panels = Array.from(mount.querySelectorAll('.clients-tabpanel'));
-
-    function selectTab(newCountry, shouldFocus = false) {
-      if (newCountry === activeCountry) return;
-      activeCountry = newCountry;
-
-      tabs.forEach(tab => {
-        const isSelected = tab.dataset.country === activeCountry;
-        tab.classList.toggle('active', isSelected);
-        tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
-        tab.setAttribute('tabindex', isSelected ? '0' : '-1');
-        if (isSelected && shouldFocus) tab.focus();
-      });
-
-      panels.forEach(panel => {
-        const isMatch = panel.id === `client-panel-${slugify(activeCountry)}`;
-        if (isMatch) {
-          panel.removeAttribute('hidden');
-          panel.classList.add('fade-in');
-          panel.classList.add('active');
-        } else {
-          panel.setAttribute('hidden', '');
-          panel.classList.remove('fade-in');
-          panel.classList.remove('active');
-        }
-      });
-    }
-
-    if (tabList) {
-      tabList.addEventListener('click', (e) => {
-        const btn = e.target.closest('.clients-tab-btn');
-        if (btn) selectTab(btn.dataset.country);
-      });
-
-      tabList.addEventListener('keydown', (e) => {
-        const currentIndex = tabs.findIndex(t => t.dataset.country === activeCountry);
-        let nextIndex = null;
-
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          e.preventDefault();
-          nextIndex = (currentIndex + 1) % tabs.length;
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-          e.preventDefault();
-          nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-        } else if (e.key === 'Home') {
-          e.preventDefault();
-          nextIndex = 0;
-        } else if (e.key === 'End') {
-          e.preventDefault();
-          nextIndex = tabs.length - 1;
-        }
-
-        if (nextIndex !== null) {
-          selectTab(tabs[nextIndex].dataset.country, true);
-        }
-      });
-    }
-  }
 
   /* ══════════════════════════════════════════════════════════
      SECTION 2: OUR PROJECTS
@@ -677,16 +535,11 @@
      INITIALIZATION
      ══════════════════════════════════════════════════════════ */
   function init() {
-    const clients = window.ATC_CLIENTS || [];
     const projects = window.ATC_PROJECTS || [];
-
-    renderClientsSection(clients);
     renderProjectsSection(projects);
   }
 
-  if (document.getElementById('clients-mount')) {
-    init();
-  } else if (document.readyState === 'loading') {
+  if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();

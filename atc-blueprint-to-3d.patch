@@ -1,0 +1,716 @@
+From 12e534ec20b22d34f957d35b777985bf80776ae3 Mon Sep 17 00:00:00 2001
+From: engineering <dev@atc.com>
+Date: Wed, 16 Sep 2026 08:22:25 +0000
+Subject: [PATCH] Hero: blueprint draws in, then crossfades into a
+ live-rotating 3D model
+
+- Add js/hero-3d.js: Three.js scene that loads assests/models/atc-building.glb
+  (your Tripo3D export). Falls back to a procedural placeholder building
+  if the GLB isn't present yet, so the hero never looks broken mid-workflow.
+- Rewrite js/hero-animation.js into a full state machine: draw blueprint
+  -> hold -> crossfade to 3D -> rotate & hold -> crossfade back -> retract
+  -> loop. Status badge text updates per phase.
+- index.html: wrap the SVG panel and a new canvas panel in #hero-stage so
+  they can crossfade in place; load three.js r128 + GLTFLoader from CDN.
+- css/pages/home.css: absolute-position both panels, opacity/scale
+  crossfade transition, matching grid + frame styling on the 3D panel.
+---
+ css/pages/home.css   |  55 +++++++++-
+ index.html           |  96 ++++++++++--------
+ js/hero-3d.js        | 235 +++++++++++++++++++++++++++++++++++++++++++
+ js/hero-animation.js | 210 +++++++++++++++++++++++++-------------
+ 4 files changed, 481 insertions(+), 115 deletions(-)
+ create mode 100644 js/hero-3d.js
+
+diff --git a/css/pages/home.css b/css/pages/home.css
+index f52e0aa..e95d23e 100644
+--- a/css/pages/home.css
++++ b/css/pages/home.css
+@@ -113,9 +113,17 @@
+   50% { opacity: 0.3; transform: scale(0.7); }
+ }
+ 
+-.hero__svg-wrap {
++.hero__stage {
+   position: relative;
+   width: 100%;
++  aspect-ratio: 420 / 300;
++}
++
++.hero__svg-wrap {
++  position: absolute;
++  inset: 0;
++  width: 100%;
++  height: 100%;
+   overflow: hidden;
+   background: rgba(18,18,22,0.85);
+   border: 1px solid rgba(255,255,255,0.06);
+@@ -124,6 +132,51 @@
+     linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+   background-size: 20px 20px;
++  opacity: 1;
++  transform: scale(1);
++  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
++}
++.hero__svg-wrap.is-hidden {
++  opacity: 0;
++  transform: scale(0.96);
++  pointer-events: none;
++}
++
++.hero__3d-wrap {
++  position: absolute;
++  inset: 0;
++  width: 100%;
++  height: 100%;
++  overflow: hidden;
++  background: radial-gradient(circle at 50% 30%, rgba(232,93,42,0.10), rgba(12,12,15,0.92) 70%);
++  border: 1px solid rgba(232,93,42,0.25);
++  border-radius: var(--r-sm);
++  opacity: 0;
++  transform: scale(1.04);
++  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
++  pointer-events: none;
++}
++.hero__3d-wrap.is-visible {
++  opacity: 1;
++  transform: scale(1);
++  pointer-events: auto;
++}
++#hero-3d-canvas {
++  width: 100%;
++  height: 100%;
++  display: block;
++}
++/* Subtle scanning grid under the model, echoing the blueprint's grid
++   so the crossfade reads as the same object, not two unrelated panels. */
++.hero__3d-wrap::before {
++  content: '';
++  position: absolute;
++  inset: 0;
++  background-image:
++    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
++    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
++  background-size: 20px 20px;
++  pointer-events: none;
+ }
+ .hero__scanner-line {
+   position: absolute;
+diff --git a/index.html b/index.html
+index 21020ba..f620528 100644
+--- a/index.html
++++ b/index.html
+@@ -76,50 +76,55 @@
+           <span class="hero__drawing-label mono">ELEVATION — SITE A / REV 01</span>
+           <span class="hero__live-badge mono"><span class="hero__pulse-dot"></span> <span id="cad-status-text">CAD ACTIVE</span></span>
+         </div>
+-        <div class="hero__svg-wrap">
+-          <div class="hero__scanner-line" id="hero-scanner"></div>
+-          <svg id="hero-elevation" class="svg-draw" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+-            <!-- Ground line -->
+-            <line x1="20" y1="260" x2="400" y2="260" stroke="#E85D2A" stroke-width="1.5"/>
+-            <!-- Main building body -->
+-            <rect x="60" y="120" width="300" height="140" stroke="rgba(255,255,255,0.85)" stroke-width="1.2"/>
+-            <!-- Roof -->
+-            <polyline points="50,120 210,60 370,120" stroke="rgba(255,255,255,0.95)" stroke-width="1.5"/>
+-            <!-- Left wing -->
+-            <rect x="30" y="170" width="30" height="90" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+-            <!-- Right wing -->
+-            <rect x="360" y="170" width="30" height="90" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+-            <!-- Windows row 1 -->
+-            <rect x="80" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+-            <rect x="125" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+-            <rect x="170" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+-            <rect x="215" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+-            <rect x="260" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+-            <rect x="305" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
+-            <!-- Windows row 2 -->
+-            <rect x="80" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+-            <rect x="125" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+-            <rect x="170" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+-            <rect x="260" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+-            <rect x="305" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
+-            <!-- Main entrance -->
+-            <rect x="192" y="208" width="36" height="52" stroke="rgba(255,255,255,0.8)" stroke-width="1.2"/>
+-            <line x1="210" y1="208" x2="210" y2="260" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+-            <!-- Flagpole -->
+-            <line x1="210" y1="60" x2="210" y2="20" stroke="rgba(232,93,42,0.7)" stroke-width="1"/>
+-            <polyline points="210,20 240,30 210,40" stroke="rgba(232,93,42,0.7)" stroke-width="1"/>
+-            <!-- Dimension line top -->
+-            <line x1="60" y1="14" x2="360" y2="14" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+-            <line x1="60" y1="8" x2="60" y2="20" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+-            <line x1="360" y1="8" x2="360" y2="20" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+-            <!-- Dimension line right -->
+-            <line x1="390" y1="120" x2="390" y2="260" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+-            <line x1="384" y1="120" x2="396" y2="120" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+-            <line x1="384" y1="260" x2="396" y2="260" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
+-            <!-- Title block -->
+-            <rect x="280" y="270" width="130" height="25" stroke="rgba(232,93,42,0.4)" stroke-width="0.8"/>
+-            <line x1="280" y1="278" x2="410" y2="278" stroke="rgba(232,93,42,0.3)" stroke-width="0.5"/>
+-          </svg>
++        <div class="hero__stage" id="hero-stage">
++          <div class="hero__svg-wrap" id="hero-svg-wrap">
++            <div class="hero__scanner-line" id="hero-scanner"></div>
++            <svg id="hero-elevation" class="svg-draw" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
++              <!-- Ground line -->
++              <line x1="20" y1="260" x2="400" y2="260" stroke="#E85D2A" stroke-width="1.5"/>
++              <!-- Main building body -->
++              <rect x="60" y="120" width="300" height="140" stroke="rgba(255,255,255,0.85)" stroke-width="1.2"/>
++              <!-- Roof -->
++              <polyline points="50,120 210,60 370,120" stroke="rgba(255,255,255,0.95)" stroke-width="1.5"/>
++              <!-- Left wing -->
++              <rect x="30" y="170" width="30" height="90" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
++              <!-- Right wing -->
++              <rect x="360" y="170" width="30" height="90" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
++              <!-- Windows row 1 -->
++              <rect x="80" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
++              <rect x="125" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
++              <rect x="170" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
++              <rect x="215" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
++              <rect x="260" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
++              <rect x="305" y="140" width="30" height="22" stroke="rgba(232,93,42,0.85)" stroke-width="1"/>
++              <!-- Windows row 2 -->
++              <rect x="80" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
++              <rect x="125" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
++              <rect x="170" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
++              <rect x="260" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
++              <rect x="305" y="178" width="30" height="22" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
++              <!-- Main entrance -->
++              <rect x="192" y="208" width="36" height="52" stroke="rgba(255,255,255,0.8)" stroke-width="1.2"/>
++              <line x1="210" y1="208" x2="210" y2="260" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
++              <!-- Flagpole -->
++              <line x1="210" y1="60" x2="210" y2="20" stroke="rgba(232,93,42,0.7)" stroke-width="1"/>
++              <polyline points="210,20 240,30 210,40" stroke="rgba(232,93,42,0.7)" stroke-width="1"/>
++              <!-- Dimension line top -->
++              <line x1="60" y1="14" x2="360" y2="14" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
++              <line x1="60" y1="8" x2="60" y2="20" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
++              <line x1="360" y1="8" x2="360" y2="20" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
++              <!-- Dimension line right -->
++              <line x1="390" y1="120" x2="390" y2="260" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
++              <line x1="384" y1="120" x2="396" y2="120" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
++              <line x1="384" y1="260" x2="396" y2="260" stroke="rgba(232,93,42,0.6)" stroke-width="0.8"/>
++              <!-- Title block -->
++              <rect x="280" y="270" width="130" height="25" stroke="rgba(232,93,42,0.4)" stroke-width="0.8"/>
++              <line x1="280" y1="278" x2="410" y2="278" stroke="rgba(232,93,42,0.3)" stroke-width="0.5"/>
++            </svg>
++          </div>
++          <div class="hero__3d-wrap" id="hero-3d-wrap">
++            <canvas id="hero-3d-canvas"></canvas>
++          </div>
+         </div>
+         <div class="hero__drawing-footer">
+           <span class="hero__drawing-coords mono" id="cad-coords">X: 210.0 Y: 140.0 | SCALE 1:100</span>
+@@ -829,7 +834,10 @@
+   </div>
+ </div>
+ 
++<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
++<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+ <script src="js/main.js"></script>
++<script src="js/hero-3d.js"></script>
+ <script src="js/hero-animation.js"></script>
+ <script src="js/slider.js"></script>
+ <script src="js/counter.js"></script>
+diff --git a/js/hero-3d.js b/js/hero-3d.js
+new file mode 100644
+index 0000000..de5aff8
+--- /dev/null
++++ b/js/hero-3d.js
+@@ -0,0 +1,235 @@
++/* hero-3d.js — Loads the Tripo3D-generated building model into the hero
++   card and keeps it slowly auto-rotating. Exposes window.ATCHero3D so
++   hero-animation.js can show/hide it as part of the blueprint -> 3D cycle.
++
++   HOW TO PLUG IN YOUR TRIPO3D MODEL:
++   1. In Tripo3D Studio, export your generated building as GLB
++      (Export -> GLB — not OBJ/FBX, GLB keeps materials in one file).
++   2. Save it as: assests/models/atc-building.glb
++   3. Reload the page. That's it — no code changes needed.
++
++   Until that file exists, a simple procedural placeholder building is
++   drawn instead, so the site never shows a broken/empty panel while
++   you're still working in Tripo3D.
++*/
++(function () {
++  'use strict';
++
++  var MODEL_URL = 'assests/models/atc-building.glb';
++
++  var ATCHero3D = {
++    _ready: false,
++    _readyPromise: null,
++    _renderer: null,
++    _scene: null,
++    _camera: null,
++    _model: null,
++    _rafId: null,
++    _rotating: false,
++    _usedPlaceholder: false,
++
++    init: function (canvas) {
++      if (this._readyPromise) return this._readyPromise;
++      var self = this;
++
++      this._readyPromise = new Promise(function (resolve) {
++        if (typeof THREE === 'undefined') {
++          console.warn('[ATCHero3D] three.js did not load — 3D view disabled.');
++          resolve(false);
++          return;
++        }
++
++        var renderer = new THREE.WebGLRenderer({
++          canvas: canvas,
++          alpha: true,
++          antialias: true,
++        });
++        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
++        // r0.128 uses outputEncoding; later three.js versions renamed this
++        // to outputColorSpace. Set whichever this build actually has.
++        if ('outputColorSpace' in renderer && THREE.SRGBColorSpace) {
++          renderer.outputColorSpace = THREE.SRGBColorSpace;
++        } else if ('outputEncoding' in renderer && THREE.sRGBEncoding) {
++          renderer.outputEncoding = THREE.sRGBEncoding;
++        }
++
++        var scene = new THREE.Scene();
++
++        var camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
++        camera.position.set(4.2, 3.2, 5.4);
++        camera.lookAt(0, 0.6, 0);
++
++        // Lighting — warm key light + cool fill, matches the brand's
++        // orange/dark palette instead of a flat default studio look.
++        var hemi = new THREE.HemisphereLight(0xffffff, 0x1a1a1f, 0.9);
++        scene.add(hemi);
++
++        var key = new THREE.DirectionalLight(0xffffff, 1.6);
++        key.position.set(5, 8, 4);
++        scene.add(key);
++
++        var rim = new THREE.DirectionalLight(0xe85d2a, 1.1);
++        rim.position.set(-6, 3, -4);
++        scene.add(rim);
++
++        self._renderer = renderer;
++        self._scene = scene;
++        self._camera = camera;
++        self._canvas = canvas;
++
++        self._resize();
++        window.addEventListener('resize', function () { self._resize(); });
++
++        var loaderTargetGroup = new THREE.Group();
++        scene.add(loaderTargetGroup);
++        self._modelGroup = loaderTargetGroup;
++
++        function finish(usedPlaceholder) {
++          self._usedPlaceholder = usedPlaceholder;
++          self._ready = true;
++          self._renderFrame();
++          resolve(true);
++        }
++
++        if (typeof THREE.GLTFLoader === 'function') {
++          var gltfLoader = new THREE.GLTFLoader();
++          gltfLoader.load(
++            MODEL_URL,
++            function (gltf) {
++              var model = gltf.scene;
++              self._fitModel(model);
++              loaderTargetGroup.add(model);
++              self._model = model;
++              finish(false);
++            },
++            undefined,
++            function () {
++              console.info('[ATCHero3D] No GLB found at ' + MODEL_URL + ' yet — showing placeholder building. Export from Tripo3D and drop it in that path to replace this automatically.');
++              var placeholder = self._buildPlaceholder();
++              loaderTargetGroup.add(placeholder);
++              self._model = placeholder;
++              finish(true);
++            }
++          );
++        } else {
++          console.warn('[ATCHero3D] GLTFLoader not available — showing placeholder building.');
++          var placeholder2 = self._buildPlaceholder();
++          loaderTargetGroup.add(placeholder2);
++          self._model = placeholder2;
++          finish(true);
++        }
++      });
++
++      return this._readyPromise;
++    },
++
++    // A simple massed-volume "building" — main block, roof, side wing,
++    // entrance canopy — built from primitives so there is always a
++    // reasonable 3D object on screen even before a real GLB exists.
++    _buildPlaceholder: function () {
++      var group = new THREE.Group();
++      var orange = 0xe85d2a;
++      var wallMat = new THREE.MeshStandardMaterial({ color: 0xd9d9dc, roughness: 0.75, metalness: 0.08 });
++      var glassMat = new THREE.MeshStandardMaterial({ color: 0x2a3742, roughness: 0.25, metalness: 0.6, emissive: 0x0d1216 });
++      var accentMat = new THREE.MeshStandardMaterial({ color: orange, roughness: 0.4, metalness: 0.2 });
++
++      var main = new THREE.Mesh(new THREE.BoxGeometry(3.4, 1.5, 1.6), wallMat);
++      main.position.set(0, 0.75, 0);
++      group.add(main);
++
++      var roof = new THREE.Mesh(new THREE.ConeGeometry(2.35, 0.75, 4), wallMat);
++      roof.rotation.y = Math.PI / 4;
++      roof.position.set(0, 1.5 + 0.37, 0);
++      group.add(roof);
++
++      var wingGeo = new THREE.BoxGeometry(0.55, 1.05, 1.6);
++      var leftWing = new THREE.Mesh(wingGeo, wallMat);
++      leftWing.position.set(-1.97, 0.52, 0);
++      group.add(leftWing);
++      var rightWing = new THREE.Mesh(wingGeo, wallMat);
++      rightWing.position.set(1.97, 0.52, 0);
++      group.add(rightWing);
++
++      var rowY = [0.95, 0.55];
++      var cols = [-1.15, -0.6, -0.05, 0.5, 1.05];
++      rowY.forEach(function (y) {
++        cols.forEach(function (x) {
++          var win = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.24, 0.06), glassMat);
++          win.position.set(x, y, 0.81);
++          group.add(win);
++        });
++      });
++
++      var entrance = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.62, 0.08), accentMat);
++      entrance.position.set(-0.05, 0.31, 0.82);
++      group.add(entrance);
++
++      var canopy = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.05, 0.35), accentMat);
++      canopy.position.set(-0.05, 0.66, 1.0);
++      group.add(canopy);
++
++      var ground = new THREE.Mesh(
++        new THREE.CircleGeometry(3.6, 48),
++        new THREE.MeshStandardMaterial({ color: 0x121216, roughness: 1 })
++      );
++      ground.rotation.x = -Math.PI / 2;
++      ground.position.y = -0.02;
++      group.add(ground);
++
++      return group;
++    },
++
++    _fitModel: function (model) {
++      var box = new THREE.Box3().setFromObject(model);
++      var size = new THREE.Vector3();
++      box.getSize(size);
++      var center = new THREE.Vector3();
++      box.getCenter(center);
++
++      var maxDim = Math.max(size.x, size.y, size.z) || 1;
++      var scale = 3.2 / maxDim;
++      model.scale.setScalar(scale);
++
++      box.setFromObject(model);
++      box.getCenter(center);
++      model.position.sub(center);
++      model.position.y += (size.y * scale) / 2;
++    },
++
++    _resize: function () {
++      if (!this._renderer || !this._canvas) return;
++      var w = this._canvas.clientWidth || this._canvas.parentElement.clientWidth || 400;
++      var h = this._canvas.clientHeight || w * 0.66;
++      this._renderer.setSize(w, h, false);
++      this._camera.aspect = w / h;
++      this._camera.updateProjectionMatrix();
++    },
++
++    _renderFrame: function () {
++      if (this._renderer) this._renderer.render(this._scene, this._camera);
++    },
++
++    _tick: function () {
++      if (!this._rotating) return;
++      if (this._modelGroup) this._modelGroup.rotation.y += 0.0065;
++      this._renderFrame();
++      this._rafId = requestAnimationFrame(this._tick.bind(this));
++    },
++
++    setRotating: function (on) {
++      this._rotating = on;
++      if (on && !this._rafId) {
++        this._tick();
++      } else if (!on && this._rafId) {
++        cancelAnimationFrame(this._rafId);
++        this._rafId = null;
++      }
++    },
++
++    usedPlaceholder: function () {
++      return this._usedPlaceholder;
++    },
++  };
++
++  window.ATCHero3D = ATCHero3D;
++})();
+diff --git a/js/hero-animation.js b/js/hero-animation.js
+index 2aa349d..3915616 100644
+--- a/js/hero-animation.js
++++ b/js/hero-animation.js
+@@ -1,30 +1,49 @@
+-/* hero-animation.js — Continuous CAD Blueprint Elevation Animation */
++/* hero-animation.js — Hero card state machine.
++   Phase 1: CAD blueprint draws in, line by line (existing behaviour).
++   Phase 2: holds on the completed elevation.
++   Phase 3: crossfades into a live-rotating 3D model (see hero-3d.js).
++   Phase 4: holds while the model rotates.
++   Phase 5: crossfades back to the blueprint, which retracts and
++            redraws, and the cycle repeats indefinitely.
++*/
+ (function () {
+   'use strict';
+ 
++  var TIMING = {
++    holdOnBlueprint: 1100,   // pause after the elevation finishes drawing
++    crossfade: 650,          // fade duration each direction
++    holdOn3D: 4200,          // how long the model stays visible, rotating
++    retractStagger: 20,
++  };
++
+   function initHeroSVG() {
+-    const svg = document.getElementById('hero-elevation');
++    var svg = document.getElementById('hero-elevation');
+     if (!svg) return;
+ 
+-    const coordsEl = document.getElementById('cad-coords');
+-    const statusEl = document.getElementById('cad-status-text');
+-
+-    // Collect all drawable elements
+-    const elements = Array.from(svg.querySelectorAll('path, line, rect, polyline, polygon, circle'));
+-    const lengths = elements.map(el => {
+-      let len = 600;
++    var coordsEl = document.getElementById('cad-coords');
++    var statusEl = document.getElementById('cad-status-text');
++    var stageEl = document.getElementById('hero-stage');
++    var svgWrap = document.getElementById('hero-svg-wrap');
++    var threeWrap = document.getElementById('hero-3d-wrap');
++    var canvas = document.getElementById('hero-3d-canvas');
++
++    var elements = Array.prototype.slice.call(
++      svg.querySelectorAll('path, line, rect, polyline, polygon, circle')
++    );
++    var lengths = elements.map(function (el) {
++      var len = 600;
+       try {
+         if (el.getTotalLength) {
+           len = Math.ceil(el.getTotalLength());
+         } else if (el.tagName === 'line') {
+-          const x1 = parseFloat(el.getAttribute('x1') || 0);
+-          const y1 = parseFloat(el.getAttribute('y1') || 0);
+-          const x2 = parseFloat(el.getAttribute('x2') || 0);
+-          const y2 = parseFloat(el.getAttribute('y2') || 0);
++          var x1 = parseFloat(el.getAttribute('x1') || 0);
++          var y1 = parseFloat(el.getAttribute('y1') || 0);
++          var x2 = parseFloat(el.getAttribute('x2') || 0);
++          var y2 = parseFloat(el.getAttribute('y2') || 0);
+           len = Math.ceil(Math.hypot(x2 - x1, y2 - y1));
+         } else if (el.tagName === 'rect') {
+-          const w = parseFloat(el.getAttribute('width') || 0);
+-          const h = parseFloat(el.getAttribute('height') || 0);
++          var w = parseFloat(el.getAttribute('width') || 0);
++          var h = parseFloat(el.getAttribute('height') || 0);
+           len = Math.ceil(2 * (w + h));
+         }
+       } catch (e) {
+@@ -33,82 +52,133 @@
+       return Math.max(len, 20);
+     });
+ 
+-    // Initialize elements with dasharray & offset
+-    elements.forEach((el, i) => {
+-      const len = lengths[i];
+-      el.style.strokeDasharray = `${len} ${len}`;
++    elements.forEach(function (el, i) {
++      var len = lengths[i];
++      el.style.strokeDasharray = len + ' ' + len;
+       el.style.strokeDashoffset = len;
+       el.style.transition = 'none';
+       el.style.opacity = '1';
+     });
+ 
+-    let isRunning = false;
+-
+-    function runAnimationCycle() {
+-      if (isRunning) return;
+-      isRunning = true;
++    // Live CAD coordinate jitter — runs continuously regardless of phase.
++    var coordAngle = 0;
++    setInterval(function () {
++      if (!coordsEl) return;
++      coordAngle += 0.08;
++      var x = (210 + Math.sin(coordAngle) * 45).toFixed(1);
++      var y = (140 + Math.cos(coordAngle) * 35).toFixed(1);
++      var elev = (12.4 + Math.sin(coordAngle * 0.5) * 1.2).toFixed(1);
++      coordsEl.textContent = 'X: ' + x + ' Y: ' + y + ' | ELEV +' + elev + 'm | 1:100';
++    }, 120);
+ 
+-      if (statusEl) statusEl.textContent = 'CAD RE-DRAW ACTIVE';
++    function setStatus(text) {
++      if (statusEl) statusEl.textContent = text;
++    }
+ 
+-      // Animate draw-in sequentially with progressive stagger
+-      elements.forEach((el, i) => {
+-        const delay = (i * 45);
+-        setTimeout(() => {
++    function drawIn(onDone) {
++      setStatus('CAD RE-DRAW ACTIVE');
++      elements.forEach(function (el, i) {
++        var delay = i * 45;
++        setTimeout(function () {
+           el.style.transition = 'stroke-dashoffset 0.85s cubic-bezier(0.25, 1, 0.5, 1)';
+           el.style.strokeDashoffset = '0';
+         }, delay);
+       });
+-
+-      const totalDrawTime = (elements.length * 45) + 850;
+-
+-      // When all elements have drawn
+-      setTimeout(() => {
+-        if (statusEl) statusEl.textContent = 'ELEVATION COMPILED';
+-
+-        // Brief highlight pulse
++      var totalDrawTime = elements.length * 45 + 850;
++      setTimeout(function () {
++        setStatus('ELEVATION COMPILED');
+         svg.style.filter = 'drop-shadow(0 0 10px rgba(232, 93, 42, 0.6))';
+-        setTimeout(() => {
++        setTimeout(function () {
+           svg.style.filter = 'drop-shadow(0 0 4px rgba(232, 93, 42, 0.2))';
+         }, 500);
++        if (onDone) setTimeout(onDone, TIMING.holdOnBlueprint);
++      }, totalDrawTime);
++    }
+ 
+-        // Hold for 1 second (as requested: "animation should work after every 1 sec so it does not look booring")
+-        setTimeout(() => {
+-          if (statusEl) statusEl.textContent = 'SCANNING & SYNCING';
+-
+-          // Gracefully cycle: smoothly retract and re-trigger draw
+-          elements.forEach((el, i) => {
+-            const len = lengths[i];
+-            const retractDelay = i * 20;
+-            setTimeout(() => {
+-              el.style.transition = 'stroke-dashoffset 0.45s cubic-bezier(0.5, 0, 0.75, 0)';
+-              el.style.strokeDashoffset = len;
+-            }, retractDelay);
+-          });
++    function retract(onDone) {
++      setStatus('SCANNING & SYNCING');
++      elements.forEach(function (el, i) {
++        var len = lengths[i];
++        var retractDelay = i * TIMING.retractStagger;
++        setTimeout(function () {
++          el.style.transition = 'stroke-dashoffset 0.45s cubic-bezier(0.5, 0, 0.75, 0)';
++          el.style.strokeDashoffset = len;
++        }, retractDelay);
++      });
++      var totalRetractTime = elements.length * TIMING.retractStagger + 500;
++      if (onDone) setTimeout(onDone, totalRetractTime + 150);
++    }
+ 
+-          const totalRetractTime = (elements.length * 20) + 500;
+-          setTimeout(() => {
+-            isRunning = false;
+-            runAnimationCycle();
+-          }, totalRetractTime + 150);
++    // --- Crossfade helpers between the blueprint panel and the 3D panel ---
+ 
+-        }, 1000); // 1-second interval!
++    function showThree(onDone) {
++      if (!threeWrap || !window.ATCHero3D) {
++        if (onDone) onDone();
++        return;
++      }
++      setStatus('GENERATING 3D MODEL');
++      if (stageEl) stageEl.classList.add('hero-stage--3d');
++      threeWrap.classList.add('is-visible');
++      svgWrap.classList.add('is-hidden');
++      window.ATCHero3D.setRotating(true);
++      setTimeout(function () {
++        setStatus(
++          window.ATCHero3D.usedPlaceholder()
++            ? '3D MODEL — PLACEHOLDER'
++            : '3D MODEL — LIVE VIEW'
++        );
++        if (onDone) setTimeout(onDone, TIMING.holdOn3D);
++      }, TIMING.crossfade);
++    }
+ 
+-      }, totalDrawTime);
++    function hideThree(onDone) {
++      if (!threeWrap || !window.ATCHero3D) {
++        if (onDone) onDone();
++        return;
++      }
++      threeWrap.classList.remove('is-visible');
++      svgWrap.classList.remove('is-hidden');
++      if (stageEl) stageEl.classList.remove('hero-stage--3d');
++      setTimeout(function () {
++        window.ATCHero3D.setRotating(false);
++        if (onDone) onDone();
++      }, TIMING.crossfade);
+     }
+ 
+-    // Live CAD Coordinate jitter effect
+-    let coordAngle = 0;
+-    setInterval(() => {
+-      if (!coordsEl) return;
+-      coordAngle += 0.08;
+-      const x = (210 + Math.sin(coordAngle) * 45).toFixed(1);
+-      const y = (140 + Math.cos(coordAngle) * 35).toFixed(1);
+-      const elev = (12.4 + Math.sin(coordAngle * 0.5) * 1.2).toFixed(1);
+-      coordsEl.textContent = `X: ${x} Y: ${y} | ELEV +${elev}m | 1:100`;
+-    }, 120);
++    // --- Full cycle ---
++
++    var isRunning = false;
++    function runCycle() {
++      if (isRunning) return;
++      isRunning = true;
++      drawIn(function () {
++        showThree(function () {
++          hideThree(function () {
++            retract(function () {
++              isRunning = false;
++              runCycle();
++            });
++          });
++        });
++      });
++    }
+ 
+-    // Initial start
+-    setTimeout(runAnimationCycle, 200);
++    if (window.ATCHero3D && canvas) {
++      window.ATCHero3D.init(canvas).then(function () {
++        setTimeout(runCycle, 200);
++      });
++    } else {
++      // three.js failed to load (offline, blocked CDN, etc.) — the
++      // blueprint keeps drawing on its own rather than the hero
++      // breaking entirely.
++      setTimeout(function () {
++        (function loopBlueprintOnly() {
++          drawIn(function () {
++            retract(loopBlueprintOnly);
++          });
++        })();
++      }, 200);
++    }
+   }
+ 
+   if (document.readyState === 'loading') {
+-- 
+2.43.0
+

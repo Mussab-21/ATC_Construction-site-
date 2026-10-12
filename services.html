@@ -3,648 +3,1232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Services — ATC Engineering & Contracting</title>
-<meta name="description" content="ATC's six engineering divisions: Design, Civil, Electrical & Power, Finishing, Security & Smart, and Defense & Operations.">
+<title>Services — Eight Construction Areas, Consultancy &amp; Procurement | ATC</title>
+<meta name="description" content="Explore ATC's eight engineering and construction service areas, technical consultancy, and strategic procurement. Coordinated single-source project delivery across civil, MEP, power, and industrial sectors.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/variables.css">
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/components.css?v=7">
+<link rel="stylesheet" href="css/components.css?v=9">
 <link rel="stylesheet" href="css/animations.css">
-<link rel="stylesheet" href="css/pages/services.css?v=4">
+<link rel="stylesheet" href="css/pages/services.css?v=12">
 </head>
 <body>
 
 <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
   <div class="navbar__inner">
     <a href="index.html" class="navbar__logo" aria-label="ATC Home">
-      <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="navbar__logo-img" width="40" height="40">
+      <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="navbar__logo-img" width="40" height="40" loading="eager" decoding="async">
       <div class="navbar__logo-text">
         <span class="navbar__logo-title">ATC</span>
         <span class="navbar__logo-sub">Azaan Trading &amp; Contracting</span>
       </div>
     </a>
-    <nav class="navbar__nav"><a href="index.html" class="navbar__link">Home</a><a href="about.html" class="navbar__link">About</a><a href="services.html" class="navbar__link">Services</a><a href="projects.html" class="navbar__link">Projects</a><a href="contact.html" class="navbar__link navbar__cta btn btn--primary btn--sm">Get in Touch</a></nav>
+    <nav class="navbar__nav">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="about.html" class="navbar__link">About</a>
+      <a href="services.html" class="navbar__link active">Services</a>
+      <a href="projects.html" class="navbar__link">Projects</a>
+      <a href="contact.html" class="navbar__link navbar__cta btn btn--primary btn--sm">Discuss Your Project</a>
+    </nav>
     <button class="navbar__hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
-  <div class="navbar__mobile" id="mobile-menu" role="menu"><a href="index.html" class="navbar__link" role="menuitem">Home</a><a href="about.html" class="navbar__link" role="menuitem">About</a><a href="services.html" class="navbar__link" role="menuitem">Services</a><a href="projects.html" class="navbar__link" role="menuitem">Projects</a><a href="contact.html" class="btn btn--primary" role="menuitem">Get in Touch</a></div>
+  <div class="navbar__mobile" id="mobile-menu" role="menu">
+    <a href="index.html" class="navbar__link" role="menuitem">Home</a>
+    <a href="about.html" class="navbar__link" role="menuitem">About</a>
+    <a href="services.html" class="navbar__link active" role="menuitem">Services</a>
+    <a href="projects.html" class="navbar__link" role="menuitem">Projects</a>
+    <a href="contact.html" class="btn btn--primary" role="menuitem">Discuss Your Project</a>
+  </div>
 </nav>
 
 <main>
-<section class="page-hero" id="page-hero" aria-label="Services overview">
-  <div class="container page-hero__inner">
-    <div class="page-hero__content">
-      <div class="breadcrumb"><span class="breadcrumb__item">ATC</span><span class="breadcrumb__sep">›</span><span class="breadcrumb__item current">Services</span></div>
-      <span class="label">What We Deliver</span>
-      <h1>Engineering, Construction &amp; Consultancy Services</h1>
-      <p>Integrated capabilities spanning engineering consultancy, architectural design, civil contracting, power infrastructure, smart systems, and long-term facility operations.</p>
-      <div class="hero__strip" style="margin-top:1.5rem">
-        <span class="hero__strip-item mono">7 Specialized Divisions</span>
-        <span class="hero__strip-sep" aria-hidden="true">·</span>
-        <span class="hero__strip-item mono">Single-Source Delivery</span>
-        <span class="hero__strip-sep" aria-hidden="true">·</span>
-        <span class="hero__strip-item mono">ISO 9001 / ASTM Quality</span>
+<!-- HERO SECTION -->
+<section class="services-hero page-hero section--dark" id="page-hero" aria-label="Services overview">
+  <div class="container services-hero__inner">
+    <div class="services-hero__content">
+      <div class="breadcrumb"><span class="breadcrumb__item">ATC</span><span class="breadcrumb__sep">&gt;</span><span class="breadcrumb__item current">Services</span></div>
+      <h1 class="services-hero__title">Engineering, Construction<br>&amp; Procurement Services.</h1>
+      <div class="divider"></div>
+      <p class="services-hero__sub">Engineering, construction and procurement services across Pakistan, Saudi Arabia and Bahrain.</p>
+      <div class="services-hero__actions">
+        <a href="contact.html" class="btn btn--primary">Discuss Your Project</a>
       </div>
     </div>
-    <div class="page-hero__visual" aria-hidden="true">
-      <div class="page-hero__drawing-frame">
-        <div class="page-hero__drawing-header">
-          <span class="page-hero__drawing-label mono">SYSTEMS ARCHITECTURE — INTEGRATED MATRIX / REV 02</span>
-          <span class="page-hero__live-badge mono"><span class="page-hero__pulse-dot"></span> SYSTEM SYNCHRONIZED</span>
-        </div>
-        <div class="page-hero__svg-wrap">
-          <svg viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Central Management Hub -->
-            <polygon points="210,75 250,98 250,144 210,167 170,144 170,98" stroke="#E85D2A" stroke-width="1.6" fill="rgba(232,93,42,0.12)"/>
-            <circle cx="210" cy="121" r="16" stroke="rgba(255,255,255,0.8)" stroke-width="1.2"/>
-            <text x="210" y="118" fill="#FFFFFF" font-size="6.5" font-family="monospace" font-weight="bold" text-anchor="middle">ATC</text>
-            <text x="210" y="127" fill="#E85D2A" font-size="5.5" font-family="monospace" text-anchor="middle">PMO/QA</text>
-            <!-- Orbit rings -->
-            <circle cx="210" cy="121" r="75" stroke="rgba(255,255,255,0.08)" stroke-width="0.8" stroke-dasharray="3 3"/>
-            <circle cx="210" cy="121" r="95" stroke="rgba(232,93,42,0.15)" stroke-width="0.8"/>
-            <!-- Node 1: Consultancy (Top Left) -->
-            <line x1="185" y1="85" x2="90" y2="45" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
-            <circle cx="80" cy="40" r="15" stroke="#E85D2A" stroke-width="1.2" fill="rgba(18,18,22,0.9)"/>
-            <text x="80" y="42" fill="#FFFFFF" font-size="5" font-family="monospace" text-anchor="middle">01:CONSULT</text>
-            <!-- Node 2: Design & MEP (Top Right) -->
-            <line x1="235" y1="85" x2="330" y2="45" stroke="rgba(56,189,248,0.6)" stroke-width="1"/>
-            <circle cx="340" cy="40" r="15" stroke="#38bdf8" stroke-width="1.2" fill="rgba(18,18,22,0.9)"/>
-            <text x="340" y="42" fill="#FFFFFF" font-size="5" font-family="monospace" text-anchor="middle">02:DESIGN</text>
-            <!-- Node 3: Civil & Infra (Far Left) -->
-            <line x1="170" y1="121" x2="60" y2="121" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-            <circle cx="45" cy="121" r="15" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" fill="rgba(18,18,22,0.9)"/>
-            <text x="45" y="123" fill="#FFFFFF" font-size="5" font-family="monospace" text-anchor="middle">03:CIVIL</text>
-            <!-- Node 4: Electrical & Power (Far Right) -->
-            <line x1="250" y1="121" x2="360" y2="121" stroke="rgba(56,189,248,0.6)" stroke-width="1"/>
-            <circle cx="375" cy="121" r="15" stroke="#38bdf8" stroke-width="1.2" fill="rgba(18,18,22,0.9)"/>
-            <text x="375" y="123" fill="#FFFFFF" font-size="5" font-family="monospace" text-anchor="middle">04:POWER</text>
-            <!-- Node 5: Finishing (Bottom Left) -->
-            <line x1="185" y1="155" x2="100" y2="195" stroke="rgba(52,211,153,0.6)" stroke-width="1"/>
-            <circle cx="90" cy="200" r="15" stroke="#34d399" stroke-width="1.2" fill="rgba(18,18,22,0.9)"/>
-            <text x="90" y="202" fill="#FFFFFF" font-size="5" font-family="monospace" text-anchor="middle">05:FINISH</text>
-            <!-- Node 6: Security & Smart (Bottom Center) -->
-            <line x1="210" y1="167" x2="210" y2="200" stroke="rgba(232,93,42,0.6)" stroke-width="1"/>
-            <circle cx="210" cy="205" r="14" stroke="#E85D2A" stroke-width="1.2" fill="rgba(18,18,22,0.9)"/>
-            <text x="210" y="207" fill="#FFFFFF" font-size="5" font-family="monospace" text-anchor="middle">06:SMART</text>
-            <!-- Node 7: Defense & O&M (Bottom Right) -->
-            <line x1="235" y1="155" x2="320" y2="195" stroke="rgba(245,158,11,0.6)" stroke-width="1"/>
-            <circle cx="330" cy="200" r="15" stroke="#f59e0b" stroke-width="1.2" fill="rgba(18,18,22,0.9)"/>
-            <text x="330" y="202" fill="#FFFFFF" font-size="5" font-family="monospace" text-anchor="middle">07:DEF/O&M</text>
-            <!-- Pulse Signal Wavefronts -->
-            <path d="M150 70 A 80 80 0 0 1 270 70" stroke="rgba(232,93,42,0.4)" stroke-width="0.8" stroke-dasharray="2 3"/>
-            <path d="M130 170 A 90 90 0 0 0 290 170" stroke="rgba(232,93,42,0.4)" stroke-width="0.8" stroke-dasharray="2 3"/>
-            <!-- Telemetry Stamp -->
-            <rect x="145" y="10" width="130" height="16" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
-            <text x="210" y="21" fill="rgba(255,255,255,0.6)" font-size="6" font-family="monospace" text-anchor="middle" letter-spacing="0.8">SYSTEM LIFECYCLE: 7 DISCIPLINES</text>
-          </svg>
-        </div>
-        <div class="page-hero__drawing-footer mono">
-          <span>INTERCONNECTED CAPABILITY MATRIX</span>
-          <span>PK &amp; KSA CERTIFIED</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Interactive 7-Card Services Navigation Grid -->
-  <div class="container services-hero-strip">
-    <div class="services-hero-strip__header">
-      <span class="mono services-hero-strip__label">Interactive Service Matrix · 7 Divisions</span>
-      <span class="services-hero-strip__hint">Click discipline to jump to specifications ↓</span>
-    </div>
-    <div class="services-hero-grid">
-      <!-- 01 Consultancy -->
-      <a href="#consultancy" class="service-hero-card" id="tab-consultancy">
-        <div class="service-hero-card__top">
-          <span class="service-hero-card__num mono">DIV 01</span>
-          <span class="service-hero-card__arrow">↓</span>
-        </div>
-        <div class="service-hero-card__icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l4 7-4 7-4-7 4-7z"/><path d="M2 12h20"/><circle cx="12" cy="12" r="2"/></svg>
-        </div>
-        <h3 class="service-hero-card__title">Engineering Consultancy</h3>
-        <p class="service-hero-card__scope">Feasibility, Advisory &amp; PMC</p>
+    <div class="services-hero__nav" aria-label="Service disciplines navigation">
+      <a href="#design" class="services-hero-btn" id="tab-design">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </span>
+        <span class="services-hero-btn__num mono">01</span>
+        <span class="services-hero-btn__title">Design &amp; Engineering</span>
       </a>
 
-      <!-- 02 Design & Engineering -->
-      <a href="#design" class="service-hero-card" id="tab-design">
-        <div class="service-hero-card__top">
-          <span class="service-hero-card__num mono">DIV 02</span>
-          <span class="service-hero-card__arrow">↓</span>
-        </div>
-        <div class="service-hero-card__icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-        </div>
-        <h3 class="service-hero-card__title">Design &amp; Engineering</h3>
-        <p class="service-hero-card__scope">Architectural, MEP &amp; Infra</p>
+      <a href="#civil" class="services-hero-btn" id="tab-civil">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16"/><path d="M6 22V6l6-4 6 4v16"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+        </span>
+        <span class="services-hero-btn__num mono">02</span>
+        <span class="services-hero-btn__title">Civil &amp; Infrastructure</span>
       </a>
 
-      <!-- 03 Civil & Infrastructure -->
-      <a href="#civil" class="service-hero-card" id="tab-civil">
-        <div class="service-hero-card__top">
-          <span class="service-hero-card__num mono">DIV 03</span>
-          <span class="service-hero-card__arrow">↓</span>
-        </div>
-        <div class="service-hero-card__icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16"/><path d="M6 22V6l6-4 6 4v16"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-        </div>
-        <h3 class="service-hero-card__title">Civil &amp; Infrastructure</h3>
-        <p class="service-hero-card__scope">Earthworks, Concrete &amp; Sites</p>
+      <a href="#electrical" class="services-hero-btn" id="tab-electrical">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </span>
+        <span class="services-hero-btn__num mono">03</span>
+        <span class="services-hero-btn__title">Electrical, Power &amp; Mech</span>
       </a>
 
-      <!-- 04 Electrical & Power -->
-      <a href="#electrical" class="service-hero-card" id="tab-electrical">
-        <div class="service-hero-card__top">
-          <span class="service-hero-card__num mono">DIV 04</span>
-          <span class="service-hero-card__arrow">↓</span>
-        </div>
-        <div class="service-hero-card__icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <h3 class="service-hero-card__title">Electrical &amp; Power</h3>
-        <p class="service-hero-card__scope">HV/MV Grids &amp; Generators</p>
+      <a href="#finishing" class="services-hero-btn" id="tab-finishing">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </span>
+        <span class="services-hero-btn__num mono">04</span>
+        <span class="services-hero-btn__title">Finishing Works</span>
       </a>
 
-      <!-- 05 Finishing Works -->
-      <a href="#finishing" class="service-hero-card" id="tab-finishing">
-        <div class="service-hero-card__top">
-          <span class="service-hero-card__num mono">DIV 05</span>
-          <span class="service-hero-card__arrow">↓</span>
-        </div>
-        <div class="service-hero-card__icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <h3 class="service-hero-card__title">Finishing Works</h3>
-        <p class="service-hero-card__scope">Fit-Out, Facades &amp; Interiors</p>
+      <a href="#security" class="services-hero-btn" id="tab-security">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+        </span>
+        <span class="services-hero-btn__num mono">05</span>
+        <span class="services-hero-btn__title">Security, Smart &amp; IT</span>
       </a>
 
-      <!-- 06 Security & Smart -->
-      <a href="#security" class="service-hero-card" id="tab-security">
-        <div class="service-hero-card__top">
-          <span class="service-hero-card__num mono">DIV 06</span>
-          <span class="service-hero-card__arrow">↓</span>
-        </div>
-        <div class="service-hero-card__icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
-        </div>
-        <h3 class="service-hero-card__title">Security &amp; Smart</h3>
-        <p class="service-hero-card__scope">BMS, ELV &amp; Access Control</p>
+      <a href="#defense" class="services-hero-btn" id="tab-defense">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        <span class="services-hero-btn__num mono">06</span>
+        <span class="services-hero-btn__title">Defense &amp; Operations</span>
       </a>
 
-      <!-- 07 Defense & O&M -->
-      <a href="#defense" class="service-hero-card" id="tab-defense">
-        <div class="service-hero-card__top">
-          <span class="service-hero-card__num mono">DIV 07</span>
-          <span class="service-hero-card__arrow">↓</span>
-        </div>
-        <div class="service-hero-card__icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3 class="service-hero-card__title">Defense &amp; O&amp;M</h3>
-        <p class="service-hero-card__scope">Bases, AMC &amp; Asset Care</p>
+      <a href="#oil-gas" class="services-hero-btn" id="tab-oil-gas">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22h12M4 9h10M4 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L20 7"/></svg>
+        </span>
+        <span class="services-hero-btn__num mono">07</span>
+        <span class="services-hero-btn__title">Oil, Gas &amp; Petroleum</span>
+      </a>
+
+      <a href="#industrial-maintenance" class="services-hero-btn" id="tab-industrial">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="12" cy="18" r="1.5"/></svg>
+        </span>
+        <span class="services-hero-btn__num mono">08</span>
+        <span class="services-hero-btn__title">Industrial Maintenance</span>
+      </a>
+
+      <a href="#consultancy" class="services-hero-btn services-hero-btn--pillar" id="tab-consultancy">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </span>
+        <span class="services-hero-btn__title">Engineering Consultancy &amp; Advisory</span>
+      </a>
+
+      <a href="#trading" class="services-hero-btn services-hero-btn--pillar" id="tab-trading">
+        <span class="services-hero-btn__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </span>
+        <span class="services-hero-btn__title">Trading &amp; Technical Procurement</span>
       </a>
     </div>
   </div>
-  <span class="page-hero__ref" aria-hidden="true">ATC / 03-SERVICES / REV A</span>
 </section>
 
-<!-- CONTRACTING & CONSTRUCTION ANCHOR -->
-<div id="construction" class="scroll-anchor" aria-hidden="true"></div>
+<!-- STICKY QUICK JUMP NAVIGATION -->
+<nav class="services-quicknav" aria-label="Services jump navigation">
+  <div class="container services-quicknav__inner">
+    <a href="#design" class="services-quicknav__link">01 Design</a>
+    <a href="#civil" class="services-quicknav__link">02 Civil</a>
+    <a href="#electrical" class="services-quicknav__link">03 Power/MEP</a>
+    <a href="#finishing" class="services-quicknav__link">04 Finishing</a>
+    <a href="#security" class="services-quicknav__link">05 Security/IT</a>
+    <a href="#defense" class="services-quicknav__link">06 Defense</a>
+    <a href="#oil-gas" class="services-quicknav__link">07 Oil &amp; Gas</a>
+    <a href="#industrial-maintenance" class="services-quicknav__link">08 Plant O&amp;M</a>
+    <a href="#consultancy" class="services-quicknav__link">Consultancy</a>
+    <a href="#trading" class="services-quicknav__link">Procurement</a>
+    <a href="#page-hero" class="services-quicknav__link services-quicknav__link--top">Top ↑</a>
+  </div>
+</nav>
 
-<!-- DIVISION 01 — DESIGN & ENGINEERING -->
+<!-- ══════════════════════════════════════════════════════════
+     PILLAR 1: ENGINEERING & CONSTRUCTION (8 DISCIPLINES)
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- DESIGN -->
 <section class="division-section section--white" id="design" aria-labelledby="design-h">
   <div class="container division__inner">
     <div class="division__header fade-up">
-      <span class="mono division__num">Division 01</span>
-      <h2 id="design-h">Design &amp; Engineering</h2>
+      <span class="mono division__num">Discipline 01 // EPC Design</span>
+      <div class="division__title-row">
+        <h2 id="design-h">Design &amp; Engineering</h2>
+        <span class="division__watermark mono" aria-hidden="true">01</span>
+      </div>
       <div class="divider"></div>
-      <p>Comprehensive design services spanning architectural, structural, mechanical, electrical, and plumbing disciplines — alongside full infrastructure design for roads, utilities, and site development.</p>
+      <p>Comprehensive design services spanning architectural, structural, mechanical, electrical, and plumbing disciplines — alongside full infrastructure design for roads, utilities, and master site development.</p>
     </div>
-    <div class="division__body">
-      <div class="division__col fade-up">
-        <h3 class="division__sub">Architectural &amp; MEP Design</h3>
-        <ul class="svc-list">
-          <li>Architectural design &amp; documentation</li>
-          <li>HVAC system design</li>
-          <li>Air ducting design &amp; layout</li>
-          <li>Electrical &amp; mechanical design</li>
-          <li>Firefighting system design</li>
-          <li>Plumbing &amp; sanitation design</li>
-          <li>Structural engineering</li>
-          <li>Interior design &amp; space planning</li>
-        </ul>
-      </div>
-      <div class="division__col fade-up" style="--fade-delay:0.08s">
-        <h3 class="division__sub">Infrastructure Design</h3>
-        <ul class="svc-list">
-          <li>Road &amp; highway design</li>
-          <li>Bridge design</li>
-          <li>Water supply &amp; drainage systems</li>
-          <li>Electrical &amp; power infrastructure</li>
-          <li>Telecommunication networks</li>
-          <li>Landscaping &amp; site design</li>
-          <li>Parking &amp; site development</li>
-          <li>Master planning support</li>
-        </ul>
-      </div>
-      <div class="division__media fade-up" style="--fade-delay:0.16s">
-        <div class="service-media-card">
-          <div class="service-media-card__img-wrap">
-            <img src="assests/images/atc-services-hero-single.jpg" alt="Architectural & MEP Design Engineering" class="service-media-card__img" loading="lazy">
-            <span class="sheet-ref service-media-card__ref">ATC / DIV / 01</span>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="design">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-design-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-design-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
           </div>
-          <div class="service-media-card__scrim">
-            <div class="service-media-card__cta">
-              <span class="service-media-card__badge mono">DISCIPLINE 01 · SPECIFICATION</span>
-              <h4 class="service-media-card__title">Design &amp; Engineering Solutions</h4>
-              <p class="service-media-card__desc">Discuss a design brief or request a qualified proposal for your project.</p>
-              <a href="contact.html?service=Design+%26+Engineering" class="btn btn--primary service-media-card__btn">Request Design Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Architectural &amp; MEP Design</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
             </div>
+            <p class="svc-card__summary">Architectural drawings, HVAC, electrical and structural design.</p>
           </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-design-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Architectural concept &amp; detailed documentation</li>
+              <li>HVAC load calculations &amp; ducting layouts</li>
+              <li>Electrical power distribution &amp; lighting design</li>
+              <li>Firefighting &amp; life-safety system engineering</li>
+              <li>Plumbing, drainage &amp; sanitation schemes</li>
+              <li>Reinforced concrete &amp; steel structural design</li>
+              <li>Executive interior architecture &amp; space planning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-design-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-design-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9M15 9v12"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Infrastructure &amp; Site Planning</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">Roads, bridges, utilities, drainage and master planning.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-design-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Road alignments, grading &amp; highway design</li>
+              <li>Bridge &amp; culvert structural engineering</li>
+              <li>Water supply &amp; storm drainage networks</li>
+              <li>Medium/low voltage utility cabling corridors</li>
+              <li>Telecommunication network ducting</li>
+              <li>Commercial landscaping &amp; grading design</li>
+              <li>Master planning coordination &amp; approvals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/images/atc-services-hero-single.jpg');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">EPC DESIGN · SPECIFICATION</span>
+          <h4 class="service-cta-panel__title">Design &amp; Engineering</h4>
+          <p class="service-cta-panel__desc">Coordinate complete architectural, structural, and MEP engineering drawings for your project.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="projects.html#awt-investment" class="service-cta-panel__evidence" title="View project reference">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Ref: AWT Investment HQ Turnkey Design
+          </a>
+          <a href="contact.html?service=design" class="btn btn--primary service-cta-panel__btn">Request Design Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIVISION 02 — CIVIL -->
-<section class="division-section section--dark" id="civil" aria-labelledby="civil-h">
+<!-- CIVIL -->
+<section class="division-section section--alt" id="civil" aria-labelledby="civil-h">
   <div class="container division__inner">
     <div class="division__header fade-up">
-      <span class="mono division__num">Division 02</span>
-      <h2 id="civil-h">Civil &amp; Infrastructure Construction</h2>
+      <span class="mono division__num">Discipline 02 // Civil Works</span>
+      <div class="division__title-row">
+        <h2 id="civil-h">Civil &amp; Infrastructure Construction</h2>
+        <span class="division__watermark mono" aria-hidden="true">02</span>
+      </div>
       <div class="divider"></div>
-      <p>Full-scope civil contracting — from ground-breaking through to final handover — covering industrial, commercial, and infrastructure projects.</p>
+      <p>Full-scope civil contracting — from heavy earthworks through structural reinforced concrete to final turnkey commissioning for commercial, residential, and infrastructure assets.</p>
     </div>
-    <div class="division__body">
-      <div class="division__col fade-up">
-        <h3 class="division__sub">Construction Works</h3>
-        <ul class="svc-list">
-          <li>Industrial &amp; commercial buildings</li>
-          <li>Warehouses &amp; logistics facilities</li>
-          <li>Road construction &amp; paving</li>
-          <li>Boundary walls &amp; perimeter works</li>
-          <li>Drainage &amp; sewerage systems</li>
-          <li>Renovation &amp; structural upgrades</li>
-          <li>Retaining walls &amp; earthworks</li>
-        </ul>
-      </div>
-      <div class="division__col fade-up" style="--fade-delay:0.08s">
-        <h3 class="division__sub">Project Execution Process</h3>
-        <ul class="svc-list">
-          <li>Material procurement &amp; logistics</li>
-          <li>Quality control &amp; inspection</li>
-          <li>Health, safety &amp; environment (HSE)</li>
-          <li>Testing &amp; commissioning</li>
-          <li>Snag resolution &amp; final handover</li>
-          <li>As-built documentation</li>
-          <li>Post-completion support</li>
-        </ul>
-      </div>
-      <div class="division__media fade-up" style="--fade-delay:0.16s">
-        <div class="service-media-card">
-          <div class="service-media-card__img-wrap">
-            <img src="assests/images/civil_construction.jpeg" alt="Civil & Infrastructure Construction" class="service-media-card__img" loading="lazy">
-            <span class="sheet-ref service-media-card__ref">ATC / DIV / 02</span>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="civil">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-civil-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-civil-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16"/><path d="M6 22V6l6-4 6 4v16"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
           </div>
-          <div class="service-media-card__scrim">
-            <div class="service-media-card__cta">
-              <span class="service-media-card__badge mono">DISCIPLINE 02 · HEAVY CONTRACTING</span>
-              <h4 class="service-media-card__title">Civil &amp; Infrastructure Delivery</h4>
-              <p class="service-media-card__desc">From site earthworks to complete turnkey civil structural delivery.</p>
-              <a href="contact.html?service=Civil+%26+Infrastructure" class="btn btn--primary service-media-card__btn">Request Civil Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Civil Construction Scope</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
             </div>
+            <p class="svc-card__summary">Industrial warehouses, superstructures, deep piling and asphalt road paving.</p>
           </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-civil-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Industrial warehouses &amp; logistics centers</li>
+              <li>Commercial building superstructures</li>
+              <li>Deep foundation piling &amp; reinforced earthworks</li>
+              <li>Asphalt road paving &amp; heavy arterial paving</li>
+              <li>Reinforced boundary walls &amp; security perimeters</li>
+              <li>Deep storm drainage &amp; sewerage networks</li>
+              <li>Structural upgrades &amp; seismic retrofitting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-civil-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-civil-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M12 2v20"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Execution &amp; Handover Process</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">Batch plant procurement, field QA/QC, HSE governance and as-built documentation.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-civil-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Batch plant &amp; certified rebar procurement</li>
+              <li>Rigorous field QA/QC concrete testing</li>
+              <li>Health, safety &amp; environment (HSE) governance</li>
+              <li>Non-destructive structural testing</li>
+              <li>Site snagging &amp; milestone completion audits</li>
+              <li>As-built engineering documentation</li>
+              <li>Comprehensive defect-liability support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/images/civil_construction.jpeg');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">HEAVY CONTRACTING · CIVIL</span>
+          <h4 class="service-cta-panel__title">Civil &amp; Infrastructure Delivery</h4>
+          <p class="service-cta-panel__desc">Turnkey civil engineering from foundation earthworks through to structural concrete completion.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="projects.html#ary-laguna" class="service-cta-panel__evidence" title="View project reference">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Ref: ARY Laguna Villa Civil Construction
+          </a>
+          <a href="contact.html?service=civil" class="btn btn--primary service-cta-panel__btn">Request Civil Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIVISION 03 — ELECTRICAL -->
+<!-- ELECTRICAL -->
 <section class="division-section section--white" id="electrical" aria-labelledby="elec-h">
   <div class="container division__inner">
     <div class="division__header fade-up">
-      <span class="mono division__num">Division 03</span>
-      <h2 id="elec-h">Electrical, Power &amp; Mechanical Systems</h2>
+      <span class="mono division__num">Discipline 03 // Power &amp; MEP</span>
+      <div class="division__title-row">
+        <h2 id="elec-h">Electrical, Power &amp; Mechanical Systems</h2>
+        <span class="division__watermark mono" aria-hidden="true">03</span>
+      </div>
       <div class="divider"></div>
-      <p>MV/LV power distribution, substation and generator installations, full HVAC packages, industrial piping, and oil &amp; gas infrastructure works.</p>
+      <p>Medium and low voltage power distribution networks, primary substations, transformer banks, heavy diesel generation, central HVAC chillers, and specialized process piping.</p>
     </div>
-    <div class="division__body">
-      <div class="division__col fade-up">
-        <h3 class="division__sub">Electrical &amp; Power</h3>
-        <ul class="svc-list">
-          <li>MV/LV power distribution systems</li>
-          <li>Transformer installation &amp; testing</li>
-          <li>RMU &amp; substation works</li>
-          <li>Generator installation &amp; commissioning</li>
-          <li>Electrical fit-out (panels, cabling, lighting)</li>
-          <li>Power factor correction</li>
-          <li>UPS &amp; critical power systems</li>
-        </ul>
-      </div>
-      <div class="division__col fade-up" style="--fade-delay:0.08s">
-        <h3 class="division__sub">Mechanical &amp; Oil &amp; Gas</h3>
-        <ul class="svc-list">
-          <li>HVAC systems (chillers, AHUs, FCUs)</li>
-          <li>Ventilation &amp; extract systems</li>
-          <li>Industrial piping works</li>
-          <li>Oil &amp; gas fuel systems</li>
-          <li>Pump installation &amp; calibration</li>
-          <li>Petroleum depot maintenance</li>
-          <li>Compressed air systems</li>
-        </ul>
-      </div>
-      <div class="division__media fade-up" style="--fade-delay:0.16s">
-        <div class="service-media-card">
-          <div class="service-media-card__img-wrap">
-            <img src="assests/images/Electrical, Power &amp; Mechanical.jpeg" alt="Electrical, Power & Mechanical Systems" class="service-media-card__img" loading="lazy">
-            <span class="sheet-ref service-media-card__ref">ATC / DIV / 03</span>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="electrical">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-elec-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-elec-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
-          <div class="service-media-card__scrim">
-            <div class="service-media-card__cta">
-              <span class="service-media-card__badge mono">DISCIPLINE 03 · MEP &amp; POWER</span>
-              <h4 class="service-media-card__title">Power &amp; Mechanical Systems</h4>
-              <p class="service-media-card__desc">Substations, power distribution, HVAC plants, and industrial piping.</p>
-              <a href="contact.html?service=Electrical+%26+Power" class="btn btn--primary service-media-card__btn">Request MEP Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Electrical &amp; Grid Systems</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
             </div>
+            <p class="svc-card__summary">MV/LV distribution boards, transformers, RMU substations and diesel generator plants.</p>
           </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-elec-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>MV/LV primary power distribution boards</li>
+              <li>Power transformer testing &amp; installation</li>
+              <li>Ring Main Unit (RMU) &amp; substation packages</li>
+              <li>Synchronized diesel generator plants</li>
+              <li>Industrial cable tray, trunking &amp; busways</li>
+              <li>Automatic power factor correction (APFC)</li>
+              <li>Online UPS &amp; critical backup battery banks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-elec-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-elec-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3m-3.5-6.5l-2.1 2.1m-8.8 8.8l-2.1 2.1m0-13l2.1 2.1m8.8 8.8l2.1 2.1"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Mechanical &amp; HVAC Plants</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">Chilled water plants, AHU distribution, ventilation ducts and process piping.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-elec-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Central chilled water plants &amp; cooling towers</li>
+              <li>Air Handling Units (AHUs) &amp; FCU distribution</li>
+              <li>Industrial air extraction &amp; ventilation ducts</li>
+              <li>Process piping (welded carbon steel &amp; copper)</li>
+              <li>High-capacity pumping stations &amp; valves</li>
+              <li>Compressed air generation &amp; manifold loops</li>
+              <li>BMS integration for climate control</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/images/Electrical, Power &amp; Mechanical.jpeg');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">MEP &amp; POWER DISTRIBUTION</span>
+          <h4 class="service-cta-panel__title">Power &amp; Mechanical Systems</h4>
+          <p class="service-cta-panel__desc">Substations, power distribution grids, industrial chiller plants, and specialized mechanical piping.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="projects.html#neom-support" class="service-cta-panel__evidence" title="View project reference">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Ref: NEOM Substation &amp; Transformer Support
+          </a>
+          <a href="contact.html?service=electrical" class="btn btn--primary service-cta-panel__btn">Request MEP Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIVISION 04 — FINISHING -->
-<section class="division-section section--dark" id="finishing" aria-labelledby="fin-h">
+<!-- FINISHING -->
+<section class="division-section section--alt" id="finishing" aria-labelledby="fin-h">
   <div class="container division__inner">
     <div class="division__header fade-up">
-      <span class="mono division__num">Division 04</span>
-      <h2 id="fin-h">Finishing Works</h2>
+      <span class="mono division__num">Discipline 04 // Fit-Out</span>
+      <div class="division__title-row">
+        <h2 id="fin-h">Finishing Works</h2>
+        <span class="division__watermark mono" aria-hidden="true">04</span>
+      </div>
       <div class="divider"></div>
-      <p>Complete interior finishing and fit-out services — from bare structure through to fully furnished, ready-to-occupy spaces.</p>
+      <p>Complete interior turnkey fit-outs, executive joinery, acoustic ceilings, aluminum curtain walls, and specialized industrial surface treatments delivered from structural shell to occupancy.</p>
     </div>
-    <div class="division__body">
-      <div class="division__col fade-up">
-        <h3 class="division__sub">Finishing &amp; Fit-Out</h3>
-        <ul class="svc-list">
-          <li>Scratch-to-completion interiors</li>
-          <li>Furnishing &amp; fixtures supply</li>
-          <li>Aluminum works (facades, windows, cladding)</li>
-          <li>Woodworks &amp; joinery</li>
-          <li>Iron &amp; welding works</li>
-          <li>Wall finishing (plastering, paint, cladding)</li>
-          <li>Flooring (tiles, marble, hardwood, epoxy)</li>
-          <li>False ceiling &amp; partitioning</li>
-          <li>Safety works &amp; fall protection</li>
-        </ul>
-      </div>
-      <div class="division__col fade-up" style="--fade-delay:0.08s">
-        <h3 class="division__sub">Specialist Finishes</h3>
-        <ul class="svc-list">
-          <li>External facade finishing</li>
-          <li>Decorative &amp; feature walls</li>
-          <li>Waterproofing &amp; sealants</li>
-          <li>Thermal insulation works</li>
-          <li>Anti-static &amp; clean-room finishes</li>
-          <li>Industrial coatings &amp; epoxy flooring</li>
-          <li>Signage &amp; wayfinding systems</li>
-        </ul>
-      </div>
-      <div class="division__media fade-up" style="--fade-delay:0.16s">
-        <div class="service-media-card">
-          <div class="service-media-card__img-wrap">
-            <img src="assests/images/finishing_works.jpeg" alt="Turnkey Finishing Works and Fit-Out" class="service-media-card__img" loading="lazy">
-            <span class="sheet-ref service-media-card__ref">ATC / DIV / 04</span>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="finishing">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-fin-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-fin-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           </div>
-          <div class="service-media-card__scrim">
-            <div class="service-media-card__cta">
-              <span class="service-media-card__badge mono">DISCIPLINE 04 · INTERIORS &amp; FIT-OUT</span>
-              <h4 class="service-media-card__title">Finishing &amp; Specialist Facades</h4>
-              <p class="service-media-card__desc">Scratch-to-completion fit-out, joinery, glazing, and architectural finishes.</p>
-              <a href="contact.html?service=Finishing+Works" class="btn btn--primary service-media-card__btn">Request Finishing Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Interior Fit-Out &amp; Joinery</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
             </div>
+            <p class="svc-card__summary">Architectural woodwork, false ceilings, aluminum glazing, metal fabrication and flooring.</p>
           </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-fin-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Scratch-to-completion interior transformations</li>
+              <li>Executive architectural woodwork &amp; joinery</li>
+              <li>Acoustic false ceilings &amp; dry wall partitions</li>
+              <li>Structural aluminum glazing &amp; curtain walls</li>
+              <li>Iron, structural metal &amp; stainless fabrication</li>
+              <li>Flooring: porcelain, marble, hardwood &amp; epoxy</li>
+              <li>Turnkey commercial fixtures &amp; custom furniture</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-fin-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-fin-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Specialist Facades &amp; Finishes</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">Facade cladding, elastomeric waterproofing, thermal insulation and protective coatings.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-fin-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Exterior facade cladding (composite &amp; stone)</li>
+              <li>Multi-layer elastomeric waterproofing</li>
+              <li>Thermal building envelope insulation</li>
+              <li>Clean-room &amp; anti-static epoxy flooring</li>
+              <li>Industrial chemical-resistant protective coatings</li>
+              <li>Feature acoustic walls &amp; architectural finishes</li>
+              <li>Architectural signage &amp; code wayfinding</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/images/finishing_works.jpeg');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">INTERIORS &amp; FIT-OUT</span>
+          <h4 class="service-cta-panel__title">Finishing &amp; Facades</h4>
+          <p class="service-cta-panel__desc">Complete turnkey commercial fit-out, bespoke joinery, curtain walls, and specialized finishes.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="projects.html#awt-investment" class="service-cta-panel__evidence" title="View project reference">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Ref: AWT Investment Executive Fit-Out
+          </a>
+          <a href="contact.html?service=finishing" class="btn btn--primary service-cta-panel__btn">Request Finishing Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIVISION 05 — SECURITY & SMART -->
+<!-- SECURITY -->
 <section class="division-section section--white" id="security" aria-labelledby="sec-h">
   <div class="container division__inner">
     <div class="division__header fade-up">
-      <span class="mono division__num">Division 05</span>
-      <h2 id="sec-h">Security, Smart &amp; IT Infrastructure</h2>
+      <span class="mono division__num">Discipline 05 // Smart &amp; IT</span>
+      <div class="division__title-row">
+        <h2 id="sec-h">Security, Smart &amp; IT Infrastructure</h2>
+        <span class="division__watermark mono" aria-hidden="true">05</span>
+      </div>
       <div class="divider"></div>
-      <p>Integrated physical security, building automation, and IT infrastructure systems — from CCTV and access control through to data centres and fiber optic networks.</p>
+      <p>Integrated building management systems (BMS), surveillance security, biometric access governance, data centers, and enterprise fiber optic telecommunication backbones.</p>
     </div>
-    <div class="division__body">
-      <div class="division__col fade-up">
-        <h3 class="division__sub">Security Systems</h3>
-        <ul class="svc-list">
-          <li>CCTV &amp; video surveillance</li>
-          <li>Face recognition &amp; biometric access</li>
-          <li>Smart door lock systems</li>
-          <li>Perimeter intrusion detection</li>
-          <li>Fire alarm &amp; detection systems</li>
-          <li>Emergency PA systems</li>
-          <li>Vehicle barrier &amp; boom systems</li>
-        </ul>
-      </div>
-      <div class="division__col fade-up" style="--fade-delay:0.08s">
-        <h3 class="division__sub">Smart &amp; IT Infrastructure</h3>
-        <ul class="svc-list">
-          <li>Building Management System (BMS/BAS)</li>
-          <li>IoT integration &amp; smart controls</li>
-          <li>Data centre infrastructure</li>
-          <li>Structured cabling (Cat6A, fiber)</li>
-          <li>Fiber optic networks</li>
-          <li>WiFi &amp; wireless network design</li>
-          <li>Audio-visual &amp; conferencing systems</li>
-        </ul>
-      </div>
-      <div class="division__media fade-up" style="--fade-delay:0.16s">
-        <div class="service-media-card">
-          <div class="service-media-card__img-wrap">
-            <img src="assests/images/Security, Smart &amp; IT Infrastructure.jpeg" alt="Security, Smart & IT Infrastructure" class="service-media-card__img" loading="lazy">
-            <span class="sheet-ref service-media-card__ref">ATC / DIV / 05</span>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="security">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-sec-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-sec-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
           </div>
-          <div class="service-media-card__scrim">
-            <div class="service-media-card__cta">
-              <span class="service-media-card__badge mono">DISCIPLINE 05 · BMS &amp; SMART NETWORKS</span>
-              <h4 class="service-media-card__title">Security &amp; Smart Infrastructure</h4>
-              <p class="service-media-card__desc">Integrated building management (BMS), surveillance, and structured cabling.</p>
-              <a href="contact.html?service=Security+%26+Smart" class="btn btn--primary service-media-card__btn">Request Security &amp; Smart <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Surveillance &amp; Physical Security</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
             </div>
+            <p class="svc-card__summary">IP CCTV surveillance, biometric access control, fire detection and security control rooms.</p>
           </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-sec-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>IP CCTV camera surveillance &amp; NVR storage</li>
+              <li>Facial recognition &amp; biometric access control</li>
+              <li>Intelligent door interlocking systems</li>
+              <li>Perimeter optical &amp; infrared intrusion detection</li>
+              <li>Addressable fire detection &amp; voice alarm (EVAC)</li>
+              <li>Automated traffic barriers &amp; bollards</li>
+              <li>Security operations control room setups</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-sec-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-sec-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Building Automation &amp; IT Networks</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">BMS/BAS automation, IoT facility sensors, tier-rated data centers and structured cabling.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-sec-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Building Management Systems (BMS/BAS)</li>
+              <li>IoT facility sensors &amp; smart energy monitors</li>
+              <li>Server room &amp; tier-rated data center builds</li>
+              <li>Structured cabling (Cat6A &amp; single-mode fiber)</li>
+              <li>Enterprise wireless WiFi 6/7 mapping</li>
+              <li>Audio-visual, boardrooms &amp; PA public address</li>
+              <li>UPS integration for continuous network uptime</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/images/Security, Smart &amp; IT Infrastructure.jpeg');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">BMS &amp; SMART NETWORKS</span>
+          <h4 class="service-cta-panel__title">Security &amp; Smart Infrastructure</h4>
+          <p class="service-cta-panel__desc">Centralized BMS automation, IP CCTV surveillance, and enterprise structured cabling.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="projects.html#awt-investment" class="service-cta-panel__evidence" title="View project reference">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Ref: AWT Automation &amp; Fiber Networking
+          </a>
+          <a href="contact.html?service=security" class="btn btn--primary service-cta-panel__btn">Request Security &amp; Smart <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIVISION 06 — DEFENSE & O&M -->
-<section class="division-section section--dark" id="defense" aria-labelledby="def-h">
+<!-- DEFENSE -->
+<section class="division-section section--alt" id="defense" aria-labelledby="def-h">
   <div class="container division__inner">
     <div class="division__header fade-up">
-      <span class="mono division__num">Division 06</span>
-      <h2 id="def-h">Defense, Industrial Maintenance &amp; Operations</h2>
+      <span class="mono division__num">Discipline 06 // Defense Infrastructure</span>
+      <div class="division__title-row">
+        <h2 id="def-h">Defense &amp; Operations</h2>
+        <span class="division__watermark mono" aria-hidden="true">06</span>
+      </div>
       <div class="divider"></div>
-      <p>Specialist infrastructure support for defense and military facilities, combined with industrial maintenance contracts and 24/7 technical operations services.</p>
+      <p>Specialist infrastructure engineering for defense and secure cantonment facilities, mission-critical power resilience, hardened barriers, and 24/7 technical facility operations.</p>
     </div>
-    <div class="division__body">
-      <div class="division__col fade-up">
-        <h3 class="division__sub">Defense &amp; Military</h3>
-        <ul class="svc-list">
-          <li>Military facility design &amp; construction</li>
-          <li>Secure perimeter &amp; access systems</li>
-          <li>Specialist MEP for high-security facilities</li>
-          <li>Barracks, accommodation &amp; HQ buildings</li>
-          <li>Defense infrastructure maintenance</li>
-          <li>Confidential scope management</li>
-        </ul>
-      </div>
-      <div class="division__col fade-up" style="--fade-delay:0.08s">
-        <h3 class="division__sub">Maintenance &amp; Operations</h3>
-        <ul class="svc-list">
-          <li>Annual Maintenance Contracts (AMC)</li>
-          <li>Planned preventive maintenance (PPM)</li>
-          <li>Factory &amp; industrial facility maintenance</li>
-          <li>24/7 technical breakdown response</li>
-          <li>Technical procurement &amp; supply</li>
-          <li>Spare parts management</li>
-          <li>Operations &amp; maintenance (O&amp;M) contracts</li>
-        </ul>
-      </div>
-      <div class="division__media fade-up" style="--fade-delay:0.16s">
-        <div class="service-media-card">
-          <div class="service-media-card__img-wrap">
-            <img src="assests/images/Defense, Industrial Maintenance &amp; Operations.jpeg" alt="Defense, Industrial Maintenance & Operations" class="service-media-card__img" loading="lazy">
-            <span class="sheet-ref service-media-card__ref">ATC / DIV / 06</span>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="defense">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-def-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-def-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <div class="service-media-card__scrim">
-            <div class="service-media-card__cta">
-              <span class="service-media-card__badge mono">DISCIPLINE 06 · DEFENSE &amp; ASSET CARE</span>
-              <h4 class="service-media-card__title">Defense &amp; Industrial Operations</h4>
-              <p class="service-media-card__desc">Cantonment infrastructure, preventive maintenance (PPM), and 24/7 contracts.</p>
-              <a href="contact.html?service=Defense+%26+Operations" class="btn btn--primary service-media-card__btn">Request Defense &amp; O&amp;M <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Defense Base Infrastructure</h3>
+              <span class="svc-card__count mono">6 capabilities</span>
             </div>
+            <p class="svc-card__summary">Military civil construction, fortified perimeter barriers, command MEP and operational HQ.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-def-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Military installation planning &amp; civil construction</li>
+              <li>High-security fortified perimeter barriers</li>
+              <li>Specialized redundant MEP for command facilities</li>
+              <li>Barracks, operational HQ &amp; secure accommodation</li>
+              <li>Confidential scope management &amp; compliance</li>
+              <li>Airfield &amp; tactical access support paving</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-def-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-def-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Critical Facility Operations</h3>
+              <span class="svc-card__count mono">6 capabilities</span>
+            </div>
+            <p class="svc-card__summary">24/7 breakdown response, power grid resilience, parts logistics and facility audits.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-def-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Continuous 24/7 technical breakdown response</li>
+              <li>Dedicated power grid &amp; generator resilience</li>
+              <li>Secure parts logistics &amp; supply chain continuity</li>
+              <li>Life-safety &amp; environmental backup checks</li>
+              <li>Confidential defense operations governance</li>
+              <li>Preventive facility integrity audits</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/images/Defense, Industrial Maintenance &amp; Operations.jpeg');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">DEFENSE &amp; ASSET CARE</span>
+          <h4 class="service-cta-panel__title">Defense &amp; Operations</h4>
+          <p class="service-cta-panel__desc">Cantonment infrastructure, perimeter fortification, and continuous 24/7 operational resilience.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="projects.html#american-military-ksa" class="service-cta-panel__evidence" title="View project reference">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Ref: Confidential Defense Camp Infrastructure
+          </a>
+          <a href="contact.html?service=defense" class="btn btn--primary service-cta-panel__btn">Request Defense Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <span class="sheet-ref" style="position:absolute;bottom:1.5rem;right:var(--container-px)" aria-hidden="true">ATC / 03-DIV06 / REV A</span>
 </section>
 
-<!-- DIVISION 07 — ENGINEERING CONSULTANCY -->
+<!-- OIL-GAS -->
+<section class="division-section section--white" id="oil-gas" aria-labelledby="oil-gas-h">
+  <div class="container division__inner">
+    <div class="division__header fade-up">
+      <span class="mono division__num">Discipline 07 // Oil &amp; Gas</span>
+      <div class="division__title-row">
+        <h2 id="oil-gas-h">Oil, Gas &amp; Petroleum</h2>
+        <span class="division__watermark mono" aria-hidden="true">07</span>
+      </div>
+      <div class="divider"></div>
+      <p>Specialized civil and electromechanical contracting for refineries, retail fuel service stations, bulk petroleum storage depots, high-pressure process piping, and hazardous-area compliance.</p>
+    </div>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="oil-gas">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-oil-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-oil-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22h12M4 9h10M4 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L20 7"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Refinery &amp; Fuel Infrastructure</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">Refinery foundations, retail forecourts, fuel storage tanks and high-pressure piping.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-oil-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Refinery process area civil foundations &amp; supports</li>
+              <li>Retail service station forecourts &amp; canopy erection</li>
+              <li>Bulk petroleum storage tank farm construction</li>
+              <li>High-pressure fuel piping &amp; welded manifolds</li>
+              <li>Automated dispenser calibration &amp; metering</li>
+              <li>Underground double-wall tank installation</li>
+              <li>Oil/water separator &amp; spillage containment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-oil-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-oil-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Hazardous-Area Safety &amp; QA</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">ATEX/IECEx wiring, leak detection, cathodic protection and hydrostatic pressure testing.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-oil-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>ATEX / IECEx certified hazardous electrical wiring</li>
+              <li>Automated fuel leak detection &amp; vapor recovery</li>
+              <li>Cathodic protection for underground tanks &amp; lines</li>
+              <li>Hydrostatic pressure testing &amp; certification</li>
+              <li>Pipeline non-destructive radiographic examination</li>
+              <li>Refinery turnaround mechanical support works</li>
+              <li>Full statutory fire safety &amp; spill permits clearance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/images/Engineers Overseeing Refinery Construction.png');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">PETROLEUM &amp; PIPING</span>
+          <h4 class="service-cta-panel__title">Oil, Gas &amp; Petroleum</h4>
+          <p class="service-cta-panel__desc">Refinery civil support, forecourt construction, bulk tankage, and hazardous-area mechanical piping.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="projects.html" class="service-cta-panel__evidence" title="View projects portfolio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Ref: Industrial Refineries &amp; Fuel Forecourts
+          </a>
+          <a href="contact.html?service=oil-gas" class="btn btn--primary service-cta-panel__btn">Request Oil &amp; Gas Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIAL-MAINTENANCE -->
+<section class="division-section section--alt" id="industrial-maintenance" aria-labelledby="ind-h">
+  <div class="container division__inner">
+    <div class="division__header fade-up">
+      <span class="mono division__num">Discipline 08 // Industrial O&amp;M</span>
+      <div class="division__title-row">
+        <h2 id="ind-h">Industrial &amp; Factory Maintenance</h2>
+        <span class="division__watermark mono" aria-hidden="true">08</span>
+      </div>
+      <div class="divider"></div>
+      <p>Comprehensive plant upkeep, planned preventive electromechanical maintenance (PPM), scheduled factory shutdowns, equipment overhauls, and long-term Annual Maintenance Contracts (AMC).</p>
+    </div>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="industrial-maintenance">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-ind-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-ind-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="12" cy="18" r="1.5"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Preventive &amp; Corrective O&amp;M</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">Annual Maintenance Contracts (AMC), PPM schedules, plant servicing and emergency breakdown dispatch.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-ind-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Annual Maintenance Contracts (AMC) agreements</li>
+              <li>Planned Preventive Maintenance (PPM) schedules</li>
+              <li>Factory electromechanical plant servicing</li>
+              <li>Scheduled factory shutdowns &amp; turnaround overhauls</li>
+              <li>Emergency 24/7 technical breakdown dispatch</li>
+              <li>Industrial conveyor &amp; motor drive alignment</li>
+              <li>Industrial exhaust &amp; commercial hood sanitation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-ind-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-ind-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Condition Monitoring &amp; Asset Care</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">Thermographic inspections, vibration analysis, chiller overhauls and fluid contamination testing.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-ind-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Infrared thermographic switchgear inspections</li>
+              <li>Vibration analysis on heavy rotating machinery</li>
+              <li>Compressor &amp; industrial chiller overhaul service</li>
+              <li>Critical OEM spare parts stock management</li>
+              <li>Lubrication &amp; fluid contamination testing</li>
+              <li>Safety interlock testing &amp; statutory audit readiness</li>
+              <li>Plant lifecycle asset tracking &amp; reporting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/Herfy Drive-Thru at Twilight.png');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">PLANT ASSET CARE · AMC</span>
+          <h4 class="service-cta-panel__title">Industrial Maintenance</h4>
+          <p class="service-cta-panel__desc">Planned preventive maintenance (PPM), plant shutdowns, and multi-site electromechanical AMC support.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="projects.html#herfy-foods" class="service-cta-panel__evidence" title="View project reference">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Ref: Herfy Foods 400+ Facility Contracts
+          </a>
+          <a href="contact.html?service=industrial-maintenance" class="btn btn--primary service-cta-panel__btn">Request Maintenance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     PILLAR 2: ENGINEERING CONSULTANCY & ADVISORY
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- CONSULTANCY -->
 <section class="division-section section--white" id="consultancy" aria-labelledby="consult-h">
   <div class="container division__inner">
     <div class="division__header fade-up">
-      <span class="mono division__num">Division 07</span>
-      <h2 id="consult-h">Engineering Consultancy &amp; Technical Advisory</h2>
+      <span class="mono division__num">Pillar 02 // Technical Advisory</span>
+      <div class="division__title-row">
+        <h2 id="consult-h">Engineering Consultancy &amp; Technical Advisory</h2>
+        <span class="division__watermark mono" aria-hidden="true">09</span>
+      </div>
       <div class="divider"></div>
-      <p>Independent engineering consultancy, project management (PMC), structural auditing, BIM coordination, and statutory code compliance across the GCC and South Asia.</p>
+      <p>Independent engineering consultancy, project management (PMC), structural auditing, BIM coordination (LOD 300–500), value engineering, and statutory code compliance across the GCC and South Asia.</p>
     </div>
-    <div class="division__body">
-      <div class="division__col fade-up">
-        <h3 class="division__sub">Project Advisory &amp; PMC</h3>
-        <ul class="svc-list">
-          <li>Project Management Consultancy (PMC)</li>
-          <li>Owner's Engineering &amp; Independent Review</li>
-          <li>Value Engineering &amp; Cost Rationalization</li>
-          <li>Feasibility Studies &amp; Life-Cycle Costing</li>
-          <li>FIDIC Contract Administration &amp; Claims Advisory</li>
-          <li>Constructability &amp; Risk Mitigation Reviews</li>
-          <li>Site Technical Supervision &amp; Monitoring</li>
-        </ul>
-      </div>
-      <div class="division__col fade-up" style="--fade-delay:0.08s">
-        <h3 class="division__sub">Technical Governance &amp; BIM</h3>
-        <ul class="svc-list">
-          <li>BIM Modeling &amp; Clash Detection (LOD 300–500)</li>
-          <li>4D Scheduling &amp; 5D Quantity Take-Offs</li>
-          <li>Saudi Building Code (SBC) Compliance Audits</li>
-          <li>Pakistan Engineering Council (PEC) Documentation</li>
-          <li>Third-Party QA/QC Auditing &amp; Structural Health Testing</li>
-          <li>MEP Energy Modeling &amp; Sustainability Consulting</li>
-          <li>Statutory Safety &amp; Fire Life-Safety Clearances</li>
-        </ul>
-      </div>
-      <div class="division__media fade-up" style="--fade-delay:0.16s">
-        <div class="service-media-card">
-          <div class="service-media-card__img-wrap">
-            <img src="assests/images/Engineering Consultancy &amp; Technical Advisory.jpeg" alt="Engineering Consultancy & Technical Advisory" class="service-media-card__img" loading="lazy">
-            <span class="sheet-ref service-media-card__ref">ATC / DIV / 07</span>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="consultancy">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-cns-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-cns-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
           </div>
-          <div class="service-media-card__scrim">
-            <div class="service-media-card__cta">
-              <span class="service-media-card__badge mono">DISCIPLINE 07 · PMC &amp; ADVISORY</span>
-              <h4 class="service-media-card__title">Consultancy &amp; Technical Governance</h4>
-              <p class="service-media-card__desc">Owner's engineering, BIM modeling, value engineering, and code compliance.</p>
-              <a href="contact.html?service=Engineering+Consultancy" class="btn btn--primary service-media-card__btn">Request Consultancy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Project Advisory &amp; PMC</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
             </div>
+            <p class="svc-card__summary">Project Management Consultancy (PMC), value engineering, feasibility studies and contract administration.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-cns-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Project Management Consultancy (PMC) oversight</li>
+              <li>Owner's Engineering &amp; independent design verification</li>
+              <li>Value engineering &amp; life-cycle cost rationalization</li>
+              <li>Feasibility studies &amp; technical constructability reviews</li>
+              <li>FIDIC contract administration &amp; claims advisory</li>
+              <li>Risk mitigation &amp; independent procurement audits</li>
+              <li>Resident site engineering supervision</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-cns-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-cns-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Technical Governance &amp; BIM</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">BIM LOD 300–500 clash detection, 4D/5D simulation, building codes and structural health testing.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-cns-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>BIM modeling &amp; 3D clash detection (LOD 300–500)</li>
+              <li>4D schedule simulation &amp; 5D quantity take-offs</li>
+              <li>Saudi Building Code (SBC) compliance verifications</li>
+              <li>Pakistan Engineering Council (PEC) statutory documentation</li>
+              <li>Third-party QA/QC inspection &amp; structural health testing</li>
+              <li>MEP energy modeling &amp; sustainable efficiency consulting</li>
+              <li>Life-safety &amp; civil defense approval coordination</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/images/Engineering Consultancy &amp; Technical Advisory.jpeg');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">PMC &amp; TECHNICAL ADVISORY</span>
+          <h4 class="service-cta-panel__title">Consultancy &amp; Governance</h4>
+          <p class="service-cta-panel__desc">Owner's engineering, BIM modeling, value engineering audits, and statutory code compliance.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="projects.html" class="service-cta-panel__evidence" title="View advisory portfolio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Ref: Owner's Engineering &amp; QA/QC Advisory
+          </a>
+          <a href="contact.html?service=consultancy" class="btn btn--primary service-cta-panel__btn">Request Consultancy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <span class="sheet-ref" style="position:absolute;bottom:1.5rem;right:var(--container-px)" aria-hidden="true">ATC / 03-DIV07 / REV A</span>
 </section>
 
-<!-- TRADING & PROCUREMENT DIVISION ANCHOR -->
-<section class="division-section section--dark" id="trading" aria-labelledby="trading-h">
+<!-- ══════════════════════════════════════════════════════════
+     PILLAR 3: TRADING & TECHNICAL PROCUREMENT
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- TRADING -->
+<section class="division-section section--alt" id="trading" aria-labelledby="trading-h">
   <div class="container division__inner">
     <div class="division__header fade-up">
-      <span class="mono division__num">Trading &amp; Supply</span>
-      <h2 id="trading-h">Trading &amp; Procurement</h2>
+      <span class="mono division__num">Pillar 03 // Supply &amp; Procurement</span>
+      <div class="division__title-row">
+        <h2 id="trading-h">Trading &amp; Technical Procurement</h2>
+        <span class="division__watermark mono" aria-hidden="true">10</span>
+      </div>
       <div class="divider"></div>
-      <p>Direct supply chain sourcing, international vendor procurement, heavy machinery, MV/LV electrical gear, and specialized industrial materials distribution.</p>
+      <p>Direct international supply chain sourcing, factory acceptance testing, heavy construction machinery, MV/LV electrical gear, HVAC chillers, and industrial PPE distribution.</p>
     </div>
-    <div class="division__body">
-      <div class="division__col fade-up">
-        <h3 class="division__sub">Equipment &amp; Materials Supply</h3>
-        <ul class="svc-list">
-          <li>MV/LV switchgear &amp; distribution boards</li>
-          <li>Power transformers &amp; heavy generators</li>
-          <li>Industrial HVAC chillers &amp; cooling towers</li>
-          <li>Structural steel &amp; rebar procurement</li>
-          <li>Heavy construction machinery &amp; earthmovers</li>
-          <li>Piping, valves &amp; fluid control systems</li>
-        </ul>
-      </div>
-      <div class="division__col fade-up" style="--fade-delay:0.08s">
-        <h3 class="division__sub">Procurement Governance</h3>
-        <ul class="svc-list">
-          <li>Manufacturer direct authorization</li>
-          <li>Factory acceptance testing (FAT) audits</li>
-          <li>International logistics &amp; customs clearance</li>
-          <li>Warranty enforcement &amp; OEM spare parts</li>
-          <li>Strict ISO 9001 quality verification</li>
-        </ul>
-      </div>
-      <div class="division__media fade-up" style="--fade-delay:0.16s">
-        <div class="service-media-card">
-          <div class="service-media-card__img-wrap">
-            <img src="assests/images/atc-services-hero-single.jpg" alt="Trading &amp; Procurement" class="service-media-card__img" loading="lazy">
-            <span class="sheet-ref service-media-card__ref">ATC / TRD / 01</span>
+
+    <div class="division__cards-header">
+      <button type="button" class="division__toggle-all mono" aria-expanded="false" data-target="trading">
+        <span class="division__toggle-all-text">Expand all</span>
+        <span class="division__toggle-all-icon" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="division__cards-grid">
+      <div class="svc-card" id="card-trd-1">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-trd-1">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
-          <div class="service-media-card__scrim">
-            <div class="service-media-card__cta">
-              <span class="service-media-card__badge mono">PROCUREMENT &amp; SUPPLY</span>
-              <h4 class="service-media-card__title">Trading &amp; Procurement Solutions</h4>
-              <p class="service-media-card__desc">Request itemized pricing and international delivery schedules for your project.</p>
-              <a href="contact.html?service=Trading+%26+Procurement" class="btn btn--primary service-media-card__btn">Request Procurement <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Equipment &amp; Materials Supply</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
             </div>
+            <p class="svc-card__summary">Switchgear, transformers, diesel generators, HVAC chillers, structural steel and machinery.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-trd-1" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>MV/LV switchgear &amp; main distribution boards</li>
+              <li>Step-up/down transformers &amp; heavy diesel generators</li>
+              <li>Centrifugal &amp; screw HVAC chillers &amp; cooling towers</li>
+              <li>Certified structural steel, rebar &amp; tensile members</li>
+              <li>Heavy earthmoving machinery, cranes &amp; loaders</li>
+              <li>Piping, valves, actuators &amp; flow control packages</li>
+              <li>Industrial safety gear &amp; certified PPE equipment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" id="card-trd-2">
+        <button type="button" class="svc-card__header" aria-expanded="false" aria-controls="card-content-trd-2">
+          <div class="svc-card__icon-tile" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+          </div>
+          <div class="svc-card__header-text">
+            <div class="svc-card__title-row">
+              <h3 class="svc-card__title">Procurement Governance &amp; FAT</h3>
+              <span class="svc-card__count mono">7 capabilities</span>
+            </div>
+            <p class="svc-card__summary">Direct vendor relations, Factory Acceptance Testing (FAT), freight logistics and OEM parts.</p>
+          </div>
+          <span class="svc-card__chevron" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="svc-card__body-wrap" id="card-content-trd-2" inert>
+          <div class="svc-card__body-inner">
+            <div class="svc-card__divider"></div>
+            <ul class="svc-card__list">
+              <li>Manufacturer-direct authorized vendor relations</li>
+              <li>Factory Acceptance Testing (FAT) witness inspection</li>
+              <li>Global freight forwarding &amp; customs port logistics</li>
+              <li>Manufacturer warranties &amp; OEM spare parts management</li>
+              <li>Strict material testing &amp; compliance certificates</li>
+              <li>Site-delivery scheduling &amp; offloading coordination</li>
+              <li>Competitive itemized procurement quotations</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="service-cta-panel">
+      <div class="service-cta-panel__bg" style="background-image: url('assests/images/atc-services-hero-single.jpg');" aria-hidden="true"></div>
+      <div class="service-cta-panel__content">
+        <div class="service-cta-panel__left">
+          <span class="service-cta-panel__badge mono">DIRECT SOURCING &amp; SUPPLY</span>
+          <h4 class="service-cta-panel__title">Trading &amp; Procurement</h4>
+          <p class="service-cta-panel__desc">Request itemized pricing, factory lead times, and international delivery schedules for your project.</p>
+        </div>
+        <div class="service-cta-panel__right">
+          <a href="contact.html?service=trading" class="service-cta-panel__evidence" title="Request itemized quote">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Itemized Quotations &amp; Material Sourcing
+          </a>
+          <a href="contact.html?service=trading" class="btn btn--primary service-cta-panel__btn">Request Quotation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <span class="sheet-ref" style="position:absolute;bottom:1.5rem;right:var(--container-px)" aria-hidden="true">ATC / 03-TRD / REV A</span>
+</section>
+<!-- CLOSING INQUIRY PANEL -->
+<section class="section section-closing-cta">
+  <div class="container">
+    <div class="closing-cta-card">
+      <div class="closing-cta-content">
+        <span class="label">Ready to Coordinate Your Project?</span>
+        <h2>Connect with ATC's Multi-Disciplinary Engineering Team</h2>
+        <p>Whether you require complete turnkey civil execution, specialized mechanical &amp; power engineering, independent PMC advisory, or global equipment procurement, our team delivers single-source accountability.</p>
+      </div>
+      <div class="closing-cta-actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Discuss Your Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="projects.html" class="btn btn--secondary btn--lg">Explore Portfolio</a>
+      </div>
+    </div>
+  </div>
 </section>
 </main>
 
@@ -653,18 +1237,55 @@
     <div class="footer__top">
       <div class="footer__brand">
         <div class="footer__logo">
-          <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="footer__logo-img">
+          <img src="assests/logo/ATC Construction Crane Logo.png" alt="ATC Logo" class="footer__logo-img" width="48" height="48" loading="lazy">
           <div class="footer__logo-sub">Azaan Trading &amp; Contracting</div>
         </div>
-        <p class="footer__tagline">Engineering excellence across civil, power, MEP, defense infrastructure, and technical procurement.</p>
+        <p class="footer__tagline">Eight engineering and construction service areas, supported by technical consultancy and strategic procurement across Pakistan, Saudi Arabia, and Bahrain.</p>
       </div>
-      <div><p class="footer__col-title">Navigation</p><div class="footer__links"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div></div>
-      <div><p class="footer__col-title">Divisions</p><div class="footer__links"><a href="#consultancy">Engineering Consultancy</a><a href="#design">Design &amp; Engineering</a><a href="#civil">Civil &amp; Infrastructure</a><a href="#electrical">Electrical &amp; Power</a><a href="#finishing">Finishing Works</a><a href="#security">Security &amp; Smart</a><a href="#defense">Defense &amp; O&amp;M</a></div></div>
-      <div><p class="footer__col-title">Contact</p><div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Islamabad, Pakistan</span></div><div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@atc-pk.com</span></div></div>
+      <div>
+        <p class="footer__col-title">Navigation</p>
+        <div class="footer__links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Service Disciplines</p>
+        <div class="footer__links">
+          <a href="#design">Design &amp; Engineering</a>
+          <a href="#civil">Civil &amp; Infrastructure</a>
+          <a href="#electrical">Electrical, Power &amp; Mechanical</a>
+          <a href="#finishing">Finishing Works</a>
+          <a href="#security">Security, Smart &amp; IT</a>
+          <a href="#defense">Defense &amp; Operations</a>
+          <a href="#oil-gas">Oil, Gas &amp; Petroleum</a>
+          <a href="#industrial-maintenance">Industrial Maintenance</a>
+          <a href="#consultancy">Engineering Consultancy</a>
+          <a href="#trading">Trading &amp; Procurement</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>Islamabad, Pakistan</span>
+        </div>
+        <div class="footer__contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@atc-pk.com" style="color:inherit">info@atc-pk.com</a>
+        </div>
+      </div>
     </div>
-    <div class="footer__bottom"><span class="footer__copy">© 2026 Azaan Trading &amp; Contracting (ATC). All rights reserved.</span><span class="footer__ref">ATC / SITE / REV A</span></div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Azaan Trading &amp; Contracting (ATC). All rights reserved.</span>
+      <span class="footer__ref">ATC / SITE</span>
+    </div>
   </div>
 </footer>
-<script src="js/main.js"></script>
+
+<script src="js/main.js?v=2"></script>
 </body>
 </html>

@@ -1,0 +1,606 @@
+{
+  "widths": [
+    {
+      "width": 1440,
+      "height": 7708,
+      "scrollWidth": 1440,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "height": 12417,
+      "scrollWidth": 390,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "page-hero__content",
+          "text": "ATC›Services\n      What We Deliver\n      Engineering, Constr",
+          "right": 532.796875
+        },
+        {
+          "tag": "DIV",
+          "cls": "breadcrumb",
+          "text": "ATC›Services",
+          "right": 532.796875
+        },
+        {
+          "tag": "SPAN",
+          "cls": "label",
+          "text": "What We Deliver",
+          "right": 532.796875
+        },
+        {
+          "tag": "H1",
+          "cls": "",
+          "text": "Engineering, Construction & Consultancy Services",
+          "right": 532.796875
+        },
+        {
+          "tag": "P",
+          "cls": "",
+          "text": "Integrated capabilities spanning engineering consultancy, ar",
+          "right": 532.796875
+        },
+        {
+          "tag": "DIV",
+          "cls": "hero__strip",
+          "text": "7 Specialized Divisions\n        ·\n        Single-Source Deli",
+          "right": 532.796875
+        },
+        {
+          "tag": "SPAN",
+          "cls": "hero__strip-item mono",
+          "text": "ISO 9001 / ASTM Quality",
+          "right": 510.34375
+        },
+        {
+          "tag": "DIV",
+          "cls": "page-hero__visual",
+          "text": "SYSTEMS ARCHITECTURE — INTEGRATED MATRIX / REV 02\n          ",
+          "right": 532.796875
+        },
+        {
+          "tag": "DIV",
+          "cls": "page-hero__drawing-frame",
+          "text": "SYSTEMS ARCHITECTURE — INTEGRATED MATRIX / REV 02\n          ",
+          "right": 532.796875
+        },
+        {
+          "tag": "DIV",
+          "cls": "page-hero__drawing-header",
+          "text": "SYSTEMS ARCHITECTURE — INTEGRATED MATRIX / REV 02\n          ",
+          "right": 511.796875
+        },
+        {
+          "tag": "SPAN",
+          "cls": "page-hero__live-badge mono",
+          "text": "SYSTEM SYNCHRONIZED",
+          "right": 511.796875
+        },
+        {
+          "tag": "DIV",
+          "cls": "page-hero__svg-wrap",
+          "text": "ATC\n            PMO/QA\n            \n            \n           ",
+          "right": 511.796875
+        },
+        {
+          "tag": "svg",
+          "cls": "",
+          "text": "ATC\n            PMO/QA\n            \n            \n           ",
+          "right": 510.796875
+        },
+        {
+          "tag": "line",
+          "cls": "",
+          "text": "",
+          "right": 410.3386535644531
+        },
+        {
+          "tag": "circle",
+          "cls": "",
+          "text": "",
+          "right": 438.24285888671875
+        },
+        {
+          "tag": "text",
+          "cls": "",
+          "text": "02:DESIGN",
+          "right": 436.2310485839844
+        },
+        {
+          "tag": "line",
+          "cls": "",
+          "text": "",
+          "right": 443.8236999511719
+        },
+        {
+          "tag": "circle",
+          "cls": "",
+          "text": "",
+          "right": 477.30877685546875
+        },
+        {
+          "tag": "text",
+          "cls": "",
+          "text": "04:POWER",
+          "right": 473.7680969238281
+        },
+        {
+          "tag": "line",
+          "cls": "",
+          "text": "",
+          "right": 399.1769714355469
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "height": 12417,
+      "scrollWidth": 360,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "page-hero__content",
+          "text": "ATC›Services\n      What We Deliver\n      Engineering, Constr",
+          "right": 532.796875
+        },
+        {
+          "tag": "DIV",
+          "cls": "breadcrumb",
+          "text": "ATC›Services",
+          "right": 532.796875
+        },
+        {
+          "tag": "SPAN",
+          "cls": "label",
+          "text": "What We Deliver",
+          "right": 532.796875
+        },
+        {
+          "tag": "H1",
+          "cls": "",
+          "text": "Engineering, Construction & Consultancy Services",
+          "right": 532.796875
+        },
+        {
+          "tag": "P",
+          "cls": "",
+          "text": "Integrated capabilities spanning engineering consultancy, ar",
+          "right": 532.796875
+        },
+        {
+          "tag": "DIV",
+          "cls": "hero__strip",
+          "text": "7 Specialized Divisions\n        ·\n        Single-Source Deli",
+          "right": 532.796875
+        },
+        {
+          "tag": "SPAN",
+          "cls": "hero__strip-item mono",
+          "text": "Single-Source Delivery",
+          "right": 380.1875
+        },
+        {
+          "tag": "SPAN",
+          "cls": "hero__strip-sep",
+          "text": "·",
+          "right": 390.59375
+        },
+        {
+          "tag": "SPAN",
+          "cls": "hero__strip-item mono",
+          "text": "ISO 9001 / ASTM Quality",
+          "right": 510.34375
+        },
+        {
+          "tag": "DIV",
+          "cls": "page-hero__visual",
+          "text": "SYSTEMS ARCHITECTURE — INTEGRATED MATRIX / REV 02\n          ",
+          "right": 532.796875
+        },
+        {
+          "tag": "DIV",
+          "cls": "page-hero__drawing-frame",
+          "text": "SYSTEMS ARCHITECTURE — INTEGRATED MATRIX / REV 02\n          ",
+          "right": 532.796875
+        },
+        {
+          "tag": "DIV",
+          "cls": "page-hero__drawing-header",
+          "text": "SYSTEMS ARCHITECTURE — INTEGRATED MATRIX / REV 02\n          ",
+          "right": 511.796875
+        },
+        {
+          "tag": "SPAN",
+          "cls": "page-hero__drawing-label mono",
+          "text": "SYSTEMS ARCHITECTURE — INTEGRATED MATRIX / REV 02",
+          "right": 365.484375
+        },
+        {
+          "tag": "SPAN",
+          "cls": "page-hero__live-badge mono",
+          "text": "SYSTEM SYNCHRONIZED",
+          "right": 511.796875
+        },
+        {
+          "tag": "SPAN",
+          "cls": "page-hero__pulse-dot",
+          "text": "",
+          "right": 391.484375
+        },
+        {
+          "tag": "DIV",
+          "cls": "page-hero__svg-wrap",
+          "text": "ATC\n            PMO/QA\n            \n            \n           ",
+          "right": 511.796875
+        },
+        {
+          "tag": "svg",
+          "cls": "",
+          "text": "ATC\n            PMO/QA\n            \n            \n           ",
+          "right": 510.796875
+        },
+        {
+          "tag": "circle",
+          "cls": "",
+          "text": "",
+          "right": 382.4344482421875
+        },
+        {
+          "tag": "line",
+          "cls": "",
+          "text": "",
+          "right": 410.3386535644531
+        },
+        {
+          "tag": "circle",
+          "cls": "",
+          "text": "",
+          "right": 438.24285888671875
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 9876,
+      "scrollWidth": 768,
+      "overflow": []
+    }
+  ],
+  "inquiries": [
+    {
+      "href": "contact.html?service=Design+%26+Engineering",
+      "selected": "Design & Engineering"
+    },
+    {
+      "href": "contact.html?service=Civil+%26+Infrastructure",
+      "selected": "Civil & Infrastructure"
+    },
+    {
+      "href": "contact.html?service=Electrical+%26+Power",
+      "selected": "Electrical & Power"
+    },
+    {
+      "href": "contact.html?service=Finishing+Works",
+      "selected": "Finishing Works"
+    },
+    {
+      "href": "contact.html?service=Security+%26+Smart",
+      "selected": "Security & Smart"
+    },
+    {
+      "href": "contact.html?service=Defense+%26+Operations",
+      "selected": "Defense & Operations"
+    },
+    {
+      "href": "contact.html?service=Engineering+Consultancy",
+      "selected": ""
+    },
+    {
+      "href": "contact.html?service=Trading+%26+Procurement",
+      "selected": ""
+    }
+  ],
+  "sections": [
+    {
+      "id": "page-hero",
+      "height": 994
+    },
+    {
+      "id": "design",
+      "title": "Design & Engineering",
+      "height": 783
+    },
+    {
+      "id": "civil",
+      "title": "Civil & Infrastructure Construction",
+      "height": 755
+    },
+    {
+      "id": "electrical",
+      "title": "Electrical, Power & Mechanical Systems",
+      "height": 755
+    },
+    {
+      "id": "finishing",
+      "title": "Finishing Works",
+      "height": 755
+    },
+    {
+      "id": "security",
+      "title": "Security, Smart & IT Infrastructure",
+      "height": 783
+    },
+    {
+      "id": "defense",
+      "title": "Defense, Industrial Maintenance & Operations",
+      "height": 783
+    },
+    {
+      "id": "consultancy",
+      "title": "Engineering Consultancy & Technical Advisory",
+      "height": 783
+    },
+    {
+      "id": "trading",
+      "title": "Trading & Procurement",
+      "height": 783
+    }
+  ],
+  "images": [
+    {
+      "src": "assests/logo/ATC Construction Crane Logo.png",
+      "loaded": true,
+      "width": 1254,
+      "loading": "auto"
+    },
+    {
+      "src": "assests/images/atc-services-hero-single.jpg",
+      "loaded": true,
+      "width": 850,
+      "loading": "lazy"
+    },
+    {
+      "src": "assests/images/civil_construction.jpeg",
+      "loaded": true,
+      "width": 1195,
+      "loading": "lazy"
+    },
+    {
+      "src": "assests/images/Electrical, Power & Mechanical.jpeg",
+      "loaded": true,
+      "width": 1195,
+      "loading": "lazy"
+    },
+    {
+      "src": "assests/images/finishing_works.jpeg",
+      "loaded": true,
+      "width": 1195,
+      "loading": "lazy"
+    },
+    {
+      "src": "assests/images/Security, Smart & IT Infrastructure.jpeg",
+      "loaded": true,
+      "width": 1280,
+      "loading": "lazy"
+    },
+    {
+      "src": "assests/images/Defense, Industrial Maintenance & Operations.jpeg",
+      "loaded": true,
+      "width": 1280,
+      "loading": "lazy"
+    },
+    {
+      "src": "assests/images/Engineering Consultancy & Technical Advisory.jpeg",
+      "loaded": true,
+      "width": 1280,
+      "loading": "lazy"
+    },
+    {
+      "src": "assests/images/atc-services-hero-single.jpg",
+      "loaded": true,
+      "width": 850,
+      "loading": "lazy"
+    },
+    {
+      "src": "assests/logo/ATC Construction Crane Logo.png",
+      "loaded": true,
+      "width": 1254,
+      "loading": "auto"
+    }
+  ],
+  "ctas": [
+    {
+      "text": "Request Design Services",
+      "href": "contact.html?service=Design+%26+Engineering",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(186, 64, 21)",
+      "font": "15px"
+    },
+    {
+      "text": "Request Civil Services",
+      "href": "contact.html?service=Civil+%26+Infrastructure",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(186, 64, 21)",
+      "font": "15px"
+    },
+    {
+      "text": "Request MEP Services",
+      "href": "contact.html?service=Electrical+%26+Power",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(186, 64, 21)",
+      "font": "15px"
+    },
+    {
+      "text": "Request Finishing Services",
+      "href": "contact.html?service=Finishing+Works",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(186, 64, 21)",
+      "font": "15px"
+    },
+    {
+      "text": "Request Security & Smart",
+      "href": "contact.html?service=Security+%26+Smart",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(186, 64, 21)",
+      "font": "15px"
+    },
+    {
+      "text": "Request Defense & O&M",
+      "href": "contact.html?service=Defense+%26+Operations",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(186, 64, 21)",
+      "font": "15px"
+    },
+    {
+      "text": "Request Consultancy",
+      "href": "contact.html?service=Engineering+Consultancy",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(186, 64, 21)",
+      "font": "15px"
+    },
+    {
+      "text": "Request Procurement",
+      "href": "contact.html?service=Trading+%26+Procurement",
+      "color": "rgb(255, 255, 255)",
+      "bg": "rgb(186, 64, 21)",
+      "font": "15px"
+    }
+  ],
+  "resources": [
+    {
+      "name": "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap",
+      "bytes": 0,
+      "duration": 9223.40000000596
+    },
+    {
+      "name": "http://localhost:8000/css/variables.css",
+      "bytes": 4580,
+      "duration": 59.19999998807907
+    },
+    {
+      "name": "http://localhost:8000/css/base.css",
+      "bytes": 8605,
+      "duration": 72.59999999403954
+    },
+    {
+      "name": "http://localhost:8000/css/components.css?v=7",
+      "bytes": 27388,
+      "duration": 71.7000000178814
+    },
+    {
+      "name": "http://localhost:8000/css/animations.css",
+      "bytes": 9122,
+      "duration": 75
+    },
+    {
+      "name": "http://localhost:8000/css/pages/services.css?v=4",
+      "bytes": 11307,
+      "duration": 98.5
+    },
+    {
+      "name": "http://localhost:8000/assests/logo/ATC%20Construction%20Crane%20Logo.png",
+      "bytes": 1217602,
+      "duration": 115.5
+    },
+    {
+      "name": "http://localhost:8000/js/main.js",
+      "bytes": 20247,
+      "duration": 67.19999998807907
+    },
+    {
+      "name": "http://localhost:8000/assests/images/atc-services-hero-single.jpg",
+      "bytes": 266184,
+      "duration": 594.0999999940395
+    },
+    {
+      "name": "http://localhost:8000/assests/images/civil_construction.jpeg",
+      "bytes": 180437,
+      "duration": 601.7999999821186
+    },
+    {
+      "name": "http://localhost:8000/favicon.ico",
+      "bytes": 760,
+      "duration": 5.700000017881393
+    },
+    {
+      "name": "http://localhost:8000/assests/images/Electrical,%20Power%20&%20Mechanical.jpeg",
+      "bytes": 136789,
+      "duration": 29.19999998807907
+    },
+    {
+      "name": "http://localhost:8000/assests/images/finishing_works.jpeg",
+      "bytes": 119889,
+      "duration": 32.599999994039536
+    },
+    {
+      "name": "http://localhost:8000/assests/images/Security,%20Smart%20&%20IT%20Infrastructure.jpeg",
+      "bytes": 115336,
+      "duration": 56.599999994039536
+    },
+    {
+      "name": "http://localhost:8000/assests/images/Defense,%20Industrial%20Maintenance%20&%20Operations.jpeg",
+      "bytes": 121006,
+      "duration": 51.599999994039536
+    },
+    {
+      "name": "http://localhost:8000/assests/images/Engineering%20Consultancy%20&%20Technical%20Advisory.jpeg",
+      "bytes": 108963,
+      "duration": 9
+    }
+  ],
+  "menu": "true",
+  "homeServices": [
+    {
+      "title": "Design & Engineering",
+      "description": "Architectural concept design, structural engineering, MEP schematic coordination, and detailed site master planning.",
+      "href": "services.html#design"
+    },
+    {
+      "title": "Civil & Infrastructure",
+      "description": "Heavy foundations, reinforced concrete frames, earthworks, arterial roads, drainage networks, and boundary structures.",
+      "href": "services.html#civil"
+    },
+    {
+      "title": "Electrical, Power & Mechanical",
+      "description": "MV/LV power substations, transformers, switchgear networks, industrial HVAC chiller plants, and specialized piping.",
+      "href": "services.html#electrical"
+    },
+    {
+      "title": "Finishing Works",
+      "description": "Scratch-to-completion interior fit-outs, executive joinery, acoustic ceilings, curtain walls, and premium facade installations.",
+      "href": "services.html#finishing"
+    },
+    {
+      "title": "Security, Smart & IT",
+      "description": "Biometric access control, enterprise CCTV surveillance, fire alarm detection, building management systems (BMS), and fiber networks.",
+      "href": "services.html#security"
+    },
+    {
+      "title": "Defense & Operations",
+      "description": "Fortified military base infrastructure, mission-critical power resilience, 24/7 technical O&M, and facility maintenance contracts.",
+      "href": "services.html#defense"
+    },
+    {
+      "title": "Oil, Gas & Petroleum",
+      "description": "Refineries, fuel retail stations, storage tanks, high-pressure piping, and hazardous-area safety systems.",
+      "href": "services.html#oil-gas"
+    },
+    {
+      "title": "Industrial & Factory Maintenance",
+      "description": "Preventive and corrective electromechanical maintenance, factory shutdowns, equipment overhauls, and AMC agreements.",
+      "href": "services.html#industrial-maintenance"
+    },
+    {
+      "title": "Engineering Consultancy & Advisory",
+      "description": "PMC management, BIM LOD 300-500, value engineering & QA/QC audits.",
+      "href": "services.html#consultancy"
+    },
+    {
+      "title": "Trading & Technical Procurement",
+      "description": "Electrical switchgear, heavy machinery, HVAC chillers & industrial PPE.",
+      "href": "contact.html?subject=trading"
+    }
+  ],
+  "errors": []
+}

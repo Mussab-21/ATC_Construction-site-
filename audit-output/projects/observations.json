@@ -1,0 +1,330 @@
+{
+  "widths": [
+    {
+      "width": 1440,
+      "height": 4252,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "height": 8540,
+      "overflow": []
+    },
+    {
+      "width": 360,
+      "height": 8606,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "height": 5761,
+      "overflow": []
+    }
+  ],
+  "filters": [
+    {
+      "level": "all",
+      "count": "SHOWING 8 REFERENCES",
+      "titles": [
+        "American Military Facilities",
+        "NEOM Power Generation Infrastructure",
+        "ROSHAN Villas — Mega Residential Project",
+        "Herfy Foods — Industrial Production Facilities",
+        "Crown Gulf — Corporate Headquarters & Logistics",
+        "Army Welfare Trust — Askari Housing & Commercial",
+        "Askari Commercial Complex & Residential Development",
+        "Oil & Gas Fuel Depot — Operations & Modernization"
+      ]
+    },
+    {
+      "level": "international",
+      "count": "SHOWING 5 REFERENCES",
+      "titles": [
+        "American Military Facilities",
+        "NEOM Power Generation Infrastructure",
+        "ROSHAN Villas — Mega Residential Project",
+        "Herfy Foods — Industrial Production Facilities",
+        "Crown Gulf — Corporate Headquarters & Logistics"
+      ]
+    },
+    {
+      "level": "local",
+      "count": "SHOWING 3 REFERENCES",
+      "titles": [
+        "Army Welfare Trust — Askari Housing & Commercial",
+        "Askari Commercial Complex & Residential Development",
+        "Oil & Gas Fuel Depot — Operations & Modernization"
+      ]
+    }
+  ],
+  "errors": [],
+  "filterFocus": {
+    "tag": "BODY",
+    "text": "\n\n\n  \n    \n      \n      \n        ATC\n        Azaan Trading & Contracting\n      \n    \n    H",
+    "pressed": null
+  },
+  "modalFocus": {
+    "inside": false,
+    "text": "View Dossier"
+  },
+  "modalTab": {
+    "inside": false,
+    "text": "View"
+  },
+  "escapeClosed": true,
+  "resetCount": "SHOWING 8 REFERENCES",
+  "images": [
+    {
+      "src": "assests/logo/ATC Construction Crane Logo.png",
+      "loaded": true
+    },
+    {
+      "src": "assests/images/Defense, Industrial Maintenance & Operations.jpeg",
+      "loaded": true
+    },
+    {
+      "src": "assests/images/Electrical, Power & Mechanical.jpeg",
+      "loaded": true
+    },
+    {
+      "src": "assests/images/finishing_works.jpeg",
+      "loaded": true
+    },
+    {
+      "src": "assests/images/WhatsApp Image 2026-08-10 at 4.38.49 PM (2).jpeg",
+      "loaded": true
+    },
+    {
+      "src": "assests/images/Defense, Industrial Maintenance & Operations.jpeg",
+      "loaded": true
+    },
+    {
+      "src": "assests/images/Electrical, Power & Mechanical.jpeg",
+      "loaded": true
+    },
+    {
+      "src": "assests/Golden-Hour ROSHN Community Development.png",
+      "loaded": true
+    },
+    {
+      "src": "assests/Herfy Drive-Thru at Twilight.png",
+      "loaded": true
+    },
+    {
+      "src": "assests/images/WhatsApp Image 2026-08-10 at 4.38.50 PM (1).jpeg",
+      "loaded": true
+    },
+    {
+      "src": "assests/Illuminated AWT Investments Facade at Dusk.png",
+      "loaded": true
+    },
+    {
+      "src": "assests/images/civil_construction.jpeg",
+      "loaded": true
+    },
+    {
+      "src": "assests/images/WhatsApp Image 2026-08-10 at 4.53.44 PM (2).jpeg",
+      "loaded": true
+    },
+    {
+      "src": "assests/logo/ATC Construction Crane Logo.png",
+      "loaded": true
+    }
+  ],
+  "smallTargets": [
+    {
+      "text": "All Projects",
+      "height": 29
+    },
+    {
+      "text": "International Projects",
+      "height": 29
+    },
+    {
+      "text": "Pakistan Projects",
+      "height": 29
+    },
+    {
+      "text": "All Sectors (8)",
+      "height": 29
+    },
+    {
+      "text": "Defense (2)",
+      "height": 29
+    },
+    {
+      "text": "Industrial / Power (3)",
+      "height": 29
+    },
+    {
+      "text": "Residential (2)",
+      "height": 29
+    },
+    {
+      "text": "Oil & Gas (1)",
+      "height": 29
+    }
+  ],
+  "homeProjects": [
+    {
+      "slug": "awt-investment",
+      "name": "AWT Investment",
+      "country": "Pakistan",
+      "scope": "Turnkey office delivery: interior finishing and furnishing, automation, IT networking and UPS power backup, handed over key-ready.",
+      "hidden": false,
+      "image": "assests/Illuminated AWT Investments Facade at Dusk.png",
+      "status": null,
+      "assetExists": true
+    },
+    {
+      "slug": "ary-laguna",
+      "name": "ARY Laguna",
+      "country": "Pakistan",
+      "scope": "Villa construction from foundation to key handover. Planned scale: 1,500 villas.",
+      "hidden": false,
+      "image": "assests/Aerial Lagoon Luxury Community.png",
+      "status": null,
+      "assetExists": true
+    },
+    {
+      "slug": "fwo-balochistan",
+      "name": "FWO",
+      "country": "Pakistan",
+      "scope": "Road works.",
+      "hidden": false,
+      "image": "assests/projects/fwo-balochistan.jpg",
+      "status": null,
+      "assetExists": false
+    },
+    {
+      "slug": "fc-balochistan",
+      "name": "FC",
+      "country": "Pakistan",
+      "scope": "Construction projects.",
+      "hidden": false,
+      "image": "assests/projects/fc-balochistan.jpg",
+      "status": null,
+      "assetExists": false
+    },
+    {
+      "slug": "private-clients-pk",
+      "name": "Private Clients",
+      "country": "Pakistan",
+      "scope": "Construction works for private clients.",
+      "hidden": false,
+      "image": "assests/projects/private-clients-pk.jpg",
+      "status": null,
+      "assetExists": false
+    },
+    {
+      "slug": "roshn-villas",
+      "name": "ROSHN Villas",
+      "country": "Saudi Arabia",
+      "scope": "Villa construction programme: 2,000 villas under construction.",
+      "hidden": false,
+      "image": "assests/Golden-Hour ROSHN Community Development.png",
+      "status": "Under construction",
+      "assetExists": true
+    },
+    {
+      "slug": "herfy-foods",
+      "name": "Herfy Foods",
+      "country": "Saudi Arabia",
+      "scope": "Maintenance, renovation, new construction and hood-cleaning contracts across 400+ outlets, including HVAC, chiller and exhaust system maintenance.",
+      "hidden": false,
+      "image": "assests/Herfy Drive-Thru at Twilight.png",
+      "status": null,
+      "assetExists": true
+    },
+    {
+      "slug": "crown-gulf",
+      "name": "Crown Gulf Co.",
+      "country": "Saudi Arabia",
+      "scope": "Transformer and RMU installation and testing.",
+      "hidden": true,
+      "image": "assests/projects/crown-gulf.jpg",
+      "status": null,
+      "assetExists": false
+    },
+    {
+      "slug": "badoor-al-emar",
+      "name": "Badoor Al Emar Co.",
+      "country": "Saudi Arabia",
+      "scope": "Medium-voltage power and civil support works.",
+      "hidden": true,
+      "image": "assests/projects/badoor-al-emar.jpg",
+      "status": null,
+      "assetExists": false
+    },
+    {
+      "slug": "american-military-ksa",
+      "name": "American Military Facilities, KSA (Confidential)",
+      "country": "Saudi Arabia",
+      "scope": "Electrical, HVAC and facility maintenance; camp infrastructure and power systems.",
+      "hidden": true,
+      "image": "assests/projects/american-military-ksa.jpg",
+      "status": null,
+      "assetExists": false
+    },
+    {
+      "slug": "neom-support",
+      "name": "NEOM",
+      "country": "Saudi Arabia",
+      "scope": "Technical participation: substation and transformer support services.",
+      "hidden": true,
+      "image": "assests/projects/neom-support.jpg",
+      "status": null,
+      "assetExists": false
+    },
+    {
+      "slug": "bh-al-sanabis-towers",
+      "name": "37-Storey High-Rise Towers",
+      "country": "Bahrain",
+      "scope": "37-storey high-rise towers.",
+      "hidden": false,
+      "image": "assests/Sunset Waterfront Skyline with Twin Towers.png",
+      "status": null,
+      "assetExists": true
+    },
+    {
+      "slug": "bh-reef-island-hotel",
+      "name": "19-Storey Hotel Development",
+      "country": "Bahrain",
+      "scope": "19-storey hotel development.",
+      "hidden": false,
+      "image": "assests/projects/bh-reef-island-hotel.jpg",
+      "status": null,
+      "assetExists": false
+    },
+    {
+      "slug": "bh-galali-villas",
+      "name": "59-Villa Residential Development",
+      "country": "Bahrain",
+      "scope": "59-villa residential development.",
+      "hidden": false,
+      "image": "assests/Golden-Hour Arabian Villa Exterior.png",
+      "status": null,
+      "assetExists": true
+    },
+    {
+      "slug": "bh-salmaniya-building",
+      "name": "7-Storey Building Development",
+      "country": "Bahrain",
+      "scope": "7-storey building development.",
+      "hidden": false,
+      "image": "assests/projects/bh-salmaniya-building.jpg",
+      "status": null,
+      "assetExists": false
+    },
+    {
+      "slug": "bh-saar-villas",
+      "name": "31 Two-Storey Villas",
+      "country": "Bahrain",
+      "scope": "31 two-storey villas.",
+      "hidden": false,
+      "image": "assests/projects/bh-saar-villas.jpg",
+      "status": null,
+      "assetExists": false
+    }
+  ]
+}

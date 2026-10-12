@@ -1,0 +1,147 @@
+<!doctype html><html><head><meta charset="utf-8"><title>ATC Company Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box}body{margin:0;background:#c7c7c7}.sheet{position:relative!important;left:0!important;top:0!important;overflow:hidden;margin:20px auto;break-after:page}.sheet:last-child{break-after:auto}.text{white-space:pre-wrap;flex:none}.auto{display:flex;flex-direction:column;align-items:flex-start;flex:none}.node{margin:0;padding:0;border:0} @page{size:595.28px 841.89px;margin:0}@media print{body{background:white}.sheet{margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>
+<script>
+let seq=0;const imageMap={"Cover / industrial architecture": "/assests/gallery/full/project-003.webp", "Reinforcement / site operations": "/assests/gallery/full/project-060.webp", "Structural reinforcement": "/assests/gallery/full/project-019.webp", "Electrical distribution equipment": "/assests/gallery/full/project-066.webp", "Mechanical services pipework": "/assests/gallery/full/project-090.webp", "Outdoor refrigeration installation": "/assests/gallery/full/project-022.webp", "Residential construction / SPC company profile": "/assests/gallery/full/project-013.webp", "Industrial facilities": "/assests/gallery/full/project-003.webp", "Structural construction": "/assests/gallery/full/project-019.webp", "Landscape & finishing": "/assests/gallery/full/project-001.webp", "Electrical installations": "/assests/gallery/full/project-066.webp", "Mechanical equipment": "/assests/gallery/full/project-022.webp", "Site execution": "/assests/gallery/full/project-061.webp", "Industrial facility / final spread": "/assests/gallery/full/project-009.webp", "ATC brand logo": "/assests/logo/ATC%20Construction%20Crane%20Logo.png"};
+class Node{
+ constructor(type){this.type=type;this.id='local-'+(++seq);this.el=document.createElement('div');this.el.className='node '+(type==='TEXT'?'text':'');this.children=[];this.el.style.position='absolute';this._fills=[];}
+ appendChild(n){this.children.push(n);this.el.appendChild(n.el);n.parent=this;n.el.style.position=this._auto?'relative':'absolute';}
+ set name(v){this.el.dataset.name=v;if(v.match(/^\d\d \/ /)){this.el.classList.add('sheet')}if(imageMap[v]){this.el.style.backgroundImage=`url('${imageMap[v]}')`;this.el.style.backgroundSize='cover';this.el.style.backgroundPosition='center';}}
+ set x(v){this.el.style.left=v+'px'}set y(v){this.el.style.top=v+'px'}
+ resize(w,h){this.el.style.width=w+'px';if(this.type!=='TEXT'&&!this._auto)this.el.style.height=h+'px'}
+ get height(){return this.el.getBoundingClientRect().height||16}
+ set fills(v){this._fills=v;if(v.length){let c=v[0].color;this.el.style[this.type==='TEXT'?'color':'backgroundColor']=`rgb(${c.r*255},${c.g*255},${c.b*255})`}else this.el.style.backgroundColor='transparent'}
+ get fills(){return this._fills}
+ set fontName(v){this.el.style.fontFamily='"'+v.family+'",sans-serif';this.el.style.fontWeight=v.style==='ExtraBold'?800:v.style==='Bold'?700:v.style==='Medium'?500:400}
+ set fontSize(v){this.el.style.fontSize=v+'px'}set lineHeight(v){this.el.style.lineHeight=v.value+'px'}
+ set characters(v){this.el.textContent=v}set textAutoResize(v){this.el.style.height='auto'}
+ set primaryAxisSizingMode(v){if(v==='AUTO')this.el.style.height='auto'}set counterAxisSizingMode(v){}
+ set itemSpacing(v){this.el.style.gap=v+'px'}set letterSpacing(v){this.el.style.letterSpacing=v.value+'px'}
+ set clipsContent(v){this.el.style.overflow=v?'hidden':'visible'}
+}
+const root={id:'0:1',children:[],appendChild(n){this.children.push(n);document.body.appendChild(n.el)}};
+const figma={getNodeByIdAsync:async()=>root,setCurrentPageAsync:async()=>{},loadFontAsync:async()=>{},createRectangle:()=>new Node('RECTANGLE'),createText:()=>new Node('TEXT'),createFrame:()=>new Node('FRAME'),createAutoLayout:()=>{let n=new Node('FRAME');n._auto=true;n.el.classList.add('auto');return n;}};
+(async()=>{await (async()=>{const page=await figma.getNodeByIdAsync('0:1'); await figma.setCurrentPageAsync(page);
+page.name='ATC / Company Profile';
+await Promise.all([{family:'Archivo',style:'Bold'},{family:'Archivo',style:'ExtraBold'},{family:'IBM Plex Sans',style:'Regular'},{family:'IBM Plex Sans',style:'Medium'},{family:'IBM Plex Mono',style:'Regular'}].map(f=>figma.loadFontAsync(f)));
+const ids=[page.id], frames=[], images=[];
+const C={ink:'#111216',white:'#F5F3EF',orange:'#E85D2A',muted:'#ADB0B5',gray:'#51545B',line:'#D6D3CD',panel:'#202228'};
+const rgb=h=>({r:parseInt(h.slice(1,3),16)/255,g:parseInt(h.slice(3,5),16)/255,b:parseInt(h.slice(5,7),16)/255});
+const fill=h=>[{type:'SOLID',color:rgb(h)}];
+function track(n){ids.push(n.id);return n;}
+function rect(p,x,y,w,h,color){const n=track(figma.createRectangle());p.appendChild(n);n.x=x;n.y=y;n.resize(w,h);n.fills=fill(color);return n;}
+function text(p,str,size,color,width,weight='Regular',family='IBM Plex Sans') {const t=track(figma.createText());p.appendChild(t);t.fontName={family,style:weight};t.fontSize=size;t.lineHeight={unit:'PIXELS',value:size*1.36};t.fills=fill(color);t.characters=str;t.resize(width,Math.max(size*1.36,t.height));t.textAutoResize='HEIGHT';return t;}
+function stack(p,x,y,w,gap=12){const n=track(figma.createAutoLayout('VERTICAL'));p.appendChild(n);n.name='Editorial text group';n.x=x;n.y=y;n.resize(w,10);n.primaryAxisSizingMode='AUTO';n.counterAxisSizingMode='FIXED';n.itemSpacing=gap;n.fills=[];return n;}
+function label(p,str,w=507,col=C.orange){const t=text(p,str,8,col,w,'Regular','IBM Plex Mono');t.letterSpacing={unit:'PIXELS',value:1.3};return t;}
+function title(p,str,w=507,size=35,col=C.ink){return text(p,str,size,col,w,'ExtraBold','Archivo');}
+function body(p,str,w=507,col=C.gray,size=11){return text(p,str,size,col,w);}
+function photo(p,x,y,w,h,path,name){const n=rect(p,x,y,w,h,C.panel);n.name=name;images.push({nodeId:n.id,path});return n;}
+function galleryPath(n){return 'D:/ATC/ATC_WEB/assests/gallery/full/project-'+String(n).padStart(3,'0')+'.webp';}
+function make(num,name,dark=false){const f=track(figma.createFrame());page.appendChild(f);f.name=String(num).padStart(2,'0')+' / '+name;f.resize(595.28,841.89);f.x=100+((num-1)%4)*695.28;f.y=100+Math.floor((num-1)/4)*941.89;f.fills=fill(dark?C.ink:C.white);f.clipsContent=true;f.exportSettings=[{format:'PDF'}];frames.push({id:f.id,name:f.name});
+const head=stack(f,44,27,507,3);label(head,'ATC  /  COMPANY PROFILE',507,dark?C.muted:C.gray);
+rect(f,44,51,507,1,dark?C.panel:C.line);rect(f,44,794,507,1,dark?C.panel:C.line);
+const ft=stack(f,44,806,450,0);text(ft,'AZAAN TRADING & CONTRACTING',7,dark?C.muted:C.gray,450,'Regular','IBM Plex Mono');const pg=stack(f,519,804,32,0);text(pg,String(num).padStart(2,'0'),9,C.orange,32,'Regular','IBM Plex Mono');return f;}
+function heading(p,kicker,headline,desc,dark=false){const s=stack(p,44,83,507,12);label(s,kicker);title(s,headline,507,35,dark?C.white:C.ink);if(desc)body(s,desc,507,dark?C.muted:C.gray);return s;}
+function block(p,x,y,w,num,head,desc,dark=false){const s=stack(p,x,y,w,8);label(s,num,w);text(s,head,17,dark?C.white:C.ink,w,'Bold','Archivo');body(s,desc,w,dark?C.muted:C.gray,10.5);return s;}
+
+let f=make(1,'Engineering excellence',true);
+photo(f,0,180,595.28,424,galleryPath(3),'Cover / industrial architecture');
+rect(f,0,520,595.28,274,C.ink);
+photo(f,42,63,92,92,'D:/ATC/ATC_WEB/assests/logo/ATC Construction Crane Logo.png','ATC brand logo');
+let s=stack(f,155,78,390,9);label(s,'CORPORATE PROFILE  /  2026',390);text(s,'Azaan Trading &\nContracting Company',18,C.white,390,'Bold','Archivo');
+s=stack(f,44,548,507,16);label(s,'ENGINEERING. CONSTRUCTION. TECHNICAL SERVICES.');title(s,'Engineering excellence.\nBuilt on trust.',507,36,C.white);body(s,'Global standards. National commitment.\nIn strategic collaboration with SPC-KSA.',507,C.muted,12);
+rect(f,44,520,96,5,C.orange);
+
+f=make(2,'Who we are');heading(f,'01 / THE COMPANY','Local commitment.\nInternational capability.','Pakistan-based engineering, construction and technical services, backed by strategic collaboration with SPC-KSA.');
+s=stack(f,44,267,282,13);body(s,'Azaan Trading & Contracting Company brings together local engineering teams and Saudi operational experience to support infrastructure, industrial facilities and commercial developments.',282);body(s,'From design and procurement to construction, commissioning and long-term maintenance, our focus is disciplined delivery, technical precision and lasting client partnerships.',282);
+photo(f,350,268,201,228,galleryPath(60),'Reinforcement / site operations');
+rect(f,44,527,507,207,C.ink);s=stack(f,62,547,470,12);label(s,'INSIDE THIS PROFILE',470);const rows=[['03','Vision, mission & values'],['04-07','Engineering & lifecycle services'],['08-10','Experience & project photography'],['11-12','People, standards & the next chapter']];for(const [n,t]of rows){text(s,n+'   /   '+t,11,C.white,470,'Medium');}
+
+f=make(3,'Vision mission and values',true);heading(f,'02 / OUR DIRECTION','Precision in our work.\nIntegrity in our purpose.','A clear ambition, supported by practical commitments.',true);
+block(f,44,261,240,'VISION','A trusted engineering partner','To establish ATC among Pakistan’s most reliable and technically capable contracting companies, combining Saudi engineering expertise with international project standards.',true);
+block(f,312,261,239,'MISSION','Deliver with confidence','To deliver engineering, infrastructure and maintenance services with integrity, safety, efficiency and technical precision, while building long-term client partnerships.',true);
+rect(f,44,493,507,1,C.panel);s=stack(f,44,521,507,15);label(s,'THE VALUES THAT GUIDE DELIVERY');for(const v of ['01   Integrity & accountability','02   Technical excellence','03   Safety & sustainability','04   Innovation & reliability','05   Partnership & long-term value'])text(s,v,14,C.white,507,'Medium');
+
+f=make(4,'Civil and infrastructure');heading(f,'03 / ENGINEERING CAPABILITIES','Strong foundations.\nConsidered construction.','Civil and infrastructure works for industrial, commercial and residential environments.');
+photo(f,44,254,507,231,galleryPath(19),'Structural reinforcement');
+block(f,44,519,240,'01','Buildings & structures','Industrial and commercial buildings, warehouses, structural concrete and steelwork.');
+block(f,312,519,239,'02','Site infrastructure','Roads, boundary walls, drainage, sewerage and supporting site services.');
+block(f,44,651,240,'03','Renovation & upgrades','Facility renovation, structural upgrades and improvements to existing assets.');
+block(f,312,651,239,'04','Design & coordination','Engineering consultancy, architectural planning, interior design and site supervision.');
+
+f=make(5,'Power mechanical and HVAC',true);heading(f,'04 / BUILDING SYSTEMS','Power that performs.\nSystems that work.','Coordinated electrical and mechanical services for reliable building and facility operation.',true);
+photo(f,44,261,245,208,galleryPath(66),'Electrical distribution equipment');photo(f,306,261,245,208,galleryPath(90),'Mechanical services pipework');
+block(f,44,499,240,'ELECTRICAL & POWER','From distribution to backup','MV/LV networks; transformers and RMUs; substation installation, testing and maintenance; power cabling; generators; lighting and electrical automation.',true);
+block(f,312,499,239,'MECHANICAL & HVAC','Comfort, control & protection','HVAC, chillers and ventilation; cold storage and walk-in freezers; industrial exhaust; wet and dry firefighting; piping, plumbing and equipment maintenance.',true);
+s=stack(f,44,704,507,8);label(s,'DESIGN  /  INSTALLATION  /  TESTING  /  MAINTENANCE');
+
+f=make(6,'Specialist infrastructure');heading(f,'05 / SPECIALIST CAPABILITIES','Integrated thinking.\nSpecialist delivery.','Engineering support for demanding operating environments.');
+block(f,44,254,240,'01','Oil, gas & petroleum','Petrol pump civil works, fuel tanks and dispensing systems, pipelines, pumping systems, calibration and depot upgrades.');
+block(f,312,254,239,'02','Defense infrastructure','Camp infrastructure, power and HVAC maintenance, communication installations, access control and secure facility support.');
+rect(f,44,441,507,1,C.line);
+block(f,44,473,240,'03','Smart infrastructure','Data center infrastructure, CCTV, access control, building automation, fiber networks and backup power systems.');
+block(f,312,473,239,'04','Industrial maintenance','Electrical and mechanical maintenance, equipment overhaul, system upgrades, preventive programs and technical contracts.');
+rect(f,44,674,507,69,C.orange);s=stack(f,60,691,475,6);text(s,'Technical discipline across every interface.',16,C.ink,475,'Bold','Archivo');
+
+return {createdNodeIds:ids,frames,images,pageId:page.id};
+})();await(async()=>{const page=await figma.getNodeByIdAsync('0:1'); await figma.setCurrentPageAsync(page);
+page.name='ATC / Company Profile';
+await Promise.all([{family:'Archivo',style:'Bold'},{family:'Archivo',style:'ExtraBold'},{family:'IBM Plex Sans',style:'Regular'},{family:'IBM Plex Sans',style:'Medium'},{family:'IBM Plex Mono',style:'Regular'}].map(f=>figma.loadFontAsync(f)));
+const ids=[page.id], frames=[], images=[];
+const C={ink:'#111216',white:'#F5F3EF',orange:'#E85D2A',muted:'#ADB0B5',gray:'#51545B',line:'#D6D3CD',panel:'#202228'};
+const rgb=h=>({r:parseInt(h.slice(1,3),16)/255,g:parseInt(h.slice(3,5),16)/255,b:parseInt(h.slice(5,7),16)/255});
+const fill=h=>[{type:'SOLID',color:rgb(h)}];
+function track(n){ids.push(n.id);return n;}
+function rect(p,x,y,w,h,color){const n=track(figma.createRectangle());p.appendChild(n);n.x=x;n.y=y;n.resize(w,h);n.fills=fill(color);return n;}
+function text(p,str,size,color,width,weight='Regular',family='IBM Plex Sans') {const t=track(figma.createText());p.appendChild(t);t.fontName={family,style:weight};t.fontSize=size;t.lineHeight={unit:'PIXELS',value:size*1.36};t.fills=fill(color);t.characters=str;t.resize(width,Math.max(size*1.36,t.height));t.textAutoResize='HEIGHT';return t;}
+function stack(p,x,y,w,gap=12){const n=track(figma.createAutoLayout('VERTICAL'));p.appendChild(n);n.name='Editorial text group';n.x=x;n.y=y;n.resize(w,10);n.primaryAxisSizingMode='AUTO';n.counterAxisSizingMode='FIXED';n.itemSpacing=gap;n.fills=[];return n;}
+function label(p,str,w=507,col=C.orange){const t=text(p,str,8,col,w,'Regular','IBM Plex Mono');t.letterSpacing={unit:'PIXELS',value:1.3};return t;}
+function title(p,str,w=507,size=35,col=C.ink){return text(p,str,size,col,w,'ExtraBold','Archivo');}
+function body(p,str,w=507,col=C.gray,size=11){return text(p,str,size,col,w);}
+function photo(p,x,y,w,h,path,name){const n=rect(p,x,y,w,h,C.panel);n.name=name;images.push({nodeId:n.id,path});return n;}
+function galleryPath(n){return 'D:/ATC/ATC_WEB/assests/gallery/full/project-'+String(n).padStart(3,'0')+'.webp';}
+function make(num,name,dark=false){const f=track(figma.createFrame());page.appendChild(f);f.name=String(num).padStart(2,'0')+' / '+name;f.resize(595.28,841.89);f.x=100+((num-1)%4)*695.28;f.y=100+Math.floor((num-1)/4)*941.89;f.fills=fill(dark?C.ink:C.white);f.clipsContent=true;f.exportSettings=[{format:'PDF'}];frames.push({id:f.id,name:f.name});
+const head=stack(f,44,27,507,3);label(head,'ATC  /  COMPANY PROFILE',507,dark?C.muted:C.gray);
+rect(f,44,51,507,1,dark?C.panel:C.line);rect(f,44,794,507,1,dark?C.panel:C.line);
+const ft=stack(f,44,806,450,0);text(ft,'AZAAN TRADING & CONTRACTING',7,dark?C.muted:C.gray,450,'Regular','IBM Plex Mono');const pg=stack(f,519,804,32,0);text(pg,String(num).padStart(2,'0'),9,C.orange,32,'Regular','IBM Plex Mono');return f;}
+function heading(p,kicker,headline,desc,dark=false){const s=stack(p,44,83,507,12);label(s,kicker);title(s,headline,507,35,dark?C.white:C.ink);if(desc)body(s,desc,507,dark?C.muted:C.gray);return s;}
+function block(p,x,y,w,num,head,desc,dark=false){const s=stack(p,x,y,w,8);label(s,num,w);text(s,head,17,dark?C.white:C.ink,w,'Bold','Archivo');body(s,desc,w,dark?C.muted:C.gray,10.5);return s;}
+
+
+let s;
+let f=make(7,'Operations and lifecycle support',true);heading(f,'06 / LIFECYCLE SERVICES','Performance beyond\nproject handover.','Long-term operational support, preventive maintenance and technical procurement.',true);
+photo(f,44,257,507,229,galleryPath(22),'Outdoor refrigeration installation');
+block(f,44,516,240,'OPERATIONS & MAINTENANCE','Keep critical assets working','Substations, generators, HVAC, firefighting and water systems. Annual maintenance contracts, preventive programs and technical support.',true);
+block(f,312,516,239,'TRADING & PROCUREMENT','The right equipment.\nThe right support.','Electrical and mechanical equipment; switchgear and transformers; HVAC, fire and plumbing materials; industrial safety equipment and spare parts.',true);
+s=stack(f,44,718,507,6);label(s,'DESIGN > PROCURE > BUILD > COMMISSION > MAINTAIN');
+
+f=make(8,'Saudi collaboration and references');heading(f,'07 / INTERNATIONAL EXPERIENCE','Saudi experience.\nShared capability.','SPC-KSA brings engineering supervision, operational discipline and project experience to the ATC collaboration.');
+photo(f,44,254,507,151,galleryPath(13),'Residential construction / SPC company profile');
+s=stack(f,44,421,507,3);label(s,'SELECTED SPC-KSA EXPERIENCE',507,C.gray);
+const refs=[['American military facilities','Electrical and HVAC maintenance, camp infrastructure and power distribution support.'],['Herfy Foods Company','HVAC, chillers, industrial exhaust and Greenheck ventilation systems.'],['Crown Gulf / Badoor Al Emar','Transformer and RMU works, electrical testing, MV infrastructure and civil support.'],['ROSHAN Villas / NEOM power generation','Villa construction, structural works and site coordination; technical participation in substation and transformer support.']];
+for(let i=0;i<refs.length;i++){const y=453+i*72;const g=stack(f,44,y,507,5);text(g,refs[i][0],13,C.ink,507,'Bold','Archivo');body(g,refs[i][1],507,C.gray,10);if(i<3)rect(f,44,y+62,507,1,C.line);}
+
+f=make(9,'Pakistan and client experience');heading(f,'08 / PAKISTAN OPERATIONS','Local knowledge.\nPractical execution.','Infrastructure development, facility engineering and technical services for Pakistan’s public, private and industrial sectors.');
+rect(f,44,259,507,186,C.ink);s=stack(f,64,280,467,12);label(s,'KEY CLIENT EXPERIENCE',467);text(s,'Army Welfare Trust',29,C.white,467,'Bold','Archivo');body(s,'Our work with Army Welfare Trust includes renovation, infrastructure upgrades and technical maintenance within AWT-owned and operated facilities.',467,C.muted,11);
+block(f,44,478,240,'01','Civil & facility upgrades','Roads, underground electricity, drainage, sewerage, lighting poles and building renovation.');
+block(f,312,478,239,'02','MEP & maintenance','Mechanical, electrical, plumbing and HVAC works, supported by facility maintenance services.');
+rect(f,44,630,507,1,C.line);s=stack(f,44,654,507,11);label(s,'WIDER OPERATIONAL FOCUS');body(s,'Power distribution, industrial maintenance, fuel infrastructure, high-rise construction, secure facilities and smart systems. Local delivery is supported by engineering consultancy, architectural planning and design services.',507);
+
+f=make(10,'Project photography');heading(f,'09 / IN PICTURES','The work.\nThe detail.','Selected photographs from the supplied project collection and SPC company profile.');
+const shots=[[3,'Industrial facilities'],[19,'Structural construction'],[1,'Landscape & finishing'],[66,'Electrical installations'],[22,'Mechanical equipment'],[61,'Site execution']];
+for(let i=0;i<shots.length;i++){const x=44+(i%2)*261;const y=259+Math.floor(i/2)*171;photo(f,x,y,246,136,galleryPath(shots[i][0]),shots[i][1]);const cap=stack(f,x,y+143,246,0);label(cap,String(i+1).padStart(2,'0')+' / '+shots[i][1].toUpperCase(),246,C.gray);}
+
+f=make(11,'People quality and responsibility',true);heading(f,'10 / DELIVERY STANDARDS','People. Process.\nResponsibility.','Technical capability is supported by clear supervision, coordinated teams and consistent operating practices.',true);
+block(f,44,254,240,'QUALITY & SAFETY','Built into the work','ISO-aligned quality procedures; health, safety and environmental compliance; preventive safety systems; a zero-accident target; OEM-standard maintenance and energy-efficient solutions.',true);
+block(f,312,254,239,'ORGANIZATION','Specialists, working together','Civil, electrical, mechanical, oil and gas, defense and smart-system teams, supported by procurement, finance, HR, administration, health, safety and quality functions.',true);
+rect(f,44,487,507,1,C.panel);
+s=stack(f,44,512,507,12);label(s,'2025-2030 / FUTURE OUTLOOK');text(s,'A regional engineering\nand contracting alliance.',25,C.white,507,'Bold','Archivo');body(s,'ATC and SPC-KSA aim to expand across secure infrastructure, power and energy, industrial and petroleum services, renewable energy, smart systems and construction in Pakistan.',507,C.muted,11);
+rect(f,44,701,507,53,C.orange);s=stack(f,60,716,475,0);text(s,'Integrity. Safety. Technical precision.',15,C.ink,475,'Bold','Archivo');
+
+f=make(12,'The next chapter',true);
+photo(f,0,63,595.28,363,galleryPath(9),'Industrial facility / final spread');rect(f,0,405,595.28,389,C.ink);rect(f,44,405,96,5,C.orange);
+s=stack(f,44,442,507,17);label(s,'AZAAN TRADING & CONTRACTING');title(s,'Let’s build\nwhat comes next.',507,47,C.white);body(s,'Engineering excellence. Global standards.\nNational commitment.',507,C.muted,13);
+const end=stack(f,44,689,507,11);label(end,'PAKISTAN  /  STRATEGIC COLLABORATION WITH SPC-KSA');body(end,'Civil construction  •  Building systems  •  Technical services',507,C.white,11);
+return {createdNodeIds:ids,frames,images,pageId:page.id};
+})();await document.fonts.ready;window.profileReady=true;})()
+</script></body></html>

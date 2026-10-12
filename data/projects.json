@@ -1,122 +1,314 @@
 [
   {
-    "id": "p01",
-    "title": "American Military Facilities",
-    "scope": "international",
-    "country": "Saudi Arabia",
-    "sector": "defense",
-    "sectorLabel": "Defense",
-    "client": "Defense & Federal Infrastructure",
-    "location": "Kingdom of Saudi Arabia",
-    "scopeDesc": "Turnkey engineering and specialized military infrastructure delivery, including high-security perimeter defense, reinforced facilities, MV/LV power grids, mission-critical HVAC, and finishings.",
-    "divisions": ["Civil & Infrastructure", "Electrical & Power", "Security & Smart", "Defense & Operations"],
-    "ref": "ATC/DEF/KSA/01",
+    "id": "awt-investment",
+    "slug": "awt-investment",
+    "title": "AWT Investment Corporate Offices",
+    "client": "AWT Investment",
+    "country": "Pakistan",
+    "location": "DHA-II, Islamabad, Pakistan",
+    "sector": "commercial",
+    "sectorLabel": "Commercial Interiors",
+    "scopeDesc": "Turnkey office delivery: interior architectural finishing and furnishing, automation, structured IT networking and UPS power backup, handed over key-ready.",
+    "role": "Turnkey Contractor",
+    "status": "Completed",
+    "divisions": ["Finishing Works", "Security, Smart & IT", "Electrical, Power & Mech"],
+    "ref": "ATC/INT/PAK/01",
     "featured": true,
-    "image": "assests/images/Defense, Industrial Maintenance & Operations.jpeg"
+    "image": "assests/Illuminated AWT Investments Facade at Dusk.png",
+    "photos": [
+      {
+        "src": "assests/Illuminated AWT Investments Facade at Dusk.png",
+        "caption": "Executive corporate facade and reception at twilight",
+        "category": "Finishing & Interiors",
+        "type": "Photograph"
+      },
+      {
+        "src": "assests/images/finishing_works.jpeg",
+        "caption": "Architectural interior fit-out, acoustic ceilings and lighting",
+        "category": "Finishing & Interiors",
+        "type": "Photograph"
+      }
+    ]
   },
   {
-    "id": "p05",
-    "title": "NEOM Power Generation Infrastructure",
-    "scope": "international",
-    "country": "Saudi Arabia",
-    "sector": "industrial",
-    "sectorLabel": "Industrial / Power",
-    "client": "NEOM Energy Directorate",
-    "location": "NEOM, Kingdom of Saudi Arabia",
-    "scopeDesc": "High-voltage power generation and transmission network for NEOM's giga-project clusters. Scope included primary substation engineering, MV/LV transformers, switchgear, and RMU installations.",
-    "divisions": ["Electrical & Power", "Design & Engineering", "Oil & Gas"],
-    "ref": "ATC/POW/KSA/05",
-    "featured": true,
-    "image": "assests/images/Electrical, Power & Mechanical.jpeg"
-  },
-  {
-    "id": "p04",
-    "title": "ROSHAN Villas — Mega Residential Project",
-    "scope": "international",
-    "country": "Saudi Arabia",
+    "id": "ary-laguna",
+    "slug": "ary-laguna",
+    "title": "ARY Laguna Master Community",
+    "client": "ARY Laguna / DHA Gujranwala",
+    "country": "Pakistan",
+    "location": "DHA Gujranwala, Pakistan",
     "sector": "residential",
-    "sectorLabel": "Residential",
-    "client": "ROSHN Real Estate Company",
-    "location": "Riyadh, Kingdom of Saudi Arabia",
-    "scopeDesc": "Multi-cluster luxury residential development: comprehensive civil & structural execution, complete MEP infrastructure, architectural finishing works from scratch to handover, and community landscaping.",
-    "divisions": ["Civil & Infrastructure", "Electrical & Power", "Finishing Works", "Design & Engineering"],
-    "ref": "ATC/RES/KSA/04",
+    "sectorLabel": "Residential Community",
+    "scopeDesc": "Villa construction from foundation to key handover across planned 1,500-villa luxury waterfront development.",
+    "role": "Construction Contractor",
+    "status": "Active Execution",
+    "divisions": ["Civil & Infrastructure", "Design & Engineering", "Finishing Works"],
+    "ref": "ATC/RES/PAK/02",
     "featured": true,
-    "image": "assests/Golden-Hour ROSHN Community Development.png"
+    "image": "assests/Aerial Lagoon Luxury Community.png",
+    "photos": [
+      {
+        "src": "assests/Aerial Lagoon Luxury Community.png",
+        "caption": "Master-planned residential lagoon community layout",
+        "category": "Civil & Structural",
+        "type": "Master Plan Render"
+      }
+    ]
   },
   {
-    "id": "p02",
-    "title": "Herfy Foods — Industrial Production Facilities",
-    "scope": "international",
+    "id": "fwo-balochistan",
+    "slug": "fwo-balochistan",
+    "title": "FWO Highway Infrastructure",
+    "client": "Frontier Works Organisation (FWO)",
+    "country": "Pakistan",
+    "location": "Balochistan, Pakistan",
+    "sector": "infrastructure",
+    "sectorLabel": "Infrastructure & Highways",
+    "scopeDesc": "Subgrade preparation, earthworks, culvert construction, paving and arterial roadway engineering packages.",
+    "role": "Infrastructure Contractor",
+    "status": "Completed",
+    "divisions": ["Civil & Infrastructure"],
+    "ref": "ATC/INF/PAK/03",
+    "featured": false,
+    "image": "assests/Balochistan Highway Interchange Aerial View.png",
+    "photos": [
+      {
+        "src": "assests/Balochistan Highway Interchange Aerial View.png",
+        "caption": "FWO arterial highway interchange and infrastructure execution in Balochistan",
+        "category": "Civil & Structural",
+        "type": "Aerial Infrastructure Photograph"
+      }
+    ]
+  },
+  {
+    "id": "fc-balochistan",
+    "slug": "fc-balochistan",
+    "title": "FC Regional Facilities & Base Infrastructure",
+    "client": "Frontier Corps (FC)",
+    "country": "Pakistan",
+    "location": "Balochistan, Pakistan",
+    "sector": "infrastructure",
+    "sectorLabel": "Public Infrastructure",
+    "scopeDesc": "Structural building construction, compound perimeter facilities, utilities distribution and operational quarters.",
+    "role": "Construction Contractor",
+    "status": "Completed",
+    "divisions": ["Civil & Infrastructure", "Defense & Operations", "Electrical, Power & Mech"],
+    "ref": "ATC/PUB/PAK/04",
+    "featured": false,
+    "image": "assests/Futuristic Waterfront Frontier Corps Campus.png",
+    "photos": [
+      {
+        "src": "assests/Futuristic Waterfront Frontier Corps Campus.png",
+        "caption": "Frontier Corps regional facility and base infrastructure campus",
+        "category": "Civil & Structural",
+        "type": "Facility Infrastructure Render"
+      }
+    ]
+  },
+  {
+    "id": "private-clients-pk",
+    "slug": "private-clients-pk",
+    "title": "Commercial & Private Facility Works",
+    "client": "Selected Private Sector Clients",
+    "country": "Pakistan",
+    "location": "Islamabad & Punjab, Pakistan",
+    "sector": "commercial",
+    "sectorLabel": "Commercial & Private",
+    "scopeDesc": "Turnkey architectural fit-out, MEP integration, facility refurbishment and structural works for corporate clients.",
+    "role": "Construction Contractor",
+    "status": "Completed",
+    "divisions": ["Finishing Works", "Civil & Infrastructure", "Electrical, Power & Mech"],
+    "ref": "ATC/PVT/PAK/05",
+    "featured": false,
+    "image": "assests/Blueprint Handshake in Pakistan.png",
+    "photos": [
+      {
+        "src": "assests/Blueprint Handshake in Pakistan.png",
+        "caption": "Commercial and private facility architectural delivery and fit-out engineering",
+        "category": "Finishing & Interiors",
+        "type": "Project Handover"
+      }
+    ]
+  },
+  {
+    "id": "roshn-villas",
+    "slug": "roshn-villas",
+    "title": "ROSHN Villas Residential Programme",
+    "client": "ROSHN Group",
     "country": "Saudi Arabia",
-    "sector": "industrial",
-    "sectorLabel": "Industrial / Power",
+    "location": "Riyadh, Saudi Arabia",
+    "sector": "residential",
+    "sectorLabel": "Residential Development",
+    "scopeDesc": "Multi-cluster residential programme: structural execution, MEP distribution and turnkey finishing across 2,000 villas under construction.",
+    "role": "Construction Contractor",
+    "status": "Under Construction",
+    "divisions": ["Civil & Infrastructure", "Electrical, Power & Mech", "Finishing Works"],
+    "ref": "ATC/RES/KSA/06",
+    "featured": true,
+    "image": "assests/Golden-Hour ROSHN Community Development.png",
+    "photos": [
+      {
+        "src": "assests/Golden-Hour ROSHN Community Development.png",
+        "caption": "ROSHN master community development architecture at golden hour",
+        "category": "Civil & Structural",
+        "type": "Architectural Render"
+      }
+    ]
+  },
+  {
+    "id": "herfy-foods",
+    "slug": "herfy-foods",
+    "title": "Herfy Foods Commercial & Retail Facilities",
     "client": "Herfy Food Services Co.",
-    "location": "Riyadh Industrial City, Saudi Arabia",
-    "scopeDesc": "Turnkey industrial MEP installation, heavy refrigeration HVAC plants, food-grade facility architectural fit-out, and continuous preventive maintenance (AMC) contracts.",
-    "divisions": ["Electrical & Power", "Mechanical & HVAC", "Finishing Works"],
-    "ref": "ATC/IND/KSA/02",
-    "featured": false,
-    "image": "assests/Herfy Drive-Thru at Twilight.png"
-  },
-  {
-    "id": "p03",
-    "title": "Crown Gulf — Corporate Headquarters & Logistics",
-    "scope": "international",
     "country": "Saudi Arabia",
-    "sector": "industrial",
-    "sectorLabel": "Industrial / Power",
-    "client": "Crown Gulf Holdings",
-    "location": "Jeddah, Kingdom of Saudi Arabia",
-    "scopeDesc": "Integrated MEP services, private distribution substation installation, energy management, smart surveillance infrastructure, and executive architectural interior finishing.",
-    "divisions": ["Electrical & Power", "Civil & Infrastructure", "Finishing Works"],
-    "ref": "ATC/IND/KSA/03",
-    "featured": false,
-    "image": "assests/images/WhatsApp Image 2026-08-10 at 4.38.50 PM (1).jpeg"
-  },
-  {
-    "id": "p07",
-    "title": "Army Welfare Trust — Askari Housing & Commercial",
-    "scope": "local",
-    "country": "Pakistan",
-    "sector": "defense",
-    "sectorLabel": "Defense",
-    "client": "Army Welfare Trust (AWT)",
-    "location": "Multiple Locations, Pakistan",
-    "scopeDesc": "Long-term framework agreement for residential schemes, commercial corporate towers, and nationwide Askari Bank branch fit-out contracts delivered to stringent institutional specifications.",
-    "divisions": ["Civil & Infrastructure", "Design & Engineering", "Finishing Works", "Electrical & Power"],
-    "ref": "ATC/DEF/PAK/07",
+    "location": "Kingdom-wide, Saudi Arabia",
+    "sector": "commercial",
+    "sectorLabel": "Food Retail Facilities",
+    "scopeDesc": "Ongoing facility maintenance, store fit-outs, new outlet construction, industrial HVAC chillers and kitchen exhaust systems across 400+ locations.",
+    "role": "Facilities & Construction Contractor",
+    "status": "Long-Term Framework",
+    "divisions": ["Electrical, Power & Mech", "Industrial Maintenance", "Finishing Works"],
+    "ref": "ATC/COM/KSA/07",
     "featured": true,
-    "image": "assests/Illuminated AWT Investments Facade at Dusk.png"
+    "image": "assests/Herfy Drive-Thru at Twilight.png",
+    "photos": [
+      {
+        "src": "assests/Herfy Drive-Thru at Twilight.png",
+        "caption": "Completed quick-service drive-thru facility with exterior illumination",
+        "category": "Finishing & Interiors",
+        "type": "Facility Photograph"
+      }
+    ]
   },
   {
-    "id": "p06",
-    "title": "Askari Commercial Complex & Residential Development",
-    "scope": "local",
-    "country": "Pakistan",
+    "id": "bh-al-sanabis-towers",
+    "slug": "bh-al-sanabis-towers",
+    "title": "37-Storey High-Rise Towers",
+    "client": "Private Developer",
+    "country": "Bahrain",
+    "location": "Al Sanabis, Bahrain",
+    "sector": "commercial",
+    "sectorLabel": "High-Rise Development",
+    "scopeDesc": "37-storey twin high-rise residential & commercial towers: core structural works, MEP rising mains and external facade coordination.",
+    "role": "Engineering & Construction Contractor",
+    "status": "Completed",
+    "divisions": ["Civil & Infrastructure", "Electrical, Power & Mech", "Design & Engineering"],
+    "ref": "ATC/HRS/BHR/08",
+    "featured": true,
+    "image": "assests/Sunset Waterfront Skyline with Twin Towers.png",
+    "photos": [
+      {
+        "src": "assests/Sunset Waterfront Skyline with Twin Towers.png",
+        "caption": "Twin high-rise waterfront skyline at sunset",
+        "category": "Civil & Structural",
+        "type": "Skyline Photograph"
+      }
+    ]
+  },
+  {
+    "id": "bh-reef-island-hotel",
+    "slug": "bh-reef-island-hotel",
+    "title": "19-Storey Waterfront Hotel Development",
+    "client": "Al-Ghanah",
+    "country": "Bahrain",
+    "location": "Reef Island, Bahrain",
+    "sector": "commercial",
+    "sectorLabel": "Hospitality & Leisure",
+    "scopeDesc": "19-storey luxury hotel development: reinforced concrete superstructure, hospitality fit-out standards and central plant utilities.",
+    "role": "Engineering & Construction Contractor",
+    "status": "Completed",
+    "divisions": ["Civil & Infrastructure", "Finishing Works", "Electrical, Power & Mech"],
+    "ref": "ATC/HSP/BHR/09",
+    "featured": false,
+    "image": "assests/Golden-Hour Arabian Villa Exterior.png",
+    "photos": [
+      {
+        "src": "assests/Golden-Hour Arabian Villa Exterior.png",
+        "caption": "Al-Ghanah Group architectural development at golden hour",
+        "category": "Civil & Structural",
+        "type": "Architectural Photograph"
+      },
+      {
+        "src": "assests/Bahrain Waterfront Construction Panorama.png",
+        "caption": "Reef Island waterfront construction site and towers panorama",
+        "category": "Civil & Structural",
+        "type": "Site Panorama"
+      }
+    ]
+  },
+  {
+    "id": "bh-galali-villas",
+    "slug": "bh-galali-villas",
+    "title": "59-Villa Residential Development",
+    "client": "Al Hedaya Contracting",
+    "country": "Bahrain",
+    "location": "Galali, Bahrain",
     "sector": "residential",
-    "sectorLabel": "Residential",
-    "client": "Askari Development Consortium",
-    "location": "Rawalpindi / Islamabad, Pakistan",
-    "scopeDesc": "High-rise commercial and residential mixed-use complex: heavy reinforced concrete framing, integrated central HVAC, fire-life safety infrastructure, and smart building access systems.",
-    "divisions": ["Civil & Infrastructure", "Finishing Works", "Security & Smart"],
-    "ref": "ATC/RES/PAK/06",
-    "featured": false,
-    "image": "assests/images/civil_construction.jpeg"
+    "sectorLabel": "Residential Community",
+    "scopeDesc": "59-villa community development: structural foundation and blockwork, full electrical and sanitary installation, and turnkey external finishing.",
+    "role": "Contracting Partner",
+    "status": "Completed",
+    "divisions": ["Civil & Infrastructure", "Finishing Works"],
+    "ref": "ATC/RES/BHR/10",
+    "featured": true,
+    "image": "assests/Golden-Hour Arabian Villa Exterior.png",
+    "photos": [
+      {
+        "src": "assests/Golden-Hour Arabian Villa Exterior.png",
+        "caption": "Luxury residential villa architectural elevation at golden hour",
+        "category": "Finishing & Interiors",
+        "type": "Architectural Photograph"
+      }
+    ]
   },
   {
-    "id": "p08",
-    "title": "Oil & Gas Fuel Depot — Operations & Modernization",
-    "scope": "local",
-    "country": "Pakistan",
-    "sector": "oilgas",
-    "sectorLabel": "Oil & Gas",
-    "client": "National Petroleum Logistics",
-    "location": "Sindh & Punjab Corridors, Pakistan",
-    "scopeDesc": "Terminal infrastructure overhaul, high-pressure fuel pumping lines, explosive-environment electrical compliance, calibration systems, and 24/7 technical breakdown support.",
-    "divisions": ["Oil & Gas", "Mechanical & HVAC", "Electrical & Power"],
-    "ref": "ATC/OG/PAK/08",
+    "id": "bh-salmaniya-building",
+    "slug": "bh-salmaniya-building",
+    "title": "7-Storey Multi-Use Building Development",
+    "client": "Al Moayyed Contracting",
+    "country": "Bahrain",
+    "location": "Salmaniya, Bahrain",
+    "sector": "commercial",
+    "sectorLabel": "Commercial / Mixed-Use",
+    "scopeDesc": "7-storey mixed commercial and residential building development, including structural framing, building services and facade installation.",
+    "role": "Contracting Partner",
+    "status": "Completed",
+    "divisions": ["Civil & Infrastructure", "Electrical, Power & Mech"],
+    "ref": "ATC/BLD/BHR/11",
     "featured": false,
-    "image": "assests/images/WhatsApp Image 2026-08-10 at 4.53.44 PM (2).jpeg"
+    "image": "assests/Salmaniya Construction Site in Progress.png",
+    "photos": [
+      {
+        "src": "assests/Salmaniya Construction Site in Progress.png",
+        "caption": "7-storey multi-use building development under active construction in Salmaniya",
+        "category": "Civil & Structural",
+        "type": "Site Progress Photograph"
+      }
+    ]
+  },
+  {
+    "id": "bh-saar-villas",
+    "slug": "bh-saar-villas",
+    "title": "31 Two-Storey Residential Villas",
+    "client": "Ewan Real Estate",
+    "country": "Bahrain",
+    "location": "Saar, Bahrain",
+    "sector": "residential",
+    "sectorLabel": "Residential Development",
+    "scopeDesc": "31 two-storey residential villas: structural masonry, internal MEP reticulation and turnkey handover to owner specifications.",
+    "role": "Construction Contractor",
+    "status": "Completed",
+    "divisions": ["Civil & Infrastructure", "Finishing Works"],
+    "ref": "ATC/RES/BHR/12",
+    "featured": false,
+    "image": "assests/Modern Villas in Saar, Bahrain.png",
+    "photos": [
+      {
+        "src": "assests/Modern Villas in Saar, Bahrain.png",
+        "caption": "Contemporary two-storey residential villas development in Saar",
+        "category": "Finishing & Interiors",
+        "type": "Architectural Photograph"
+      }
+    ]
   }
 ]
