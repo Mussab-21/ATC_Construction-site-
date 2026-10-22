@@ -93,14 +93,25 @@
   font-family: var(--font-mono);
   font-size: 0.55rem;
   letter-spacing: 0.12em;
-  color: var(--c-orange);
+  color: var(--c-yellow, #FFC820);
   text-transform: uppercase;
+  transition: color var(--t-slow);
+}
+
+.navbar.scrolled .navbar__logo-sub {
+  color: #D4A017;
 }
 
 .navbar__nav {
   display: flex;
   align-items: center;
-  gap: var(--sp-32);
+  gap: var(--sp-24);
+}
+
+@media (max-width: 1024px) {
+  .navbar__nav {
+    gap: var(--sp-12);
+  }
 }
 
 /* Nav links — white over hero, ink when scrolled */
@@ -140,8 +151,75 @@
   width: 100%;
 }
 
+/* Brochure Download Button in Navbar */
+.navbar__brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.42rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 200, 32, 0.45);
+  border-radius: var(--r-sm, 4px);
+  text-decoration: none;
+  transition: all var(--t-fast);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+.navbar__brochure-btn::after {
+  display: none !important;
+}
+
+.navbar__brochure-btn .btn-icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--c-yellow, #FFC820);
+  transition: transform var(--t-fast), stroke var(--t-fast);
+}
+
+.navbar__brochure-btn:hover {
+  background: var(--c-yellow, #FFC820);
+  border-color: var(--c-yellow, #FFC820);
+  color: #111111;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 200, 32, 0.28);
+}
+
+.navbar__brochure-btn:hover .btn-icon {
+  stroke: #111111;
+  transform: translateY(1.5px);
+}
+
+/* Scrolled state for brochure button */
+.navbar.scrolled .navbar__brochure-btn {
+  color: var(--c-ink);
+  background: rgba(17, 17, 17, 0.04);
+  border-color: rgba(17, 17, 17, 0.22);
+}
+
+.navbar.scrolled .navbar__brochure-btn .btn-icon {
+  stroke: var(--c-ink);
+}
+
+.navbar.scrolled .navbar__brochure-btn:hover {
+  background: var(--c-yellow, #FFC820);
+  border-color: var(--c-yellow, #FFC820);
+  color: #111111;
+  box-shadow: 0 4px 14px rgba(255, 200, 32, 0.28);
+}
+
+.navbar.scrolled .navbar__brochure-btn:hover .btn-icon {
+  stroke: #111111;
+}
+
 .navbar__cta {
-  margin-left: var(--sp-8);
+  margin-left: var(--sp-4);
 }
 
 /* Hamburger */
@@ -208,6 +286,32 @@
 .navbar__mobile .navbar__link:hover,
 .navbar__mobile .navbar__link.active {
   color: var(--c-orange);
+}
+
+.navbar__mobile-brochure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.75rem 1.25rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--c-yellow, #FFC820);
+  background: rgba(255, 200, 32, 0.12);
+  color: var(--c-ink);
+  text-decoration: none;
+  transition: all var(--t-fast);
+}
+
+.navbar__mobile-brochure:hover {
+  background: var(--c-yellow, #FFC820);
+  color: #111111;
+}
+
+.navbar__mobile-brochure svg {
+  stroke: var(--c-ink);
 }
 
 @media (max-width: 768px) {
@@ -639,7 +743,7 @@ textarea.form-control { resize: vertical; min-height: 140px; }
   font-family: var(--font-mono);
   font-size: 0.58rem;
   letter-spacing: 0.14em;
-  color: var(--c-orange);
+  color: var(--c-yellow, #FFC820);
   text-transform: uppercase;
 }
 
@@ -648,7 +752,46 @@ textarea.form-control { resize: vertical; min-height: 140px; }
   line-height: 1.6;
   color: rgba(255,255,255,0.5);
   max-width: 320px;
+  margin-bottom: var(--sp-16);
+}
+
+.footer__brochure-wrap {
   margin-bottom: var(--sp-24);
+}
+
+.footer__brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.52rem 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 200, 32, 0.45);
+  border-radius: var(--r-sm, 4px);
+  text-decoration: none;
+  transition: all var(--t-fast);
+}
+
+.footer__brochure-btn svg {
+  stroke: var(--c-yellow, #FFC820);
+  transition: stroke var(--t-fast), transform var(--t-fast);
+}
+
+.footer__brochure-btn:hover {
+  background: var(--c-yellow, #FFC820);
+  border-color: var(--c-yellow, #FFC820);
+  color: #111111;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(255, 200, 32, 0.25);
+}
+
+.footer__brochure-btn:hover svg {
+  stroke: #111111;
+  transform: translateY(1.5px);
 }
 
 .footer__col-title {

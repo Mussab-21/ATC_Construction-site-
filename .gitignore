@@ -6,3 +6,23 @@ Thumbs.db
 .vscode/
 .idea/
 tmp/
+
+# Netlify
+.netlify/
+
+# Agent & IDE scratch
+.agents/
+
+# Document drafts & working files (not needed in production web deployment)
+*.docx
+*.bak
+*.patch
+*.zip
+output/
+audit-output/
+*-audit.cjs
+generate_blueprint_to_3d.py
+ATC_Company_Profile_2026_old.pdf
+ATC × Rising Sun — Company Profile 2026  14-page Editable Brochure (2).pdf
+assests/BR_SELECTED/
+assests/docs/

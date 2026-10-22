@@ -166,10 +166,30 @@
           setTimeout(() => triggerMailtoFallback(inquiryData), 1000);
         });
     } else {
-      // Direct email client handoff with drafted inquiry
-      showSubmitState(false);
-      triggerMailtoFallback(inquiryData);
-      showSuccess();
+      // Netlify Forms AJAX submission (with automatic fallback to mailto)
+      const formData = new FormData(form);
+      if (!formData.get('form-name')) formData.append('form-name', 'contact');
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(res => {
+        showSubmitState(false);
+        if (res.ok) {
+          showSuccess();
+        } else {
+          // Non-Netlify / local dev environment fallback
+          triggerMailtoFallback(inquiryData);
+          showSuccess();
+        }
+      })
+      .catch(() => {
+        showSubmitState(false);
+        triggerMailtoFallback(inquiryData);
+        showSuccess();
+      });
     }
   });
 

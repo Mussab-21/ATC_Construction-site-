@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>404 — Page Not Found | ATC (Azaan Trading &amp; Contracting)</title>
+<meta name="description" content="The page you requested could not be found. Return to ATC's homepage or explore our engineering and construction divisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css?v=7">
+<link rel="stylesheet" href="css/animations.css">
+<style>
+.not-found-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1rem;
+  background: radial-gradient(circle at 50% 30%, rgba(255, 200, 32, 0.05), transparent 70%), var(--c-navy-dark, #0B1118);
+  position: relative;
+  overflow: hidden;
+}
+.not-found-card {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(255, 200, 32, 0.2);
+  border-radius: var(--radius-md, 8px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.not-found-code {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--c-yellow, #FFC820);
+  letter-spacing: -2px;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 30px rgba(255, 200, 32, 0.25);
+}
+.not-found-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-yellow, #FFC820);
+  background: rgba(255, 200, 32, 0.1);
+  border: 1px solid rgba(255, 200, 32, 0.3);
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+.not-found-title {
+  color: #FFFFFF;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+.not-found-desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+.not-found-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.not-found-links {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+}
+.not-found-links a {
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.2s ease;
+}
+.not-found-links a:hover {
+  color: var(--c-yellow, #FFC820);
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__logo" aria-label="ATC Home">
+      <img src="assests/logo/ATC Construction Crane Logo.png?v=2026" alt="ATC Logo" class="navbar__logo-img" width="40" height="40">
+      <div class="navbar__logo-text">
+        <span class="navbar__logo-title">ATC</span>
+        <span class="navbar__logo-sub">Azaan Trading &amp; Contracting</span>
+      </div>
+    </a>
+    <nav class="navbar__nav">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="about.html" class="navbar__link">About</a>
+      <a href="services.html" class="navbar__link">Services</a>
+      <a href="projects.html" class="navbar__link">Projects</a>
+      <a href="ATC_Company_Profile_2026.pdf" download="ATC_Company_Profile_2026.pdf" target="_blank" class="navbar__brochure-btn" title="Download ATC Company Brochure (PDF)">
+        <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Brochure</span>
+      </a>
+      <a href="contact.html" class="navbar__link navbar__cta btn btn--primary btn--sm">Get in Touch</a>
+    </nav>
+    <button class="navbar__hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="navbar__mobile" id="mobile-menu" role="menu">
+    <a href="index.html" class="navbar__link" role="menuitem">Home</a>
+    <a href="about.html" class="navbar__link" role="menuitem">About</a>
+    <a href="services.html" class="navbar__link" role="menuitem">Services</a>
+    <a href="projects.html" class="navbar__link" role="menuitem">Projects</a>
+    <a href="ATC_Company_Profile_2026.pdf" download="ATC_Company_Profile_2026.pdf" target="_blank" class="navbar__mobile-brochure" role="menuitem">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>Download Brochure (PDF)</span>
+    </a>
+    <a href="contact.html" class="btn btn--primary" role="menuitem">Get in Touch</a>
+  </div>
+</nav>
+
+<main>
+  <section class="not-found-section">
+    <div class="not-found-card fade-up">
+      <div class="not-found-badge">ATC / HTTP 404 / NOT FOUND</div>
+      <div class="not-found-code">404</div>
+      <h1 class="not-found-title">The Structure You're Looking For Isn't Here.</h1>
+      <p class="not-found-desc">The page may have been moved, renamed, or is temporarily unavailable. Let us help guide you back to our active projects and engineering capabilities.</p>
+      
+      <div class="not-found-actions">
+        <a href="index.html" class="btn btn--primary">Return to Homepage</a>
+        <a href="services.html" class="btn btn--secondary">Explore Services</a>
+        <a href="contact.html" class="btn btn--secondary">Contact Support</a>
+      </div>
+
+      <div class="not-found-links">
+        <a href="about.html">About ATC</a>
+        <a href="projects.html">Track Record</a>
+        <a href="services.html#civil">Civil &amp; Infrastructure</a>
+        <a href="services.html#electrical">Electrical &amp; Power</a>
+        <a href="ATC_Company_Profile_2026.pdf" download="ATC_Company_Profile_2026.pdf" target="_blank">Brochure (PDF) ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="assests/logo/ATC Construction Crane Logo.png?v=2026" alt="ATC Logo" class="footer__logo-img">
+          <div class="footer__logo-sub">Azaan Trading &amp; Contracting</div>
+        </div>
+        <p class="footer__tagline">Engineering excellence across civil, power, MEP, defense infrastructure, and technical procurement.</p>
+        <div class="footer__brochure-wrap">
+          <a href="ATC_Company_Profile_2026.pdf" download="ATC_Company_Profile_2026.pdf" target="_blank" class="footer__brochure-btn" aria-label="Download ATC Company Brochure PDF">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download Company Brochure (PDF)</span>
+          </a>
+        </div>
+      </div>
+      <div><p class="footer__col-title">Navigation</p><div class="footer__links"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a><a href="ATC_Company_Profile_2026.pdf" download="ATC_Company_Profile_2026.pdf" target="_blank" style="color:var(--c-yellow, #FFC820);font-weight:600;">Brochure (PDF) ↗</a></div></div>
+      <div><p class="footer__col-title">Services</p><div class="footer__links"><a href="services.html#design">Design &amp; Engineering</a><a href="services.html#civil">Civil &amp; Infrastructure</a><a href="services.html#electrical">Electrical &amp; Power</a><a href="services.html#finishing">Finishing Works</a></div></div>
+      <div><p class="footer__col-title">Contact</p><div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Islamabad, Pakistan</span></div><div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@atc-pk.com</span></div></div>
+    </div>
+    <div class="footer__bottom"><span class="footer__copy">© 2026 Azaan Trading &amp; Contracting (ATC). All rights reserved.</span><span class="footer__ref">ATC / SITE / REV A</span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
