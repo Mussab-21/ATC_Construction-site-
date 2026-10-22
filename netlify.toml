@@ -60,3 +60,13 @@
   from = "/index"
   to = "/"
   status = 301
+
+[[redirects]]
+  from = "/brochure"
+  to = "/ATC%20%C3%97%20Rising%20Sun%20%E2%80%94%20Company%20Profile%202026%20%2014-page%20Editable%20Brochure%20(2).pdf"
+  status = 302
+
+[[redirects]]
+  from = "/ATC_Company_Profile_2026.pdf"
+  to = "/ATC%20%C3%97%20Rising%20Sun%20%E2%80%94%20Company%20Profile%202026%20%2014-page%20Editable%20Brochure%20(2).pdf"
+  status = 302
